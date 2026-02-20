@@ -139,13 +139,13 @@ export const days: AdventDay[] = [
     ),
   },
   {
-    title: 'Supabase Book',
-    description: 'Learn Supabase by building a Multi-Tenant platform',
-    id: 'supabase-book',
+    title: 'IndoBase Book',
+    description: 'Learn IndoBase by building a Multi-Tenant platform',
+    id: 'indobase-book',
     is_shipped: true,
     links: [
       {
-        url: '/blog/supabase-book-by-david-lorenz',
+        url: '/blog/indobase-book-by-david-lorenz',
         label: 'Blog post',
         target: '_blank',
       },
@@ -212,7 +212,7 @@ export const days: AdventDay[] = [
   },
   {
     title: 'vec2pg',
-    description: 'Migrate vector data from vector DBs to Supabase',
+    description: 'Migrate vector data from vector DBs to IndoBase',
     id: 'vec2pg',
     is_shipped: true,
     links: [
@@ -271,7 +271,7 @@ export const days: AdventDay[] = [
   {
     title: 'Platform Access Control',
     description:
-      'Granular permissions for adding users to specific projects in an Supabase organization',
+      'Granular permissions for adding users to specific projects in an IndoBase organization',
     id: 'Platform Acess Control',
     is_shipped: true,
     links: [
@@ -300,7 +300,7 @@ export const days: AdventDay[] = [
   },
   {
     title: 'python-support',
-    description: 'Supabase Python is now officially supported in Supabase',
+    description: 'IndoBase Python is now officially supported in IndoBase',
     id: 'python-support',
     is_shipped: true,
     links: [

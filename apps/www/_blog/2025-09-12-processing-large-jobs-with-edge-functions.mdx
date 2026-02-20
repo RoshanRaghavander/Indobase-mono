@@ -1,6 +1,6 @@
 ---
 title: Processing large jobs with Edge Functions, Cron, and Queues
-description: Learn how to build scalable data processing pipelines using Supabase Edge Functions, cron jobs, and database queues and handle large workloads without timeouts or crashes.
+description: Learn how to build scalable data processing pipelines using IndoBase Edge Functions, cron jobs, and database queues and handle large workloads without timeouts or crashes.
 author: prashant
 imgSocial: 2025-09-processing-large-jobs-with-edge-functions/og.png
 imgThumb: 2025-09-processing-large-jobs-with-edge-functions/og.png
@@ -15,7 +15,7 @@ toc_depth: 2
 
 When you're building applications that process large amounts of data, you quickly run into a fundamental problem: trying to do everything at once leads to timeouts, crashes, and frustrated users. The solution isn't to buy bigger servers. It's to break big jobs into small, manageable pieces.
 
-Supabase gives you three tools that work beautifully together for this: [Edge Functions](/edge-functions) for serverless compute, [Cron](/modules/cron) for scheduling, and database [queues](/modules/queues) for reliable job processing.
+IndoBase gives you three tools that work beautifully together for this: [Edge Functions](/edge-functions) for serverless compute, [Cron](/modules/cron) for scheduling, and database [queues](/modules/queues) for reliable job processing.
 
 Here's how to use them to build a system that can handle serious scale.
 
@@ -46,11 +46,11 @@ Let's say you want to build a dashboard that tracks NFL (American football) news
 
 This sounds straightforward, but at scale this becomes complex fast. You need to monitor dozens of news sites, process hundreds of articles daily, make API calls to OpenAI for content analysis, generate vector embeddings for search, and store everything efficiently. Do this wrong and a single broken webpage crashes your entire pipeline.
 
-We need to build a more resilient approach. With Supabase Edge Functions, Cron, and Queues, we have the building blocks for a robust content extraction and categorization pipeline.
+We need to build a more resilient approach. With IndoBase Edge Functions, Cron, and Queues, we have the building blocks for a robust content extraction and categorization pipeline.
 
 ## Setting up the foundation
 
-Everything starts with the [database](/database), and Supabase is Postgres at its core. We know what we’re getting: scalable, dependable, and standard.
+Everything starts with the [database](/database), and IndoBase is Postgres at its core. We know what we’re getting: scalable, dependable, and standard.
 
 The database design for the application follows a clean pattern. You have content tables for storing articles and videos, queue tables for managing work, entity tables for NFL players and teams, and relationship tables linking everything together. For example:
 
@@ -71,7 +71,7 @@ The collection layer seeks out new NFL-related content and runs on a schedule to
 SELECT cron.schedule(
   'nfl-collector',
   '*/30 * * * *',
-  $$SELECT net.http_post(url := '[https://your-project.supabase.co/functions/v1/collect-content')$$](https://your-project.supabase.co/functions/v1/collect-content')$$)
+  $$SELECT net.http_post(url := '[https://your-project.indobase.co/functions/v1/collect-content')$$](https://your-project.indobase.co/functions/v1/collect-content')$$)
 );
 ```
 
@@ -106,7 +106,7 @@ if (!seen.has(href)) {
 For database insertion, let the database handle duplicates rather than checking in your application:
 
 ```tsx
-const { error } = await supabase.from('articles').insert({ url, site })
+const { error } = await indobase.from('articles').insert({ url, site })
 if (error && !error.message.includes('duplicate')) {
   console.error(`Error inserting: ${url}`, error)
 }
@@ -122,14 +122,14 @@ The distribution layer identifies articles that need processing and routes them 
 SELECT cron.schedule(
   'distributor',
   '*/5 * * * *',
-  $$SELECT net.http_post(url := '[https://your-project.supabase.co/functions/v1/distribute-work')$$](https://your-project.supabase.co/functions/v1/distribute-work')$$)
+  $$SELECT net.http_post(url := '[https://your-project.indobase.co/functions/v1/distribute-work')$$](https://your-project.indobase.co/functions/v1/distribute-work')$$)
 );
 ```
 
 The Edge Function finds unprocessed articles using a simple SQL query:
 
 ```tsx
-const { data } = await supabase
+const { data } = await indobase
   .from('articles')
   .select('url, site')
   .is('headline', null) // Missing headline means unprocessed
@@ -140,9 +140,9 @@ Then it routes based on the source site:
 
 ```tsx
 if ([article.site](http://article.site) === "nfl") {
-  await supabase.from("nfl_queue").insert({ url: article.url });
+  await indobase.from("nfl_queue").insert({ url: article.url });
 } else if ([article.site](http://article.site) === "espn") {
-  await supabase.from("espn_queue").insert({ url: article.url });
+  await indobase.from("espn_queue").insert({ url: article.url });
 }
 ```
 
@@ -156,14 +156,14 @@ Each content source gets its own processor that runs on its own schedule. [NFL.c
 SELECT cron.schedule(
   'nfl-processor',
   '*/15 * * * *',
-  $$SELECT net.http_post(url := '[https://your-project.supabase.co/functions/v1/process-nfl')$$](https://your-project.supabase.co/functions/v1/process-nfl')$$)
+  $$SELECT net.http_post(url := '[https://your-project.indobase.co/functions/v1/process-nfl')$$](https://your-project.indobase.co/functions/v1/process-nfl')$$)
 );
 ```
 
 The processor handles one article at a time to stay within Edge Function timeout limits:
 
 ```tsx
-const { data } = await supabase
+const { data } = await indobase
   .from('nfl_queue')
   .select('id, url')
   .eq('processed', false)
@@ -192,19 +192,19 @@ After scraping, the article gets analyzed with AI to extract entities:
 
 ```tsx
 const result = await classifyArticle(headline, content)
-const playerIds = await upsertPlayers(supabase, result.players)
-const teamIds = await upsertTeams(supabase, result.teams)
+const playerIds = await upsertPlayers(indobase, result.players)
+const teamIds = await upsertTeams(indobase, result.teams)
 ```
 
 Finally, create the relationships and generate embeddings:
 
 ```tsx
-await supabase.from("article_players").insert(
+await indobase.from("article_players").insert(
   [playerIds.map](http://playerIds.map)(id => ({ article_url: url, player_id: id }))
 );
 
 const embedding = await generateEmbedding(`${headline}\n${content}`);
-await supabase.from("articles").update({ embedding }).eq("url", url);
+await indobase.from("articles").update({ embedding }).eq("url", url);
 ```
 
 The critical pattern is the finally block. We use it to always mark queue items as processed, preventing infinite loops when articles fail to process:
@@ -213,7 +213,7 @@ The critical pattern is the finally block. We use it to always mark queue items 
 try {
   // Process article
 } finally {
-  await supabase.from("nfl_queue")
+  await indobase.from("nfl_queue")
     .update({ processed: true })
     .eq("id", [item.id](http://item.id));
 }
@@ -255,7 +255,7 @@ try {
   });
   console.error(`Failed to process ${url}:`, error);
 } finally {
-  await supabase.from("nfl_queue")
+  await indobase.from("nfl_queue")
     .update({ processed: true })
     .eq("id", queueItem.id);
 }
@@ -271,7 +271,7 @@ Instead, treat interactions like any other job to be processed:
 
 ```tsx
 // Just record the interaction quickly
-await supabase.from('interaction_queue').insert({
+await indobase.from('interaction_queue').insert({
   article_url: url,
   user_id: userId,
   interaction_type: 'share',
@@ -284,14 +284,14 @@ Then let a separate cron job process the trending updates in batches:
 SELECT cron.schedule(
   'process-interactions',
   '*/2 * * * *',  -- Every 2 minutes
-  $$SELECT net.http_post(url := '[https://your-project.supabase.co/functions/v1/process-interactions')$$](https://your-project.supabase.co/functions/v1/process-interactions')$$)
+  $$SELECT net.http_post(url := '[https://your-project.indobase.co/functions/v1/process-interactions')$$](https://your-project.indobase.co/functions/v1/process-interactions')$$)
 );
 ```
 
 The processor can handle multiple interactions efficiently:
 
 ```tsx
-const { data: interactions } = await supabase
+const { data: interactions } = await indobase
   .from('interaction_queue')
   .select('*')
   .eq('processed', false)
@@ -399,4 +399,4 @@ This pattern succeeds because it embraces the constraints of serverless computin
 
 The result is a system that scales horizontally by adding more cron jobs and queues. Each component can fail independently without bringing down the whole pipeline. Users get fresh content as it becomes available rather than waiting for batch jobs to complete.
 
-Most importantly, it's built entirely with Supabase primitives — no external queue systems or job schedulers required. You get enterprise-grade reliability with startup simplicity.
+Most importantly, it's built entirely with IndoBase primitives — no external queue systems or job schedulers required. You get enterprise-grade reliability with startup simplicity.

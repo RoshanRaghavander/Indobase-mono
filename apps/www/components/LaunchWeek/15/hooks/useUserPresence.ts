@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { SupabaseClient } from '@supabase/supabase-js'
-import supabase from 'lib/supabase'
+import supabase from '~/lib/supabase'
 
 const useUserPresence = () => {
   const [realtimeChannel, setRealtimeChannel] = useState<ReturnType<

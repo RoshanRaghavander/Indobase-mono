@@ -1,7 +1,7 @@
 import React from 'react'
 import CodeWindow from '~/components/CodeWindow'
 
-const code = `const supabase = createClient(
+const code = `const indobase = createClient(
   Deno.env.get('SUPABASE_URL')!,
   Deno.env.get('SUPABASE_ANON_KEY')!,
   {
@@ -14,7 +14,7 @@ const code = `const supabase = createClient(
   }
 )
 
-const { data, error } = await supabase
+const { data, error } = await indobase
                                 .from('countries')
                                 .select('*')`
 

@@ -1,9 +1,9 @@
 ---
-title: 'Supabase Queues'
+title: 'IndoBase Queues'
 description: Durable Message Queues with Guaranteed Delivery in Postgres
 author: ivasilov,oli_rice
-imgSocial: launch-week-13/day-4-supabase-queues/og.png
-imgThumb: launch-week-13/day-4-supabase-queues/thumb.png
+imgSocial: launch-week-13/day-4-indobase-queues/og.png
+imgThumb: launch-week-13/day-4-indobase-queues/thumb.png
 categories:
   - developers
   - postgres
@@ -15,15 +15,15 @@ toc_depth: 3
 launchweek: '13'
 ---
 
-Today we're releasing [Supabase Queues](/modules/queues), for durable background task processing.
+Today we're releasing [IndoBase Queues](/modules/queues), for durable background task processing.
 
-Supabase Queues is a Postgres-native, durable Message Queue with guaranteed delivery, improving the scalability and resiliency of your applications. It's designed to work seamlessly with the entire Supabase platform.
+IndoBase Queues is a Postgres-native, durable Message Queue with guaranteed delivery, improving the scalability and resiliency of your applications. It's designed to work seamlessly with the entire IndoBase platform.
 
 <div className="video-container mb-8">
   <iframe
     className="w-full"
     src="https://www.youtube-nocookie.com/embed/UEwfaElBnZk"
-    title="Introducing Supabase Cron"
+    title="Introducing IndoBase Cron"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share"
     allowfullscreen
   />
@@ -31,21 +31,21 @@ Supabase Queues is a Postgres-native, durable Message Queue with guaranteed deli
 
 <Admonition>
 
-Supabase Queues is built on the [pgmq](https://github.com/tembo-io/pgmq) extension by the team at [Tembo](https://github.com/tembo-io).
+IndoBase Queues is built on the [pgmq](https://github.com/tembo-io/pgmq) extension by the team at [Tembo](https://github.com/tembo-io).
 
-It's a Supabase policy to [support existing tools](/docs/guides/getting-started/architecture#support-existing-tools) wherever possible, and the Tembo team have generously licensed their extension with the OSI-compatible [PostgreSQL license](https://github.com/tembo-io/pgmq?tab=PostgreSQL-1-ov-file).
+It's a IndoBase policy to [support existing tools](/docs/guides/getting-started/architecture#support-existing-tools) wherever possible, and the Tembo team have generously licensed their extension with the OSI-compatible [PostgreSQL license](https://github.com/tembo-io/pgmq?tab=PostgreSQL-1-ov-file).
 
 We're very thankful to all the contributors and we look forward to working with the Tembo community.
 
 </Admonition>
 
-## Supabase Queues Features
+## IndoBase Queues Features
 
 1. **Postgres Native**: Built on top of the open source `pgmq` database extension, create and manage Queues with any Postgres tooling.
 1. **Granular Authorization**: Control client-side consumer access to Queues with API permissions and Row Level Security (RLS) policies.
 1. **Guaranteed Message Delivery**: Messages added to Queues are guaranteed to be delivered to your consumers.
 1. **Exactly Once Message Delivery**: A Message is delivered exactly once to a consumer within a customizable visibility window.
-1. **Queue Management and Monitoring**: Create, manage, and monitor Queues and Messages in the Supabase Dashboard.
+1. **Queue Management and Monitoring**: Create, manage, and monitor Queues and Messages in the IndoBase Dashboard.
 1. **Message Durability and Archival**: Messages are stored in Postgres and you can choose to archive them for analytical or auditing purposes.
 
 ## Do You Need Queues?
@@ -78,8 +78,8 @@ There are several types of queues available:
 <Img
   alt="Queue types"
   src={{
-    dark: '/images/blog/launch-week-13/day-4-supabase-queues/queue-types.jpg',
-    light: '/images/blog/launch-week-13/day-4-supabase-queues/queue-types-light.jpg',
+    dark: '/images/blog/launch-week-13/day-4-indobase-queues/queue-types.jpg',
+    light: '/images/blog/launch-week-13/day-4-indobase-queues/queue-types-light.jpg',
   }}
 />
 
@@ -91,7 +91,7 @@ There are several types of queues available:
 
 ### Queues with Postgres Row-Level Security
 
-Supabase Queues are compatible with Postgres Row-Level Security (RLS), providing fine-grained access control to Messages. RLS Policies restrict which users or roles can insert, select, update, or delete messages in specific queues.
+IndoBase Queues are compatible with Postgres Row-Level Security (RLS), providing fine-grained access control to Messages. RLS Policies restrict which users or roles can insert, select, update, or delete messages in specific queues.
 
 ## Adding Messages
 
@@ -100,8 +100,8 @@ Once your Queue is configured you can begin adding Messages.
 <Img
   alt="Add a message"
   src={{
-    dark: '/images/blog/launch-week-13/day-4-supabase-queues/add-message.jpg',
-    light: '/images/blog/launch-week-13/day-4-supabase-queues/add-message-light.jpg',
+    dark: '/images/blog/launch-week-13/day-4-indobase-queues/add-message.jpg',
+    light: '/images/blog/launch-week-13/day-4-indobase-queues/add-message-light.jpg',
   }}
 />
 
@@ -112,24 +112,24 @@ Let's create a new Basic Queue and add a Message.
 <Img
   alt="Create a queue"
   src={{
-    dark: '/images/blog/launch-week-13/day-4-supabase-queues/create-a-queue.jpg',
-    light: '/images/blog/launch-week-13/day-4-supabase-queues/create-a-queue-light.jpg',
+    dark: '/images/blog/launch-week-13/day-4-indobase-queues/create-a-queue.jpg',
+    light: '/images/blog/launch-week-13/day-4-indobase-queues/create-a-queue-light.jpg',
   }}
 />
 
 <Img
   alt="Add a message"
   src={{
-    dark: '/images/blog/launch-week-13/day-4-supabase-queues/add-message.jpg',
-    light: '/images/blog/launch-week-13/day-4-supabase-queues/add-message-light.jpg',
+    dark: '/images/blog/launch-week-13/day-4-indobase-queues/add-message.jpg',
+    light: '/images/blog/launch-week-13/day-4-indobase-queues/add-message-light.jpg',
   }}
 />
 
 <Img
   alt="Message details"
   src={{
-    dark: '/images/blog/launch-week-13/day-4-supabase-queues/add-message-modal.jpg',
-    light: '/images/blog/launch-week-13/day-4-supabase-queues/add-message-modal-light.jpg',
+    dark: '/images/blog/launch-week-13/day-4-indobase-queues/add-message-modal.jpg',
+    light: '/images/blog/launch-week-13/day-4-indobase-queues/add-message-modal-light.jpg',
   }}
 />
 
@@ -149,7 +149,7 @@ select * from pgmq.send(
 We have provided several functions that can be invoked from the [client libraries](/docs#client-libraries) if you need to add messages from a browser or mobile app. For example:
 
 ```tsx
-import { createClient } from '@supabase/supabase-js'
+import { createClient } from '@supabase/indobase-js'
 
 const url = 'SUPABASE_URL'
 const key = 'SUPABASE_ANON_KEY'
@@ -170,7 +170,7 @@ For security, this feature is [disabled by default](#security-and-permissions). 
 
 ## Security and Permissions
 
-By default, Queues are only accessible via SQL and not exposed over the Supabase Data API. You can manage this in the Data API settings by [exposing the pgmq_public schema](/docs/guides/api/using-custom-schemas). If you expose this schema, you must use [Row Level Security](/docs/guides/database/postgres/row-level-security) (RLS) to manage access to your queues.
+By default, Queues are only accessible via SQL and not exposed over the IndoBase Data API. You can manage this in the Data API settings by [exposing the pgmq_public schema](/docs/guides/api/using-custom-schemas). If you expose this schema, you must use [Row Level Security](/docs/guides/database/postgres/row-level-security) (RLS) to manage access to your queues.
 
 Beyond RLS, Postgres roles can be granted granular permissions to interact with Queues.
 
@@ -179,8 +179,8 @@ For example, the following permissions allow authenticated users can fully manip
 <Img
   alt="Queue permissions"
   src={{
-    dark: '/images/blog/launch-week-13/day-4-supabase-queues/permissions.jpg',
-    light: '/images/blog/launch-week-13/day-4-supabase-queues/permissions-light.jpg',
+    dark: '/images/blog/launch-week-13/day-4-indobase-queues/permissions.jpg',
+    light: '/images/blog/launch-week-13/day-4-indobase-queues/permissions-light.jpg',
   }}
 />
 
@@ -195,28 +195,28 @@ From the Queues page, just click on a Queue to inspect it. From there you can cl
 <Img
   alt="Message details"
   src={{
-    dark: '/images/blog/launch-week-13/day-4-supabase-queues/message-detail.jpg',
-    light: '/images/blog/launch-week-13/day-4-supabase-queues/message-detail-light.jpg',
+    dark: '/images/blog/launch-week-13/day-4-indobase-queues/message-detail.jpg',
+    light: '/images/blog/launch-week-13/day-4-indobase-queues/message-detail-light.jpg',
   }}
 />
 
-## Try Supabase Queues Today
+## Try IndoBase Queues Today
 
-1. Visit the [Integrations page](https://supabase.com/dashboard/project/_/integrations) in your project.
+1. Visit the [Integrations page](https://indobase.com/dashboard/project/_/integrations) in your project.
 2. Enable the **Queues** Postgres Module.
 3. Create your first Queue.
 
 <Img
   alt="Enable queues"
   src={{
-    dark: '/images/blog/launch-week-13/day-4-supabase-queues/integrations.jpg',
-    light: '/images/blog/launch-week-13/day-4-supabase-queues/integrations-light.jpg',
+    dark: '/images/blog/launch-week-13/day-4-indobase-queues/integrations.jpg',
+    light: '/images/blog/launch-week-13/day-4-indobase-queues/integrations-light.jpg',
   }}
 />
 
 ## Pricing
 
-Supabase Queues runs entirely in your database so there's no additional costs to use the functionality.
+IndoBase Queues runs entirely in your database so there's no additional costs to use the functionality.
 
 We recommend you configure your database's Compute and Disk settings appropriately to support your Queues workload.
 

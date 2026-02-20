@@ -16,7 +16,7 @@ serve(async (req) => {
 
   const input = await req.json()
 
-  const supabase_table_id = input.record.id
+  const indobase_table_id = input.record.id
   const country = input.record.country
   const form_note = input.record.details
   const company = input.record.company_name || input.record.company
@@ -35,7 +35,7 @@ serve(async (req) => {
     case 'partner_contacts':
       formData = {
         ...formData,
-        supabase_table_id,
+        indobase_table_id,
         country,
         form_note,
         company,
@@ -52,7 +52,7 @@ serve(async (req) => {
     case 'enterprise_contacts':
       formData = {
         ...formData,
-        supabase_table_id,
+        indobase_table_id,
         country,
         form_note,
         company,

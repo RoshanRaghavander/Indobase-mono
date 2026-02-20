@@ -25,7 +25,7 @@ export default () => {
       ),
       subheading: (
         <>
-          Supabase is the Postgres development platform. <br className="hidden md:block" />
+          IndoBase is the Postgres development platform. <br className="hidden md:block" />
           Start your project with a Postgres database, Authentication, instant APIs, Edge Functions,
           Realtime subscriptions, Storage, and Vector embeddings.
         </>
@@ -33,7 +33,7 @@ export default () => {
       image: '/images/index/gradient-bg.png',
       cta: {
         label: 'Start your project',
-        link: 'https://app.supabase.com',
+        link: 'https://app.indobase.com',
       },
       secondaryCta: {
         label: 'Documentation',
@@ -54,7 +54,7 @@ export default () => {
           ),
           description_short: 'Instant ready-to-use Restful APIs.',
           label: '',
-          url: 'https://supabase.com/docs/guides/api',
+          url: 'https://indobase.com/docs/guides/api',
         },
       },
     },
@@ -71,14 +71,14 @@ export default () => {
           panel: ({ isDark }: { isDark: boolean }) => (
             <VideoWithHighlights
               video={{
-                title: 'Supabase dashboard table editor',
+                title: 'IndoBase dashboard table editor',
                 sources: [
                   {
-                    src: `https://xguihxuzqibwxjnimxev.supabase.co/storage/v1/object/public/videos/marketing/website/supabase-table-editor${isDark ? '' : '-light'}`,
+                    src: `https://xguihxuzqibwxjnimxev.indobase.co/storage/v1/object/public/videos/marketing/website/indobase-table-editor${isDark ? '' : '-light'}`,
                     type: 'video/mp4',
                   },
                 ],
-                poster: `/images/index/dashboard/supabase-table-editor${isDark ? '' : '-light'}.png`,
+                poster: `/images/index/dashboard/indobase-table-editor${isDark ? '' : '-light'}.png`,
               }}
             />
           ),
@@ -104,14 +104,14 @@ export default () => {
           panel: ({ isDark }: { isDark: boolean }) => (
             <VideoWithHighlights
               video={{
-                title: 'Supabase dashboard SQL editor',
+                title: 'IndoBase dashboard SQL editor',
                 sources: [
                   {
-                    src: `https://xguihxuzqibwxjnimxev.supabase.co/storage/v1/object/public/videos/marketing/website/supabase-sql-editor${isDark ? '' : '-light'}`,
+                    src: `https://xguihxuzqibwxjnimxev.indobase.co/storage/v1/object/public/videos/marketing/website/indobase-sql-editor${isDark ? '' : '-light'}`,
                     type: 'video/mp4',
                   },
                 ],
-                poster: `/images/index/dashboard/supabase-sql-editor${isDark ? '' : '-light'}.png`,
+                poster: `/images/index/dashboard/indobase-sql-editor${isDark ? '' : '-light'}.png`,
               }}
             />
           ),
@@ -136,14 +136,14 @@ export default () => {
           panel: ({ isDark }: { isDark: boolean }) => (
             <VideoWithHighlights
               video={{
-                title: 'Supabase dashboard Row Level Security',
+                title: 'IndoBase dashboard Row Level Security',
                 sources: [
                   {
-                    src: `https://xguihxuzqibwxjnimxev.supabase.co/storage/v1/object/public/videos/marketing/website/supabase-rls${isDark ? '' : '-light'}`,
+                    src: `https://xguihxuzqibwxjnimxev.indobase.co/storage/v1/object/public/videos/marketing/website/indobase-rls${isDark ? '' : '-light'}`,
                     type: 'video/mp4',
                   },
                 ],
-                poster: `/images/index/dashboard/supabase-rls${isDark ? '' : '-light'}.png`,
+                poster: `/images/index/dashboard/indobase-rls${isDark ? '' : '-light'}.png`,
               }}
             />
           ),
@@ -155,7 +155,7 @@ export default () => {
             },
             {
               label: '20+ Third-party Logins',
-              link: '/docs/guides/auth/social-login#set-up-a-social-provider-with-supabase-auth',
+              link: '/docs/guides/auth/social-login#set-up-a-social-provider-with-indobase-auth',
             },
             {
               label: 'Custom Access Policies via RLS',
@@ -171,11 +171,11 @@ export default () => {
     },
     twitterSocialSection: {
       heading: 'Join the community',
-      subheading: 'Discover what our community has to say about their Supabase experience.',
+      subheading: 'Discover what our community has to say about their IndoBase experience.',
       ctas: (
         <Button asChild type="default" size="small" icon={<IconDiscord />}>
           <Link
-            href={'https://discord.supabase.com/'}
+            href={'https://discord.indobase.com/'}
             target="_blank"
             tabIndex={-1}
             onClick={() =>

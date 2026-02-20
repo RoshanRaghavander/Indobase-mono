@@ -15,7 +15,7 @@ toc_depth: 3
 ---
 
 PostgREST 11 is not wrapped up yet, however a pre-release with the **[latest features and fixes](https://github.com/PostgREST/postgrest/releases/tag/v10.1.1.20221212)**
-is available on the Supabase CLI.
+is available on the IndoBase CLI.
 
 In this blog post we'll cover some of the improved querying capabilities: spreading related tables, related orders and anti-joins.
 
@@ -35,7 +35,7 @@ GET /films?select=title,technical_specs(camera,laboratory,sound_mix)
 <small>or JavaScript:</small>
 
 ```jsx
-const { data, error } = await supabase.from('films').select(`
+const { data, error } = await indobase.from('films').select(`
     title,
     technical_specs (
       camera, laboratory, duration
@@ -72,7 +72,7 @@ GET /films?select=title,...technical_specs(camera,laboratory,duration)
 <small>or JavaScript:</small>
 
 ```jsx
-const { data, error } = await supabase.from('films').select(`
+const { data, error } = await indobase.from('films').select(`
     title,
     ...technical_specs (
       camera, laboratory, duration
@@ -111,7 +111,7 @@ GET /films?select=title,...technical_specs(duration)&order=technical_specs(durat
 <small>or JavaScript:</small>
 
 ```jsx
-const { data, error } = await supabase
+const { data, error } = await indobase
   .from('films')
   .select(`
     title,
@@ -153,7 +153,7 @@ GET /films?select=title,nominations()&nominations=is.null
 <small>or JavaScript:</small>
 
 ```jsx
-const { data, error } = await supabase
+const { data, error } = await indobase
   .from('films')
   .select(`
     title,
@@ -188,7 +188,7 @@ GET /films?select=title,nominations(rank,...competitions(name))&nominations=not.
 ```
 
 ```jsx
-const { data, error } = await supabase
+const { data, error } = await indobase
   .from('films')
   .select(
     `
@@ -215,27 +215,27 @@ const { data, error } = await supabase
 ]
 ```
 
-This was already possible with the `!inner` modifier([introduced on PostgREST 9](https://supabase.com/blog/postgrest-9#resource-embedding-with-inner-joins))
-but the `not null` filter is more flexible and can be used with an [or filter](https://supabase.com/docs/reference/javascript/or) to combine related tables' conditions.
+This was already possible with the `!inner` modifier([introduced on PostgREST 9](https://indobase.com/blog/postgrest-9#resource-embedding-with-inner-joins))
+but the `not null` filter is more flexible and can be used with an [or filter](https://indobase.com/docs/reference/javascript/or) to combine related tables' conditions.
 
 ## Try it out
 
-This pre-release is not deployed to Supabase cloud but you can try it out locally with the [Supabase CLI](https://supabase.com/docs/reference/cli/introduction).
+This pre-release is not deployed to IndoBase cloud but you can try it out locally with the [IndoBase CLI](https://indobase.com/docs/reference/cli/introduction).
 
 ```bash
-$ supabase start
+$ indobase start
 ```
 
 Please try it and report any bugs, suggestions or ideas!
 
 ## More Launch Week 6
 
-- [Day 1: New Supabase Docs, built with Next.js](https://supabase.com/blog/new-supabase-docs-built-with-nextjs)
-- [Day 2: Supabase Storage v2: Image resizing and Smart CDN](https://supabase.com/blog/storage-image-resizing-smart-cdn)
-- [Day 3: Multi-factor Authentication via Row Level Security Enforcement](https://supabase.com/blog/mfa-auth-via-rls)
-- [Day 4: Supabase Wrappers, a Postgres FDW framework written in Rust](https://supabase.com/blog/postgres-foreign-data-wrappers-rust)
-- [Day 5: Supabase Vault is now in Beta](https://supabase.com/blog/vault-now-in-beta)
-- [Community Day](https://supabase.com/blog/launch-week-6-community-day)
-- [Point in Time Recovery is now available](https://supabase.com/blog/postgres-point-in-time-recovery)
-- [Custom Domain Names are now available](https://supabase.com/blog/custom-domain-names)
-- [Wrap Up: everything we shipped](https://supabase.com/blog/launch-week-6-wrap-up)
+- [Day 1: New IndoBase Docs, built with Next.js](https://indobase.com/blog/new-indobase-docs-built-with-nextjs)
+- [Day 2: IndoBase Storage v2: Image resizing and Smart CDN](https://indobase.com/blog/storage-image-resizing-smart-cdn)
+- [Day 3: Multi-factor Authentication via Row Level Security Enforcement](https://indobase.com/blog/mfa-auth-via-rls)
+- [Day 4: IndoBase Wrappers, a Postgres FDW framework written in Rust](https://indobase.com/blog/postgres-foreign-data-wrappers-rust)
+- [Day 5: IndoBase Vault is now in Beta](https://indobase.com/blog/vault-now-in-beta)
+- [Community Day](https://indobase.com/blog/launch-week-6-community-day)
+- [Point in Time Recovery is now available](https://indobase.com/blog/postgres-point-in-time-recovery)
+- [Custom Domain Names are now available](https://indobase.com/blog/custom-domain-names)
+- [Wrap Up: everything we shipped](https://indobase.com/blog/launch-week-6-wrap-up)

@@ -1,16 +1,16 @@
-# Open Graph (OG) Image Generation with Supabase Storage CDN Caching
+# Open Graph (OG) Image Generation with IndoBase Storage CDN Caching
 
-Generate Open Graph images with Deno and Supabase Edge Functions and cache the generated image with Supabase Storage CDN.
+Generate Open Graph images with Deno and IndoBase Edge Functions and cache the generated image with IndoBase Storage CDN.
 
 - Docs: https://deno.land/x/og_edge@0.0.2
 - Examples: https://vercel.com/docs/og-image-generation#examples
-- Demo: https://obuldanrptloktxcffvn.supabase.co/functions/v1/lwx-ticket?username=thorwebdev
+- Demo: https://obuldanrptloktxcffvn.indobase.co/functions/v1/lwx-ticket?username=thorwebdev
 
 ## Run locally
 
 ```bash
-supabase start
-supabase functions serve lwx-ticket --no-verify-jwt --env-file ./supabase/.env.local
+indobase start
+indobase functions serve lwx-ticket --no-verify-jwt --env-file ./indobase/.env.local
 ```
 
 Navigate to http://localhost:54321/functions/v1/lwx-ticket?username=thorwebdev
@@ -18,5 +18,5 @@ Navigate to http://localhost:54321/functions/v1/lwx-ticket?username=thorwebdev
 ## Deploy
 
 ```bash
-supabase functions deploy lwx-ticket --no-verify-jwt
+indobase functions deploy lwx-ticket --no-verify-jwt
 ```

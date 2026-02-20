@@ -95,7 +95,7 @@ const Wizard: NextPageWithLayout = () => {
   const showNonProdFields = process.env.NEXT_PUBLIC_ENVIRONMENT !== 'prod'
   const isNotOnHigherPlan = !['team', 'enterprise', 'platform'].includes(currentOrg?.plan.id ?? '')
 
-  // This is to make the database.new redirect work correctly. The database.new redirect should be set to supabase.com/dashboard/new/last-visited-org
+  // This is to make the database.new redirect work correctly. The database.new redirect should be set to indobase.com/dashboard/new/last-visited-org
   if (slug === 'last-visited-org') {
     if (lastVisitedOrganization) {
       router.replace(`/new/${lastVisitedOrganization}`, undefined, { shallow: true })
@@ -332,7 +332,7 @@ const Wizard: NextPageWithLayout = () => {
         )
       }
 
-      data['customSupabaseRequest'] = {
+      data['customIndoBaseRequest'] = {
         ami: { search_tags: { 'tag:postgresVersion': postgresVersion } },
       }
     }

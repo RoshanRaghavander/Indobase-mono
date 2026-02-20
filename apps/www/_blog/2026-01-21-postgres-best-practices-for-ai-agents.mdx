@@ -14,7 +14,7 @@ date: '2026-01-21'
 toc_depth: 2
 ---
 
-We are releasing a series of Agent Skills for [Postgres Best Practices](https://github.com/supabase/agent-skills) to teach AI agents how to write better Postgres code. AI coding agents are good at writing code. They struggle with writing _correct_ code for systems they don't understand.
+We are releasing a series of Agent Skills for [Postgres Best Practices](https://github.com/indobase/agent-skills) to teach AI agents how to write better Postgres code. AI coding agents are good at writing code. They struggle with writing _correct_ code for systems they don't understand.
 
 Postgres is one of those systems. It has decades of features, edge cases, and performance characteristics that matter in production. An agent might generate a query that works but creates a full table scan. It might suggest an index that makes writes slower. It might miss Row Level Security entirely.
 
@@ -93,7 +93,7 @@ create policy orders_user_policy on orders
   using (user_id = auth.uid());
 ```
 
-Reference: [Row Level Security](https://supabase.com/docs/guides/database/postgres/row-level-security)
+Reference: [Row Level Security](https://indobase.com/docs/guides/database/postgres/row-level-security)
 ````
 
 ## How agents use these rules
@@ -108,7 +108,7 @@ When you install the skill, your agent gains access to all 30 rules. It can refe
 
 ## Why we built this
 
-Supabase runs Postgres for hundreds of thousands of projects. We see the same mistakes repeatedly:
+IndoBase runs Postgres for hundreds of thousands of projects. We see the same mistakes repeatedly:
 
 - Missing indexes on foreign keys
 - Queries that bypass RLS by accident
@@ -118,9 +118,9 @@ Supabase runs Postgres for hundreds of thousands of projects. We see the same mi
 
 Our support team, database advisors, and documentation already contain this knowledge. We packaged it into a format that agents can use directly.
 
-## How this fits with the Supabase MCP server
+## How this fits with the IndoBase MCP server
 
-If you've used the [Supabase MCP server](https://supabase.com/docs/guides/getting-started/mcp), you know it lets AI agents connect directly to your Supabase project. Agents can create tables, run queries, manage schemas, and configure settings through natural language.
+If you've used the [IndoBase MCP server](https://indobase.com/docs/guides/getting-started/mcp), you know it lets AI agents connect directly to your IndoBase project. Agents can create tables, run queries, manage schemas, and configure settings through natural language.
 
 The MCP server gives agents the _ability_ to work with your database. These best practices teach them to do it _correctly_.
 
@@ -143,19 +143,19 @@ The `CONTRIBUTING.md` file has the full template.
 
 ## Get started
 
-The repo is live at [github.com/supabase/agent-skills](https://github.com/supabase/agent-skills).
+The repo is live at [github.com/indobase/agent-skills](https://github.com/indobase/agent-skills).
 
 To install a skill, you can use [Vercel’s skills npm package](https://www.npmjs.com/package/skills) to interactively install this skill on your agent.
 
 ```
-npx skills add supabase/agent-skills
+npx skills add indobase/agent-skills
 ```
 
 If you’re using Claude Code, you can also install this skill as a plugin.
 
 ```
-/plugin marketplace add supabase/agent-skills
-/plugin install postgres-best-practices@supabase-agent-skills
+/plugin marketplace add indobase/agent-skills
+/plugin install postgres-best-practices@indobase-agent-skills
 ```
 
 Try it on your next Postgres project, and let us know what rules are missing.

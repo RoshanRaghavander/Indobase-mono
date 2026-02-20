@@ -304,7 +304,7 @@ const FormContent = memo(function FormContent({
                   </FormLabel_Shadcn_>
                   <FormDescription_Shadcn_ className="text-foreground-lighter">
                     <p>
-                      Any relevant links to show your current engagement with the Supabase
+                      Any relevant links to show your current engagement with the IndoBase
                       community.
                     </p>
                     <p>
@@ -598,7 +598,7 @@ const FormContent = memo(function FormContent({
 const ApplyToSupaSquadForm: FC<Props> = ({
   className,
   title = 'Apply to join SupaSquad',
-  description = 'Join our community of passionate contributors and help shape the future of Supabase. Fill out the form below to apply.',
+  description = 'Join our community of passionate contributors and help shape the future of IndoBase. Fill out the form below to apply.',
 }) => {
   const [honeypot, setHoneypot] = useState<string>('') // field to prevent spam
   const [errors, setErrors] = useState<{ [key: string]: string }>({})

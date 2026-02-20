@@ -46,13 +46,13 @@ const data: () => {
 
   return {
     metadata: {
-      metaTitle: 'Supabase for Beginners',
+      metaTitle: 'IndoBase for Beginners',
       metaDescription:
-        'Supabase gives you the tools to easily manage databases, authentication, and backend infrastructure so you can build faster.',
+        'IndoBase gives you the tools to easily manage databases, authentication, and backend infrastructure so you can build faster.',
     },
     heroSection: {
       id: 'hero',
-      title: 'Supabase for Beginner Developers',
+      title: 'IndoBase for Beginner Developers',
       h1: (
         <>
           <span className="block text-foreground">Build in a weekend</span>
@@ -61,16 +61,16 @@ const data: () => {
       ),
       subheader: [
         <>
-          Learning to build a full-stack application is exciting. Supabase gives you the tools,
+          Learning to build a full-stack application is exciting. IndoBase gives you the tools,
           documentation, and community that makes managing databases, authentication, and backend
-          infrastructure a lot less overwhelming. Ship faster and learn by doing with Supabase.
+          infrastructure a lot less overwhelming. Ship faster and learn by doing with IndoBase.
         </>,
       ],
       image: undefined,
       ctas: [
         {
           label: 'Start your project',
-          href: 'https://supabase.com/dashboard',
+          href: 'https://indobase.com/dashboard',
           type: 'primary' as any,
           onClick: () =>
             sendTelemetryEvent({
@@ -81,30 +81,30 @@ const data: () => {
       ],
     },
     why: {
-      id: 'why-supabase',
+      id: 'why-indobase',
       label: '',
       heading: (
         <>
           Why <span className="text-foreground">developers of all skill levels</span> choose
-          Supabase
+          IndoBase
         </>
       ),
       subheading:
-        'Supabase is the Postgres development platform that powers a new generation of developer tools. Give your users an integrated, scalable backend that lets them focus on building without worrying about infrastructure.',
+        'IndoBase is the Postgres development platform that powers a new generation of developer tools. Give your users an integrated, scalable backend that lets them focus on building without worrying about infrastructure.',
       features: [
         {
           id: 'get-to-market-faster',
           icon: Timer,
           heading: 'Instant backend',
           subheading:
-            'Deploy a database in seconds. Choose your front-end framework and platform. Start coding and learning. With Supabase, batteries are always included.',
+            'Deploy a database in seconds. Choose your front-end framework and platform. Start coding and learning. With IndoBase, batteries are always included.',
         },
         {
           id: 'the-tools-you-need-at-a-great-price',
           icon: CubeIcon,
           heading: 'Everything you need to learn and build',
           subheading:
-            'Supabase offers a fully integrated suite of tools including authentication, storage, edge functions, real-time subscriptions, and vector search. Use one or all.',
+            'IndoBase offers a fully integrated suite of tools including authentication, storage, edge functions, real-time subscriptions, and vector search. Use one or all.',
         },
         {
           id: 'scalable-and-dependable',
@@ -131,7 +131,7 @@ const data: () => {
           ),
           heading: 'Scalable and dependable',
           subheading:
-            'Supabase is just Postgres, the world’s most popular and dependable database. When you’re ready to grow, Supabase will be there for you.',
+            'IndoBase is just Postgres, the world’s most popular and dependable database. When you’re ready to grow, IndoBase will be there for you.',
         },
       ],
     },
@@ -139,11 +139,11 @@ const data: () => {
       id: 'postgres-platform',
       title: (
         <>
-          Supabase helps you <span className="text-foreground">build</span>
+          IndoBase helps you <span className="text-foreground">build</span>
         </>
       ),
       subheading:
-        'Supabase includes everything you need to create the perfect app for your brand, business, or just for fun.',
+        'IndoBase includes everything you need to create the perfect app for your brand, business, or just for fun.',
       className: cn(
         '[&_div.grid]:sm:divide-x [&_div.grid]:divide-y',
         '[&_div.grid>div:nth-child(2n+2)]:sm:!border-l-0',
@@ -230,7 +230,7 @@ const data: () => {
           subheading: (
             <>
               <span className="text-foreground">Learn SQL when you’re ready.</span> In the meantime,
-              Supabase generates automatic APIs to make coding a lot easier.
+              IndoBase generates automatic APIs to make coding a lot easier.
             </>
           ),
           image: (
@@ -330,7 +330,7 @@ const data: () => {
           subheading: (
             <>
               When you’re ready to explore vectors and{' '}
-              <span className="text-foreground">the power of AI</span>, Supabase is there with
+              <span className="text-foreground">the power of AI</span>, IndoBase is there with
               industry-standard tools to guide you.
             </>
           ),
@@ -363,7 +363,7 @@ const data: () => {
             <>
               Pull data from{' '}
               <span className="text-foreground">Stripe, Google Sheets, Airtable, HubSpot</span>, and
-              more, as if they were part of Supabase natively.
+              more, as if they were part of IndoBase natively.
             </>
           ),
           image: (
@@ -477,12 +477,12 @@ const data: () => {
       ],
     },
     twitterSocialSection: {
-      heading: 'Fun projects built with Supabase',
-      subheading: 'Discover what our community has to say about their Supabase experience.',
+      heading: 'Fun projects built with IndoBase',
+      subheading: 'Discover what our community has to say about their IndoBase experience.',
       ctas: (
         <Button asChild type="default" size="small" icon={<IconDiscord />}>
           <Link
-            href={'https://discord.supabase.com/'}
+            href={'https://discord.indobase.com/'}
             target="_blank"
             tabIndex={-1}
             onClick={() =>
@@ -507,11 +507,11 @@ const data: () => {
       ),
       headingRight: (
         <>
-          Or, start with <span className="text-foreground">Supabase AI Prompts</span>{' '}
+          Or, start with <span className="text-foreground">IndoBase AI Prompts</span>{' '}
           <Sparkles size={24} className="inline text-foreground" />
         </>
       ),
-      docsUrl: 'https://supabase.com/docs/guides/getting-started/ai-prompts',
+      docsUrl: 'https://indobase.com/docs/guides/getting-started/ai-prompts',
       leftFooter: (
         <div className="grid grid-cols-5 divide-x divide-y rounded-lg overflow-hidden border">
           {frameworks.map((framework) => (
@@ -522,7 +522,7 @@ const data: () => {
       aiPrompts: [
         {
           id: 'auth-setup',
-          title: 'Bootstrap Next.js app with Supabase Auth',
+          title: 'Bootstrap Next.js app with IndoBase Auth',
           code: `1. Install @supabase/supabase-js and @supabase/ssr packages.
 2. Set up environment variables.
 3. Write two utility functions with \u0060createClient\u0060 functions to create a browser client and a server client. 
@@ -530,40 +530,40 @@ const data: () => {
 `,
           language: 'markdown',
           docsUrl:
-            'https://supabase.com/docs/guides/getting-started/ai-prompts/nextjs-supabase-auth',
+            'https://indobase.com/docs/guides/getting-started/ai-prompts/nextjs-indobase-auth',
         },
         {
           id: 'edge-functions',
-          title: 'Writing Supabase Edge Functions',
+          title: 'Writing IndoBase Edge Functions',
           code: `1. Try to use Web APIs and Deno’s core APIs instead of external dependencies (eg: use fetch instead of Axios, use WebSockets API instead of node-ws)
-2. If you are reusing utility methods between Edge Functions, add them to 'supabase/functions/_shared' and import using a relative path. Do NOT have cross dependencies between Edge Functions.
+2. If you are reusing utility methods between Edge Functions, add them to 'indobase/functions/_shared' and import using a relative path. Do NOT have cross dependencies between Edge Functions.
 3. Do NOT use bare specifiers when importing dependecnies. If you need to use an external dependency, make sure it's prefixed with either 'npm:' or 'jsr:'. For example, '@supabase/supabase-js' should be written as 'npm:@supabase/supabase-js'.
 4. For external imports, always define a version. For example, 'npm:@express' should be written as 'npm:express@4.18.2'.
 5. For external dependencies, importing via 'npm:' and 'jsr:' is preferred. Minimize the use of imports from @'deno.land/x' , 'esm.sh' and @'unpkg.com' . If you have a package from one of those CDNs, you can replace the CDN hostname with 'npm:' specifier.
 `,
           language: 'markdown',
-          docsUrl: 'https://supabase.com/docs/guides/getting-started/ai-prompts/edge-functions',
+          docsUrl: 'https://indobase.com/docs/guides/getting-started/ai-prompts/edge-functions',
         },
         {
           id: 'declarative-db-schema',
           title: 'Declarative Database Schema',
-          code: `Mandatory Instructions for Supabase Declarative Schema Management
+          code: `Mandatory Instructions for IndoBase Declarative Schema Management
 ## 1. **Exclusive Use of Declarative Schema**
--**All database schema modifications must be defined within '.sql' files located in the 'supabase/schemas/' directory.`,
+-**All database schema modifications must be defined within '.sql' files located in the 'indobase/schemas/' directory.`,
           language: 'markdown',
           docsUrl:
-            'https://supabase.com/docs/guides/getting-started/ai-prompts/declarative-database-schema',
+            'https://indobase.com/docs/guides/getting-started/ai-prompts/declarative-database-schema',
         },
         {
           id: 'rls-policies',
           title: 'Create RLS policies',
-          code: `You're a Supabase Postgres expert in writing row level security policies. Your purpose is to generate a policy with the constraints given by the user. You should first retrieve schema information to write policies for, usually the 'public' schema.
+          code: `You're a IndoBase Postgres expert in writing row level security policies. Your purpose is to generate a policy with the constraints given by the user. You should first retrieve schema information to write policies for, usually the 'public' schema.
 The output should use the following instructions:
 
 - The generated SQL must be valid SQL.`,
           language: 'markdown',
           docsUrl:
-            'https://supabase.com/docs/guides/getting-started/ai-prompts/database-rls-policies',
+            'https://indobase.com/docs/guides/getting-started/ai-prompts/database-rls-policies',
         },
       ],
     },
@@ -571,7 +571,7 @@ The output should use the following instructions:
       id: 'mcp',
       heading: (
         <div className="text-foreground-lighter">
-          Supabase MCP server works seamlessly with{' '}
+          IndoBase MCP server works seamlessly with{' '}
           <span className="text-foreground">your favorite AI code editor</span>
         </div>
       ),
@@ -584,11 +584,11 @@ The output should use the following instructions:
           title: 'macOS',
           code: `{
 "mcpServers": {
-  "supabase": {
+  "indobase": {
     "command": "npx",
     "args": [
       "-y",
-      "@supabase/mcp-server-supabase@latest",
+      "@supabase/mcp-server-indobase@latest",
       "--read-only",
       "--project-ref=<project-ref>"
     ],
@@ -604,13 +604,13 @@ The output should use the following instructions:
           title: 'Windows',
           code: `{
 "mcpServers": {
-  "supabase": {
+  "indobase": {
     "command": "cmd",
     "args": [
       "/c",
       "npx",
       "-y",
-      "@supabase/mcp-server-supabase@latest",
+      "@supabase/mcp-server-indobase@latest",
       "--read-only",
       "--project-ref=<project-ref>"
     ],
@@ -626,12 +626,12 @@ The output should use the following instructions:
           title: 'Windows (WSL)',
           code: `{
 "mcpServers": {
-  "supabase": {
+  "indobase": {
     "command": "wsl",
     "args": [
       "npx",
       "-y",
-      "@supabase/mcp-server-supabase@latest",
+      "@supabase/mcp-server-indobase@latest",
       "--read-only",
       "--project-ref=<project-ref>"
     ],
@@ -647,11 +647,11 @@ The output should use the following instructions:
           title: 'Linux',
           code: `{
   "mcpServers": {
-    "supabase": {
+    "indobase": {
       "command": "npx",
       "args": [
         "-y",
-        "@supabase/mcp-server-supabase@latest",
+        "@supabase/mcp-server-indobase@latest",
         "--read-only",
         "--project-ref=<project-ref>"
       ],

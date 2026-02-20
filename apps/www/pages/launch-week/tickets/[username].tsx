@@ -75,13 +75,13 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
   const username = params?.username?.toString() || null
   let user
 
-  const supabaseAdmin = createClient(
+  const indobaseAdmin = createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
     process.env.LIVE_SUPABASE_COM_SERVICE_ROLE_KEY!
   )
 
   // fetch the normal ticket
-  // stores the og images in supabase storage
+  // stores the og images in indobase storage
   fetch(
     // @ts-ignore
     `${SITE_ORIGIN}/api-v2/ticket-og?username=${encodeURIComponent(username ?? '')}`
@@ -89,7 +89,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 
   // fetch a specific user
   if (username) {
-    const { data, error } = await supabaseAdmin!
+    const { data, error } = await indobaseAdmin!
       .from('tickets_view')
       .select('name, username, ticket_number, metadata, role, company, location')
       .eq('launch_week', 'lw15')

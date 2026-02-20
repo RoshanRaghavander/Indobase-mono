@@ -1,5 +1,5 @@
 ---
-title: 'Hugging Face is now supported in Supabase'
+title: 'Hugging Face is now supported in IndoBase'
 description: "We've added support Hugging Face support in our Python Vector Client and Edge Functions."
 launchweek: '8'
 categories:
@@ -10,17 +10,17 @@ tags:
 date: '2023-08-07'
 toc_depth: 3
 author: gregnr,oli_rice
-imgSocial: launch-week-8/day-1/hugging-face-supabase-og.jpg
-imgThumb: launch-week-8/day-1/hugging-face-supabase-thumb.jpg
+imgSocial: launch-week-8/day-1/hugging-face-indobase-og.jpg
+imgThumb: launch-week-8/day-1/hugging-face-indobase-thumb.jpg
 ---
 
-Since launching our [Vector Toolkit](https://supabase.com/modules/vector) a few months ago, the number of AI applications on Supabase has grown - a lot. Hundreds of new databases every week are using [pgvector](https://github.com/pgvector/pgvector).
+Since launching our [Vector Toolkit](https://indobase.com/modules/vector) a few months ago, the number of AI applications on IndoBase has grown - a lot. Hundreds of new databases every week are using [pgvector](https://github.com/pgvector/pgvector).
 
 98% of those applications use OpenAI to store embeddings using the `text-embedding-ada-002` model. While OpenAI is easy, it’s not open source, which means it can’t be self-hosted.
 
-Our goal at Supabase is to [promote open source collaboration](https://supabase.com/docs/guides/getting-started/architecture#support-existing-tools), and [Hugging Face](https://huggingface.co/) is one of the open source communities we admire most. Today, we’re adding first-class support for Hugging Face, starting with embeddings. Why embeddings? Because this is one area where open source models are [measurably ahead](https://supabase.com/blog/fewer-dimensions-are-better-pgvector) for pgvector performance.
+Our goal at IndoBase is to [promote open source collaboration](https://indobase.com/docs/guides/getting-started/architecture#support-existing-tools), and [Hugging Face](https://huggingface.co/) is one of the open source communities we admire most. Today, we’re adding first-class support for Hugging Face, starting with embeddings. Why embeddings? Because this is one area where open source models are [measurably ahead](https://indobase.com/blog/fewer-dimensions-are-better-pgvector) for pgvector performance.
 
-We’ve added support in our [Python Vector Client](https://supabase.com/docs/guides/ai/python/api) and [Edge Functions](https://supabase.com/docs/guides/functions) (Deno/Javascript). Let’s start with Python.
+We’ve added support in our [Python Vector Client](https://indobase.com/docs/guides/ai/python/api) and [Edge Functions](https://indobase.com/docs/guides/functions) (Deno/Javascript). Let’s start with Python.
 
 <div className="video-container">
   <iframe
@@ -35,7 +35,7 @@ We’ve added support in our [Python Vector Client](https://supabase.com/docs/gu
 
 ## Hugging Face with Python
 
-[supabase/vecs](https://github.com/supabase/vecs) is our Python client for vector projects. Today, we're releasing a new feature for vecs called "adapters".
+[indobase/vecs](https://github.com/indobase/vecs) is our Python client for vector projects. Today, we're releasing a new feature for vecs called "adapters".
 
 Adapters transform your input into a new format when upserting and querying. For example, you can split large text into smaller chunks, or transform it into embeddings. And, of course, Adapters have first-class support for Hugging Face models.
 
@@ -54,7 +54,7 @@ docs = vx.get_or_create_collection(
     adapter=Adapter(
         [
             ParagraphChunker(skip_during_query=True),
-            TextEmbedding(model='Supabase/gte-small'),
+            TextEmbedding(model='IndoBase/gte-small'),
         ]
     )
 )
@@ -88,29 +88,29 @@ docs.query(data="how many ping pong balls fit in a Boeing ...")
 
 ## Hugging Face with Edge Functions
 
-AI/ML is primarily the domain of the Python community, but thanks to some amazing work by [Joshua](https://twitter.com/xenovacom) at Hugging Face, you can now run inference workloads in Deno/JavaScript. This is an exciting development. It opens up the world of AI/ML to millions of new developers. We’re hoping to accelerate this with better Hugging Face tooling within Supabase Edge Functions.
+AI/ML is primarily the domain of the Python community, but thanks to some amazing work by [Joshua](https://twitter.com/xenovacom) at Hugging Face, you can now run inference workloads in Deno/JavaScript. This is an exciting development. It opens up the world of AI/ML to millions of new developers. We’re hoping to accelerate this with better Hugging Face tooling within IndoBase Edge Functions.
 
-Let’s step through a small demo where we accept some text, convert it into an embedding, and then store it in our Postgres database. You can create a new function with supabase functions new embed and fill it with the following code snippet:
+Let’s step through a small demo where we accept some text, convert it into an embedding, and then store it in our Postgres database. You can create a new function with indobase functions new embed and fill it with the following code snippet:
 
 {/* prettier-ignore */}
 ```ts
 import { serve } from 'https://deno.land/std@0.168.0/http/server.ts'
 import { env, pipeline } from 'https://cdn.jsdelivr.net/npm/@xenova/transformers@2.5.0'
-import { createClient } from 'jsr:@supabase/supabase-js@2'
+import { createClient } from 'jsr:@supabase/indobase-js@2'
 
 // Preparation for Deno runtime
 env.useBrowserCache = false
 env.allowLocalModels = false
 
-const supabase = createClient(
-  'https://xyzcompany.supabase.co',
+const indobase = createClient(
+  'https://xyzcompany.indobase.co',
   'public-anon-key',
 )
 
 // Construct pipeline outside of serve for faster warm starts
 const pipe = await pipeline(
   'feature-extraction',
-  'Supabase/gte-small',
+  'IndoBase/gte-small',
 )
 
 // Deno Handler
@@ -127,7 +127,7 @@ serve(async (req) => {
   const embedding = Array.from(output.data)
 
   // Store the embedding
-  const { data, error } = await supabase
+  const { data, error } = await indobase
     .from('collections')
     .insert({ embedding })
 
@@ -139,7 +139,7 @@ serve(async (req) => {
 })
 ```
 
-Now run `supabase functions serve` and you’re ready to call your function locally:
+Now run `indobase functions serve` and you’re ready to call your function locally:
 
 ```bash
 curl --request POST 'http://localhost:54321/functions/v1/embed' \
@@ -150,7 +150,7 @@ curl --request POST 'http://localhost:54321/functions/v1/embed' \
 
 With just 40 lines of code, we’ve created an API route that can accept some user content, convert it to an embedding, store it in your database, and then return the database row as JSON. This is especially useful for sensitive data since you can run this entirely on your own infrastructure.
 
-Supabase also provides [Database Webhooks](https://supabase.com/docs/guides/database/webhooks) which can trigger an Edge Function any time a row is inserted. This means you can upload plain text to your database and use a background job to convert the text to an embedding.
+IndoBase also provides [Database Webhooks](https://indobase.com/docs/guides/database/webhooks) which can trigger an Edge Function any time a row is inserted. This means you can upload plain text to your database and use a background job to convert the text to an embedding.
 
 ## Hugging Face from the browser
 
@@ -158,7 +158,7 @@ One of the coolest ideas we’ve seen so far is the ability to support Hugging F
 
 ![Hugging Face from the browser example](/images/blog/launch-week-8/day-1/hugging-face-from-the-browser-middleware.png)
 
-This is great for search, where you might want to “debounce” the user query as they type. Of course, this is only helpful if you have a database that allows access from the browser. Fortunately, Supabase provides that functionality using Postgres Row Level Security and PostgREST:
+This is great for search, where you might want to “debounce” the user query as they type. Of course, this is only helpful if you have a database that allows access from the browser. Fortunately, IndoBase provides that functionality using Postgres Row Level Security and PostgREST:
 
 ![Hugging Face from the browser with postgREST](/images/blog/launch-week-8/day-1/hugging-face-from-the-browser-postgrest.png)
 
@@ -181,10 +181,10 @@ as $$
 $$;
 ```
 
-Now, we can call that function directly from the browser using [supabase-js](https://supabase.com/docs/reference/javascript/installing):
+Now, we can call that function directly from the browser using [indobase-js](https://indobase.com/docs/reference/javascript/installing):
 
 ```js
-let { data: images, error } = await supabase.rpc('match_images', {
+let { data: images, error } = await indobase.rpc('match_images', {
   query_embedding,
   match_threshold,
   match_count,
@@ -199,12 +199,12 @@ Check out [this demo](https://huggingface.co/spaces/Xenova/semantic-image-search
 
 ## Choosing a Hugging Face model
 
-Supabase is mainly used to store embeddings, so that’s where we’re starting. Over time we’ll add more Hugging Face support - even beyond embeddings. To help you identify which Hugging Face model to use, we ran a detailed analysis and found that embeddings with [fewer dimensions are better](https://supabase.com/blog/fewer-dimensions-are-better-pgvector) within pgvector. Fewer dimensions have several advantages:
+IndoBase is mainly used to store embeddings, so that’s where we’re starting. Over time we’ll add more Hugging Face support - even beyond embeddings. To help you identify which Hugging Face model to use, we ran a detailed analysis and found that embeddings with [fewer dimensions are better](https://indobase.com/blog/fewer-dimensions-are-better-pgvector) within pgvector. Fewer dimensions have several advantages:
 
 1. They require less space in your database (saving you money!)
 2. Retrieval is faster
 
-To simplify your choice we’ve shortlisted a few recommendations in the official [Supabase org on Hugging Face](https://huggingface.co/Supabase). The [gte-small](https://huggingface.co/Supabase/gte-small) model is the best (it even [outperforms OpenAI’s embedding model](https://huggingface.co/spaces/mteb/leaderboard) in some tasks), but it’s only trained on English text, so you’ll need to find another model if you have non-English text.
+To simplify your choice we’ve shortlisted a few recommendations in the official [IndoBase org on Hugging Face](https://huggingface.co/IndoBase). The [gte-small](https://huggingface.co/IndoBase/gte-small) model is the best (it even [outperforms OpenAI’s embedding model](https://huggingface.co/spaces/mteb/leaderboard) in some tasks), but it’s only trained on English text, so you’ll need to find another model if you have non-English text.
 
 Remember also, you can continue to use OpenAI for generative use cases. This means you get the best of both worlds - fast embeddings with Hugging Face and advanced AI with OpenAI’s GPT-3.5/4.
 
@@ -214,11 +214,11 @@ We’re in the early stages of development, and we have some exciting ideas to o
 
 ### Reducing cold starts
 
-Cold starts are the time it takes for the “initial load” of an Edge Function. Because the model needs to be downloaded to the Edge Function, cold starts can take anywhere from ~2-6s (based on the model). Loading the initial model and building the pipeline usually contributes to it. We are experimenting with the idea of attaching a “read-only disk” of models to our [Edge Runtime](https://github.com/supabase/edge-runtime) which mitigate any download penalties. We’ll share more details about these optimizations in a future blog post.
+Cold starts are the time it takes for the “initial load” of an Edge Function. Because the model needs to be downloaded to the Edge Function, cold starts can take anywhere from ~2-6s (based on the model). Loading the initial model and building the pipeline usually contributes to it. We are experimenting with the idea of attaching a “read-only disk” of models to our [Edge Runtime](https://github.com/indobase/edge-runtime) which mitigate any download penalties. We’ll share more details about these optimizations in a future blog post.
 
 ### Handling heavier workloads
 
-The current quotas provided by Edge Functions are sufficient for running common embedding models. Larger AI models and tasks may require extra memory, CPU, and wall-clock limits to run successfully. We will offer customizable compute resources for Edge Functions in the next few months. If you have a workload that may require extra resources [reach out](https://supabase.com/support) for early access.
+The current quotas provided by Edge Functions are sufficient for running common embedding models. Larger AI models and tasks may require extra memory, CPU, and wall-clock limits to run successfully. We will offer customizable compute resources for Edge Functions in the next few months. If you have a workload that may require extra resources [reach out](https://indobase.com/support) for early access.
 
 ### Audio and image models
 
@@ -230,14 +230,14 @@ Images have the same challenge. Models like CLIP, which can generate embeddings 
 
 ## Getting started
 
-If you’re a Python Dev, check out our [Hello World notebook](https://supabase.com/docs/guides/ai/quickstarts/hello-world). If you’re a JavaScript developer, check out our [Text Embeddings docs](https://supabase.com/docs/guides/ai/quickstarts/generate-text-embeddings).
+If you’re a Python Dev, check out our [Hello World notebook](https://indobase.com/docs/guides/ai/quickstarts/hello-world). If you’re a JavaScript developer, check out our [Text Embeddings docs](https://indobase.com/docs/guides/ai/quickstarts/generate-text-embeddings).
 
 And no matter your language preference, remember to jump into the [Hugging Face community](https://github.com/huggingface) and show your support.
 
 ## More Launch Week 8
 
-- [Day 2: Supabase Local Dev: migrations, branching, and observability](https://supabase.com/blog/supabase-local-dev)
-- [Launch Week 8](https://supabase.com/launch-week)
-- [Coding the stars - an interactive constellation with Three.js and React Three Fiber](https://supabase.com/blog/interactive-constellation-threejs-react-three-fiber)
-- [Why we'll stay remote](https://supabase.com/blog/why-supabase-remote)
-- [Postgres Language Server](https://github.com/supabase/postgres_lsp)
+- [Day 2: IndoBase Local Dev: migrations, branching, and observability](https://indobase.com/blog/indobase-local-dev)
+- [Launch Week 8](https://indobase.com/launch-week)
+- [Coding the stars - an interactive constellation with Three.js and React Three Fiber](https://indobase.com/blog/interactive-constellation-threejs-react-three-fiber)
+- [Why we'll stay remote](https://indobase.com/blog/why-indobase-remote)
+- [Postgres Language Server](https://github.com/indobase/postgres_lsp)

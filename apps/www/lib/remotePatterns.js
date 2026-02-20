@@ -61,7 +61,7 @@ module.exports = [
   },
   {
     protocol: 'https',
-    hostname: 'obuldanrptloktxcffvn.supabase.co',
+    hostname: 'obuldanrptloktxcffvn.indobase.co',
     port: '',
     pathname: '**',
   },
@@ -73,7 +73,7 @@ module.exports = [
   },
   {
     protocol: 'https',
-    hostname: 'xguihxuzqibwxjnimxev.supabase.co',
+    hostname: 'xguihxuzqibwxjnimxev.indobase.co',
     port: '',
     pathname: '**',
   },
@@ -91,7 +91,7 @@ module.exports = [
   },
   {
     protocol: 'https',
-    hostname: 'supabase.com',
+    hostname: 'indobase.com',
     port: '',
     pathname: '**',
   },
@@ -110,7 +110,7 @@ module.exports = [
   // OG Edge Function
   {
     protocol: 'https',
-    hostname: 'zhfonblqamxferhoguzj.supabase.co',
+    hostname: 'zhfonblqamxferhoguzj.indobase.co',
     port: '',
     pathname: '/functions/v1/generate-og',
   },

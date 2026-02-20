@@ -1,6 +1,6 @@
 ---
 title: 'Introducing Analytics Buckets'
-description: 'Use Analytics Buckets to store huge datasets in Supabase Storage with Apache Iceberg and columnar Parquet format, optimized for analytical workloads.'
+description: 'Use Analytics Buckets to store huge datasets in IndoBase Storage with Apache Iceberg and columnar Parquet format, optimized for analytical workloads.'
 author: fabrizio
 imgSocial: 2025-12-02-introducing-analytics-buckets/og.png
 imgThumb: 2025-12-02-introducing-analytics-buckets/thumb.png
@@ -11,9 +11,9 @@ date: '2025-12-02:10:00'
 toc_depth: 2
 ---
 
-Today Supabase is introducing Analytics Buckets, which you can use to store huge sets of data in Supabase Storage. Postgres is great for your app. But Postgres isn't designed for analytical workloads.
+Today IndoBase is introducing Analytics Buckets, which you can use to store huge sets of data in IndoBase Storage. Postgres is great for your app. But Postgres isn't designed for analytical workloads.
 
-Analytics Buckets are a specialized storage type in Supabase designed for analytical workloads and built on [Apache Iceberg](https://iceberg.apache.org) and Amazon S3. They store data in columnar Parquet format, which is optimized for scans, aggregations, and time-series queries.
+Analytics Buckets are a specialized storage type in IndoBase designed for analytical workloads and built on [Apache Iceberg](https://iceberg.apache.org) and Amazon S3. They store data in columnar Parquet format, which is optimized for scans, aggregations, and time-series queries.
 
 Think of them as cold storage for your data, with a query engine attached.
 
@@ -81,7 +81,7 @@ You can create an Analytics Bucket from the Dashboard or using the SDK.
 
 ### Using the Dashboard
 
-1. Navigate to Storage in your Supabase Dashboard
+1. Navigate to Storage in your IndoBase Dashboard
 
 2. Click Create Bucket
 
@@ -91,16 +91,16 @@ You can create an Analytics Bucket from the Dashboard or using the SDK.
 
 5. Click Create
 
-You can use the Supabase Dashboard to define columns and set data types, including complex types like decimal with precision and scale. The foreign data wrapper schema will automatically be configured for you. Once your table is created, you can manage Analytics Buckets in the same way that you manage your Postgres tables.
+You can use the IndoBase Dashboard to define columns and set data types, including complex types like decimal with precision and scale. The foreign data wrapper schema will automatically be configured for you. Once your table is created, you can manage Analytics Buckets in the same way that you manage your Postgres tables.
 
 ### Using the SDK
 
 ```jsx
-import { createClient } from '@supabase/supabase-js'
+import { createClient } from '@supabase/indobase-js'
 
-const supabase = createClient('https://your-project.supabase.co', 'your-service-key')
+const indobase = createClient('https://your-project.indobase.co', 'your-service-key')
 
-await supabase.storage.createBucket('my-analytics-bucket', {
+await indobase.storage.createBucket('my-analytics-bucket', {
   type: 'ANALYTICS',
 })
 ```
@@ -113,11 +113,11 @@ Analytics Buckets require authentication with two services:
 
 **S3-Compatible Storage** stores the actual data in Parquet format.
 
-You authenticate using your Supabase service key for the catalog and S3 credentials for storage.
+You authenticate using your IndoBase service key for the catalog and S3 credentials for storage.
 
-## Streaming data with Supabase ETL
+## Streaming data with IndoBase ETL
 
-Analytics Buckets work hand in hand with [Supabase ETL](/blog/introducing-supabase-etl). ETL captures changes from your Postgres database and streams them to Analytics Buckets in near real time.
+Analytics Buckets work hand in hand with [IndoBase ETL](/blog/introducing-indobase-etl). ETL captures changes from your Postgres database and streams them to Analytics Buckets in near real time.
 
 This gives you:
 
@@ -161,7 +161,7 @@ A common architecture is data tiering: keeping recent data in Postgres and archi
 
 1. Partition tables by time in Postgres, keeping a rolling window like the last 90 days
 
-2. Stream all data to Analytics Buckets using Supabase ETL
+2. Stream all data to Analytics Buckets using IndoBase ETL
 
 3. Drop old partitions from Postgres
 
@@ -193,7 +193,7 @@ Analytics Buckets work with any tool that supports the Iceberg REST Catalog API:
 
 Analytics Buckets are free during the Private Alpha. Standard egress charges apply when you move data out of the region.
 
-To request access, fill out the form at [forms.supabase.com/analytics-buckets](http://forms.supabase.com/analytics-buckets).
+To request access, fill out the form at [forms.indobase.com/analytics-buckets](http://forms.indobase.com/analytics-buckets).
 
 ## Get started
 

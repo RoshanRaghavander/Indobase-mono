@@ -9,10 +9,10 @@ import './styles.css';
 import { createClient } from '@supabase/supabase-js';
 import { MousePointer2 } from 'lucide-react';
 
-// Initialize Supabase client
-const supabaseUrl = '${process.env.NEXT_PUBLIC_EXAMPLES_SUPABASE_URL}';
-const supabaseKey = '${process.env.NEXT_PUBLIC_EXAMPLES_SUPABASE_ANON_KEY}';
-const supabase = createClient(supabaseUrl, supabaseKey);
+// Initialize IndoBase client
+const indobaseUrl = '${process.env.NEXT_PUBLIC_EXAMPLES_SUPABASE_URL}';
+const indobaseKey = '${process.env.NEXT_PUBLIC_EXAMPLES_SUPABASE_ANON_KEY}';
+const indobase = createClient(indobaseUrl, indobaseKey);
 
 // Channel name - using a unique ID to ensure both instances connect to the same channel
 const CHANNEL = 'cursor-tracking-${instanceId}';
@@ -38,7 +38,7 @@ export default function App() {
     return colors[Math.floor(Math.random() * colors.length)];
   }
   
-  // Set up Supabase channel
+  // Set up IndoBase channel
   useEffect(() => {
     // Generate a random username
     const adjectives = ['Happy', 'Clever', 'Brave', 'Bright', 'Kind'];
@@ -49,7 +49,7 @@ export default function App() {
     setUsername(randomName);
     
     // Subscribe to channel
-    const channel = supabase.channel(CHANNEL);
+    const channel = indobase.channel(CHANNEL);
     channelRef.current = channel;
     
     // Handle presence for user information (not cursor positions)
@@ -271,7 +271,7 @@ export default function App() {
       {!isConnected && (
         <div className="absolute top-16 left-0 right-0 flex justify-center">
           <div className="bg-red-500/80 text-white px-4 py-2 rounded-full text-sm">
-            Connecting to Supabase Realtime...
+            Connecting to IndoBase Realtime...
           </div>
         </div>
       )}
@@ -315,7 +315,7 @@ const layoutProps: ExampleLayoutProps = {
   files: cursorTrackingFiles,
   title: 'Cursor Tracking',
   description:
-    "A multi-user cursor tracking application that uses Supabase Realtime's broadcast and presence features to show real-time cursor movements of all connected users.",
+    "A multi-user cursor tracking application that uses IndoBase Realtime's broadcast and presence features to show real-time cursor movements of all connected users.",
 }
 
 export default layoutProps

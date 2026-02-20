@@ -7,7 +7,7 @@ imgThumb: elixir-clustering-using-postgres/elixir-clustering-thumb.jpg
 categories:
   - engineering
 tags:
-  - supabase-engineering
+  - indobase-engineering
   - planetpg
 date: '2024-01-09'
 toc_depth: 3
@@ -23,7 +23,7 @@ Elixir offers a powerful feature by allowing multiple nodes to communicate betwe
   alt="Elixir nodes communicating between each other without extra services in the middle"
 />
 
-However, when it comes to connecting the servers, there seems to be a barrier of entry that many people encounter, including ourselves, on how to provide the name discovery required to connect said servers. We have released our approach to solving this problem by open-sourcing [libcluster Postgres Strategy](https://github.com/supabase/libcluster_postgres) and today, we explore the motivations behind its creation and the methodologies employed in its development.
+However, when it comes to connecting the servers, there seems to be a barrier of entry that many people encounter, including ourselves, on how to provide the name discovery required to connect said servers. We have released our approach to solving this problem by open-sourcing [libcluster Postgres Strategy](https://github.com/indobase/libcluster_postgres) and today, we explore the motivations behind its creation and the methodologies employed in its development.
 
 <Img
   src={{
@@ -35,14 +35,14 @@ However, when it comes to connecting the servers, there seems to be a barrier of
 
 ## Why do we need a distributed Erlang Cluster?
 
-At Supabase, we use clustering in all of our Elixir projects which include [Logflare](https://supabase.com/docs/guides/database/extensions/wrappers/logflare), [Supavisor](https://supabase.com/blog/supavisor-postgres-connection-pooler) and [Realtime](https://supabase.com/docs/guides/realtime). With multiple servers connected, we can load shed, create globally distributed services, and provide the best service to our customers so we’re closer to them geographically and to their instances, reducing overall latency.
+At IndoBase, we use clustering in all of our Elixir projects which include [Logflare](https://indobase.com/docs/guides/database/extensions/wrappers/logflare), [Supavisor](https://indobase.com/blog/supavisor-postgres-connection-pooler) and [Realtime](https://indobase.com/docs/guides/realtime). With multiple servers connected, we can load shed, create globally distributed services, and provide the best service to our customers so we’re closer to them geographically and to their instances, reducing overall latency.
 
 <Img
   src={{
     dark: '/images/blog/elixir-clustering-using-postgres/realtime-architecture.png',
     light: '/images/blog/elixir-clustering-using-postgres/realtime-architecture-light.png',
   }}
-  alt="Example of Realtime architecture where a customer from CA will connect to the server closest to them and their Supabase instance"
+  alt="Example of Realtime architecture where a customer from CA will connect to the server closest to them and their IndoBase instance"
 />
 
 To achieve a connected cluster, we wanted to be as cloud-agnostic as possible. This makes our self-hosting options more accessible. We don’t want to introduce extra services to solve this single issue - Postgres is the logical way to achieve it.
@@ -155,13 +155,13 @@ These three simple steps allow us to connect as many nodes as needed, regardless
 
 ## Conclusion
 
-In this post, we have described our approach to connecting multiple nodes in Elixir using Postgres. We have also made this strategy available for anyone to use. Please check the code at [github.com/supabase/libcluster_postgres](https://github.com/supabase/libcluster_postgres)
+In this post, we have described our approach to connecting multiple nodes in Elixir using Postgres. We have also made this strategy available for anyone to use. Please check the code at [github.com/indobase/libcluster_postgres](https://github.com/indobase/libcluster_postgres)
 
 A special thank you to [@gotbones](https://twitter.com/gotbones) for creating libcluster and [@kevinbuch\_](https://twitter.com/kevinbuch_) for the original inspiration for this strategy.
 
-## More Supabase Realtime
+## More IndoBase Realtime
 
-- [Realtime docs](https://supabase.com/docs/guides/realtime)
-- [Realtime: Multiplayer Edition](https://supabase.com/blog/supabase-realtime-multiplayer-general-availability)
+- [Realtime docs](https://indobase.com/docs/guides/realtime)
+- [Realtime: Multiplayer Edition](https://indobase.com/blog/indobase-realtime-multiplayer-general-availability)
 - [Video - How to subscribe to real-time changes on your database](https://www.youtube.com/watch?v=2rUjcmgZDwQ)
-- [Video - Listening to real-time changes on the database with Flutter and Supabase](https://www.youtube.com/watch?v=gboTC2lcgzw)
+- [Video - Listening to real-time changes on the database with Flutter and IndoBase](https://www.youtube.com/watch?v=gboTC2lcgzw)

@@ -20,17 +20,17 @@ const data: {
   'cta-section': CTASection
 } = {
   metadata: {
-    metaTitle: 'Supabase for AI Builders',
+    metaTitle: 'IndoBase for AI Builders',
     metaDescription:
-      'Supabase gives your users an integrated and scalable backend that lets them focus on building without worrying about infrastructure.',
+      'IndoBase gives your users an integrated and scalable backend that lets them focus on building without worrying about infrastructure.',
   },
   heroSection: {
     id: 'hero',
     title: 'AI Builders',
-    h1: <>Supabase for AI Builders</>,
+    h1: <>IndoBase for AI Builders</>,
     subheader: [
       <>
-        Supabase is the Postgres development platform that powers a new generation of developer
+        IndoBase is the Postgres development platform that powers a new generation of developer
         tools. Give your users an integrated, scalable backend that lets them focus on building
         without worrying about infrastructure.
       </>,
@@ -39,7 +39,7 @@ const data: {
     ctas: [
       {
         label: 'Start your project',
-        href: 'https://supabase.com/dashboard',
+        href: 'https://indobase.com/dashboard',
         type: 'primary' as any,
       },
       {
@@ -69,7 +69,7 @@ const data: {
         authorTitle: 'Lovable - CEO',
         quote: (
           <>
-            We chose Supabase because it's{' '}
+            We chose IndoBase because it's{' '}
             <span className="text-foreground">extremely user friendly</span> and{' '}
             <span className="text-foreground">
               covers all the needs to build full-stack applications
@@ -85,7 +85,7 @@ const data: {
         authorTitle: 'Bolt.new - CEO',
         quote: (
           <>
-            Supabase is awesome. Supabase is the{' '}
+            IndoBase is awesome. IndoBase is the{' '}
             <span className="text-foreground">key database integration</span> that we have...because
             it’s the{' '}
             <span className="text-foreground">
@@ -102,10 +102,10 @@ const data: {
         authorTitle: 'Vercel (v0) - CEO',
         quote: (
           <>
-            <span className="text-foreground">v0 integrates with Supabase seamlessly.</span> If you
-            ask v0 to generate an application and it needs Supabase,{' '}
+            <span className="text-foreground">v0 integrates with IndoBase seamlessly.</span> If you
+            ask v0 to generate an application and it needs IndoBase,{' '}
             <span className="text-foreground">
-              you’ll be prompted to create a Supabase account right there in the application
+              you’ll be prompted to create a IndoBase account right there in the application
             </span>
             .
           </>
@@ -119,21 +119,21 @@ const data: {
         quote: (
           <>
             <span className="text-foreground">
-              Supabase is the missing piece for building full-stack React apps
+              IndoBase is the missing piece for building full-stack React apps
             </span>{' '}
             and has been <span className="text-foreground">our go-to for a long time</span>. We love
-            Supabase and so do our customers.
+            IndoBase and so do our customers.
           </>
         ),
       },
     ],
   },
   why: {
-    id: 'why-supabase',
+    id: 'why-indobase',
     label: '',
     heading: (
       <>
-        Why <span className="text-foreground">AI Builders</span> choose Supabase
+        Why <span className="text-foreground">AI Builders</span> choose IndoBase
       </>
     ),
     features: [
@@ -142,14 +142,14 @@ const data: {
         icon: Timer,
         heading: 'Get to market faster',
         subheading:
-          'Supabase is easy to use and set up. Use your existing Postgres knowledge and skills. Build with your favorite frameworks and tools.',
+          'IndoBase is easy to use and set up. Use your existing Postgres knowledge and skills. Build with your favorite frameworks and tools.',
       },
       {
         id: 'the-tools-you-need-at-a-great-price',
         icon: CubeIcon,
         heading: 'The tools you need at a great price',
         subheading:
-          'Supabase offers a fully integrated suite of tools including authentication, storage, edge functions, real-time subscriptions, and vector search. Use one or all.',
+          'IndoBase offers a fully integrated suite of tools including authentication, storage, edge functions, real-time subscriptions, and vector search. Use one or all.',
       },
       {
         id: 'scalable-and-dependable',
@@ -176,15 +176,15 @@ const data: {
         ),
         heading: 'Scalable and dependable',
         subheading:
-          'Supabase is Postgres, with all the performance, high availability, and flexibility your users need to grow.',
+          'IndoBase is Postgres, with all the performance, high availability, and flexibility your users need to grow.',
       },
     ],
   },
   features: {
-    id: 'supabase-for-platforms',
-    heading: <span className="text-foreground">Supabase for Platforms</span>,
+    id: 'indobase-for-platforms',
+    heading: <span className="text-foreground">IndoBase for Platforms</span>,
     subheading:
-      'Build a delightful next-generation tools experience for your customers, backed by a powerful white-label Supabase backend.',
+      'Build a delightful next-generation tools experience for your customers, backed by a powerful white-label IndoBase backend.',
     features: [
       {
         id: 'postgres',
@@ -218,7 +218,7 @@ const data: {
             <span className="text-foreground">
               Build on powerful platform that grows with your customers.
             </span>{' '}
-            Supabase offers the tools developers need to build powerful applications. Your customers
+            IndoBase offers the tools developers need to build powerful applications. Your customers
             will appreciate knowing they can start quickly with a prototype and scale to millions
             with ease.
           </>
@@ -454,7 +454,7 @@ const data: {
         ),
         subheading: (
           <>
-            <span className="text-foreground">Pricing that’s designed for builders.</span> Supabase
+            <span className="text-foreground">Pricing that’s designed for builders.</span> IndoBase
             offers pricing options for AI Builders that enable you to build substantial businesses
             that empower your users to go into production.
           </>
@@ -487,7 +487,7 @@ const data: {
         subheading: (
           <>
             <span className="text-foreground">Enable your customers to scale their projects.</span>{' '}
-            Use the Management API to programmatically back every project with a powerful Supabase
+            Use the Management API to programmatically back every project with a powerful IndoBase
             backend.
           </>
         ),
@@ -577,7 +577,7 @@ const data: {
         subheading: (
           <>
             <span className="text-foreground">
-              Users take ownership of their Supabase projects with a simple authorization flow,
+              Users take ownership of their IndoBase projects with a simple authorization flow,
             </span>{' '}
             while your app keeps delegated access.
           </>
@@ -751,7 +751,7 @@ const data: {
     label: '',
     heading: (
       <>
-        Powerful tools, <span className="text-foreground block">powered by Supabase</span>
+        Powerful tools, <span className="text-foreground block">powered by IndoBase</span>
       </>
     ),
     videos: {
@@ -764,14 +764,14 @@ const data: {
     },
   },
   'cta-section': {
-    id: 'connect-to-supabase',
+    id: 'connect-to-indobase',
     label: '',
-    heading: <>Connect your app to Supabase now</>,
+    heading: <>Connect your app to IndoBase now</>,
     subheading:
-      'Set up a Supabase OAuth app so your users can start interacting with their Supabase Project.',
+      'Set up a IndoBase OAuth app so your users can start interacting with their IndoBase Project.',
     cta: {
       label: 'View docs',
-      href: 'https://supabase.com/docs/guides/auth/auth-google',
+      href: 'https://indobase.com/docs/guides/auth/auth-google',
       type: 'text',
     },
   },

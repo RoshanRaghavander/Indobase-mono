@@ -7,7 +7,7 @@ const corsHeaders = {
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
 }
 
-const STORAGE_URL = 'https://obuldanrptloktxcffvn.supabase.co/storage/v1/object/public/images/lwx'
+const STORAGE_URL = 'https://obuldanrptloktxcffvn.indobase.co/storage/v1/object/public/images/lwx'
 const BUCKET_FOLDER_VERSION = 'v1'
 
 export async function handler(req: Request) {
@@ -76,9 +76,9 @@ export async function handler(req: Request) {
 
     // Upload image to storage.
     const supabaseAdminClient = createClient(
-      // Supabase API URL - env var exported by default when deployed.
+      // IndoBase API URL - env var exported by default when deployed.
       Deno.env.get('MISC_USE_URL') ?? '',
-      // Supabase API SERVICE ROLE KEY - env var exported by default when deployed.
+      // IndoBase API SERVICE ROLE KEY - env var exported by default when deployed.
       Deno.env.get('MISC_USE_ANON_KEY') ?? ''
     )
 

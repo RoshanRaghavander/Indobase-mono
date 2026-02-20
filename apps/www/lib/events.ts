@@ -2,10 +2,10 @@
  * @file events.ts
  * @description Unified api to fetch events from Luma and Filesystem.
  */
-import supabase from 'lib/supabase'
+import indobase from 'lib/indobase'
 import { getSortedPosts } from 'lib/posts'
 import authors from 'lib/authors.json'
-import { EventHost, SUPABASE_HOST, SupabaseEvent } from './eventsTypes'
+import { EventHost, SUPABASE_HOST, IndoBaseEvent } from './eventsTypes'
 
 /**
  * Parse hosts from either a comma-separated string of author IDs or an array of host objects
@@ -129,7 +129,7 @@ interface EventRecord {
  * Get the nearest upcoming event from an array of events
  * Returns the event with the closest date to now that is still in the future
  */
-export const getFeaturedEvent = (events: SupabaseEvent[]): SupabaseEvent | null => {
+export const getFeaturedEvent = (events: IndoBaseEvent[]): IndoBaseEvent | null => {
   if (!events || events.length === 0) return null
 
   const now = new Date()
@@ -152,7 +152,7 @@ export const getFeaturedEvent = (events: SupabaseEvent[]): SupabaseEvent | null 
   return sortedEvents[0]
 }
 
-export const getLumaEvents = async (): Promise<SupabaseEvent[]> => {
+export const getLumaEvents = async (): Promise<IndoBaseEvent[]> => {
   try {
     const afterDate = new Date().toISOString()
     const url = new URL('/api-v2/luma-events', window.location.origin)
@@ -162,7 +162,7 @@ export const getLumaEvents = async (): Promise<SupabaseEvent[]> => {
     const data = await res.json()
 
     if (data.success) {
-      const transformedEvents: SupabaseEvent[] = data.events.map((event: LumaEvent) => {
+      const transformedEvents: IndoBaseEvent[] = data.events.map((event: LumaEvent) => {
         let categories = []
         const isMeetup = event.name.toLowerCase().includes('meetup')
         if (isMeetup) categories.push('meetup')
@@ -201,18 +201,18 @@ export const getLumaEvents = async (): Promise<SupabaseEvent[]> => {
 }
 
 export const getStaticEvents = async (): Promise<{
-  upcomingEvents: SupabaseEvent[]
-  onDemandEvents: SupabaseEvent[]
+  upcomingEvents: IndoBaseEvent[]
+  onDemandEvents: IndoBaseEvent[]
   categories: { [key: string]: number }
 }> => {
-  const { data: meetups, error } = await supabase
+  const { data: meetups, error } = await indobase
     .from('meetups')
     .select('id, city, country, link, start_at, timezone, launch_week')
     .eq('is_published', true)
 
   if (error) console.log('meetups error: ', error)
 
-  const meetupEvents: SupabaseEvent[] =
+  const meetupEvents: IndoBaseEvent[] =
     meetups?.map((meetup: any) => ({
       slug: '',
       type: 'event',
@@ -228,7 +228,7 @@ export const getStaticEvents = async (): Promise<{
       timezone: meetup.timezone || 'America/Los_Angeles',
       location: `${meetup.city}, ${meetup.country}`,
       hosts: [SUPABASE_HOST],
-      source: 'supabase',
+      source: 'indobase',
       disable_page_build: true,
       link: {
         href: meetup.link || '#',
@@ -241,9 +241,9 @@ export const getStaticEvents = async (): Promise<{
     runner: '** EVENTS PAGE **',
   })
 
-  const allEvents: SupabaseEvent[] = [
+  const allEvents: IndoBaseEvent[] = [
     ...staticEvents.map(
-      (post): SupabaseEvent => ({
+      (post): IndoBaseEvent => ({
         slug: post.slug || '',
         type: (post as any).type || 'event',
         title: post.title || '',
@@ -272,16 +272,16 @@ export const getStaticEvents = async (): Promise<{
     ...meetupEvents,
   ]
 
-  const upcomingEvents = allEvents.filter((event: SupabaseEvent) =>
+  const upcomingEvents = allEvents.filter((event: IndoBaseEvent) =>
     event.end_date ? new Date(event.end_date) >= new Date() : new Date(event.date) >= new Date()
   )
 
   const onDemandEvents = allEvents.filter(
-    (event: SupabaseEvent) => new Date(event.date) < new Date() && event.onDemand === true
+    (event: IndoBaseEvent) => new Date(event.date) < new Date() && event.onDemand === true
   )
 
   const categories = upcomingEvents.reduce(
-    (acc: { [key: string]: number }, event: SupabaseEvent) => {
+    (acc: { [key: string]: number }, event: IndoBaseEvent) => {
       acc.all = (acc.all || 0) + 1
 
       event.categories?.forEach((category) => {

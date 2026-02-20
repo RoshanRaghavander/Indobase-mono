@@ -27,7 +27,7 @@ const Hackathon: NextPage = () => {
         openGraph={{
           title: data.metadata.metaTitle,
           description: data.metadata.metaDescription,
-          url: `https://supabase.com/solutions/hackathon`,
+          url: `https://indobase.com/solutions/hackathon`,
         }}
         noindex={true}
         nofollow={true}

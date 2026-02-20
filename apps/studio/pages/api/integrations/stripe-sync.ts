@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import { z } from 'zod'
-import { install, uninstall } from 'stripe-experiment-sync/supabase'
+import { install, uninstall } from 'stripe-experiment-sync/indobase'
 import { VERSION } from 'stripe-experiment-sync'
 import { waitUntil } from '@vercel/functions'
 
@@ -48,8 +48,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 }
 
 async function handleDeleteStripeSyncInstall(req: NextApiRequest, res: NextApiResponse) {
-  const supabaseToken = getBearerToken(req)
-  if (!supabaseToken) {
+  const indobaseToken = getBearerToken(req)
+  if (!indobaseToken) {
     return res
       .status(401)
       .json({ data: null, error: { message: 'Unauthorized: Invalid Authorization header' } })
@@ -65,10 +65,10 @@ async function handleDeleteStripeSyncInstall(req: NextApiRequest, res: NextApiRe
 
   waitUntil(
     uninstall({
-      supabaseAccessToken: supabaseToken,
-      supabaseProjectRef: projectRef,
+      indobaseAccessToken: indobaseToken,
+      indobaseProjectRef: projectRef,
       baseProjectUrl: process.env.NEXT_PUBLIC_CUSTOMER_DOMAIN,
-      supabaseManagementUrl: process.env.NEXT_PUBLIC_API_DOMAIN,
+      indobaseManagementUrl: process.env.NEXT_PUBLIC_API_DOMAIN,
     }).catch((error) => {
       console.error('Stripe Sync Engine uninstallation failed.', error)
       throw error
@@ -81,8 +81,8 @@ async function handleDeleteStripeSyncInstall(req: NextApiRequest, res: NextApiRe
 }
 
 async function handleSetupStripeSyncInstall(req: NextApiRequest, res: NextApiResponse) {
-  const supabaseToken = getBearerToken(req)
-  if (!supabaseToken) {
+  const indobaseToken = getBearerToken(req)
+  if (!indobaseToken) {
     return res
       .status(401)
       .json({ data: null, error: { message: 'Unauthorized: Invalid Authorization header' } })
@@ -123,11 +123,11 @@ async function handleSetupStripeSyncInstall(req: NextApiRequest, res: NextApiRes
   }
   waitUntil(
     install({
-      supabaseAccessToken: supabaseToken,
-      supabaseProjectRef: projectRef,
+      indobaseAccessToken: indobaseToken,
+      indobaseProjectRef: projectRef,
       stripeKey: stripeSecretKey,
       baseProjectUrl: process.env.NEXT_PUBLIC_CUSTOMER_DOMAIN,
-      supabaseManagementUrl: process.env.NEXT_PUBLIC_API_DOMAIN,
+      indobaseManagementUrl: process.env.NEXT_PUBLIC_API_DOMAIN,
       packageVersion: VERSION,
     }).catch((error) => {
       console.error('Stripe Sync Engine installation failed.', error)

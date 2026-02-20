@@ -45,7 +45,7 @@ You can see Broadcast Replay in action at [https://multiplayer.dev](https://mult
 Display the most recent messages when users enter a chat room, providing immediate context without complex state management:
 
 ```jsx
-const chatChannel = supabase.channel(`chat:${roomId}`, {
+const chatChannel = indobase.channel(`chat:${roomId}`, {
   config: {
     private: true,
     broadcast: {
@@ -63,7 +63,7 @@ const chatChannel = supabase.channel(`chat:${roomId}`, {
 Ensure fans never miss crucial moments, even after connection issues:
 
 ```jsx
-const gameChannel = supabase.channel(`game:${matchId}:key-events`, {
+const gameChannel = indobase.channel(`game:${matchId}:key-events`, {
   config: {
     private: true,
     broadcast: {
@@ -81,7 +81,7 @@ const gameChannel = supabase.channel(`game:${matchId}:key-events`, {
 Highlight recent changes in documents when users return:
 
 ```jsx
-const docChannel = supabase.channel(`doc:${documentId}`, {
+const docChannel = indobase.channel(`doc:${documentId}`, {
   config: {
     private: true,
     broadcast: {
@@ -131,11 +131,11 @@ channel.on('broadcast', { event: 'chat_message' }, (payload) => {
 
 Broadcast Replay is available today in **Public Alpha**. This feature requires:
 
-- Supabase JavaScript client version 2.74.0 or later
+- IndoBase JavaScript client version 2.74.0 or later
 - Messages sent via [Broadcast from Database](/docs/guides/realtime/broadcast#broadcast-from-the-database)
 - Private channels with appropriate RLS policies
 
-We're actively seeking feedback to refine this feature. If you encounter any issues or have suggestions, please [submit a support ticket](https://supabase.help/).
+We're actively seeking feedback to refine this feature. If you encounter any issues or have suggestions, please [submit a support ticket](https://indobase.help/).
 
 Check out our [documentation](/docs/guides/realtime/broadcast#broadcast-replay) for detailed implementation guides and more examples.
 

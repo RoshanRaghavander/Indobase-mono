@@ -78,7 +78,7 @@ export async function POST(req: Request) {
             { objectTypeId: '0-1', name: 'email', value: companyEmail },
           ],
           context: {
-            pageUri: 'https://supabase.com/solutions/ai-builders',
+            pageUri: 'https://indobase.com/solutions/ai-builders',
             pageName: 'Solutions / AI Builders',
           },
           legalConsentOptions: {

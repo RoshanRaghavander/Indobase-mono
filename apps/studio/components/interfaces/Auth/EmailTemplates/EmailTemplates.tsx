@@ -227,7 +227,7 @@ export const EmailTemplates = () => {
                         We’ve expanded our email templates to handle security-sensitive actions. The
                         list of templates will continue to grow as our feature-set changes, and as
                         we{' '}
-                        <InlineLink href="https://github.com/orgs/supabase/discussions/40349">
+                        <InlineLink href="https://github.com/orgs/indobase/discussions/40349">
                           gather feedback
                         </InlineLink>{' '}
                         from our community .

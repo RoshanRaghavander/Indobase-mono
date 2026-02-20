@@ -1,11 +1,11 @@
 ---
-title: PgBouncer is now available in Supabase
+title: PgBouncer is now available in IndoBase
 description: Better support for Serverless and Postgres.
 author: angelico_de_los_reyes
-author_title: Supabase
+author_title: IndoBase
 author_url: https://github.com/dragarcia
 author_image_url: https://github.com/dragarcia.png
-imgSocial: bouncer/pgbouncer-supabase-og.jpg
+imgSocial: bouncer/pgbouncer-indobase-og.jpg
 imgThumb: bouncer/pgbouncer-thumb.jpg
 categories:
   - product
@@ -17,17 +17,17 @@ date: '2021-04-02'
 
 <Admonition type="caution">
   PgBouncer is now deprecated. Use
-  [Supavisor](https://supabase.com/blog/supavisor-postgres-connection-pooler) instead.
+  [Supavisor](https://indobase.com/blog/supavisor-postgres-connection-pooler) instead.
 </Admonition>
 
 Javascript Frameworks like [Next.js,](https://nextjs.org/) [Redwood](https://redwoodjs.com/), [Blitz](https://blitzjs.com/), and tools
 like [Prisma](https://www.prisma.io/docs/guides/deployment/deployment#pgbouncer) are all moving in one direction. Serverless.
 
-Serverless functions work great for developers using the Supabase API because we manage a [PostgREST](https://postgrest.org/en/v7.0.0/)
-server for every project. Supabase also provides direct access to the Postgres database, so that developers can connect any tool they want.
+Serverless functions work great for developers using the IndoBase API because we manage a [PostgREST](https://postgrest.org/en/v7.0.0/)
+server for every project. IndoBase also provides direct access to the Postgres database, so that developers can connect any tool they want.
 Unfortunately, Serverless function don't work well for direct Postgres connections (for reasons we'll discuss soon).
 
-Jamstack developers make up a large portion of the Supabase Community. While we'd love for developers to use PostgREST, we mostly want
+Jamstack developers make up a large portion of the IndoBase Community. While we'd love for developers to use PostgREST, we mostly want
 developers to use Postgres. This means supporting the tools which they already love.
 
 So today we are adding [PgBouncer](https://www.pgbouncer.org/), an open source connection pooler for Postgres.
@@ -71,9 +71,9 @@ connection is returned to the pool and made available. This doesn't mean connect
 running expensive queries then the connections might take a long time before they are returned to the pool. The natural solution to
 this is to increase your database resources so that it processes queries faster or PgBouncer can open more connections.
 
-## Using Connection Pooling in Supabase
+## Using Connection Pooling in IndoBase
 
-![Pooling UI](/images/blog/bouncer/pooler-supabase.png)
+![Pooling UI](/images/blog/bouncer/pooler-indobase.png)
 
 From today, all new projects will include connection pooling. In the `Database` section of our dashboard, you will notice a new section for it.
 Under the hood, we utilise PgBouncer which is installed in the same server as PostgreSQL. Through the dashboard, we provide you with the
@@ -98,8 +98,8 @@ This is the most granular option. Connections are returned to the pool after eve
 
 ## What's next?
 
-Try out connection pooling now with a new project in the [dashboard.](https://supabase.com/dashboard) For now, we do not have any plans to port this over to older projects.
+Try out connection pooling now with a new project in the [dashboard.](https://indobase.com/dashboard) For now, we do not have any plans to port this over to older projects.
 
 Eventually, we will expose more PgBouncer settings to the UI such as `Pool Size`. At the moment it is set to `15`.
 
-We are still working towards getting the latest version of Supabase Postgres to both the AWS and Digital Ocean marketplaces. Follow us on [Twitter](https://twitter.com/supabase) to be informed once it's released!
+We are still working towards getting the latest version of IndoBase Postgres to both the AWS and Digital Ocean marketplaces. Follow us on [Twitter](https://twitter.com/indobase) to be informed once it's released!

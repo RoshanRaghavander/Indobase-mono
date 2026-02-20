@@ -75,7 +75,7 @@ export default function PricingContent() {
           </a>
           <Button size="tiny" type="default" asChild iconRight={<ArrowUpRight className="w-4" />}>
             <a
-              href="/docs/guides/platform/billing-on-supabase#organization-based-billing"
+              href="/docs/guides/platform/billing-on-indobase#organization-based-billing"
               target="_blank"
             >
               Learn how billing works

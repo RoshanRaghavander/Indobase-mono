@@ -136,7 +136,7 @@ function SupportFormHeader() {
   return (
     <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-y-2">
       <div className="flex items-center space-x-3">
-        <SVG src={`${BASE_PATH}/img/supabase-logo.svg`} className="h-4 w-4" />
+        <SVG src={`${BASE_PATH}/img/indobase-logo.svg`} className="h-4 w-4" />
         <h3 className="m-0 text-lg">Supabase support</h3>
       </div>
 
@@ -207,16 +207,16 @@ function SupportFormDirectEmailInfo({ projectRef }: SupportFormDirectEmailInfoPr
             Email:{' '}
             <span className="inline-flex items-center gap-x-1">
               <a
-                href={`mailto:support@supabase.com?subject=${encodeURIComponent('Support Request')}${hasProjectRef ? `${encodeURIComponent(' for Project ID: ')}${encodeURIComponent(projectRef)}` : ''}&body=${encodeURIComponent('Here is a detailed description of the problem I am experiencing and any other information that might be helpful...')}`}
+                href={`mailto:support@indobase.io?subject=${encodeURIComponent('Support Request')}${hasProjectRef ? `${encodeURIComponent(' for Project ID: ')}${encodeURIComponent(projectRef)}` : ''}&body=${encodeURIComponent('Here is a detailed description of the problem I am experiencing and any other information that might be helpful...')}`}
                 className="hover:text-foreground transition-colors duration-100"
               >
                 <code className="text-code-inline !text-foreground-light underline decoration-foreground-lighter/50 hover:decoration-foreground-lighter/80 transition-colors duration-100">
-                  support@supabase.com
+                  support@indobase.io
                 </code>
               </a>
               <CopyButton
                 type="text"
-                text="support@supabase.com"
+                text="support@indobase.io"
                 iconOnly
                 onClick={() => toast.success('Copied email address to clipboard')}
               />

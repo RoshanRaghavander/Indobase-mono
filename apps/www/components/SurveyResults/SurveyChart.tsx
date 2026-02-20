@@ -13,8 +13,8 @@ import { ChevronsUpDown } from 'lucide-react'
 import TwoOptionToggle from '../../../studio/components/ui/TwoOptionToggle'
 import CodeBlock from '~/components/CodeBlock/CodeBlock'
 
-// Separate Supabase client for survey project
-const externalSupabase = createClient(
+// Separate IndoBase client for survey project
+const externalIndoBase = createClient(
   process.env.NEXT_PUBLIC_SURVEY_SUPABASE_URL!,
   process.env.NEXT_PUBLIC_SURVEY_SUPABASE_ANON_KEY!
 )
@@ -119,7 +119,7 @@ function useSurveyData(
         let data, fetchError
 
         const functionParamsData = functionParams(activeFilters)
-        const { data: functionData, error: functionError } = await externalSupabase.rpc(
+        const { data: functionData, error: functionError } = await externalIndoBase.rpc(
           functionName,
           functionParamsData
         )

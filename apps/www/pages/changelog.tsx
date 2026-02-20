@@ -125,11 +125,11 @@ const recursiveDecodeURI = (uri: string | null) => {
 
 /**
  * [Terry]
- * this page powers supabase.com/changelog
+ * this page powers indobase.com/changelog
  * this page used to just be a feed of the releases endpoint
- * (https://api.github.com/repos/supabase/supabase/releases) (rest api)
+ * (https://api.github.com/repos/indobase/indobase/releases) (rest api)
  * but is now a blend of that legacy relases and the new Changelog category of the Discussions
- * https://github.com/orgs/supabase/discussions/categories/changelog (graphql api)
+ * https://github.com/orgs/indobase/discussions/categories/changelog (graphql api)
  * We should use the Changelog Discussions category for all future changelog entries and stop using releases
  */
 
@@ -149,8 +149,8 @@ export const getServerSideProps: GetServerSideProps = async ({ res, query }) => 
   async function fetchGitHubReleases() {
     try {
       const response = await octokitRest.repos.listReleases({
-        owner: 'supabase',
-        repo: 'supabase',
+        owner: 'indobase',
+        repo: 'indobase',
         per_page: 10,
         page: restPage,
       })
@@ -177,8 +177,8 @@ export const getServerSideProps: GetServerSideProps = async ({ res, query }) => 
   )
 
   const { discussions, pageInfo } = await fetchDiscussions(
-    'supabase',
-    'supabase',
+    'indobase',
+    'indobase',
     'DIC_kwDODMpXOc4CAFUr', // 'Changelog' category
     next
   )
@@ -270,7 +270,7 @@ function ChangelogPage({ changelog, pageInfo, restPage }: ChangelogPageProps) {
   const { endCursor: end, hasNextPage, hasPreviousPage } = pageInfo
 
   const TITLE = 'Changelog'
-  const DESCRIPTION = 'New updates and improvements to Supabase'
+  const DESCRIPTION = 'New updates and improvements to IndoBase'
   return (
     <>
       <NextSeo
@@ -278,7 +278,7 @@ function ChangelogPage({ changelog, pageInfo, restPage }: ChangelogPageProps) {
         openGraph={{
           title: TITLE,
           description: DESCRIPTION,
-          url: `https://supabase.com/changelog`,
+          url: `https://indobase.com/changelog`,
           type: 'article',
         }}
       />

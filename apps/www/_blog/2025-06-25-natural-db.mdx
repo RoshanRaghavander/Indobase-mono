@@ -1,6 +1,6 @@
 ---
 title: 'Build a Personalized AI Assistant with Postgres'
-description: 'Learn how to build a Supabase powered AI assistant that combines PostgreSQL with scheduling and external tools for long-term memory, structured data management and autonomous actions.'
+description: 'Learn how to build a IndoBase powered AI assistant that combines PostgreSQL with scheduling and external tools for long-term memory, structured data management and autonomous actions.'
 categories:
   - product
 tags:
@@ -22,7 +22,7 @@ See it at work in the video below.
 
 <video className="rounded-sm m-0" autoPlay playsInline loop muted allowfullscreen>
   <source
-    src="https://xguihxuzqibwxjnimxev.supabase.co/storage/v1/object/public/videos/marketing/blog/natural-db/natural-db-demo-combined.mp4"
+    src="https://xguihxuzqibwxjnimxev.indobase.co/storage/v1/object/public/videos/marketing/blog/natural-db/natural-db-demo-combined.mp4"
     type="video/mp4"
   />
 </video>
@@ -144,40 +144,40 @@ When you say "be more formal" or "address me by name," these preferences are sto
 
 ### Prerequisites
 
-- Supabase account (free tier sufficient)
+- IndoBase account (free tier sufficient)
 - OpenAI API key
 - Telegram bot token
 - Zapier account (optional)
 
 ### Optional: Using the CLI
 
-If you prefer the command line, you can use the Supabase CLI to set up your database and Edge Functions. This replaces **Step 1** and **Step 2**.
+If you prefer the command line, you can use the IndoBase CLI to set up your database and Edge Functions. This replaces **Step 1** and **Step 2**.
 
 1.  **Clone the repository**.
     ```bash
-    git clone https://github.com/supabase-community/natural-db.git
+    git clone https://github.com/indobase-community/natural-db.git
     cd natural-db
     ```
-2.  **Log in to the Supabase CLI and link your project**.
-    Create a new project on the [Supabase Dashboard](https://supabase.com/dashboard), then run:
+2.  **Log in to the IndoBase CLI and link your project**.
+    Create a new project on the [IndoBase Dashboard](https://indobase.com/dashboard), then run:
     ```bash
-    supabase login
-    supabase link --project-ref <YOUR-PROJECT-ID>
+    indobase login
+    indobase link --project-ref <YOUR-PROJECT-ID>
     ```
 3.  **Push the database schema**.
     ```bash
-    supabase db push
+    indobase db push
     ```
 4.  **Deploy Edge Functions**.
     ```bash
-    supabase functions deploy --no-verify-jwt
+    indobase functions deploy --no-verify-jwt
     ```
 
 After completing these steps, you can proceed to **Step 3: Telegram Bot**.
 
 ### Step 1: Database Setup
 
-Run the migration SQL in your Supabase SQL editor: [migration.sql](https://github.com/supabase-community/natural-db/blob/main/supabase/migrations/20250623120000_create_initial_schema.sql)
+Run the migration SQL in your IndoBase SQL editor: [migration.sql](https://github.com/indobase-community/natural-db/blob/main/indobase/migrations/20250623120000_create_initial_schema.sql)
 
 - Sets up required extensions like `pgvector` and `pg_cron`.
 - Creates the `memories` schema for the assistant's data.
@@ -186,30 +186,30 @@ Run the migration SQL in your Supabase SQL editor: [migration.sql](https://githu
 
 ### Step 2: Edge Functions
 
-Create three functions in Supabase dashboard:
+Create three functions in IndoBase dashboard:
 
 **natural-db**: Main AI brain handling all processing, database operations, scheduling, and tool integration
 
-- [natural-db/index.ts](https://github.com/supabase-community/natural-db/blob/main/supabase/functions/natural-db/index.ts)
-- [natural-db/db-utils.ts](https://github.com/supabase-community/natural-db/blob/main/supabase/functions/natural-db/db-utils.ts)
-- [natural-db/tools.ts](https://github.com/supabase-community/natural-db/blob/main/supabase/functions/natural-db/tools.ts)
+- [natural-db/index.ts](https://github.com/indobase-community/natural-db/blob/main/indobase/functions/natural-db/index.ts)
+- [natural-db/db-utils.ts](https://github.com/indobase-community/natural-db/blob/main/indobase/functions/natural-db/db-utils.ts)
+- [natural-db/tools.ts](https://github.com/indobase-community/natural-db/blob/main/indobase/functions/natural-db/tools.ts)
 
 **telegram-input**: Webhook handler for incoming messages with user validation and timezone management
 
-- [telegram-input/index.ts](https://github.com/supabase-community/natural-db/blob/main/supabase/functions/telegram-input/index.ts)
+- [telegram-input/index.ts](https://github.com/indobase-community/natural-db/blob/main/indobase/functions/telegram-input/index.ts)
 
 **telegram-outgoing**: Response formatter and delivery handler with error management
 
-- [telegram-outgoing/index.ts](https://github.com/supabase-community/natural-db/blob/main/supabase/functions/telegram-outgoing/index.ts)
+- [telegram-outgoing/index.ts](https://github.com/indobase-community/natural-db/blob/main/indobase/functions/telegram-outgoing/index.ts)
 
 ### Step 3: Telegram Bot
 
 1. Create bot via [@BotFather](https://t.me/botfather)
-2. Set webhook: `https://api.telegram.org/bot[TOKEN]/setWebhook?url=https://[PROJECT].supabase.co/functions/v1/telegram-input`
+2. Set webhook: `https://api.telegram.org/bot[TOKEN]/setWebhook?url=https://[PROJECT].indobase.co/functions/v1/telegram-input`
 
 ### Step 4: Environment Variables
 
-Set the following environment variables in your Supabase project settings (Project Settings → Edge Functions):
+Set the following environment variables in your IndoBase project settings (Project Settings → Edge Functions):
 
 ##### Required Variables:
 
@@ -236,7 +236,7 @@ Try these commands with your bot:
 
 Based on 10 messages per day (300 messages/month):
 
-- **Supabase**: Free tier (500MB database, 5GB bandwidth) - $0/month
+- **IndoBase**: Free tier (500MB database, 5GB bandwidth) - $0/month
 - **OpenAI GPT-4.1-mini**: $0.40 per 1M input tokens, $1.60 per 1M output tokens
   - Average 1200 input + 800 output tokens per message
   - Input: 300 messages × 1200 tokens × $0.40/1M = $0.144/month
@@ -253,4 +253,4 @@ Based on 10 messages per day (300 messages/month):
 
 This project showcases how combining modular components—with LLMs as just one piece—can create systems that are greater than the sum of their parts. I hope this inspires you to build and deploy your own personalized AI assistant while maintaining full control over your code and data. For additional inspiration, check out [this excellent post by Geoffrey Litt](https://www.geoffreylitt.com/2025/04/12/how-i-made-a-useful-ai-assistant-with-one-sqlite-table-and-a-handful-of-cron-jobs).
 
-Ready to build your own AI assistant? Check out the [GitHub repository](https://github.com/supabase-community/natural-db) to get started, contribute improvements, or share your own use cases.
+Ready to build your own AI assistant? Check out the [GitHub repository](https://github.com/indobase-community/natural-db) to get started, contribute improvements, or share your own use cases.

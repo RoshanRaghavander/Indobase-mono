@@ -3,7 +3,7 @@ import { RealtimeChannel } from '@supabase/supabase-js'
 
 import useConfData, { type UserTicketData } from './use-conf-data'
 import { LW15_URL } from 'lib/constants'
-import supabase from '../supabase'
+import indobase from '../indobase'
 import { BG_COLORS, TYPO_COLORS } from '../Ticketing/colors'
 import { fetchGitHubUser } from '../utils/github-api'
 
@@ -11,7 +11,7 @@ function subscribeToTicketChanges(
   username: string,
   onChange: (payload: any) => void
 ): RealtimeChannel {
-  return supabase
+  return indobase
     .channel('changes')
     .on(
       'postgres_changes',
@@ -81,7 +81,7 @@ export const useRegistration = ({ onError, onRegister }: RegistrationProps = {})
         }),
       }
 
-      const { error: ticketInsertError } = await supabase
+      const { error: ticketInsertError } = await indobase
         .from('tickets')
         .insert({
           user_id: userId,
@@ -99,10 +99,10 @@ export const useRegistration = ({ onError, onRegister }: RegistrationProps = {})
       if (ticketInsertError && ticketInsertError?.code !== '23505') {
         dispatch({ type: 'USER_TICKET_FETCH_ERROR', payload: ticketInsertError })
         callbacksRef.current.onError?.(ticketInsertError)
-        return supabase.auth.signOut()
+        return indobase.auth.signOut()
       }
 
-      const { data, error: ticketsViewError } = await supabase
+      const { data, error: ticketsViewError } = await indobase
         .from('tickets_view')
         .select('*')
         .eq('launch_week', 'lw15')
@@ -138,7 +138,7 @@ export const useRegistration = ({ onError, onRegister }: RegistrationProps = {})
       redirectTo += `?referal=${referal}`
     }
 
-    const response = await supabase?.auth.signInWithOAuth({
+    const response = await indobase?.auth.signInWithOAuth({
       provider: 'github',
       options: {
         redirectTo,
@@ -181,7 +181,7 @@ export const useRegistration = ({ onError, onRegister }: RegistrationProps = {})
   }, [dispatch, fetchOrCreateUser, sessionUser?.user_metadata?.user_name])
 
   useEffect(() => {
-    supabase.auth.getSession().then(({ data, error }) => {
+    indobase.auth.getSession().then(({ data, error }) => {
       if (error) console.error('Session error', error)
       dispatch({ type: 'SESSION_UPDATED', payload: data.session })
       dispatch({ type: 'SESSION_LOADED' })
@@ -189,7 +189,7 @@ export const useRegistration = ({ onError, onRegister }: RegistrationProps = {})
 
     const {
       data: { subscription },
-    } = supabase.auth.onAuthStateChange((_event, session) => {
+    } = indobase.auth.onAuthStateChange((_event, session) => {
       dispatch({ type: 'SESSION_UPDATED', payload: session })
 
       if (session && window.location.hash.includes('access_token')) {
@@ -211,7 +211,7 @@ export const useRegistration = ({ onError, onRegister }: RegistrationProps = {})
         return
       }
 
-      const { error } = await supabase
+      const { error } = await indobase
         .from('tickets')
         .update({ game_won_at: new Date() })
         .eq('launch_week', 'lw15')
@@ -247,7 +247,7 @@ export async function updateTicketColors({
   foreground: string
 }) {
   const githubUserData = await fetchGitHubUser(username)
-  const { error } = await supabase
+  const { error } = await indobase
     .from('tickets')
     .update({
       metadata: {

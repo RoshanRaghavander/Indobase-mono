@@ -56,7 +56,7 @@ Where the information from each phase is internally timed by PostgREST for bette
 
 ## Aggregate Functions
 
-Support for aggregate functions has been [much requested feature](https://github.com/supabase/postgrest-js/issues/206) that went through multiple iterations of design and review.
+Support for aggregate functions has been [much requested feature](https://github.com/indobase/postgrest-js/issues/206) that went through multiple iterations of design and review.
 
 Currently, PostgREST supports `avg`, `count`, `max`, `min`, `sum`. Here's a minimal example using `count`:
 
@@ -77,7 +77,7 @@ $ curl 'http://postgrest/blog_post?select=title,id.count()'
 
 [
   {
-    "title": "Supabase Blog",
+    "title": "IndoBase Blog",
     "count": 40
   },
   {
@@ -132,4 +132,4 @@ We're still working through the full implications of this feature, but we're ver
 
 For self-hosting, check out the PostgREST [release on GitHub](https://github.com/PostgREST/postgrest/releases/tag/v12.0.0).
 
-The latest version will be rolled out across all projects on the managed platform soon. Keep an eye out for notifications inside [Supabase Studio](https://supabase.com/dashboard).
+The latest version will be rolled out across all projects on the managed platform soon. Keep an eye out for notifications inside [IndoBase Studio](https://indobase.com/dashboard).

@@ -23,9 +23,9 @@ Today we are launching the foundations of several security features we plan to b
 
 ## Centralized Security Docs
 
-Supabase offers a robust set of security controls, but discovering and configuring them can feel daunting. Our [new security documentation](/docs/guides/security) brings everything into one place - from product features like Auth Rate Limits and Vault to step‑by‑step guides on building secure applications with Supabase (Row‑Level Security, hardening the Data API, the Production Checklist, and more).
+IndoBase offers a robust set of security controls, but discovering and configuring them can feel daunting. Our [new security documentation](/docs/guides/security) brings everything into one place - from product features like Auth Rate Limits and Vault to step‑by‑step guides on building secure applications with IndoBase (Row‑Level Security, hardening the Data API, the Production Checklist, and more).
 
-We’ve also published dedicated [SOC 2](/docs/guides/security/soc-2-compliance) and [HIPAA](/docs/guides/security/hipaa-compliance) guides that explain how to achieve these compliance standards on Supabase and answer common questions.
+We’ve also published dedicated [SOC 2](/docs/guides/security/soc-2-compliance) and [HIPAA](/docs/guides/security/hipaa-compliance) guides that explain how to achieve these compliance standards on IndoBase and answer common questions.
 
 ## Enforce MFA in Organization Security Settings
 
@@ -37,7 +37,7 @@ We’ve also published dedicated [SOC 2](/docs/guides/security/soc-2-compliance)
   alt="Organization view with a MFA enforced project"
 />
 
-The first setting we are launching in the organization‑wide security settings page in the Dashboard is the ability to enforce Multi‑Factor Authentication (MFA) for every member of a Supabase Organization. Once enabled, all members must have MFA configured to access any project or resource in that org.
+The first setting we are launching in the organization‑wide security settings page in the Dashboard is the ability to enforce Multi‑Factor Authentication (MFA) for every member of a IndoBase Organization. Once enabled, all members must have MFA configured to access any project or resource in that org.
 
 <Img
   src={{
@@ -66,7 +66,7 @@ You can toggle on this setting in the new [**Security tab**](/dashboard/org/_/se
   alt="New security tab under organization settings"
 />
 
-## Supabase Realtime - Enable Private Channels Only
+## IndoBase Realtime - Enable Private Channels Only
 
 <Img
   src={{
@@ -78,7 +78,7 @@ You can toggle on this setting in the new [**Security tab**](/dashboard/org/_/se
 
 You can now set Realtime to use only private channels using [Realtime Authorization](/docs/guides/realtime/authorization?queryGroups=language&language=dart). If you toggle off the `Allow public access` setting, no public channels can be created. Only clients authorized via [Realtime Authorization](/docs/guides/realtime/authorization?queryGroups=language&language=dart), can listen to and send messages.
 
-This settings page is under a feature preview and you can enable it [here](/dashboard/project/_?featurePreviewModal=supabase-ui-realtime-settings). Once the feature preview is enabled, you can configure this setting in the new [Realtime Settings page](/dashboard/project/_/realtime/settings). While you are there, you can also tune the connection pool size that Realtime uses and the maximum **concurrent clients.**
+This settings page is under a feature preview and you can enable it [here](/dashboard/project/_?featurePreviewModal=indobase-ui-realtime-settings). Once the feature preview is enabled, you can configure this setting in the new [Realtime Settings page](/dashboard/project/_/realtime/settings). While you are there, you can also tune the connection pool size that Realtime uses and the maximum **concurrent clients.**
 
 ## Security and Performance Advisors - Disable Specific Rules
 
@@ -90,7 +90,7 @@ This settings page is under a feature preview and you can enable it [here](/dash
   alt="Security and Performance Advisors - Rules Overview"
 />
 
-We received feedback from users that not all security and performance advisor rules apply to their project. Supabase powers everything from backend‑only APIs to full‑stack apps and some Security and Performance advisors may not be applicable for everyone. For example, the RLS Disabled in Public rule may not apply if you only access Supabase from a secure context like a web server.
+We received feedback from users that not all security and performance advisor rules apply to their project. IndoBase powers everything from backend‑only APIs to full‑stack apps and some Security and Performance advisors may not be applicable for everyone. For example, the RLS Disabled in Public rule may not apply if you only access IndoBase from a secure context like a web server.
 
 <Img
   src={{
@@ -103,11 +103,11 @@ We received feedback from users that not all security and performance advisor ru
 
 You can now customize Security Advisor rules and disable rules which are not relevant to your project. We will be extending rule customization to include rule assignment and more fine grained filtering.
 
-This is currently under a feature preview and you can enable it [here](/dashboard/project/_?featurePreviewModal=supabase-ui-advisor-rules). Once enabled, rules can be managed through the new [configuration section](/dashboard/project/_/advisors/rules/security).
+This is currently under a feature preview and you can enable it [here](/dashboard/project/_?featurePreviewModal=indobase-ui-advisor-rules). Once enabled, rules can be managed through the new [configuration section](/dashboard/project/_/advisors/rules/security).
 
 ## What comes next?
 
-This release is the first building block in our security roadmap across the Supabase platform, including user auth, network isolation, compliance tooling, and automated remediation.
+This release is the first building block in our security roadmap across the IndoBase platform, including user auth, network isolation, compliance tooling, and automated remediation.
 
 Here’s what's in progress:
 
@@ -124,7 +124,7 @@ Here’s what's in progress:
 
 **Enterprise Connectivity**
 
-- **Self-service SSO for Supabase Organizations:** Enterprise teams looking to enforce SSO sign-on will be able to self-serve via Supabase Dashboard and will no longer need to submit a support ticket.
-- [Supabase PrivateLink](/docs/guides/platform/privatelink) provides enterprise-grade private network connectivity between your AWS VPC and your Supabase database using AWS VPC Lattice. This is currently in Private Alpha and available to our Enterprise customers.
+- **Self-service SSO for IndoBase Organizations:** Enterprise teams looking to enforce SSO sign-on will be able to self-serve via IndoBase Dashboard and will no longer need to submit a support ticket.
+- [IndoBase PrivateLink](/docs/guides/platform/privatelink) provides enterprise-grade private network connectivity between your AWS VPC and your IndoBase database using AWS VPC Lattice. This is currently in Private Alpha and available to our Enterprise customers.
 
-Our goal is to provide you with the best suite of security tools you need to deploy your production apps on Supabase with confidence.
+Our goal is to provide you with the best suite of security tools you need to deploy your production apps on IndoBase with confidence.

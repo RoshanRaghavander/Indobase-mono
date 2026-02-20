@@ -7,7 +7,7 @@ const corsHeaders = {
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
 }
 
-const STORAGE_URL = 'https://obuldanrptloktxcffvn.supabase.co/storage/v1/object/public/images/lwx'
+const STORAGE_URL = 'https://obuldanrptloktxcffvn.indobase.co/storage/v1/object/public/images/lwx'
 
 // Load custom font
 const FONT_URL = `${STORAGE_URL}/font/CircularStd-Book.otf`
@@ -46,9 +46,9 @@ export async function handler(req: Request) {
     if (!username) throw new Error('missing username param')
 
     const supabaseAdminClient = createClient(
-      // Supabase API URL - env var exported by default when deployed.
+      // IndoBase API URL - env var exported by default when deployed.
       Deno.env.get('MISC_USE_URL') ?? '',
-      // Supabase API SERVICE ROLE KEY - env var exported by default when deployed.
+      // IndoBase API SERVICE ROLE KEY - env var exported by default when deployed.
       Deno.env.get('MISC_USE_ANON_KEY') ?? ''
     )
 
@@ -87,15 +87,15 @@ export async function handler(req: Request) {
     const BACKGROUND = {
       regular: {
         BG: `${STORAGE_URL}/assets/lwx_ticket_bg_regular.png?t=2023-11-27T12%3A35%3A58.316Z`,
-        LOGO: `${STORAGE_URL}/assets/logos/supabase_logo_reg.png`,
+        LOGO: `${STORAGE_URL}/assets/logos/indobase_logo_reg.png`,
       },
       platinum: {
         BG: `${STORAGE_URL}/assets/lwx_ticket_bg_platinum.png?t=2023-11-27T12%3A35%3A58.316Z`,
-        LOGO: `${STORAGE_URL}/assets/logos/supabase_logo_platinum.png`,
+        LOGO: `${STORAGE_URL}/assets/logos/indobase_logo_platinum.png`,
       },
       secret: {
         BG: `${STORAGE_URL}/assets/lwx_ticket_bg_secret.png?t=2023-11-27T12%3A35%3A58.316Z`,
-        LOGO: `${STORAGE_URL}/assets/logos/supabase_logo_platinum.png`,
+        LOGO: `${STORAGE_URL}/assets/logos/indobase_logo_platinum.png`,
       },
     }
 

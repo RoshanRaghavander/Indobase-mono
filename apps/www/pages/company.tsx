@@ -23,9 +23,9 @@ type Props = {}
 const Index = ({}: Props) => {
   const router = useRouter()
 
-  const meta_title = "One of the world's fastest-growing open source communities | Supabase"
+  const meta_title = "One of the world's fastest-growing open source communities | IndoBase"
   const meta_description =
-    'Supabase is the community that builds the infrastructure for your applications. Build using Supabase for any size project—from a new startup to even large growing companies'
+    'IndoBase is the community that builds the infrastructure for your applications. Build using IndoBase for any size project—from a new startup to even large growing companies'
 
   return (
     <>
@@ -35,10 +35,10 @@ const Index = ({}: Props) => {
         openGraph={{
           title: meta_title,
           description: meta_description,
-          url: `https://supabase.com/${router.pathname}`,
+          url: `https://indobase.com/${router.pathname}`,
           images: [
             {
-              url: `https://supabase.com/images/og/supabase-og.png`,
+              url: `https://indobase.com/images/og/indobase-og.png`,
             },
           ],
         }}
@@ -83,14 +83,14 @@ const Team = () => {
           <div className="col-span-8 ">
             <p>
               <p className="text-foreground text-lg">
-                Supabase is fully remote, with a strong affinity for open source maintainers and
+                IndoBase is fully remote, with a strong affinity for open source maintainers and
                 ex-Founders. Our engineering team is made up of developers from AWS, Google,
                 Palantir, Stripe, and other YC companies.
               </p>
             </p>
           </div>
           <div className=" col-span-4 pt-8 md:mt-0 md:text-right">
-            <a href="https://supabase.com/careers">
+            <a href="https://indobase.com/careers">
               <Button size="medium" className="text-white">
                 Join the team
               </Button>

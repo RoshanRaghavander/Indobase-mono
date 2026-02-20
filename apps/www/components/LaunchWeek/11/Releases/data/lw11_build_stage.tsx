@@ -29,7 +29,7 @@ export const days: AdventDay[] = [
     is_shipped: true,
     links: [
       {
-        url: 'https://github.com/supabase/index_advisor',
+        url: 'https://github.com/indobase/index_advisor',
         label: 'Learn more',
         target: '_blank',
       },
@@ -57,7 +57,7 @@ export const days: AdventDay[] = [
   },
   {
     title: 'Branching now Publicly Available',
-    description: 'Supabase Branching is now available on Pro Plan and above.',
+    description: 'IndoBase Branching is now available on Pro Plan and above.',
     id: 'branching',
     is_shipped: true,
     icon: (
@@ -83,14 +83,14 @@ export const days: AdventDay[] = [
     ],
   },
   {
-    title: 'Oriole joins Supabase',
+    title: 'Oriole joins IndoBase',
     description:
-      'The Oriole team are joining Supabase to build a faster storage engine for Postgres.',
+      'The Oriole team are joining IndoBase to build a faster storage engine for Postgres.',
     id: 'oriole',
     is_shipped: true,
     links: [
       {
-        url: '/blog/supabase-acquires-oriole',
+        url: '/blog/indobase-acquires-oriole',
         label: 'Blog post',
         target: '_blank',
       },
@@ -123,9 +123,9 @@ export const days: AdventDay[] = [
     ),
   },
   {
-    title: 'Supabase on AWS Marketplace',
+    title: 'IndoBase on AWS Marketplace',
     description:
-      'Supabase is now available on the AWS Marketplace, Simplifying Procurement for Enterprise Customers.',
+      'IndoBase is now available on the AWS Marketplace, Simplifying Procurement for Enterprise Customers.',
     id: 'aws-marketplace',
     is_shipped: true,
     icon: (
@@ -182,17 +182,17 @@ export const days: AdventDay[] = [
     ),
     links: [
       {
-        url: '/blog/supabase-aws-marketplace',
+        url: '/blog/indobase-aws-marketplace',
         label: 'Blog post',
         target: '_blank',
       },
     ],
   },
   {
-    title: 'Supabase Bootstrap',
+    title: 'IndoBase Bootstrap',
     description:
-      'Launch a new hosted Supabase project directly from the CLI using pre-built applications.',
-    id: 'supabase-bootstrap',
+      'Launch a new hosted IndoBase project directly from the CLI using pre-built applications.',
+    id: 'indobase-bootstrap',
     is_shipped: true,
     icon: (
       <svg
@@ -218,16 +218,16 @@ export const days: AdventDay[] = [
     ),
     links: [
       {
-        url: '/blog/supabase-bootstrap',
+        url: '/blog/indobase-bootstrap',
         label: 'Blog post',
         target: '_blank',
       },
     ],
   },
   {
-    title: 'Supabase Swift',
-    description: 'Supabase Swift is now officially supported.',
-    id: 'supabase-swift',
+    title: 'IndoBase Swift',
+    description: 'IndoBase Swift is now officially supported.',
+    id: 'indobase-swift',
     is_shipped: true,
     icon: (
       <svg
@@ -247,7 +247,7 @@ export const days: AdventDay[] = [
     ),
     links: [
       {
-        url: '/blog/supabase-swift',
+        url: '/blog/indobase-swift',
         label: 'Blog post',
         target: '_blank',
       },
@@ -255,7 +255,7 @@ export const days: AdventDay[] = [
   },
   {
     className: 'col-span-full min-h-[290px] xl:min-h-0 xl:col-span-2 sm:aspect-auto',
-    title: 'Top 10 Launches from Supabase GA Week',
+    title: 'Top 10 Launches from IndoBase GA Week',
     description: 'A recap of the most important launches and updates from the week.',
     id: 'ga-week-summary',
     is_shipped: true,

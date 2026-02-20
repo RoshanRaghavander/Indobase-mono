@@ -2,7 +2,7 @@ import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import { cn } from 'ui'
 import useConfData from '../hooks/use-conf-data'
-import { SupabaseClient } from '@supabase/supabase-js'
+import { IndoBaseClient } from '@supabase/supabase-js'
 import { ArrowRight } from 'lucide-react'
 
 export interface Meetup {
@@ -23,11 +23,11 @@ function addHours(date: Date, hours: number) {
 }
 
 const LW11Meetups = ({ meetups }: { meetups?: Meetup[] }) => {
-  const { supabase } = useConfData()
+  const { indobase } = useConfData()
   const now = new Date(Date.now())
   const [meets, setMeets] = useState<Meetup[]>(meetups ?? [])
   const [realtimeChannel, setRealtimeChannel] = useState<ReturnType<
-    SupabaseClient['channel']
+    IndoBaseClient['channel']
   > | null>(null)
   const [activeMeetup, setActiveMeetup] = useState<Meetup>(meets[0])
   const [isMounted, setIsMounted] = useState(false)
@@ -38,8 +38,8 @@ const LW11Meetups = ({ meetups }: { meetups?: Meetup[] }) => {
 
   useEffect(() => {
     // Listen to realtime changes
-    if (supabase && !realtimeChannel) {
-      const channel = supabase
+    if (indobase && !realtimeChannel) {
+      const channel = indobase
         .channel('lw11_meetups')
         .on(
           'postgres_changes',
@@ -50,7 +50,7 @@ const LW11Meetups = ({ meetups }: { meetups?: Meetup[] }) => {
             filter: undefined,
           },
           async () => {
-            const { data: newMeets } = await supabase
+            const { data: newMeets } = await indobase
               .from('lw11_meetups')
               .select('*')
               .neq('isPublished', false)

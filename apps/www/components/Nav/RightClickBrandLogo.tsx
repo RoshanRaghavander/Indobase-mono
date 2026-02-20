@@ -15,11 +15,11 @@ import {
   DropdownMenuTrigger,
 } from 'ui'
 
-import * as supabaseLogoWordmarkDark from 'common/assets/images/supabase-logo-wordmark--dark.png'
-import * as supabaseLogoWordmarkLight from 'common/assets/images/supabase-logo-wordmark--light.png'
+import * as indobaseLogoWordmarkDark from 'common/assets/images/indobase-logo-wordmark--dark.png'
+import * as indobaseLogoWordmarkLight from 'common/assets/images/indobase-logo-wordmark--light.png'
 
 /**
- * Right click on the Supabase logo in the website navbar
+ * Right click on the IndoBase logo in the website navbar
  * for quick access to brand assets.
  */
 const RightClickBrandLogo = () => {
@@ -49,7 +49,7 @@ const RightClickBrandLogo = () => {
   }, [setOpen])
 
   /**
-   * Open dropdown by right clicking on the Supabase logo
+   * Open dropdown by right clicking on the IndoBase logo
    */
   const handleRightClick = (e: MouseEvent) => {
     e.preventDefault()
@@ -98,18 +98,18 @@ const RightClickBrandLogo = () => {
           className="block w-auto h-6 focus-visible:ring-2 focus-visible:outline-none focus-visible:ring-foreground-lighter focus-visible:ring-offset-4 focus-visible:ring-offset-background-alternative focus-visible:rounded-sm"
         >
           <Image
-            src={supabaseLogoWordmarkLight}
+            src={indobaseLogoWordmarkLight}
             width={124}
             height={24}
-            alt="Supabase Logo"
+            alt="IndoBase Logo"
             className="dark:hidden"
             priority
           />
           <Image
-            src={supabaseLogoWordmarkDark}
+            src={indobaseLogoWordmarkDark}
             width={124}
             height={24}
-            alt="Supabase Logo"
+            alt="IndoBase Logo"
             className="hidden dark:block"
             priority
           />
@@ -246,7 +246,7 @@ const menuItems: MenuItemProps[][] = [
           />
         </svg>
       ),
-      href: '/supabase-wordmark.zip',
+      href: '/indobase-wordmark.zip',
     },
     {
       label: 'Download brand assets',

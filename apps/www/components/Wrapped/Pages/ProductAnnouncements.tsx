@@ -19,23 +19,23 @@ const months: Month[] = [
     announcements: [
       {
         title: 'Third-party Auth with Firebase is now GA',
-        url: 'https://supabase.com/docs/guides/auth/third-party/firebase-auth',
+        url: 'https://indobase.com/docs/guides/auth/third-party/firebase-auth',
       },
       {
         title: 'Easier to see errors in log charts',
-        url: 'https://github.com/supabase/supabase/pull/32742',
+        url: 'https://github.com/indobase/indobase/pull/32742',
       },
       {
         title: 'Enhanced type inference for JSON fields',
-        url: 'https://github.com/orgs/supabase/discussions/32925',
+        url: 'https://github.com/orgs/indobase/discussions/32925',
       },
       {
         title: 'Type validation for query filter values',
-        url: 'https://supabase.com/docs/guides/api/rest/generating-types',
+        url: 'https://indobase.com/docs/guides/api/rest/generating-types',
       },
       {
         title: 'AI Prompt for writing Edge Functions',
-        url: 'https://supabase.com/docs/guides/getting-started/ai-prompts/edge-functions',
+        url: 'https://indobase.com/docs/guides/getting-started/ai-prompts/edge-functions',
       },
     ],
   },
@@ -43,7 +43,7 @@ const months: Month[] = [
     name: 'February 2025',
     announcements: [
       {
-        title: 'Deploy Edge Functions from the Supabase dashboard',
+        title: 'Deploy Edge Functions from the IndoBase dashboard',
         url: 'https://x.com/kiwicopple/status/1889031271801905543',
       },
       {
@@ -55,20 +55,20 @@ const months: Month[] = [
         url: 'https://x.com/kiwicopple/status/1892394059559231728',
       },
       {
-        title: 'Connect AI tools and LLMs to Supabase',
-        url: 'https://supabase.com/docs/guides/getting-started/mcp',
+        title: 'Connect AI tools and LLMs to IndoBase',
+        url: 'https://indobase.com/docs/guides/getting-started/mcp',
       },
       {
         title: 'Third-party Auth is now a lot cheaper',
-        url: 'https://github.com/orgs/supabase/discussions/33959',
+        url: 'https://github.com/orgs/indobase/discussions/33959',
       },
       {
         title: 'New billing documentation',
-        url: 'https://supabase.com/docs/guides/platform/billing-on-supabase',
+        url: 'https://indobase.com/docs/guides/platform/billing-on-indobase',
       },
       {
         title: 'Using Postgres as a Graph Database',
-        url: 'https://supabase.com/blog/pgrouting-postgres-graph-database',
+        url: 'https://indobase.com/blog/pgrouting-postgres-graph-database',
       },
       {
         title: 'HubSpot Foreign Data Wrapper',
@@ -80,7 +80,7 @@ const months: Month[] = [
       },
       {
         title: 'SQL Editor in Dashboard',
-        url: 'https://github.com/orgs/supabase/discussions/33835',
+        url: 'https://github.com/orgs/indobase/discussions/33835',
       },
     ],
   },
@@ -89,40 +89,40 @@ const months: Month[] = [
     isLaunchWeek: true,
     announcements: [
       {
-        title: 'Supabase MCP Server',
-        url: 'https://supabase.com/blog/mcp-server',
+        title: 'IndoBase MCP Server',
+        url: 'https://indobase.com/blog/mcp-server',
       },
       {
-        title: 'Supabase UI Library',
-        url: 'https://supabase.com/blog/supabase-ui-library',
+        title: 'IndoBase UI Library',
+        url: 'https://indobase.com/blog/indobase-ui-library',
       },
       {
-        title: 'Supabase Studio Improvements',
-        url: 'https://supabase.com/blog/tabs-dashboard-updates',
+        title: 'IndoBase Studio Improvements',
+        url: 'https://indobase.com/blog/tabs-dashboard-updates',
       },
       {
-        title: 'Edge Functions Deploy from the Supabase Dashboard',
-        url: 'https://supabase.com/blog/supabase-edge-functions-deploy-dashboard-deno-2-1',
+        title: 'Edge Functions Deploy from the IndoBase Dashboard',
+        url: 'https://indobase.com/blog/indobase-edge-functions-deploy-dashboard-deno-2-1',
       },
       {
         title: 'Realtime Broadcast from Database',
-        url: 'https://supabase.com/blog/realtime-broadcast-from-database',
+        url: 'https://indobase.com/blog/realtime-broadcast-from-database',
       },
       {
         title: 'Declarative Schemas',
-        url: 'https://supabase.com/blog/declarative-schemas',
+        url: 'https://indobase.com/blog/declarative-schemas',
       },
       {
         title: 'Postgres Language Server',
-        url: 'https://supabase.com/blog/postgres-language-server',
+        url: 'https://indobase.com/blog/postgres-language-server',
       },
       {
         title: 'Clerk Support in Third-Party Auth',
-        url: 'https://supabase.com/blog/clerk-tpa-pricing',
+        url: 'https://indobase.com/blog/clerk-tpa-pricing',
       },
       {
         title: 'Dedicated Poolers',
-        url: 'https://supabase.com/blog/dedicated-poolers',
+        url: 'https://indobase.com/blog/dedicated-poolers',
       },
     ],
   },
@@ -131,7 +131,7 @@ const months: Month[] = [
     announcements: [
       {
         title: 'Project scoped roles',
-        url: 'https://github.com/orgs/supabase/discussions/35172',
+        url: 'https://github.com/orgs/indobase/discussions/35172',
       },
       {
         title: 'MCP Server now works with VS Code',
@@ -142,16 +142,16 @@ const months: Month[] = [
         url: 'https://x.com/dshukertjr/status/1917927485024449006',
       },
       {
-        title: 'Supabase UI Library now includes Infinite Query block',
-        url: 'https://supabase.com/ui/docs/infinite-query-hook',
+        title: 'IndoBase UI Library now includes Infinite Query block',
+        url: 'https://indobase.com/ui/docs/infinite-query-hook',
       },
       {
-        title: 'Supabase UI Library now includes Social Auth',
-        url: 'https://supabase.com/ui/docs/nextjs/social-auth',
+        title: 'IndoBase UI Library now includes Social Auth',
+        url: 'https://indobase.com/ui/docs/nextjs/social-auth',
       },
       {
         title: 'New SOC2 Report',
-        url: 'https://supabase.com/features/soc-2-compliance',
+        url: 'https://indobase.com/features/soc-2-compliance',
       },
     ],
   },
@@ -159,11 +159,11 @@ const months: Month[] = [
     name: 'May 2025',
     announcements: [
       {
-        title: 'New Supabase Dashboard homepage',
+        title: 'New IndoBase Dashboard homepage',
         url: 'https://x.com/kiwicopple/status/1922625094506967457',
       },
       {
-        title: 'Figma Make supports Supabase',
+        title: 'Figma Make supports IndoBase',
         url: 'https://x.com/figma/status/1920169817807728834',
       },
       {
@@ -178,59 +178,59 @@ const months: Month[] = [
     announcements: [
       {
         title: 'New API Keys + JWT Signing Keys',
-        url: 'https://supabase.com/blog/jwt-signing-keys',
+        url: 'https://indobase.com/blog/jwt-signing-keys',
       },
       {
         title: 'Analytics Buckets with Apache Iceberg Support',
-        url: 'https://supabase.com/blog/analytics-buckets',
+        url: 'https://indobase.com/blog/analytics-buckets',
       },
       {
-        title: 'New Observability Features in Supabase',
-        url: 'https://supabase.com/blog/new-observability-features-in-supabase',
+        title: 'New Observability Features in IndoBase',
+        url: 'https://indobase.com/blog/new-observability-features-in-indobase',
       },
       {
-        title: 'Build with Figma Make and Supabase',
-        url: 'https://supabase.com/blog/figma-make-support-for-supabase',
+        title: 'Build with Figma Make and IndoBase',
+        url: 'https://indobase.com/blog/figma-make-support-for-indobase',
       },
       {
-        title: '10X Larger Supabase Storage Uploads, 3X Cheaper Egress',
-        url: 'https://supabase.com/blog/storage-500gb-uploads-cheaper-egress-pricing',
+        title: '10X Larger IndoBase Storage Uploads, 3X Cheaper Egress',
+        url: 'https://indobase.com/blog/storage-500gb-uploads-cheaper-egress-pricing',
       },
       {
         title: 'Edge Functions: Persistent Storage and 97% Faster Boot Times',
-        url: 'https://supabase.com/blog/persistent-storage-for-faster-edge-functions',
+        url: 'https://indobase.com/blog/persistent-storage-for-faster-edge-functions',
       },
       {
         title: 'Improved Security Controls and a New Home for Security',
-        url: 'https://supabase.com/blog/improved-security-controls',
+        url: 'https://indobase.com/blog/improved-security-controls',
       },
       {
         title: 'Branching 2.0: GitHub Optional',
-        url: 'https://supabase.com/blog/branching-2-0',
+        url: 'https://indobase.com/blog/branching-2-0',
       },
       {
-        title: 'Supabase UI: Platform Kit',
-        url: 'https://supabase.com/blog/supabase-ui-platform-kit',
+        title: 'IndoBase UI: Platform Kit',
+        url: 'https://indobase.com/blog/indobase-ui-platform-kit',
       },
       {
         title: 'Stripe-To-Postgres Sync Engine as an NPM Package',
-        url: 'https://supabase.com/blog/stripe-engine-as-sync-library',
+        url: 'https://indobase.com/blog/stripe-engine-as-sync-library',
       },
       {
-        title: 'Algolia Connector for Supabase',
-        url: 'https://supabase.com/blog/algolia-connector-for-supabase',
+        title: 'Algolia Connector for IndoBase',
+        url: 'https://indobase.com/blog/algolia-connector-for-indobase',
       },
       {
         title: 'MCP Server Can Query Docs',
-        url: 'https://supabase.com/docs/guides/getting-started/mcp',
+        url: 'https://indobase.com/docs/guides/getting-started/mcp',
       },
       {
         title: 'Iceberg Foreign Data Wrapper',
-        url: 'https://supabase.com/docs/guides/database/extensions/wrappers/iceberg',
+        url: 'https://indobase.com/docs/guides/database/extensions/wrappers/iceberg',
       },
       {
         title: 'DuckDB Foreign Data Wrapper',
-        url: 'https://supabase.com/docs/guides/database/extensions/wrappers/duckdb',
+        url: 'https://indobase.com/docs/guides/database/extensions/wrappers/duckdb',
       },
     ],
   },
@@ -239,19 +239,19 @@ const months: Month[] = [
     announcements: [
       {
         title: '3X Cheaper Egress for Cache Hits',
-        url: 'https://github.com/orgs/supabase/discussions/38119',
+        url: 'https://github.com/orgs/indobase/discussions/38119',
       },
       {
         title: 'Expiring personal access tokens',
-        url: 'https://supabase.com/dashboard/account/tokens', // Direct dashboard link (intentional)
+        url: 'https://indobase.com/dashboard/account/tokens', // Direct dashboard link (intentional)
       },
       {
         title: 'Self-service SSO for Teams + Enterprise',
-        url: 'https://supabase.com/docs/guides/platform/sso',
+        url: 'https://indobase.com/docs/guides/platform/sso',
       },
       {
         title: 'Deno 2.1 in All Regions',
-        url: 'https://github.com/orgs/supabase/discussions/37941',
+        url: 'https://github.com/orgs/indobase/discussions/37941',
       },
     ],
   },
@@ -259,16 +259,16 @@ const months: Month[] = [
     name: 'October 2025',
     announcements: [
       {
-        title: 'Supabase Remote MCP Server',
-        url: 'https://supabase.com/blog/remote-mcp-server',
+        title: 'IndoBase Remote MCP Server',
+        url: 'https://indobase.com/blog/remote-mcp-server',
       },
       {
         title: 'Login with Solana and Ethereum',
-        url: 'https://supabase.com/blog/login-with-solana-ethereum',
+        url: 'https://indobase.com/blog/login-with-solana-ethereum',
       },
       {
-        title: 'Supabase Javascript Library MonoRepo',
-        url: 'https://github.com/orgs/supabase/discussions/39197',
+        title: 'IndoBase Javascript Library MonoRepo',
+        url: 'https://github.com/orgs/indobase/discussions/39197',
       },
     ],
   },
@@ -277,11 +277,11 @@ const months: Month[] = [
     announcements: [
       {
         title: 'Realtime Replay, available in alpha',
-        url: 'https://supabase.com/blog/realtime-broadcast-replay',
+        url: 'https://indobase.com/blog/realtime-broadcast-replay',
       },
       {
-        title: 'Log Drains in Self-Hosted Supabase',
-        url: 'https://supabase.com/docs/guides/telemetry/log-drains',
+        title: 'Log Drains in Self-Hosted IndoBase',
+        url: 'https://indobase.com/docs/guides/telemetry/log-drains',
       },
     ],
   },
@@ -290,48 +290,48 @@ const months: Month[] = [
     isLaunchWeek: true,
     announcements: [
       {
-        title: 'Supabase ETL',
-        url: 'https://supabase.com/blog/introducing-supabase-etl',
+        title: 'IndoBase ETL',
+        url: 'https://indobase.com/blog/introducing-indobase-etl',
       },
       {
         title: 'Analytics Buckets',
-        url: 'https://supabase.com/blog/introducing-analytics-buckets',
+        url: 'https://indobase.com/blog/introducing-analytics-buckets',
       },
       {
         title: 'Vector Buckets',
-        url: 'https://supabase.com/blog/vector-buckets',
+        url: 'https://indobase.com/blog/vector-buckets',
       },
       {
         title: 'iceberg-js',
-        url: 'https://supabase.com/blog/introducing-iceberg-js',
+        url: 'https://indobase.com/blog/introducing-iceberg-js',
       },
       {
-        title: 'Supabase for Platforms',
-        url: 'https://supabase.com/blog/introducing-supabase-for-platforms',
+        title: 'IndoBase for Platforms',
+        url: 'https://indobase.com/blog/introducing-indobase-for-platforms',
       },
       {
         title: 'New Auth Templates',
-        url: 'https://supabase.com/docs/guides/auth/auth-email-templates',
+        url: 'https://indobase.com/docs/guides/auth/auth-email-templates',
       },
       {
         title: 'Sign in with Your App',
-        url: 'https://www.supabase.com/blog/oauth2-provider',
+        url: 'https://www.indobase.com/blog/oauth2-provider',
       },
       {
-        title: 'Supabase power for Amazon Kiro',
-        url: 'https://supabase.com/blog/supabase-power-for-kiro',
+        title: 'IndoBase power for Amazon Kiro',
+        url: 'https://indobase.com/blog/indobase-power-for-kiro',
       },
       {
-        title: 'Supabase in the AWS Marketplace',
-        url: 'https://www.linkedin.com/posts/paulcopplestone_you-can-now-purchase-supabase-through-the-activity-7392589414666792960-PAvn',
+        title: 'IndoBase in the AWS Marketplace',
+        url: 'https://www.linkedin.com/posts/paulcopplestone_you-can-now-purchase-indobase-through-the-activity-7392589414666792960-PAvn',
       },
       {
         title: 'Async Streaming to Postgres FDWs',
-        url: 'https://www.supabase.com/blog/adding-async-streaming-to-pg-fdw',
+        url: 'https://www.indobase.com/blog/adding-async-streaming-to-pg-fdw',
       },
       {
-        title: 'Supabase Metrics API',
-        url: 'https://supabase.com/blog/metrics-api-observability',
+        title: 'IndoBase Metrics API',
+        url: 'https://indobase.com/blog/metrics-api-observability',
       },
     ],
   },

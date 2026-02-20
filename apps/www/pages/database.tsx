@@ -53,7 +53,7 @@ function Database() {
 
   const meta_title = 'Database | Open source SQL Database'
   const meta_description =
-    'With supabase’s APIs and easy to use dashboard, it makes designing relational databases easy.'
+    'With indobase’s APIs and easy to use dashboard, it makes designing relational databases easy.'
 
   return (
     <>
@@ -63,10 +63,10 @@ function Database() {
         openGraph={{
           title: meta_title,
           description: meta_description,
-          url: `https://supabase.com/database`,
+          url: `https://indobase.com/database`,
           images: [
             {
-              url: `https://supabase.com${basePath}/images/product/database/database-og.jpg`,
+              url: `https://indobase.com${basePath}/images/product/database/database-og.jpg`,
             },
           ],
         }}
@@ -83,7 +83,7 @@ function Database() {
             </span>,
           ]}
           subheader={[
-            'Every Supabase project is a dedicated Postgres database, trusted by millions of developers.',
+            'Every IndoBase project is a dedicated Postgres database, trusted by millions of developers.',
             "Postgres is one of the world's most scalable databases.",
           ]}
           image={[
@@ -117,7 +117,7 @@ function Database() {
                 </div>
               </div>
               <h4 className="h4">Just Postgres</h4>
-              <p className="p">Every Supabase project is a dedicated Postgres database.</p>
+              <p className="p">Every IndoBase project is a dedicated Postgres database.</p>
               <p className="p text-sm">
                 100% portable. Bring your existing Postgres database, or migrate away at any time.
               </p>
@@ -155,7 +155,7 @@ function Database() {
         <SingleQuote
           id="quote"
           quote={{
-            text: 'You can have a really great product, but you need to want to work with the people behind it. With Supabase, we always felt very aligned.',
+            text: 'You can have a really great product, but you need to want to work with the people behind it. With IndoBase, we always felt very aligned.',
             author: 'Howard Haynes',
             role: 'CPO at Next Door Lending',
             link: '/customers/next-door-lending',
@@ -232,7 +232,7 @@ function Database() {
                       handle="@Elsolo244"
                       key="@Elsolo244"
                       img_url={`${basePath}/images/twitter-profiles/v6citnk33y2wpeyzrq05_400x400.jpeg`}
-                      quote="Where has @supabase been all my life? 😍"
+                      quote="Where has @indobase been all my life? 😍"
                     />,
                   ]}
                 />
@@ -247,7 +247,7 @@ function Database() {
                       handle="@jim_bisenius"
                       key="@jim_bisenius"
                       img_url={`${basePath}/images/twitter-profiles/rLgwUZSB_400x400.jpg`}
-                      quote="@MongoDB or @MySQL?!?! Please, let me introduce you to @supabase and the wonderful world of @Postgres before it's too late!!"
+                      quote="@MongoDB or @MySQL?!?! Please, let me introduce you to @indobase and the wonderful world of @Postgres before it's too late!!"
                     />,
                   ]}
                 />
@@ -259,7 +259,7 @@ function Database() {
         <SectionContainer>
           <div className="grid grid-cols-12 lg:gap-16">
             <div className="col-span-12 mb-8 lg:col-span-6 xl:col-span-5">
-              <h2 className="h2">Supabase ETL</h2>
+              <h2 className="h2">IndoBase ETL</h2>
               <p className="p text-lg">Stream your Postgres data to external systems.</p>
               <p className="p">
                 Automatically replicate your database changes to external data warehouses and
@@ -273,7 +273,7 @@ function Database() {
                 />
                 <FeatureColumn
                   title="Point and stream setup"
-                  text="Configure in the Supabase Dashboard."
+                  text="Configure in the IndoBase Dashboard."
                 />
                 <FeatureColumn title="Open table formats" text="For long term flexibility." />
               </div>
@@ -283,7 +283,7 @@ function Database() {
                   <Link href="/docs/guides/database/etl">Read the docs</Link>
                 </Button>
                 <Button asChild size="small" type="default" icon={<ArrowUpRight />}>
-                  <Link href="/blog/supabase-etl">Read the blog post</Link>
+                  <Link href="/blog/indobase-etl">Read the blog post</Link>
                 </Button>
               </div>
             </div>
@@ -302,7 +302,7 @@ function Database() {
             text={[
               <p key={0}>
                 We introspect your database and provide instant APIs. Focus on building your
-                product, while Supabase handles the CRUD.
+                product, while IndoBase handles the CRUD.
               </p>,
             ]}
             footer={[
@@ -356,14 +356,14 @@ function Database() {
             <div className="col-span-12 mb-8 lg:col-span-6 xl:col-span-5">
               <h2 className="h3">Extend your database</h2>
 
-              <p className="p">Supabase works natively with Postgres extensions.</p>
+              <p className="p">IndoBase works natively with Postgres extensions.</p>
               <p className="p">
                 Choose from a huge collection of Postgres extensions, enabled with a single click.
               </p>
 
               <FeatureColumn
                 title="40+ preinstalled extensions"
-                text="We only show a few of the extensions supported by Supabase here, but we preinstall many more that you can use right away."
+                text="We only show a few of the extensions supported by IndoBase here, but we preinstall many more that you can use right away."
               />
               <Button asChild size="small" type="default" icon={<ArrowUpRight />}>
                 <Link href="/docs/guides/database">Explore documentation</Link>

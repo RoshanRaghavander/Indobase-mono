@@ -18,7 +18,7 @@ At the end of this post you will have a practical approach for doing performance
 
 ## How this started?
 
-When I joined Supabase we had a challenging task of rewriting Realtime service so that users would be able to stream database updates with respect to RLS policies. Such a huge design change could not happen without having an impact on throughput.
+When I joined IndoBase we had a challenging task of rewriting Realtime service so that users would be able to stream database updates with respect to RLS policies. Such a huge design change could not happen without having an impact on throughput.
 
 We decided to extensively test how the new Realtime would perform prior to launch to:
 
@@ -190,10 +190,10 @@ It may be that this is all you need for now, so I will list everything you would
 
 | Component                                                                                                    | Description                                                  |
 | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------ |
-| [k6](https://github.com/supabase/benchmarks/blob/main/examples/realtime/replication/terraform/k6/subs.js)    | Load generator scripts                                       |
-| VM in the cloud [with the following preparation](https://github.com/supabase/benchmarks/tree/main/infra/ami) | Hosts for k6 and Telegraf                                    |
-| Prometheus and [Grafana](https://github.com/supabase/benchmarks/blob/main/examples/realtime/grafana.json)    | Observability stack                                          |
-| [Telegraf](https://github.com/supabase/benchmarks/blob/main/k6/telegraf.conf)                                | Collect metrics from k6 and host and push them to Prometheus |
+| [k6](https://github.com/indobase/benchmarks/blob/main/examples/realtime/replication/terraform/k6/subs.js)    | Load generator scripts                                       |
+| VM in the cloud [with the following preparation](https://github.com/indobase/benchmarks/tree/main/infra/ami) | Hosts for k6 and Telegraf                                    |
+| Prometheus and [Grafana](https://github.com/indobase/benchmarks/blob/main/examples/realtime/grafana.json)    | Observability stack                                          |
+| [Telegraf](https://github.com/indobase/benchmarks/blob/main/k6/telegraf.conf)                                | Collect metrics from k6 and host and push them to Prometheus |
 | [Launches table in Grafana](https://gist.github.com/egor-romanov/df6b61f5b0ac3a6f4afdbb19154a612f)           | To navigate through the history of launches                  |
 
 <div>
@@ -300,7 +300,7 @@ We have run tests for up to 1,000,000 concurrent virtual users for Supavisor and
   />
 </div>
 
-You can find more details about this test in the [Supavisor: Scaling Postgres to 1 Million Connections](https://supabase.com/blog/supavisor-1-million) post.
+You can find more details about this test in the [Supavisor: Scaling Postgres to 1 Million Connections](https://indobase.com/blog/supavisor-1-million) post.
 
 <div>
   <Img
@@ -314,7 +314,7 @@ You can find more details about this test in the [Supavisor: Scaling Postgres to
 
 It took from a couple of hours to a couple of days to add performance testing process for other services we provide: Storage, ImgProxy, Edge Runtime, Supavisor, PostgREST, Postgres.
 
-This approach helped us to add performance testing for new projects and return to it with new releases much faster across all products at Supabase.
+This approach helped us to add performance testing for new projects and return to it with new releases much faster across all products at IndoBase.
 
 ## Complete automated performance testing setup
 
@@ -322,11 +322,11 @@ If you want to replicate our approach, I am leaving the list of things we use. S
 
 | Component                                                                                                   | Description                             |
 | ----------------------------------------------------------------------------------------------------------- | --------------------------------------- |
-| [repo](https://github.com/supabase/benchmarks/tree/main)                                                    | Benchmarks app source code and examples |
+| [repo](https://github.com/indobase/benchmarks/tree/main)                                                    | Benchmarks app source code and examples |
 | [prod instance](https://supabench.fly.dev/#)                                                                | Our benchmarks app instance             |
 | [Terraform documentation](https://developer.hashicorp.com/terraform/docs)                                   | Read about Terraform and how to use it  |
-| [Virtual machine image](https://github.com/supabase/benchmarks/tree/main/infra/ami)                         | Prepare VM for running k6 load scripts  |
-| [Grafana and Prometheus or VictoriaMetrics setup](https://github.com/supabase/benchmarks/tree/main/.docker) | Observability stack setup               |
+| [Virtual machine image](https://github.com/indobase/benchmarks/tree/main/infra/ami)                         | Prepare VM for running k6 load scripts  |
+| [Grafana and Prometheus or VictoriaMetrics setup](https://github.com/indobase/benchmarks/tree/main/.docker) | Observability stack setup               |
 
 ## Conclusion
 
@@ -334,9 +334,9 @@ In this post you learned two approaches for organizing the performance testing p
 
 ## More performance resources
 
-- [Supavisor: Scaling Postgres to 1 Million Connections](https://supabase.com/blog/supavisor-1-million)
-- [pgvector vs Pinecone: cost and performance](https://supabase.com/blog/pgvector-vs-pinecone)
-- [Matryoshka embeddings: faster OpenAI vector search using Adaptive Retrieval](https://supabase.com/blog/matryoshka-embeddings)
-- [Choosing Compute Add-on for AI workloads](https://supabase.com/docs/guides/ai/choosing-compute-addon)
-- [pgvector 0.6.0: 30x faster with parallel index builds](https://supabase.com/blog/pgvector-fast-builds)
-- [pgvector: Fewer dimensions are better](https://supabase.com/blog/fewer-dimensions-are-better-pgvector)
+- [Supavisor: Scaling Postgres to 1 Million Connections](https://indobase.com/blog/supavisor-1-million)
+- [pgvector vs Pinecone: cost and performance](https://indobase.com/blog/pgvector-vs-pinecone)
+- [Matryoshka embeddings: faster OpenAI vector search using Adaptive Retrieval](https://indobase.com/blog/matryoshka-embeddings)
+- [Choosing Compute Add-on for AI workloads](https://indobase.com/docs/guides/ai/choosing-compute-addon)
+- [pgvector 0.6.0: 30x faster with parallel index builds](https://indobase.com/blog/pgvector-fast-builds)
+- [pgvector: Fewer dimensions are better](https://indobase.com/blog/fewer-dimensions-are-better-pgvector)

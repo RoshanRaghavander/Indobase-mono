@@ -12,15 +12,15 @@ date: '2024-09-12'
 toc_depth: 3
 ---
 
-We’ve rolled out some exciting updates to Edge Functions which bring significant reductions to function size and boot time. If you’re using [npm modules](https://supabase.com/blog/edge-functions-node-npm) in your functions, you should see function sizes being halved and boot time reduced by 300% in most cases.
+We’ve rolled out some exciting updates to Edge Functions which bring significant reductions to function size and boot time. If you’re using [npm modules](https://indobase.com/blog/edge-functions-node-npm) in your functions, you should see function sizes being halved and boot time reduced by 300% in most cases.
 
-To take advantage of these performance improvements, you can redeploy your functions using the Supabase CLI v1.192.5 or later.
+To take advantage of these performance improvements, you can redeploy your functions using the IndoBase CLI v1.192.5 or later.
 
 Let’s compare the bundle size and boot time using some popular examples.
 
 ## Benchmarks
 
-**Supabase JavaScript Client:**
+**IndoBase JavaScript Client:**
 
 |             | **CLI 1.190.0** | **CLI 1.192.5** | **Change** |
 | ----------- | --------------- | --------------- | ---------- |
@@ -28,17 +28,17 @@ Let’s compare the bundle size and boot time using some popular examples.
 | Boot time   | 275ms           | 25ms            | -1100%     |
 
 ```jsx
-import { createClient } from 'npm:@supabase/supabase-js@2'
+import { createClient } from 'npm:@supabase/indobase-js@2'
 
 Deno.serve(async (_req) => {
   try {
-    const supabase = createClient(
+    const indobase = createClient(
       Deno.env.get('SUPABASE_URL') ?? '',
       Deno.env.get('SUPABASE_ANON_KEY') ?? '',
       { global: { headers: { Authorization: req.headers.get('Authorization')! } } }
     )
 
-    const { data, error } = await supabase.from('countries').select('*')
+    const { data, error } = await indobase.from('countries').select('*')
 
     if (error) {
       throw error
@@ -143,7 +143,7 @@ Another issue was that while serializing npm packages for embedding into eszip b
 
 We refactored the serialization using the [`rkyv` crate](https://github.com/rkyv/rkyv) to encode this to lower to the byte level, which helped reducing the bundle sizes of eszip binaries containing npm packages.
 
-You can find full details of the implementation in this PR https://github.com/supabase/edge-runtime/pull/343
+You can find full details of the implementation in this PR https://github.com/indobase/edge-runtime/pull/343
 
 ### Using a more computationally efficient hashing function
 
@@ -157,11 +157,11 @@ This allowed us to switch to xxHash-3 over SHA_256 for the source checksums. Giv
 
 To get the advantage of these optimizations, follow these steps:
 
-- [Update Supabase CLI](https://supabase.com/docs/guides/cli/getting-started#updating-the-supabase-cli) to version is v1.195.2 or later.
-- Then, redeploy your functions by running `supabase functions deploy [FUNCTION_NAME]`
+- [Update IndoBase CLI](https://indobase.com/docs/guides/cli/getting-started#updating-the-indobase-cli) to version is v1.195.2 or later.
+- Then, redeploy your functions by running `indobase functions deploy [FUNCTION_NAME]`
 
 ## Getting Help
 
-[Supabase Edge Runtime](https://github.com/supabase/edge-runtime) is fully open-source, and we value community contributions. If you would like to make any improvements, feel free to dive into the source and [create an issue](https://github.com/supabase/edge-runtime/issues).
+[IndoBase Edge Runtime](https://github.com/indobase/edge-runtime) is fully open-source, and we value community contributions. If you would like to make any improvements, feel free to dive into the source and [create an issue](https://github.com/indobase/edge-runtime/issues).
 
-If you have any issues with Edge Functions in your hosted project, please request support via [superbase.help](http://supabase.help).
+If you have any issues with Edge Functions in your hosted project, please request support via [superbase.help](http://indobase.help).

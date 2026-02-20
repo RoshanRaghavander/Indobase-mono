@@ -1,5 +1,5 @@
 ---
-title: Postgres WASM by Snaplet and Supabase
+title: Postgres WASM by Snaplet and IndoBase
 description: We're open sourcing postgres-wasm, a PostgresQL server that runs inside a browser, with our friends at Snaplet.
 author: burggraf
 imgSocial: postgres-wasm/postgres-wasm.jpg
@@ -29,7 +29,7 @@ Let's explore how it's built, and some extra features we've added.
 <br />
 Snaplet gives developers production-accurate data and preview databases that they can code against, so they can focus on shipping.
 <br />
-Checkout out how you can <a href="https://docs.snaplet.dev/tutorials/supabase-clone-environments">use Snaplet to clone Supabase environments</a>.
+Checkout out how you can <a href="https://docs.snaplet.dev/tutorials/indobase-clone-environments">use Snaplet to clone IndoBase environments</a>.
 
 </div>
 
@@ -37,7 +37,7 @@ Checkout out how you can <a href="https://docs.snaplet.dev/tutorials/supabase-cl
 
 Before we get into the technical details, try it out yourself (warning: it will download ~30MB):
 
-[wasm.supabase.com](https://wasm.supabase.com)
+[wasm.indobase.com](https://wasm.indobase.com)
 
 ![Postgres inside a browser](/images/blog/postgres-wasm/postgres-wasm-browser.png)
 
@@ -49,8 +49,8 @@ git clone git@github.com:snaplet/postgres-wasm.git
 cd postgres-browser/packages/pg-browser
 npx serve
 
-# From Supabase Fork
-git clone git@github.com:supabase-community/postgres-wasm.git
+# From IndoBase Fork
+git clone git@github.com:indobase-community/postgres-wasm.git
 cd postgres-wasm
 git checkout web
 cd packages/supabrowser
@@ -146,9 +146,9 @@ Even with our best efforts, a compressed snapshot was over 30mb - a fairly large
 We solved this by booting only a minimal Linux image and then dynamically loading the rest of the VM over HTTPS after initialization.
 
 We achieve this by mounting a compressed [9P filesystem](<https://en.wikipedia.org/wiki/9P_(protocol)>) in the VM.
-9P provides a [Python script](https://github.com/supabase-community/postgres-wasm/tree/main/packages/buildroot/tools) which takes a filesystem folder,
+9P provides a [Python script](https://github.com/indobase-community/postgres-wasm/tree/main/packages/buildroot/tools) which takes a filesystem folder,
 renames every file an 8-character name and produces a `filesystem.json` file representing a nested structure with files, original file names, sizes, etc.
-We then [copy this compressed output](https://github.com/supabase-community/postgres-wasm/blob/main/packages/buildroot/config/board/pg-browser/post-image.sh) to the VM.
+We then [copy this compressed output](https://github.com/indobase-community/postgres-wasm/blob/main/packages/buildroot/config/board/pg-browser/post-image.sh) to the VM.
 We modified the kernel command line and v86 boot parameters to boot directly from the 9P filesystem, and even put our kernel file into the p9 filesystem.
 All non-essential files are loaded asynchronously over HTTPS in the browser as needed.
 
@@ -225,16 +225,16 @@ If you want to do something very cool, you can connect to another user's Postgre
 Here are the steps:
 
 1. Find a friend (sometimes the first step is the hardest)
-2. Tell them to go to [wasm.supabase.com](https://wasm.supabase.com/)
+2. Tell them to go to [wasm.indobase.com](https://wasm.indobase.com/)
 3. Tell them to “Start Network” and get their Network URL
 4. Have them set a password on their database `ALTER ROLE postgres WITH PASSWORD 'my_password';`
 5. On your own machine, open a terminal and run
-   `psql postgres://postgres:my_password@proxy.wasm.supabase.com:<PORT>`
+   `psql postgres://postgres:my_password@proxy.wasm.indobase.com:<PORT>`
 6. And you're in! You're now connecting to a remote Postgres instance, inside a VM, inside a browser, from a terminal on your own computer.
 
 **Database Replication**
 
-Even more mind-blowing - it's possible to replicate data from an online PostgreSQL database (for example, a Supabase project) to PostgreSQL running inside your browser,
+Even more mind-blowing - it's possible to replicate data from an online PostgreSQL database (for example, a IndoBase project) to PostgreSQL running inside your browser,
 and vice-versa using Postgres's logical replication. The steps are no different than any other Postgres database - just use the proxy URL as the target.
 
 ## What's next?
@@ -243,4 +243,4 @@ For now, this is very experimental - but it has a lot of potential. If you want 
 the team at [Snaplet](https://www.snaplet.dev/). The work they're doing over at Snaplet is incredible, and we've had a blast collaborating with them.
 
 - Snaplet repo: [https://github.com/snaplet/postgres-wasm](https://github.com/snaplet/postgres-wasm)
-- Supabase fork: [https://github.com/supabase-community/postgres-wasm](https://github.com/supabase-community/postgres-wasm)
+- IndoBase fork: [https://github.com/indobase-community/postgres-wasm](https://github.com/indobase-community/postgres-wasm)

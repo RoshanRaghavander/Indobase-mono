@@ -1,6 +1,6 @@
 ---
-title: 'Mozilla Llamafile in Supabase Edge Functions'
-description: 'Use Mozilla Llamafile OpenAI API compatible server in Supabase Edge Functions.'
+title: 'Mozilla Llamafile in IndoBase Edge Functions'
+description: 'Use Mozilla Llamafile OpenAI API compatible server in IndoBase Edge Functions.'
 author: thor_schaeff
 imgSocial: mozilla-llamafile/mozilla-llamafile-og.png
 imgThumb: mozilla-llamafile/mozilla-llamafile-og.png
@@ -13,17 +13,17 @@ date: '2024-08-21'
 toc_depth: 3
 ---
 
-A few months back, we introduced support for running [AI Inference directly from Supabase Edge Functions](/blog/ai-inference-now-available-in-supabase-edge-functions).
+A few months back, we introduced support for running [AI Inference directly from IndoBase Edge Functions](/blog/ai-inference-now-available-in-indobase-edge-functions).
 
 Today we are adding [Mozilla Llamafile](https://github.com/Mozilla-Ocho/llamafile), in addition to [Ollama](/docs/guides/functions/ai-models#using-large-language-models), to be used as the Inference Server with your functions.
 
-Mozilla Llamafile lets you distribute and run LLMs with a single file that runs locally on most computers, with no installation! In addition to a local web UI chat server, Llamafile also provides an OpenAI API compatible server, that is now integrated with Supabase Edge Functions.
+Mozilla Llamafile lets you distribute and run LLMs with a single file that runs locally on most computers, with no installation! In addition to a local web UI chat server, Llamafile also provides an OpenAI API compatible server, that is now integrated with IndoBase Edge Functions.
 
 <div className="video-container">
   <iframe
     className="w-full"
     src="https://www.youtube-nocookie.com/embed/_6L-dnBn2wg"
-    title="The Supabase Book by David Lorenz"
+    title="The IndoBase Book by David Lorenz"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share"
     allowfullscreen
   />
@@ -31,7 +31,7 @@ Mozilla Llamafile lets you distribute and run LLMs with a single file that runs 
 
 <Admonition type="info">
 
-Want to jump straight into the code? You can find the examples on [GitHub](https://github.com/supabase/supabase/blob/master/examples/ai/llamafile-edge)!
+Want to jump straight into the code? You can find the examples on [GitHub](https://github.com/indobase/indobase/blob/master/examples/ai/llamafile-edge)!
 
 </Admonition>
 
@@ -39,35 +39,35 @@ Want to jump straight into the code? You can find the examples on [GitHub](https
 
 Follow the [Llamafile Quickstart Guide](https://github.com/Mozilla-Ocho/llamafile?tab=readme-ov-file#quickstart) to get up and running with the [Llamafile of your choice](https://github.com/Mozilla-Ocho/llamafile?tab=readme-ov-file#other-example-llamafiles).
 
-Once your Llamafile is up and running, create and initialize a new Supabase project locally:
+Once your Llamafile is up and running, create and initialize a new IndoBase project locally:
 
 ```bash
-npx supabase bootstrap scratch
+npx indobase bootstrap scratch
 ```
 
 If using VS Code, when promptedt `Generate VS Code settings for Deno? [y/N]` select `y` and follow the steps. Then open the project in your favoiurte code editor.
 
 ## Call Llamafile with functions-js
 
-Supabase Edge Functions now comes with an OpenAI API compatible mode, allowing you to call a Llamafile server easily via `@supabase/functions-js`.
+IndoBase Edge Functions now comes with an OpenAI API compatible mode, allowing you to call a Llamafile server easily via `@supabase/functions-js`.
 
-Set a function secret called AI_INFERENCE_API_HOST to point to the Llamafile server. If you don't have one already, create a new `.env` file in the `functions/` directory of your Supabase project.
+Set a function secret called AI_INFERENCE_API_HOST to point to the Llamafile server. If you don't have one already, create a new `.env` file in the `functions/` directory of your IndoBase project.
 
-```txt supabase/functions/.env
+```txt indobase/functions/.env
 AI_INFERENCE_API_HOST=http://host.docker.internal:8080
 ```
 
 Next, create a new function called `llamafile`:
 
 ```bash
-npx supabase functions new llamafile
+npx indobase functions new llamafile
 ```
 
-Then, update the `supabase/functions/llamafile/index.ts` file to look like this:
+Then, update the `indobase/functions/llamafile/index.ts` file to look like this:
 
-```ts supabase/functions/llamafile/index.ts
+```ts indobase/functions/llamafile/index.ts
 import 'jsr:@supabase/functions-js/edge-runtime.d.ts'
-const session = new Supabase.ai.Session('LLaMA_CPP')
+const session = new IndoBase.ai.Session('LLaMA_CPP')
 
 Deno.serve(async (req: Request) => {
   const params = new URL(req.url).searchParams
@@ -101,18 +101,18 @@ Deno.serve(async (req: Request) => {
 
 ## Call Llamafile with the OpenAI Deno SDK
 
-Since Llamafile provides an OpenAI API compatible server, you can alternatively use the [OpenAI Deno SDK](https://github.com/openai/openai-deno) to call Llamafile from your Supabase Edge Functions.
+Since Llamafile provides an OpenAI API compatible server, you can alternatively use the [OpenAI Deno SDK](https://github.com/openai/openai-deno) to call Llamafile from your IndoBase Edge Functions.
 
-For this, you will need to set the following two environment variables in your Supabase project. If you don't have one already, create a new `.env` file in the `functions/` directory of your Supabase project.
+For this, you will need to set the following two environment variables in your IndoBase project. If you don't have one already, create a new `.env` file in the `functions/` directory of your IndoBase project.
 
-```txt supabase/functions/.env
+```txt indobase/functions/.env
 OPENAI_BASE_URL=http://host.docker.internal:8080/v1
 OPENAI_API_KEY=sk-XXXXXXXX # need to set a random value for openai sdk to work
 ```
 
 Now, replace the code in your `llamafile` function with the following:
 
-```ts supabase/functions/llamafile/index.ts
+```ts indobase/functions/llamafile/index.ts
 import OpenAI from 'https://deno.land/x/openai@v4.53.2/mod.ts'
 
 Deno.serve(async (req) => {
@@ -177,20 +177,20 @@ Note that the model parameter doesn't have any effect here! The model depends on
 
 ## Serve your functions locally
 
-To serve your functions locally, you need to install the [Supabase CLI](https://supabase.com/docs/guides/cli/getting-started#running-supabase-locally) as well as [Docker Desktop](https://docs.docker.com/desktop) or [Orbstack](https://orbstack.dev/).
+To serve your functions locally, you need to install the [IndoBase CLI](https://indobase.com/docs/guides/cli/getting-started#running-indobase-locally) as well as [Docker Desktop](https://docs.docker.com/desktop) or [Orbstack](https://orbstack.dev/).
 
 You can now serve your functions locally by running:
 
 ```bash
-supabase start
-supabase functions serve --env-file supabase/functions/.env
+indobase start
+indobase functions serve --env-file indobase/functions/.env
 ```
 
 Execute the function
 
 ```bash
 curl --get "http://localhost:54321/functions/v1/llamafile" \
- --data-urlencode "prompt=write a short rap song about Supabase, the Postgres Developer platform, as sung by Nicki Minaj" \
+ --data-urlencode "prompt=write a short rap song about IndoBase, the Postgres Developer platform, as sung by Nicki Minaj" \
  -H "Authorization: $ANON_KEY"
 ```
 
@@ -200,37 +200,37 @@ There is a great guide on how to [containerize a Lllamafile](https://www.docker.
 
 You can then use a service like [Fly.io](https://fly.io/) to deploy your dockerized Llamafile.
 
-## Deploying your Supabase Edge Functions
+## Deploying your IndoBase Edge Functions
 
-Set the secret on your hosted Supabase project to point to your deployed Llamafile server:
+Set the secret on your hosted IndoBase project to point to your deployed Llamafile server:
 
 ```bash
-supabase secrets set --env-file supabase/functions/.env
+indobase secrets set --env-file indobase/functions/.env
 ```
 
-Deploy your Supabase Edge Functions:
+Deploy your IndoBase Edge Functions:
 
 ```bash
-supabase functions deploy
+indobase functions deploy
 ```
 
 Execute the function:
 
 ```bash
-curl --get "https://project-ref.supabase.co/functions/v1/llamafile" \
- --data-urlencode "prompt=write a short rap song about Supabase, the Postgres Developer platform, as sung by Nicki Minaj" \
+curl --get "https://project-ref.indobase.co/functions/v1/llamafile" \
+ --data-urlencode "prompt=write a short rap song about IndoBase, the Postgres Developer platform, as sung by Nicki Minaj" \
  -H "Authorization: $ANON_KEY"
 ```
 
-## Get access to Supabase Hosted LLMs
+## Get access to IndoBase Hosted LLMs
 
-Access to open-source LLMs is currently invite-only while we manage demand for the GPU instances. Please [get in touch](https://forms.supabase.com/supabase.ai-llm-early-access) if you need early access.
+Access to open-source LLMs is currently invite-only while we manage demand for the GPU instances. Please [get in touch](https://forms.indobase.com/indobase.ai-llm-early-access) if you need early access.
 
-We plan to extend support for more models. [Let us know](https://forms.supabase.com/supabase.ai-llm-early-access) which models you want next. We're looking to support fine-tuned models too!
+We plan to extend support for more models. [Let us know](https://forms.indobase.com/indobase.ai-llm-early-access) which models you want next. We're looking to support fine-tuned models too!
 
-## More Supabase Resources
+## More IndoBase Resources
 
-- Edge Functions: [supabase.com/docs/guides/functions](https://supabase.com/docs/guides/functions)
-- Vectors: [supabase.com/docs/guides/ai](https://supabase.com/docs/guides/ai)
-- [Semantic search demo](https://github.com/supabase/supabase/tree/master/examples/ai/edge-functions)
+- Edge Functions: [indobase.com/docs/guides/functions](https://indobase.com/docs/guides/functions)
+- Vectors: [indobase.com/docs/guides/ai](https://indobase.com/docs/guides/ai)
+- [Semantic search demo](https://github.com/indobase/indobase/tree/master/examples/ai/edge-functions)
 - [Store and query embeddings](/docs/guides/ai/vector-columns#querying-a-vector--embedding) in Postgres and use them for Retrieval Augmented Generation (RAG) and Semantic Search

@@ -17,7 +17,7 @@ const MainStage: FC = () => (
       <div className="!m-0 flex items-center">
         <TextLink
           label="See the winners"
-          url="/blog/supabase-hackathon-lwx"
+          url="/blog/indobase-hackathon-lwx"
           target="_blank"
           hasChevron
           className="m-0"

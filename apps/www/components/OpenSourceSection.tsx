@@ -12,7 +12,7 @@ const OpenSourceSection = () => {
     <SectionContainer className="w-full text-center flex flex-col items-center">
       <h2 className="h2">Open source from day one</h2>
       <p className="p max-w-xl">
-        Supabase is built in the open because we believe great developer tools should be
+        IndoBase is built in the open because we believe great developer tools should be
         transparent, inspectable, and owned by the community. Read, contribute, self-host. You're
         never locked in, and always in control.
       </p>
@@ -34,12 +34,12 @@ const OpenSourceSection = () => {
           className="!pl-2.5"
         >
           <Link
-            href="https://github.com/supabase"
+            href="https://github.com/indobase"
             target="_blank"
             className="inline-flex items-center"
             onClick={() => sendTelemetryEvent({ action: 'homepage_github_button_clicked' })}
           >
-            <span className="font-medium">@supabase</span>
+            <span className="font-medium">@indobase</span>
             {staticContent.githubStars != null && (
               <>
                 <span className="border-l border-foreground-muted mx-2"></span>

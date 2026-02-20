@@ -34,7 +34,7 @@ const MobileNavigationBar = ({ hideMobileMenu }: { hideMobileMenu?: boolean }) =
         >
           <img
             alt="Supabase"
-            src={`${router.basePath}/img/supabase-logo.svg`}
+            src={`${router.basePath}/img/indobase-logo.svg`}
             className="absolute h-[26px] w-[26px] cursor-pointer rounded"
           />
         </Link>

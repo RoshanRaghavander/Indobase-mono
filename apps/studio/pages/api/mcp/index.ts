@@ -1,5 +1,5 @@
 import { StreamableHTTPServerTransport } from '@modelcontextprotocol/sdk/server/streamableHttp.js'
-import { createSupabaseMcpServer, SupabasePlatform } from '@supabase/mcp-server-supabase'
+import { createIndoBaseMcpServer, IndoBasePlatform } from '@supabase/mcp-server-indobase'
 import { stripIndent } from 'common-tags'
 import { commaSeparatedStringIntoArray, fromNodeHeaders, zBooleanString } from 'lib/api/apiHelpers'
 import {
@@ -53,14 +53,14 @@ async function handlePost(req: NextApiRequest, res: NextApiResponse) {
   const { features, read_only } = data
   const headers = fromNodeHeaders(req.headers)
 
-  const platform: SupabasePlatform = {
+  const platform: IndoBasePlatform = {
     database: getDatabaseOperations({ headers }),
     development: getDevelopmentOperations({ headers }),
     debugging: getDebuggingOperations({ headers }),
   }
 
   try {
-    const server = createSupabaseMcpServer({
+    const server = createIndoBaseMcpServer({
       platform,
       projectId: DEFAULT_PROJECT.ref,
       features,

@@ -16,21 +16,21 @@ export interface EventHost {
 }
 
 /**
- * Default host for Supabase-hosted events
+ * Default host for IndoBase-hosted events
  */
 export const SUPABASE_HOST: EventHost = {
-  id: 'supabase',
-  email: 'events@supabase.com',
-  name: 'Supabase',
-  first_name: 'Supabase',
+  id: 'indobase',
+  email: 'events@indobase.com',
+  name: 'IndoBase',
+  first_name: 'IndoBase',
   last_name: null,
-  avatar_url: 'https://github.com/supabase.png',
+  avatar_url: 'https://github.com/indobase.png',
 }
 
 /**
  * Unified event interface for all events in the system
  */
-export interface SupabaseEvent {
+export interface IndoBaseEvent {
   slug: string
   type: string
   title: string
@@ -45,7 +45,7 @@ export interface SupabaseEvent {
   timezone: string
   location: string
   hosts: EventHost[]
-  source: 'luma' | 'supabase' | 'file'
+  source: 'luma' | 'indobase' | 'file'
   end_date?: string
   onDemand?: boolean
   disable_page_build?: boolean

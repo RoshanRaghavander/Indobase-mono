@@ -20,7 +20,7 @@ Live Share allows you to connect to your in-browser PGlite databases from _outsi
 
 <video className="rounded-sm m-0" autoPlay loop muted>
   <source
-    src="https://xguihxuzqibwxjnimxev.supabase.co/storage/v1/object/public/videos/marketing/blog/database-build-live-share/database-build-live-share.mp4"
+    src="https://xguihxuzqibwxjnimxev.indobase.co/storage/v1/object/public/videos/marketing/blog/database-build-live-share/database-build-live-share.mp4"
     type="video/mp4"
   />
 </video>
@@ -47,7 +47,7 @@ You could, for example, copy-paste this connection string into `psql`. Once conn
 
 <video className="rounded-sm m-0" autoPlay loop muted>
   <source
-    src="https://xguihxuzqibwxjnimxev.supabase.co/storage/v1/object/public/videos/marketing/blog/database-build-live-share/database-build-live-share-psql.mp4"
+    src="https://xguihxuzqibwxjnimxev.indobase.co/storage/v1/object/public/videos/marketing/blog/database-build-live-share/database-build-live-share-psql.mp4"
     type="video/mp4"
   />
 </video>
@@ -62,7 +62,7 @@ _Note PGlite has a single-connection limit which may not work with all clients -
 
 ## Under the hood
 
-To make this possible, we developed a [**websocket-to-tcp proxy**](https://github.com/supabase-community/postgres-new/tree/main/apps/browser-proxy) that relays Postgres wire protocol messages between the in-browser PGlite instance and a PostgreSQL client over TCP.
+To make this possible, we developed a [**websocket-to-tcp proxy**](https://github.com/indobase-community/postgres-new/tree/main/apps/browser-proxy) that relays Postgres wire protocol messages between the in-browser PGlite instance and a PostgreSQL client over TCP.
 
 <div>
   <Img
@@ -80,7 +80,7 @@ On the browser side, we establish a persistent Web Socket connection that acts a
 
 From the Postgres client side, we use pg-gateway to handle incoming TCP connections. It handles startup and authentication messages, then routes future messages back through the appropriate Web Socket tunnel to the browser.
 
-[pg-gateway](https://github.com/supabase-community/pg-gateway) is an open source library we developed to speak the Postgres wire protocol from the server-side. It allows us to run a Postgres-native proxy - meaning we can host a single TCP server that understands Postgres wire messages and route connections to multiple downstream databases via a wildcard domain (`*.browser.db.build`).
+[pg-gateway](https://github.com/indobase-community/pg-gateway) is an open source library we developed to speak the Postgres wire protocol from the server-side. It allows us to run a Postgres-native proxy - meaning we can host a single TCP server that understands Postgres wire messages and route connections to multiple downstream databases via a wildcard domain (`*.browser.db.build`).
 
 <div>
   <Img
@@ -144,5 +144,5 @@ Why rename? The term “Postgres” is reserved for official Postgres projects a
 Below are the repos for the projects mentioned in this post - open source as always. Feel free to give them a star, add an issue, or contribute some code yourself:
 
 - [PGlite](https://github.com/electric-sql/pglite) (Apache 2.0): A WASM build of Postgres.
-- [pg-gateway](https://github.com/supabase-community/pg-gateway) (MIT): Postgres wire protocol for the server-side.
-- [database-build](https://github.com/supabase-community/postgres-new) (Apache 2.0): The frontend and browser proxy for [database.build](https://database.build).
+- [pg-gateway](https://github.com/indobase-community/pg-gateway) (MIT): Postgres wire protocol for the server-side.
+- [database-build](https://github.com/indobase-community/postgres-new) (Apache 2.0): The frontend and browser proxy for [database.build](https://database.build).

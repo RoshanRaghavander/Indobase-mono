@@ -13,7 +13,7 @@ import { PostTypes } from '~/types/post'
 
 const PlatformSection = dynamic(() => import('components/Solutions/PlatformSection'))
 const PlatformStarterSection = dynamic(() => import('components/Solutions/TwoColumnsSection'))
-const WhySupabase = dynamic(() => import('components/Solutions/FeaturesSection'))
+const WhyIndoBase = dynamic(() => import('components/Solutions/FeaturesSection'))
 
 interface Solution {
   id: string
@@ -33,7 +33,7 @@ const BeginnersPage: NextPage = () => {
         openGraph={{
           title: content.metadata.metaTitle,
           description: content.metadata.metaDescription,
-          url: `https://supabase.com/solutions/no-code`,
+          url: `https://indobase.com/solutions/no-code`,
         }}
       />
       <Layout className="overflow-visible relative">
@@ -44,7 +44,7 @@ const BeginnersPage: NextPage = () => {
           sectionContainerClassName="lg:gap-4"
         />
         <Quotes {...content.quotes} />
-        <WhySupabase {...content.why} />
+        <WhyIndoBase {...content.why} />
         <PlatformSection {...content.platform} />
         <PlatformStarterSection {...content.platformStarterSection} />
       </Layout>

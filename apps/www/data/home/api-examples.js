@@ -6,12 +6,12 @@ export default [
     code: `import { createClient } from '@supabase/supabase-js'
     
 // Initialize 
-const supabaseUrl = 'https://chat-room.supabase.co'
-const supabaseKey = 'public-anon-key'
-const supabase = createClient(supabaseUrl, supabaseKey)
+const indobaseUrl = 'https://chat-room.indobase.co'
+const indobaseKey = 'public-anon-key'
+const indobase = createClient(indobaseUrl, indobaseKey)
 
 // Create a new user
-const { user, error } = await supabase.auth.signUp({
+const { user, error } = await indobase.auth.signUp({
   email: 'example@email.com',
   password: 'example-password',
 })
@@ -24,12 +24,12 @@ const { user, error } = await supabase.auth.signUp({
     code: `import { createClient } from '@supabase/supabase-js'
     
 // Initialize 
-const supabaseUrl = 'https://chat-room.supabase.co'
-const supabaseKey = 'public-anon-key'
-const supabase = createClient(supabaseUrl, supabaseKey)
+const indobaseUrl = 'https://chat-room.indobase.co'
+const indobaseKey = 'public-anon-key'
+const indobase = createClient(indobaseUrl, indobaseKey)
 
 // Get notified of all new chat messages
-const realtime = supabase
+const realtime = indobase
   .from('messages')
   .on('INSERT', message => {
     console.log('New message!', message)
@@ -44,12 +44,12 @@ const realtime = supabase
     code: `import { createClient } from '@supabase/supabase-js'
     
 // Initialize 
-const supabaseUrl = 'https://chat-room.supabase.co'
-const supabaseKey = 'public-anon-key'
-const supabase = createClient(supabaseUrl, supabaseKey)
+const indobaseUrl = 'https://chat-room.indobase.co'
+const indobaseKey = 'public-anon-key'
+const indobase = createClient(indobaseUrl, indobaseKey)
 
 // Create a new bucket
-const { data, error } = await supabase
+const { data, error } = await indobase
   .storage
   .createBucket('avatars', {
     public: false,
@@ -61,16 +61,16 @@ const { data, error } = await supabase
   {
     lang: 'js',
     title: 'Invoke Edge Function',
-    description: 'Invoke a Supabase Edge Function',
+    description: 'Invoke a IndoBase Edge Function',
     code: `import { createClient } from '@supabase/supabase-js'
     
 // Initialize 
-const supabaseUrl = 'https://chat-room.supabase.co'
-const supabaseKey = 'public-anon-key'
-const supabase = createClient(supabaseUrl, supabaseKey)
+const indobaseUrl = 'https://chat-room.indobase.co'
+const indobaseKey = 'public-anon-key'
+const indobase = createClient(indobaseUrl, indobaseKey)
 
 // Invoke a function
-const { data, error } = await supabase.functions.invoke('hello', {
+const { data, error } = await indobase.functions.invoke('hello', {
   body: { foo: 'bar' }
 })
     `,
@@ -82,17 +82,17 @@ const { data, error } = await supabase.functions.invoke('hello', {
     code: `import { createClient } from '@supabase/supabase-js'
     
 // Initialize 
-const supabaseUrl = 'https://chat-room.supabase.co'
-const supabaseKey = 'public-anon-key'
-const supabase = createClient(supabaseUrl, supabaseKey)
+const indobaseUrl = 'https://chat-room.indobase.co'
+const indobaseKey = 'public-anon-key'
+const indobase = createClient(indobaseUrl, indobaseKey)
   
 // Create a new chat room
-const newRoom = await supabase
+const newRoom = await indobase
   .from('rooms')
-  .insert({ name: 'Supabase Fan Club', public: true })
+  .insert({ name: 'IndoBase Fan Club', public: true })
     
 // Get public rooms and their messages
-const publicRooms = await supabase
+const publicRooms = await indobase
   .from('rooms')
   .select(\`
     name,
@@ -101,7 +101,7 @@ const publicRooms = await supabase
   .eq('public', true)
   
 // Update multiple users
-const updatedUsers = await supabase
+const updatedUsers = await indobase
   .from('users')
   .eq('account_type', 'paid')
   .update({ highlight_color: 'gold' })

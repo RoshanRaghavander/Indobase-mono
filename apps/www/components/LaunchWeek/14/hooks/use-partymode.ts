@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 import useLw14ConfData from './use-conf-data'
-import supabase from '../supabase'
+import indobase from '../indobase'
 import { REALTIME_CHANNEL_STATES, REALTIME_SUBSCRIBE_STATES } from '@supabase/supabase-js'
 
 const LW14_TOPIC = 'lw14'
@@ -13,7 +13,7 @@ export const usePartymode = () => {
   )
 
   const createChannelAndSubscribe = useCallback(() => {
-    const channel = supabase.channel(LW14_TOPIC, {
+    const channel = indobase.channel(LW14_TOPIC, {
       config: {
         broadcast: {
           self: true,
@@ -70,8 +70,8 @@ export const usePartymode = () => {
   const fetchGaugesData = useCallback(async () => {
     const [{ data: payloadData, error: payloadError }, { data: meetupsData, error: meetupsError }] =
       await Promise.all([
-        supabase.rpc('get_payload_data_for_lw14'),
-        supabase.rpc('get_meetups_data_for_lw14'),
+        indobase.rpc('get_payload_data_for_lw14'),
+        indobase.rpc('get_meetups_data_for_lw14'),
       ])
 
     if (payloadError || meetupsError) {

@@ -26,7 +26,7 @@ function CronPage() {
         openGraph={{
           title: pageData.metaTitle,
           description: pageData.metaDescription,
-          url: `https://supabase.com/modules/queues`,
+          url: `https://indobase.com/modules/queues`,
           images: [
             {
               url: pageData.metaImage,

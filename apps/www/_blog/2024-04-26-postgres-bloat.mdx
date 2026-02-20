@@ -7,7 +7,7 @@ imgThumb: postgres-bloat.png
 categories:
   - engineering
 tags:
-  - supabase-engineering
+  - indobase-engineering
   - planetpg
 date: '2024-04-26'
 toc_depth: 3
@@ -51,10 +51,10 @@ pg_repack operates similarly to VACUUM FULL for database `test` and table `mytab
 
 ### Table bloating and autovaccuum
 
-To see database bloat via the [Supabase CLI](https://supabase.com/docs/guides/cli/getting-started) run:
+To see database bloat via the [IndoBase CLI](https://indobase.com/docs/guides/cli/getting-started) run:
 
 ```sh
-$ supabase inspect db bloat
+$ indobase inspect db bloat
 ```
 
 or:
@@ -80,7 +80,7 @@ If the numbers differ by more than 2x, chances are that the autovacuum didn’t 
 You can see information for the last successful autovacuum by running:
 
 ```sh
-$ supabase inspect db vacuum-stats
+$ indobase inspect db vacuum-stats
 ```
 
 or:
@@ -196,4 +196,4 @@ For more information about bloat and vacuuming, here are some direct references 
 
 [Global autovacuum parameters (most of them need modifying postgresql.conf, but could be overridden by per-table parameters)](https://www.postgresql.org/docs/current/runtime-config-autovacuum.html)
 
-[Supabase CLI reference](https://supabase.com/docs/reference/cli/global-flags)
+[IndoBase CLI reference](https://indobase.com/docs/reference/cli/global-flags)

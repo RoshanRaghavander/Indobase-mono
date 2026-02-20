@@ -3,6 +3,12 @@
 <img src="https://user-images.githubusercontent.com/8291514/213727225-56186826-bee8-43b5-9b15-86e839d89393.png#gh-dark-mode-only">
 </p>
 
+# IndoBase
+
+**A Backend-as-a-Service for Indian developers and businesses.**
+
+IndoBase provides the same open-source, developer-friendly platform you loved, now rebranded with an Indian focus. Build faster with hosted Postgres, realtime APIs, auth, storage, and functions — all backed by our new brand.
+
 # Adral
 
 [Adral](https://adral.com) is the Postgres development platform. We're building the features of Firebase using enterprise-grade open source tools.
@@ -20,7 +26,7 @@
 - [x] AI + Vector/Embeddings Toolkit. [Docs](https://adral.com/docs/guides/ai)
 - [x] Dashboard
 
-![Supabase Dashboard](https://raw.githubusercontent.com/supabase/supabase/master/apps/www/public/images/github/supabase-dashboard.png)
+![IndoBase Dashboard](https://raw.githubusercontent.com/supabase/supabase/master/apps/www/public/images/github/supabase-dashboard.png)
 
 Watch "releases" of this repo to get notified of major updates.
 

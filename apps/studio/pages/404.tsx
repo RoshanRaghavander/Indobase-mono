@@ -26,10 +26,10 @@ const Error404: NextPage = ({}) => {
                 <Image
                   src={
                     resolvedTheme?.includes('dark')
-                      ? `${BASE_PATH}/img/supabase-dark.svg`
-                      : `${BASE_PATH}/img/supabase-light.svg`
+                      ? `${BASE_PATH}/img/indobase-dark.svg`
+                      : `${BASE_PATH}/img/indobase-light.svg`
                   }
-                  alt="supabase"
+                  alt="indobase"
                   height={24}
                   width={120}
                 />

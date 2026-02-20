@@ -2,17 +2,17 @@ import type { Metadata } from 'next'
 import PricingContent from './PricingContent'
 
 export const metadata: Metadata = {
-  title: 'Pricing & Fees | Supabase',
+  title: 'Pricing & Fees | IndoBase',
   description:
-    'Explore Supabase fees and pricing information. Find our competitive pricing Plans, with no hidden pricing. We have a generous Free Plan for those getting started, and Pay As You Go for those scaling up.',
+    'Explore IndoBase fees and pricing information. Find our competitive pricing Plans, with no hidden pricing. We have a generous Free Plan for those getting started, and Pay As You Go for those scaling up.',
   openGraph: {
-    title: 'Pricing & Fees | Supabase',
+    title: 'Pricing & Fees | IndoBase',
     description:
-      'Explore Supabase fees and pricing information. Find our competitive pricing Plans, with no hidden pricing. We have a generous Free Plan for those getting started, and Pay As You Go for those scaling up.',
-    url: 'https://supabase.com/pricing',
+      'Explore IndoBase fees and pricing information. Find our competitive pricing Plans, with no hidden pricing. We have a generous Free Plan for those getting started, and Pay As You Go for those scaling up.',
+    url: 'https://indobase.com/pricing',
     images: [
       {
-        url: 'https://supabase.com/images/og/supabase-og.png',
+        url: 'https://indobase.com/images/og/indobase-og.png',
       },
     ],
   },

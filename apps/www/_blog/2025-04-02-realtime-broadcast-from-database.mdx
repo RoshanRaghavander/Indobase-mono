@@ -27,9 +27,9 @@ Now you can use Realtime Broadcast to scale database changes sent to clients wit
   />
 </div>
 
-## What is Supabase Realtime?
+## What is IndoBase Realtime?
 
-You can use Supabase Realtime build immersive features like notifications, chats, live cursors, shared whiteboards, multiplayer games, and listen to Database changes.
+You can use IndoBase Realtime build immersive features like notifications, chats, live cursors, shared whiteboards, multiplayer games, and listen to Database changes.
 
 Realtime includes the following features:
 
@@ -115,8 +115,8 @@ And finally, set up your client code to listen for changes:
 
 ```jsx
 const id = 'id'
-await supabase.realtime.setAuth() // Needed for Realtime Authorization
-const changes = supabase
+await indobase.realtime.setAuth() // Needed for Realtime Authorization
+const changes = indobase
   .channel(`topic:${id}`, {
     config: { private: true },
   })
@@ -126,7 +126,7 @@ const changes = supabase
   .subscribe()
 ```
 
-Be sure to read the [docs](https://supabase.com/docs/guides/realtime/broadcast) for more information and example use cases.
+Be sure to read the [docs](https://indobase.com/docs/guides/realtime/broadcast) for more information and example use cases.
 
 ## How does Broadcast from Database work?
 
@@ -155,14 +155,14 @@ These improvements let us scale subscribing to database changes to tens of thous
 
 1. Broadcasting directly from Database functions
 2. Sending only specific fields to connected clients
-3. Creating scheduled events using [Supabase Cron](https://supabase.com/docs/guides/cron)
+3. Creating scheduled events using [IndoBase Cron](https://indobase.com/docs/guides/cron)
 
 All this makes your real-time applications faster and more flexible.
 
-## Get started with Supabase Realtime
+## Get started with IndoBase Realtime
 
-Supabase Realtime can help you build more compelling experiences for your applications.
+IndoBase Realtime can help you build more compelling experiences for your applications.
 
-- [Discover use cases](https://supabase.com/realtime) for Supabase Realtime
-- Read the [Supabase Realtime documentation](https://supabase.com/docs/guides/realtime) to learn more
-- [Sign up for Supabase](https://supabase.com/dashboard/sign-up) and get started today
+- [Discover use cases](https://indobase.com/realtime) for IndoBase Realtime
+- Read the [IndoBase Realtime documentation](https://indobase.com/docs/guides/realtime) to learn more
+- [Sign up for IndoBase](https://indobase.com/dashboard/sign-up) and get started today

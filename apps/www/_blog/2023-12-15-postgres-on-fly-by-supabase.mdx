@@ -1,6 +1,6 @@
 ---
-title: 'Fly Postgres, managed by Supabase'
-description: 'A managed Postgres offering developed by Supabase and Fly.io'
+title: 'Fly Postgres, managed by IndoBase'
+description: 'A managed Postgres offering developed by IndoBase and Fly.io'
 launchweek: x
 categories:
   - product
@@ -16,33 +16,33 @@ imgThumb: lwx-supafly/fly-postgres-thumb.png
 
 <Admonition type="deprecation">
 
-Fly Postgres has been deprecated. See [deprecation announcement](https://github.com/orgs/supabase/discussions/33413) for more details.
+Fly Postgres has been deprecated. See [deprecation announcement](https://github.com/orgs/indobase/discussions/33413) for more details.
 
 </Admonition>
 
-We're launching Fly Postgres, a managed Postgres offering by Supabase and [Fly.io](http://Fly.io).
+We're launching Fly Postgres, a managed Postgres offering by IndoBase and [Fly.io](http://Fly.io).
 
-Fly Postgres databases launch on Fly.io's edge computing platform from any of their 37+ locations. You get everything you expect from a Supabase managed database:
+Fly Postgres databases launch on Fly.io's edge computing platform from any of their 37+ locations. You get everything you expect from a IndoBase managed database:
 
-- a full-featured Postgres database with [over 40+ extensions](https://github.com/supabase/postgres)
+- a full-featured Postgres database with [over 40+ extensions](https://github.com/indobase/postgres)
 - [pgvector](https://github.com/pgvector/pgvector/) support for [Vector/AI workloads](/docs/guides/ai)
 - [Supavisor](/blog/supavisor-postgres-connection-pooler), our Postgres connection pooler
 - Daily backups and point-in-time recovery
-- [Branching](/docs/guides/platform/branching), [observability](https://github.com/supabase/supabase-grafana), and migrations
+- [Branching](/docs/guides/platform/branching), [observability](https://github.com/indobase/indobase-grafana), and migrations
 - A [dashboard](/blog/studio-introducing-assistant) for managing your database
 - Auto-generated Data APIs:
   - [REST](/docs/guides/api) (using [PostgREST](https://postgrest.org))
-  - [GraphQL](/docs/guides/graphql) (using [pg_graphql](https://github.com/supabase/pg_graphql/))
+  - [GraphQL](/docs/guides/graphql) (using [pg_graphql](https://github.com/indobase/pg_graphql/))
 
 This is deployed within the Fly infrastructure, making it the fastest Postgres database for your data intensive applications deployed on Fly.
 
 ## Managing expectations
 
-Before you get too excited, this will be a progressive rollout. It turns out that building inter-company integrations is a lot of work when you factor in billing, support handoff, and educating Supabase staff on how to understand [sandwich analogies](https://fly.io/blog/carving-the-scheduler-out-of-our-orchestrator/).
+Before you get too excited, this will be a progressive rollout. It turns out that building inter-company integrations is a lot of work when you factor in billing, support handoff, and educating IndoBase staff on how to understand [sandwich analogies](https://fly.io/blog/carving-the-scheduler-out-of-our-orchestrator/).
 
-We've been working with a few early testers and we have some bugs to iron out. You can [sign up for the waitlist](https://forms.supabase.com/fly-postgres) if you want to help with testing. We'll accept more testers next month, and we'll communicate more release timelines as soon as we're confident that your data is safe.
+We've been working with a few early testers and we have some bugs to iron out. You can [sign up for the waitlist](https://forms.indobase.com/fly-postgres) if you want to help with testing. We'll accept more testers next month, and we'll communicate more release timelines as soon as we're confident that your data is safe.
 
-## Supabase + Fly = SupaFly?
+## IndoBase + Fly = SupaFly?
 
 We're excited about what this partnership means for 2024. Namely, distributing Postgres across the planet. The Firecracker VM gives us some neat ideas for Postgres. Integrating with Fly also puts a bunch of easy-to-spin-up compute resources right next to the database. That sounds like fun.
 
@@ -55,7 +55,7 @@ The managed service is built with the [Fly extension API](https://fly.io/docs/re
 Testers can launch a Postgres database using the `fly extensions` command:
 
 ```markdown
-fly extensions supabase create
+fly extensions indobase create
 ```
 
 Once the service is stable, it will be swapped for the `postgres` namespace:
@@ -74,11 +74,11 @@ Let's dig into the implementation.
 
 Fly Postgres is built on top of [Fly machines](https://fly.io/docs/machines/). Machines are light-weight Firecracker VMs. The Machines API offers substantial control over an application's lifecycle. They can be suspended during inactivity and resumed within a couple of seconds whenever a new request arrives.
 
-We built [fly-admin](https://github.com/supabase/fly-admin), a Typescript wrapper to simplify our interaction with the Fly API. Supabase bundles a few extra services into Postgres, so we prepared a single Docker image which we can pass to the Fly Machines API. Our current build process outputs an AMI for AWS using [Packer](https://www.packer.io/). We re-use parts of that pipeline to build an [All In One Image](https://github.com/supabase/postgres/tree/develop/docker/all-in-one). This image has all the services to run a Supabase project within a single Docker container.
+We built [fly-admin](https://github.com/indobase/fly-admin), a Typescript wrapper to simplify our interaction with the Fly API. IndoBase bundles a few extra services into Postgres, so we prepared a single Docker image which we can pass to the Fly Machines API. Our current build process outputs an AMI for AWS using [Packer](https://www.packer.io/). We re-use parts of that pipeline to build an [All In One Image](https://github.com/indobase/postgres/tree/develop/docker/all-in-one). This image has all the services to run a IndoBase project within a single Docker container.
 
 ### **Move to multi-cloud**
 
-With this launch, Supabase is officially multi-cloud. We deliberately avoided using AWS's managed services when building Supabase to simplify our multi-cloud transition. These transitions are never simple - even the base primitives offered between cloud providers can vary significantly.
+With this launch, IndoBase is officially multi-cloud. We deliberately avoided using AWS's managed services when building IndoBase to simplify our multi-cloud transition. These transitions are never simple - even the base primitives offered between cloud providers can vary significantly.
 
 For example, Fly Machines offer a simple method for suspending a VM when it's not in use, transparently resuming it within seconds. This simplifies the process of pausing inactive databases. There is no direct primitive on AWS to achieve this.
 
@@ -92,7 +92,7 @@ In addition to publishing images in AWS's container registry, we publish the All
 
 Fly has an [excellent approach](https://fly.io/docs/reference/extensions_api/) for extending their platform. We added a few routes to our API to provision users and projects and we were on our way.
 
-Fly users can access the Supabase dashboard using their existing Fly credentials. The Supabase API initiates an OAuth flow with Fly to authenticate the user. Our Auth team created a [Fly OAuth provider](https://github.com/supabase/gotrue/pull/1261) to make the integration with our API easier.
+Fly users can access the IndoBase dashboard using their existing Fly credentials. The IndoBase API initiates an OAuth flow with Fly to authenticate the user. Our Auth team created a [Fly OAuth provider](https://github.com/indobase/gotrue/pull/1261) to make the integration with our API easier.
 
 ## Challenges
 
@@ -100,7 +100,7 @@ We're still working through a few challenges with the Fly team.
 
 ### Support for Network Restrictions
 
-The [network restrictions](https://supabase.com/docs/guides/platform/network-restrictions) feature relies on the container receiving the correct IP of the client connecting to it. With our current setup, the container sees the Fly proxy IP instead. Connections run through the Fly proxy, which exposes the Proxy protocol. Postgres can't use this information directly, but we're looking at [making Supavisor proxy-protocol aware](https://github.com/supabase/supavisor).
+The [network restrictions](https://indobase.com/docs/guides/platform/network-restrictions) feature relies on the container receiving the correct IP of the client connecting to it. With our current setup, the container sees the Fly proxy IP instead. Connections run through the Fly proxy, which exposes the Proxy protocol. Postgres can't use this information directly, but we're looking at [making Supavisor proxy-protocol aware](https://github.com/indobase/supavisor).
 
 ### Backups within Fly
 
@@ -108,6 +108,6 @@ Fly projects are backed up to AWS S3 as Fly doesn't provide managed Blob storage
 
 ## Getting started
 
-Sign up for the preview [here](https://forms.supabase.com/fly-postgres), wait till we allowlist your org, and get started with the [Quickstart](https://supabase.com/docs/guides/platform/fly-postgres#quickstart) in our docs.
+Sign up for the preview [here](https://forms.indobase.com/fly-postgres), wait till we allowlist your org, and get started with the [Quickstart](https://indobase.com/docs/guides/platform/fly-postgres#quickstart) in our docs.
 
-Fly organizations will get one free project. We're still working through some of the finer details on billing, but the pricing will remain relatively unchanged from our current [pricing](https://supabase.com/pricing).
+Fly organizations will get one free project. We're still working through some of the finer details on billing, but the pricing will remain relatively unchanged from our current [pricing](https://indobase.com/pricing).

@@ -1,17 +1,17 @@
 'use client'
 
 import { createContext, useContext, useState, useEffect, useMemo, ReactNode } from 'react'
-import { SupabaseEvent, SUPABASE_HOST } from '~/lib/eventsTypes'
+import { IndoBaseEvent, SUPABASE_HOST } from '~/lib/eventsTypes'
 
 interface EventsContextValue {
   // Events data
-  allEvents: SupabaseEvent[]
-  filteredEvents: SupabaseEvent[]
-  filteredOnDemandEvents: SupabaseEvent[]
-  staticEvents: SupabaseEvent[]
-  onDemandEvents: SupabaseEvent[]
-  lumaEvents: SupabaseEvent[]
-  featuredEvent: SupabaseEvent | undefined
+  allEvents: IndoBaseEvent[]
+  filteredEvents: IndoBaseEvent[]
+  filteredOnDemandEvents: IndoBaseEvent[]
+  staticEvents: IndoBaseEvent[]
+  onDemandEvents: IndoBaseEvent[]
+  lumaEvents: IndoBaseEvent[]
+  featuredEvent: IndoBaseEvent | undefined
 
   // Loading states
   isLoading: boolean
@@ -30,12 +30,12 @@ const EventsContext = createContext<EventsContextValue | undefined>(undefined)
 
 interface EventsProviderProps {
   children: ReactNode
-  staticEvents: SupabaseEvent[]
-  onDemandEvents: SupabaseEvent[]
+  staticEvents: IndoBaseEvent[]
+  onDemandEvents: IndoBaseEvent[]
 }
 
 export function EventsProvider({ children, staticEvents, onDemandEvents }: EventsProviderProps) {
-  const [lumaEvents, setLumaEvents] = useState<SupabaseEvent[]>([])
+  const [lumaEvents, setLumaEvents] = useState<IndoBaseEvent[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedCategories, setSelectedCategories] = useState<string[]>(['all'])
@@ -53,7 +53,7 @@ export function EventsProvider({ children, staticEvents, onDemandEvents }: Event
         const data = await res.json()
 
         if (data.success) {
-          const transformedEvents: SupabaseEvent[] = data.events.map((event: any) => {
+          const transformedEvents: IndoBaseEvent[] = data.events.map((event: any) => {
             let categories = []
             const isMeetup = event.name.toLowerCase().includes('meetup')
             if (isMeetup) categories.push('meetup')

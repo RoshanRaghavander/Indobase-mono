@@ -43,7 +43,7 @@ export async function POST(req: Request) {
         body: JSON.stringify({
           fields: [{ objectTypeId: '0-1', name: 'email', value: email }],
           context: {
-            pageUri: 'https://supabase.com/state-of-startups',
+            pageUri: 'https://indobase.com/state-of-startups',
             pageName: 'State of Startups 2025',
           },
           legalConsentOptions: {

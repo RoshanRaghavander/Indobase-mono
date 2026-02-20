@@ -26,7 +26,7 @@ const Firebase: NextPage = () => {
         openGraph={{
           title: content.metadata.metaTitle,
           description: content.metadata.metaDescription,
-          url: `https://supabase.com/solutions/switch-from-firebase`,
+          url: `https://indobase.com/solutions/switch-from-firebase`,
         }}
         noindex={true}
         nofollow={true}

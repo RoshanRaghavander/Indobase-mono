@@ -102,7 +102,7 @@ const VercelIntegration: NextPageWithLayout = () => {
           ...vars.connection,
           metadata: {
             ...vars.connection.metadata,
-            supabaseConfig: {
+            indobaseConfig: {
               projectEnvVars: {
                 write: true,
               },
@@ -123,7 +123,7 @@ const VercelIntegration: NextPageWithLayout = () => {
             <Markdown
               className="text-foreground-lighter"
               content={`
-This Supabase integration manages your environment variables automatically to provide the latest keys in the unlikely event that you will need to refresh your JWT token.
+This IndoBase integration manages your environment variables automatically to provide the latest keys in the unlikely event that you will need to refresh your JWT token.
 `}
             />
           </header>

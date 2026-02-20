@@ -6,8 +6,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect } from 'react'
 
-import * as supabaseLogoWordmarkDark from 'common/assets/images/supabase-logo-wordmark--dark.png'
-import * as supabaseLogoWordmarkLight from 'common/assets/images/supabase-logo-wordmark--light.png'
+import * as indobaseLogoWordmarkDark from 'common/assets/images/indobase-logo-wordmark--dark.png'
+import * as indobaseLogoWordmarkLight from 'common/assets/images/indobase-logo-wordmark--light.png'
 import footerData from 'data/Footer'
 import { usePathname } from 'next/navigation'
 import { Badge, IconDiscord, IconGitHubSolid, IconTwitterX, IconYoutubeSolid, cn } from 'ui'
@@ -57,7 +57,7 @@ const Footer = (props: Props) => {
       <div className="w-full !py-0">
         <SectionContainer className="grid grid-cols-2 md:flex items-center justify-between text-foreground md:justify-center gap-8 md:gap-16 xl:gap-28 !py-6 md:!py-10 text-sm">
           <div className="flex flex-col md:flex-row gap-2 md:items-center">
-            We protect your data.
+            We protect your data. Reach us at support@indobase.io
             <Link href="/security" className="text-brand-link hover:underline">
               More on Security
             </Link>
@@ -80,25 +80,25 @@ const Footer = (props: Props) => {
           <div className="space-y-8 xl:col-span-2">
             <Link href="#" as="/" className="w-40">
               <Image
-                src={supabaseLogoWordmarkLight}
+                src={indobaseLogoWordmarkLight}
                 width={160}
                 height={30}
-                alt="Supabase Logo"
+                alt="IndoBase Logo"
                 className="dark:hidden"
                 priority
               />
               <Image
-                src={supabaseLogoWordmarkDark}
+                src={indobaseLogoWordmarkDark}
                 width={160}
                 height={30}
-                alt="Supabase Logo"
+                alt="IndoBase Logo"
                 className="hidden dark:block"
                 priority
               />
             </Link>
             <div className="flex space-x-5">
               <a
-                href="https://twitter.com/supabase"
+                href="https://twitter.com/indobase"
                 className="text-foreground-lighter hover:text-foreground transition"
               >
                 <span className="sr-only">Twitter</span>
@@ -106,7 +106,7 @@ const Footer = (props: Props) => {
               </a>
 
               <a
-                href="https://github.com/supabase"
+                href="https://github.com/indobase"
                 className="text-foreground-lighter hover:text-foreground transition"
               >
                 <span className="sr-only">GitHub</span>
@@ -114,7 +114,7 @@ const Footer = (props: Props) => {
               </a>
 
               <a
-                href="https://discord.supabase.com/"
+                href="https://discord.indobase.com/"
                 className="text-foreground-lighter hover:text-foreground transition"
               >
                 <span className="sr-only">Discord</span>
@@ -122,7 +122,7 @@ const Footer = (props: Props) => {
               </a>
 
               <a
-                href="https://youtube.com/c/supabase"
+                href="https://youtube.com/c/indobase"
                 className="text-foreground-lighter hover:text-foreground transition"
               >
                 <span className="sr-only">Youtube</span>
@@ -177,7 +177,7 @@ const Footer = (props: Props) => {
           </div>
         </div>
         <div className="border-default mt-32 flex justify-between border-t pt-8">
-          <small className="small">&copy; Supabase Inc</small>
+          <small className="small">&copy; IndoBase Inc</small>
           <div className={cn(forceDark && 'hidden')}>
             <ThemeToggle forceDark={forceDark} />
           </div>

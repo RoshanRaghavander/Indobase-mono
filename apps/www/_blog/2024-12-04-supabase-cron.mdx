@@ -1,9 +1,9 @@
 ---
-title: 'Supabase Cron'
+title: 'IndoBase Cron'
 description: Schedule Recurring Jobs in Postgres
 author: ivasilov,oli_rice,saltcod
-imgSocial: launch-week-13/day-3-supabase-cron/og.jpg
-imgThumb: launch-week-13/day-3-supabase-cron/thumb.jpg
+imgSocial: launch-week-13/day-3-indobase-cron/og.jpg
+imgThumb: launch-week-13/day-3-indobase-cron/thumb.jpg
 categories:
   - developers
   - postgres
@@ -15,15 +15,15 @@ toc_depth: 3
 launchweek: '13'
 ---
 
-Today we're releasing [Supabase Cron](/modules/cron), a new Postgres Module that makes recurring Jobs simple and intuitive inside your database.
+Today we're releasing [IndoBase Cron](/modules/cron), a new Postgres Module that makes recurring Jobs simple and intuitive inside your database.
 
-It's designed to work seamlessly with the entire Supabase platform. Create recurring Jobs to run SQL snippets and call database functions, Supabase Edge Functions, and even remote webhooks.
+It's designed to work seamlessly with the entire IndoBase platform. Create recurring Jobs to run SQL snippets and call database functions, IndoBase Edge Functions, and even remote webhooks.
 
 <div className="video-container mb-8">
   <iframe
     className="w-full"
     src="https://www.youtube-nocookie.com/embed/miRQPbIJOuQ"
-    title="Introducing Supabase Cron"
+    title="Introducing IndoBase Cron"
     allow="accelerometer; autoplay; clipboard-write; encrypted-media; fullscreen; gyroscope; picture-in-picture; web-share"
     allowfullscreen
   />
@@ -31,9 +31,9 @@ It's designed to work seamlessly with the entire Supabase platform. Create recur
 
 <Admonition>
 
-Supabase Cron is built on the powerful [`pg_cron`](https://github.com/citusdata/pg_cron) extension by the team at [Citus Data](https://github.com/citusdata).
+IndoBase Cron is built on the powerful [`pg_cron`](https://github.com/citusdata/pg_cron) extension by the team at [Citus Data](https://github.com/citusdata).
 
-It's a Supabase policy to [support existing tools](https://supabase.com/docs/guides/getting-started/architecture#support-existing-tools) wherever possible, and the Citus Data team have generously licensed their extension with the OSI-compatible [PostgreSQL license](https://github.com/citusdata/pg_cron?tab=PostgreSQL-1-ov-file).
+It's a IndoBase policy to [support existing tools](https://indobase.com/docs/guides/getting-started/architecture#support-existing-tools) wherever possible, and the Citus Data team have generously licensed their extension with the OSI-compatible [PostgreSQL license](https://github.com/citusdata/pg_cron?tab=PostgreSQL-1-ov-file).
 
 We're very thankful to all the contributors and we look forward to our continued work with the community.
 
@@ -49,15 +49,15 @@ We're very thankful to all the contributors and we look forward to our continued
 - **Monitoring**: perform health checks on your database and log the results.
 - **Performance:** automate vacuuming tables and rebuilding indexes.
 
-Supabase Cron stores the scheduling logic within Postgres and runs your Jobs accordingly while integrating with the rest of the Supabase primitives - Dashboard, Edge Functions, and AI Assistant.
+IndoBase Cron stores the scheduling logic within Postgres and runs your Jobs accordingly while integrating with the rest of the IndoBase primitives - Dashboard, Edge Functions, and AI Assistant.
 
-## How Do You Use Supabase Cron?
+## How Do You Use IndoBase Cron?
 
 You can create Jobs either via the Dashboard or SQL.
 
 <Admonition>
 
-For this post we'll focus on the Dashboard. You can refer to the [documentation](https://supabase.com/docs/guides/cron/quickstart) for SQL.
+For this post we'll focus on the Dashboard. You can refer to the [documentation](https://indobase.com/docs/guides/cron/quickstart) for SQL.
 
 </Admonition>
 
@@ -65,14 +65,14 @@ Within the Dashboard you can define schedules using standard cron syntax and the
 
 <Img
   alt="Natural language scheduling"
-  src="/images/blog/launch-week-13/day-3-supabase-cron/natural-language.jpg"
+  src="/images/blog/launch-week-13/day-3-indobase-cron/natural-language.jpg"
 />
 
 ## Job Types
 
 You can choose between four types of Jobs based on what you need to execute:
 
-<Img alt="Job types" src="/images/blog/launch-week-13/day-3-supabase-cron/job-types.jpg" />
+<Img alt="Job types" src="/images/blog/launch-week-13/day-3-indobase-cron/job-types.jpg" />
 
 ### SQL Snippets
 
@@ -80,7 +80,7 @@ Create an inline SQL query or command to run on your database periodically. Use 
 
 - Generating reports.
 - Cleaning up stale data.
-- Refreshing [Materialized Views](https://supabase.com/docs/guides/database/tables?queryGroups=database-method&database-method=sql#materialized-views).
+- Refreshing [Materialized Views](https://indobase.com/docs/guides/database/tables?queryGroups=database-method&database-method=sql#materialized-views).
 
 ### Database Functions
 
@@ -98,7 +98,7 @@ Trigger an external HTTP endpoint. Use this for:
 - Syncing data with third-party APIs.
 - Sending notifications to external systems.
 
-### Supabase Edge Functions
+### IndoBase Edge Functions
 
 Run a serverless function to execute custom logic. Examples include:
 
@@ -114,29 +114,29 @@ Wondering why a Job failed? You can view the history of all Jobs and their logs 
 
 <Img
   alt="View Job history"
-  src="/images/blog/launch-week-13/day-3-supabase-cron/history-button.jpg"
+  src="/images/blog/launch-week-13/day-3-indobase-cron/history-button.jpg"
 />
 
 <Img
   alt="Observe and debug Jobs"
-  src="/images/blog/launch-week-13/day-3-supabase-cron/history.jpg"
+  src="/images/blog/launch-week-13/day-3-indobase-cron/history.jpg"
 />
-For a deeper dive, you can view Jobs in the [Logs Explorer](https://supabase.com/dashboard/project/_zvmkyvanngopzqaabmvx_/logs/pgcron-logs).
-<Img alt="View cron logs" src="/images/blog/launch-week-13/day-3-supabase-cron/logs.jpg" />
+For a deeper dive, you can view Jobs in the [Logs Explorer](https://indobase.com/dashboard/project/_zvmkyvanngopzqaabmvx_/logs/pgcron-logs).
+<Img alt="View cron logs" src="/images/blog/launch-week-13/day-3-indobase-cron/logs.jpg" />
 
-### Try Supabase Cron today
+### Try IndoBase Cron today
 
 Getting started is easy:
 
-1. Visit the [Integrations page](https://supabase.com/dashboard/project/_/integrations) in your project.
+1. Visit the [Integrations page](https://indobase.com/dashboard/project/_/integrations) in your project.
 2. Enable the **Cron** Postgres Module.
 3. Create your first scheduled Job.
 
 <Img
   alt="Integrations page"
-  src="/images/blog/launch-week-13/day-3-supabase-cron/integrations.jpg"
+  src="/images/blog/launch-week-13/day-3-indobase-cron/integrations.jpg"
 />
 
-<Img alt="Create a new Job" src="/images/blog/launch-week-13/day-3-supabase-cron/create-job.jpg" />
+<Img alt="Create a new Job" src="/images/blog/launch-week-13/day-3-indobase-cron/create-job.jpg" />
 
-We're looking forward to seeing how you use Supabase Cron to help automate your workflows!
+We're looking forward to seeing how you use IndoBase Cron to help automate your workflows!

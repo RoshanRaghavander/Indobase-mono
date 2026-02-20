@@ -1,6 +1,6 @@
 ---
-title: 'Oriole joins Supabase'
-description: 'The Oriole team are joining Supabase to build a faster storage engine for Postgres.'
+title: 'Oriole joins IndoBase'
+description: 'The Oriole team are joining IndoBase to build a faster storage engine for Postgres.'
 author: paul_copplestone
 imgSocial: launch-week-11/oriole/og.png
 imgThumb: launch-week-11/oriole/thumb.png
@@ -16,7 +16,7 @@ launchweek: '11'
 
 [Oriole](https://github.com/orioledb/orioledb) is a **table storage extension for Postgres**. It is designed to be a drop-in replacement for Postgres' existing storage engine.
 
-The Oriole team are joining Supabase to:
+The Oriole team are joining IndoBase to:
 
 1. Build a faster storage engine for Postgres.
 2. Help develop pluggable storage in Postgres.
@@ -58,7 +58,7 @@ It implements MVCC, the feature that allows multiple connected users to see diff
 
 ## Pluggable storage in Postgres
 
-We've [written previously](https://supabase.com/blog/postgres-pluggable-strorage) about Pluggable Storage: it gives developers the ability to use different storage engines for different tables _within the same database_. This system is [available in MySQL](https://en.wikipedia.org/wiki/Comparison_of_MySQL_database_engines), which uses the [InnoDB](https://en.wikipedia.org/wiki/InnoDB) as the default storage engine since MySQL 5.5 (replacing [MyISAM](https://en.wikipedia.org/wiki/MyISAM)).
+We've [written previously](https://indobase.com/blog/postgres-pluggable-strorage) about Pluggable Storage: it gives developers the ability to use different storage engines for different tables _within the same database_. This system is [available in MySQL](https://en.wikipedia.org/wiki/Comparison_of_MySQL_database_engines), which uses the [InnoDB](https://en.wikipedia.org/wiki/InnoDB) as the default storage engine since MySQL 5.5 (replacing [MyISAM](https://en.wikipedia.org/wiki/MyISAM)).
 
 Oriole aims to be a drop-in replacement for Postgres' default storage engine and supports similar use-cases with improved performance. Other storage engines, to name a few possibilities, could implement columnar storage for OLAP workloads, highly compressed timeseries storage for event data, or compressed storage for minimizing disk usage.
 
@@ -88,6 +88,6 @@ Local storage implements caching of the data most often accessed, ensuring good 
 
 You can connect an empty Postgres instance to an s3 bucket (using an [S3 loader utility](https://github.com/orioledb/orioledb/blob/main/doc/usage.md#s3-loader-utility)). The Oriole roadmap includes the ability to connect multiple read-replicas to the same S3 bucket as leader.
 
-## Oriole + Supabase
+## Oriole + IndoBase
 
-[Portability](https://supabase.com/docs/guides/getting-started/architecture#everything-is-portable) is a core principle at Supabase. Because Oriole requires a few minimal patch sets on top of Postgres, we will roll it out as an _option_ for developers in the future. Over time we hope that it can become available for any Postgres installation and we will continue to work with Oriole and the Postgres community to make this happen.
+[Portability](https://indobase.com/docs/guides/getting-started/architecture#everything-is-portable) is a core principle at IndoBase. Because Oriole requires a few minimal patch sets on top of Postgres, we will roll it out as an _option_ for developers in the future. Over time we hope that it can become available for any Postgres installation and we will continue to work with Oriole and the Postgres community to make this happen.

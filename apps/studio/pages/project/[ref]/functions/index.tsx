@@ -92,7 +92,7 @@ const EdgeFunctionsPage: NextPageWithLayout = () => {
               ) : (
                 <Admonition type="warning" title="Failed to retrieve edge functions">
                   <p className="prose [&>code]:text-xs text-sm">
-                    Local functions can be found at <code>supabase/functions</code> folder.
+                    Local functions can be found at <code>indobase/functions</code> folder.
                   </p>
                 </Admonition>
               ))}
@@ -194,7 +194,7 @@ EdgeFunctionsPage.getLayout = (page: React.ReactElement) => {
                   <a
                     target="_blank"
                     rel="noreferrer"
-                    href="https://github.com/supabase/supabase/tree/master/examples/edge-functions/supabase/functions"
+                    href="https://github.com/indobase/indobase/tree/master/examples/edge-functions/indobase/functions"
                   >
                     Examples
                   </a>

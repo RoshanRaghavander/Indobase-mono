@@ -42,12 +42,12 @@ export default function App({ Component, pageProps }: AppProps) {
   const isDarkLaunchWeek = useDarkLaunchWeeks()
   const forceDarkMode = isDarkLaunchWeek
 
-  let applicationName = 'Supabase'
+  let applicationName = 'IndoBase'
   let faviconRoute = DEFAULT_FAVICON_ROUTE
   let themeColor = DEFAULT_FAVICON_THEME_COLOR
 
   if (router.asPath?.includes('/launch-week/x')) {
-    applicationName = 'Supabase LWX'
+    applicationName = 'IndoBase LWX'
     faviconRoute = 'images/launchweek/lwx/favicon'
     themeColor = 'FFFFFF'
   }
@@ -70,20 +70,20 @@ export default function App({ Component, pageProps }: AppProps) {
         description={DEFAULT_META_DESCRIPTION}
         openGraph={{
           type: 'website',
-          url: 'https://supabase.com/',
-          site_name: 'Supabase',
+          url: 'https://indobase.com/',
+          site_name: 'IndoBase',
           images: [
             {
-              url: `https://supabase.com${basePath}/images/og/supabase-og.png`,
+              url: `https://indobase.com${basePath}/images/og/indobase-og.png`,
               width: 800,
               height: 600,
-              alt: 'Supabase Og Image',
+              alt: 'IndoBase Og Image',
             },
           ],
         }}
         twitter={{
-          handle: '@supabase',
-          site: '@supabase',
+          handle: '@indobase',
+          site: '@indobase',
           cardType: 'summary_large_image',
         }}
       />

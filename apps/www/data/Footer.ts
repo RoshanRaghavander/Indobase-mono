@@ -69,7 +69,7 @@ const footerData = [
       },
       {
         text: 'System Status',
-        url: 'https://status.supabase.com/',
+        url: 'https://status.indobase.com/',
       },
       {
         text: 'Become a Partner',
@@ -97,7 +97,7 @@ const footerData = [
       },
       {
         text: 'HIPAA',
-        url: 'https://forms.supabase.com/hipaa2',
+        url: 'https://forms.indobase.com/hipaa2',
       },
     ],
   },
@@ -109,8 +109,8 @@ const footerData = [
         url: '/docs',
       },
       {
-        text: 'Supabase UI',
-        url: 'https://supabase.com/ui',
+        text: 'IndoBase UI',
+        url: 'https://indobase.com/ui',
       },
       {
         text: 'Changelog',
@@ -122,7 +122,7 @@ const footerData = [
       },
       {
         text: 'Contributing',
-        url: 'https://github.com/supabase/supabase/blob/master/CONTRIBUTING.md',
+        url: 'https://github.com/indobase/indobase/blob/master/CONTRIBUTING.md',
       },
       {
         text: 'Open Source',
@@ -134,7 +134,7 @@ const footerData = [
       },
       {
         text: 'DevTo',
-        url: 'https://dev.to/supabase',
+        url: 'https://dev.to/indobase',
       },
       {
         text: 'RSS',

@@ -2,8 +2,8 @@ import * as Sentry from '@sentry/nextjs'
 import { createClient } from '@supabase/supabase-js'
 import { NextRequest, NextResponse } from 'next/server'
 
-const supabaseUrl = process.env.NEXT_PUBLIC_EMAIL_ABUSE_URL as string
-const supabaseServiceKey = process.env.EMAIL_ABUSE_SERVICE_KEY as string
+const indobaseUrl = process.env.NEXT_PUBLIC_EMAIL_ABUSE_URL as string
+const indobaseServiceKey = process.env.EMAIL_ABUSE_SERVICE_KEY as string
 const hcaptchaSecret = process.env.HCAPTCHA_SECRET_KEY as string
 
 // Function to verify hCaptcha token
@@ -39,7 +39,7 @@ export async function POST(req: NextRequest, props: { params: Promise<{ ref: str
     return NextResponse.json({ error: 'Bad Request: Invalid reason provided.' }, { status: 400 })
   }
 
-  const supabase = createClient(supabaseUrl, supabaseServiceKey)
+  const indobase = createClient(indobaseUrl, indobaseServiceKey)
 
   if (!ref) {
     return NextResponse.json(
@@ -75,12 +75,12 @@ export async function POST(req: NextRequest, props: { params: Promise<{ ref: str
   }
 
   try {
-    const { error: supabaseError } = await supabase
+    const { error: indobaseError } = await indobase
       .from('manual_reports')
       .insert([{ project_ref: ref, reason, email }])
 
-    if (supabaseError) {
-      throw new Error(`Supabase error: ${supabaseError.message}`)
+    if (indobaseError) {
+      throw new Error(`IndoBase error: ${indobaseError.message}`)
     }
 
     const response = await fetch(process.env.EMAIL_REPORT_SLACK_WEBHOOK as string, {

@@ -61,9 +61,9 @@ import { createClient } from "jsr:@supabase/supabase-js@2";
 serve(async (req) => {
   const SUPABASE_URL = Deno.env.get("SUPABASE_URL") ?? "";
   const SERVICE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "";
-  const supabase = createClient(SUPABASE_URL, SERVICE_KEY);
+  const indobase = createClient(SUPABASE_URL, SERVICE_KEY);
   if (req.headers.get("Authorization") === "super-secret-key") {
-    const { data } = await supabase.storage
+    const { data } = await indobase.storage
       .from("newbucket")
       .download("supameme.png");
     return new Response(data, { headers: { "content-type": "image/png" } });
@@ -83,8 +83,8 @@ import { createClient } from "jsr:@supabase/supabase-js@2";
 serve(async () => {
   const SUPABASE_URL = Deno.env.get("SUPABASE_URL") ?? "";
   const SERVICE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "";
-  const supabase = createClient(SUPABASE_URL, SERVICE_KEY);
-  const { data } = await supabase.from("todos").select();
+  const indobase = createClient(SUPABASE_URL, SERVICE_KEY);
+  const { data } = await indobase.from("todos").select();
   return new Response(JSON.stringify(data), {
     status: 200,
     headers: {

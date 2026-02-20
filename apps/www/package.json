@@ -47,7 +47,7 @@
     "config": "workspace:*",
     "dayjs": "^1.11.12",
     "dev-tools": "workspace:*",
-    "eslint-config-supabase": "workspace:*",
+    "eslint-config-indobase": "workspace:*",
     "framer-motion": "^11.0.3",
     "globby": "^13.2.2",
     "gray-matter": "^4.0.3",

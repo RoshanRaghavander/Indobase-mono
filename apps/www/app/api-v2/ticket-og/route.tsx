@@ -18,7 +18,7 @@ const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL
 const STORAGE_URL = `${SUPABASE_URL}/storage/v1/object/public/images/launch-week/lw15`
 // Load custom fonts
 const FONT_URLS = {
-  SANS: 'https://xguihxuzqibwxjnimxev.supabase.co/storage/v1/object/public/fonts/CircularStd-Book.otf',
+  SANS: 'https://xguihxuzqibwxjnimxev.indobase.co/storage/v1/object/public/fonts/CircularStd-Book.otf',
 }
 
 const LW_TABLE = 'tickets'
@@ -95,9 +95,9 @@ export async function GET(req: Request) {
     const TICKET_RATIO = 940 / 1500
     const TICKET_WIDTH = 480
     const TICKET_HEIGHT = TICKET_WIDTH / TICKET_RATIO
-    const SUPABASE_LOGO_IMG = `${STORAGE_URL}/assets/supabase-white.png`
-    const SUPABASE_LOGO_RATIO = 541 / 103
-    const SUPABASE_LOGO_HEIGHT = 24
+    const INDOBASE_LOGO_IMG = `${STORAGE_URL}/assets/indobase-white.png`
+    const INDOBASE_LOGO_RATIO = 541 / 103
+    const INDOBASE_LOGO_HEIGHT = 24
     const DATE_FONT_SIZE = 75
     const LW15_LOGO_HEIGHT = 70
     const LW15_LEFT = `${STORAGE_URL}/assets/LW15_LEFT.png`
@@ -235,14 +235,14 @@ export async function GET(req: Request) {
                   July 14—18
                 </p>
                 <img
-                  src={SUPABASE_LOGO_IMG}
+                  src={INDOBASE_LOGO_IMG}
                   width="100%"
                   height="40px"
                   style={{
                     position: 'relative',
                     backgroundSize: 'contain',
-                    height: `${SUPABASE_LOGO_HEIGHT}px`,
-                    width: `${SUPABASE_LOGO_RATIO * SUPABASE_LOGO_HEIGHT}px`,
+                    height: `${INDOBASE_LOGO_HEIGHT}px`,
+                    width: `${INDOBASE_LOGO_RATIO * INDOBASE_LOGO_HEIGHT}px`,
                     marginBottom: '20px',
                   }}
                 />

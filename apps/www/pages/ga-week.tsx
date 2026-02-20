@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 import { NextSeo } from 'next-seo'
 import { Session } from '@supabase/supabase-js'
 import { SITE_ORIGIN } from '~/lib/constants'
-import supabase from '~/lib/supabaseMisc'
+import indobase from '~/lib/indobaseMisc'
 
 import DefaultLayout from '~/components/Layouts/Default'
 import { TicketState, ConfDataContext, UserData } from '~/components/LaunchWeek/hooks/use-conf-data'
@@ -22,7 +22,7 @@ const LaunchWeekPrizeSection = dynamic(
 export default function GAWeekIndex() {
   const { query } = useRouter()
 
-  const TITLE = 'Supabase GA Week | 15-19 April 2024'
+  const TITLE = 'IndoBase GA Week | 15-19 April 2024'
   const DESCRIPTION = 'Join us for a week of announcing new features, every day at 7 AM PT.'
   const OG_IMAGE = `${SITE_ORIGIN}/images/launchweek/11/lw11-og-ga.png`
 
@@ -44,17 +44,17 @@ export default function GAWeekIndex() {
   const [ticketState, setTicketState] = useState<TicketState>('loading')
 
   useEffect(() => {
-    if (supabase) {
-      supabase.auth.getSession().then(({ data: { session } }) => setSession(session))
+    if (indobase) {
+      indobase.auth.getSession().then(({ data: { session } }) => setSession(session))
       const {
         data: { subscription },
-      } = supabase.auth.onAuthStateChange((_event, session) => {
+      } = indobase.auth.onAuthStateChange((_event, session) => {
         setSession(session)
       })
 
       return () => subscription.unsubscribe()
     }
-  }, [supabase])
+  }, [indobase])
 
   useEffect(() => {
     if (session?.user) {
@@ -74,7 +74,7 @@ export default function GAWeekIndex() {
         openGraph={{
           title: TITLE,
           description: DESCRIPTION,
-          url: 'https://supabase.com/ga-week',
+          url: 'https://indobase.com/ga-week',
           images: [
             {
               url: OG_IMAGE,
@@ -84,7 +84,7 @@ export default function GAWeekIndex() {
       />
       <ConfDataContext.Provider
         value={{
-          supabase,
+          indobase,
           session,
           userData,
           setUserData,

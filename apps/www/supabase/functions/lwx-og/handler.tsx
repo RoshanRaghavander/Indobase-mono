@@ -7,7 +7,7 @@ const corsHeaders = {
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
 }
 
-const STORAGE_URL = 'https://obuldanrptloktxcffvn.supabase.co/storage/v1/object/public/images/lwx'
+const STORAGE_URL = 'https://obuldanrptloktxcffvn.indobase.co/storage/v1/object/public/images/lwx'
 
 // Load custom font
 const FONT_URL = `${STORAGE_URL}/font/CircularStd-Book.otf`
@@ -50,9 +50,9 @@ export async function handler(req: Request) {
     if (!username) throw new Error('missing username param')
 
     const supabaseAdminClient = createClient(
-      // Supabase API URL - env var exported by default when deployed.
+      // IndoBase API URL - env var exported by default when deployed.
       Deno.env.get('MISC_USE_URL') ?? '',
-      // Supabase API SERVICE ROLE KEY - env var exported by default when deployed.
+      // IndoBase API SERVICE ROLE KEY - env var exported by default when deployed.
       Deno.env.get('MISC_USE_ANON_KEY') ?? ''
     )
 
@@ -91,20 +91,20 @@ export async function handler(req: Request) {
       regular: {
         OG: `${STORAGE_URL}/assets/og_bg_regular.png?t=2023-11-27T22%3A32%3A21.973Z`,
         BG: `${STORAGE_URL}/assets/lwx_ticket_bg_regular.png`,
-        LOGO: `${STORAGE_URL}/assets/logos/supabase_logo_reg.png`,
-        // LOGO: `${STORAGE_URL}/assets/logos/supabase_lwx_logo_dark.png`,
+        LOGO: `${STORAGE_URL}/assets/logos/indobase_logo_reg.png`,
+        // LOGO: `${STORAGE_URL}/assets/logos/indobase_lwx_logo_dark.png`,
       },
       platinum: {
         OG: `${STORAGE_URL}/assets/og_bg_platinum.png?t=2023-11-27T22%3A31%3A58.719Z`,
         BG: `${STORAGE_URL}/assets/lwx_ticket_bg_platinum.png`,
-        LOGO: `${STORAGE_URL}/assets/logos/supabase_logo_platinum.png`,
-        // LOGO: `${STORAGE_URL}/assets/logos/supabase_lwx_logo_light.png`,
+        LOGO: `${STORAGE_URL}/assets/logos/indobase_logo_platinum.png`,
+        // LOGO: `${STORAGE_URL}/assets/logos/indobase_lwx_logo_light.png`,
       },
       secret: {
         OG: `${STORAGE_URL}/assets/og_bg_secret.png?t=2023-11-27T22%3A31%3A58.719Z`,
         BG: `${STORAGE_URL}/assets/lwx_ticket_bg_secret.png`,
-        LOGO: `${STORAGE_URL}/assets/logos/supabase_logo_platinum.png`,
-        // LOGO: `${STORAGE_URL}/assets/logos/supabase_lwx_logo_light.png`,
+        LOGO: `${STORAGE_URL}/assets/logos/indobase_logo_platinum.png`,
+        // LOGO: `${STORAGE_URL}/assets/logos/indobase_lwx_logo_light.png`,
       },
     }
 
@@ -309,7 +309,7 @@ export async function handler(req: Request) {
     if (storageError) throw new Error(`storageError: ${storageError.message}`)
 
     // Generate og image
-    fetch('https://obuldanrptloktxcffvn.supabase.co/functions/v1/lwx-ticket-og', {
+    fetch('https://obuldanrptloktxcffvn.indobase.co/functions/v1/lwx-ticket-og', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

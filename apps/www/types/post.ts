@@ -27,7 +27,7 @@ export interface PostTypes {
   tags?: string[]
   categories?: string[]
   industry?: string[]
-  supabase_products?: string[]
+  indobase_products?: string[]
   company_size?: string
   region?: string
   logo?: string

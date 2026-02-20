@@ -209,7 +209,7 @@ module.exports = [
   {
     permanent: false,
     source: '/docs/library/getting-started',
-    destination: '/docs/reference/javascript/supabase-client',
+    destination: '/docs/reference/javascript/indobase-client',
   },
   {
     permanent: false,
@@ -264,8 +264,8 @@ module.exports = [
   },
   {
     permanent: false,
-    source: '/docs/client/supabase-client',
-    destination: '/docs/reference/javascript/supabase-client',
+    source: '/docs/client/indobase-client',
+    destination: '/docs/reference/javascript/indobase-client',
   },
   {
     permanent: false,
@@ -520,12 +520,12 @@ module.exports = [
   {
     permanent: false,
     source: '/docs/careers',
-    destination: 'https://about.supabase.com/careers',
+    destination: 'https://about.indobase.com/careers',
   },
   {
     permanent: false,
     source: '/docs/careers/:match*',
-    destination: 'https://about.supabase.com/careers//:match*',
+    destination: 'https://about.indobase.com/careers//:match*',
   },
 
   { permanent: false, source: '/docs/resources', destination: '/docs/guides' },
@@ -637,13 +637,13 @@ module.exports = [
   },
   {
     permanent: true,
-    source: '/docs/reference/javascript/supabase-client',
+    source: '/docs/reference/javascript/indobase-client',
     destination: '/docs#reference-documentation',
   },
   {
     permanent: true,
     source: '/join',
-    destination: 'https://supabase.com/',
+    destination: 'https://indobase.com/',
   },
   {
     permanent: true,
@@ -652,33 +652,33 @@ module.exports = [
   },
   {
     permanent: true,
-    source: '/blog/2022/06/15/blog/2022/06/29/visualizing-supabase-data-using-metabase',
-    destination: '/blog/visualizing-supabase-data-using-metabase',
+    source: '/blog/2022/06/15/blog/2022/06/29/visualizing-indobase-data-using-metabase',
+    destination: '/blog/visualizing-indobase-data-using-metabase',
   },
   {
     permanent: true,
     source: '/_app',
-    destination: 'https://supabase.com/dashboard',
+    destination: 'https://indobase.com/dashboard',
   },
   {
     permanent: true,
-    source: '/blog/2020/05/01/supabase-alpha-april-2020',
-    destination: 'blog/supabase-alpha-april-2020',
+    source: '/blog/2020/05/01/indobase-alpha-april-2020',
+    destination: 'blog/indobase-alpha-april-2020',
   },
   {
     permanent: true,
-    source: '/blog/2020/06/01/supabase-alpha-may-2020',
-    destination: '/blog/supabase-alpha-may-2020',
+    source: '/blog/2020/06/01/indobase-alpha-may-2020',
+    destination: '/blog/indobase-alpha-may-2020',
   },
   {
     permanent: true,
-    source: '/blog/2020/06/15/supabase-steve-chavez',
-    destination: '/blog/supabase-steve-chavez',
+    source: '/blog/2020/06/15/indobase-steve-chavez',
+    destination: '/blog/indobase-steve-chavez',
   },
   {
     permanent: true,
-    source: '/blog/2020/07/01/supabase-alpha-june-2020',
-    destination: '/blog/supabase-alpha-june-2020',
+    source: '/blog/2020/07/01/indobase-alpha-june-2020',
+    destination: '/blog/indobase-alpha-june-2020',
   },
   {
     permanent: true,
@@ -702,28 +702,28 @@ module.exports = [
   },
   {
     permanent: true,
-    source: '/blog/2020/08/02/supabase-alpha-july-2020',
-    destination: '/blog/supabase-alpha-july-2020',
+    source: '/blog/2020/08/02/indobase-alpha-july-2020',
+    destination: '/blog/indobase-alpha-july-2020',
   },
   {
     permanent: true,
-    source: '/blog/2020/08/05/supabase-auth',
-    destination: '/blog/supabase-auth',
+    source: '/blog/2020/08/05/indobase-auth',
+    destination: '/blog/indobase-auth',
   },
   {
     permanent: true,
-    source: '/blog/2020/09/03/supabase-alpha-august-2020',
-    destination: '/blog/supabase-alpha-august-2020',
+    source: '/blog/2020/09/03/indobase-alpha-august-2020',
+    destination: '/blog/indobase-alpha-august-2020',
   },
   {
     permanent: true,
-    source: '/blog/2020/09/11/supabase-hacktoberfest-2020',
-    destination: '/blog/supabase-hacktoberfest-2020',
+    source: '/blog/2020/09/11/indobase-hacktoberfest-2020',
+    destination: '/blog/indobase-hacktoberfest-2020',
   },
   {
     permanent: true,
-    source: '/blog/2020/10/03/supabase-alpha-september-2020',
-    destination: '/blog/supabase-alpha-september-2020',
+    source: '/blog/2020/10/03/indobase-alpha-september-2020',
+    destination: '/blog/indobase-alpha-september-2020',
   },
   {
     permanent: true,
@@ -732,8 +732,8 @@ module.exports = [
   },
   {
     permanent: true,
-    source: '/blog/2020/11/02/supabase-alpha-october-2020',
-    destination: '/blog/supabase-alpha-october-2020',
+    source: '/blog/2020/11/02/indobase-alpha-october-2020',
+    destination: '/blog/indobase-alpha-october-2020',
   },
   {
     permanent: true,
@@ -742,8 +742,8 @@ module.exports = [
   },
   {
     permanent: true,
-    source: '/blog/2020/12/01/supabase-alpha-november-2020',
-    destination: '/blog/supabase-alpha-november-2020',
+    source: '/blog/2020/12/01/indobase-alpha-november-2020',
+    destination: '/blog/indobase-alpha-november-2020',
   },
   {
     permanent: true,
@@ -762,23 +762,23 @@ module.exports = [
   },
   {
     permanent: true,
-    source: '/blog/2020/12/02/supabase-striveschool',
-    destination: '/blog/supabase-striveschool',
+    source: '/blog/2020/12/02/indobase-striveschool',
+    destination: '/blog/indobase-striveschool',
   },
   {
     permanent: true,
-    source: '/blog/2020/12/13/supabase-dashboard-performance',
-    destination: '/blog/supabase-dashboard-performance',
+    source: '/blog/2020/12/13/indobase-dashboard-performance',
+    destination: '/blog/indobase-dashboard-performance',
   },
   {
     permanent: true,
-    source: '/blog/2021/01/02/supabase-beta-december-2020',
-    destination: '/blog/supabase-beta-december-2020',
+    source: '/blog/2021/01/02/indobase-beta-december-2020',
+    destination: '/blog/indobase-beta-december-2020',
   },
   {
     permanent: true,
-    source: '/blog/2021/02/02/supabase-beta-january-2021',
-    destination: '/blog/supabase-beta-january-2021',
+    source: '/blog/2021/02/02/indobase-beta-january-2021',
+    destination: '/blog/indobase-beta-january-2021',
   },
   {
     permanent: true,
@@ -787,8 +787,8 @@ module.exports = [
   },
   {
     permanent: true,
-    source: '/blog/2021/03/02/supabase-beta-february-2021',
-    destination: '/blog/supabase-beta-february-2021',
+    source: '/blog/2021/03/02/indobase-beta-february-2021',
+    destination: '/blog/indobase-beta-february-2021',
   },
   {
     permanent: true,
@@ -802,8 +802,8 @@ module.exports = [
   },
   {
     permanent: true,
-    source: '/blog/2021/03/11/using-supabase-replit',
-    destination: '/blog/using-supabase-replit',
+    source: '/blog/2021/03/11/using-indobase-replit',
+    destination: '/blog/using-indobase-replit',
   },
   {
     permanent: true,
@@ -812,8 +812,8 @@ module.exports = [
   },
   {
     permanent: true,
-    source: '/blog/2021/03/25/angels-of-supabase',
-    destination: '/blog/angels-of-supabase',
+    source: '/blog/2021/03/25/angels-of-indobase',
+    destination: '/blog/angels-of-indobase',
   },
   {
     permanent: true,
@@ -827,48 +827,48 @@ module.exports = [
   },
   {
     permanent: true,
-    source: '/blog/2021/03/30/supabase-storage',
-    destination: '/blog/supabase-storage',
+    source: '/blog/2021/03/30/indobase-storage',
+    destination: '/blog/indobase-storage',
   },
   {
     permanent: true,
-    source: '/blog/2021/03/31/supabase-cli',
-    destination: '/blog/supabase-cli',
+    source: '/blog/2021/03/31/indobase-cli',
+    destination: '/blog/indobase-cli',
   },
   {
     permanent: true,
-    source: '/blog/2021/04/01/supabase-nft-marketplace',
-    destination: '/blog/supabase-nft-marketplace',
+    source: '/blog/2021/04/01/indobase-nft-marketplace',
+    destination: '/blog/indobase-nft-marketplace',
   },
   {
     permanent: true,
-    source: '/blog/2021/04/02/supabase-dot-com',
-    destination: '/blog/supabase-dot-com',
+    source: '/blog/2021/04/02/indobase-dot-com',
+    destination: '/blog/indobase-dot-com',
   },
   {
     permanent: true,
-    source: '/blog/2021/04/02/supabase-pgbouncer',
-    destination: '/blog/supabase-pgbouncer',
+    source: '/blog/2021/04/02/indobase-pgbouncer',
+    destination: '/blog/indobase-pgbouncer',
   },
   {
     permanent: true,
-    source: '/blog/2021/04/02/supabase-workflows',
-    destination: '/blog/supabase-workflows',
+    source: '/blog/2021/04/02/indobase-workflows',
+    destination: '/blog/indobase-workflows',
   },
   {
     permanent: true,
-    source: '/blog/2021/04/06/supabase-beta-march-2021',
-    destination: '/blog/supabase-beta-march-2021',
+    source: '/blog/2021/04/06/indobase-beta-march-2021',
+    destination: '/blog/indobase-beta-march-2021',
   },
   {
     permanent: true,
-    source: '/blog/2021/05/03/supabase-beta-april-2021',
-    destination: '/blog/supabase-beta-april-2021',
+    source: '/blog/2021/05/03/indobase-beta-april-2021',
+    destination: '/blog/indobase-beta-april-2021',
   },
   {
     permanent: true,
-    source: '/blog/2021/06/02/supabase-beta-may-2021',
-    destination: '/blog/supabase-beta-may-2021',
+    source: '/blog/2021/06/02/indobase-beta-may-2021',
+    destination: '/blog/indobase-beta-may-2021',
   },
   {
     permanent: true,
@@ -877,13 +877,13 @@ module.exports = [
   },
   {
     permanent: true,
-    source: '/blog/2021/07/02/supabase-beta-june-2021',
-    destination: '/blog/supabase-beta-june-2021',
+    source: '/blog/2021/07/02/indobase-beta-june-2021',
+    destination: '/blog/indobase-beta-june-2021',
   },
   {
     permanent: true,
-    source: '/blog/2021/07/22/supabase-launch-week-sql',
-    destination: '/blog/supabase-launch-week-sql',
+    source: '/blog/2021/07/22/indobase-launch-week-sql',
+    destination: '/blog/indobase-launch-week-sql',
   },
   {
     permanent: true,
@@ -892,13 +892,13 @@ module.exports = [
   },
   {
     permanent: true,
-    source: '/blog/2021/07/26/supabase-community-day',
-    destination: '/blog/supabase-community-day',
+    source: '/blog/2021/07/26/indobase-community-day',
+    destination: '/blog/indobase-community-day',
   },
   {
     permanent: true,
-    source: '/blog/2021/07/26/supabase-postgres-13',
-    destination: '/blog/supabase-postgres-13',
+    source: '/blog/2021/07/26/indobase-postgres-13',
+    destination: '/blog/indobase-postgres-13',
   },
   {
     permanent: true,
@@ -912,33 +912,33 @@ module.exports = [
   },
   {
     permanent: true,
-    source: '/blog/2021/07/28/mobbin-supabase-200000-users',
+    source: '/blog/2021/07/28/mobbin-indobase-200000-users',
     destination: '/customers/mobbin',
   },
   {
     permanent: true,
-    source: '/blog/2021/07/28/supabase-auth-passwordless-sms-login',
-    destination: '/blog/supabase-auth-passwordless-sms-login',
+    source: '/blog/2021/07/28/indobase-auth-passwordless-sms-login',
+    destination: '/blog/indobase-auth-passwordless-sms-login',
   },
   {
     permanent: true,
-    source: '/blog/2021/07/29/supabase-reports-and-metrics',
-    destination: '/blog/supabase-reports-and-metrics',
+    source: '/blog/2021/07/29/indobase-reports-and-metrics',
+    destination: '/blog/indobase-reports-and-metrics',
   },
   {
     permanent: true,
-    source: '/blog/2021/07/30/1-the-supabase-hackathon',
-    destination: '/blog/the-supabase-hackathon',
+    source: '/blog/2021/07/30/1-the-indobase-hackathon',
+    destination: '/blog/the-indobase-hackathon',
   },
   {
     permanent: true,
-    source: '/blog/2021/07/30/supabase-functions-updates',
-    destination: '/blog/supabase-functions-updates',
+    source: '/blog/2021/07/30/indobase-functions-updates',
+    destination: '/blog/indobase-functions-updates',
   },
   {
     permanent: true,
-    source: '/blog/2021/07/30/supabase-swag-store',
-    destination: '/blog/supabase-swag-store',
+    source: '/blog/2021/07/30/indobase-swag-store',
+    destination: '/blog/indobase-swag-store',
   },
   {
     permanent: true,
@@ -947,23 +947,23 @@ module.exports = [
   },
   {
     permanent: true,
-    source: '/blog/2021/08/12/supabase-beta-july-2021',
-    destination: '/blog/supabase-beta-july-2021',
+    source: '/blog/2021/08/12/indobase-beta-july-2021',
+    destination: '/blog/indobase-beta-july-2021',
   },
   {
     permanent: true,
-    source: '/blog/2021/09/10/supabase-beta-august-2021',
-    destination: '/blog/supabase-beta-august-2021',
+    source: '/blog/2021/09/10/indobase-beta-august-2021',
+    destination: '/blog/indobase-beta-august-2021',
   },
   {
     permanent: true,
-    source: '/blog/2021/09/28/supabase-hacktoberfest-hackathon-2021',
-    destination: '/blog/supabase-hacktoberfest-hackathon-2021',
+    source: '/blog/2021/09/28/indobase-hacktoberfest-hackathon-2021',
+    destination: '/blog/indobase-hacktoberfest-hackathon-2021',
   },
   {
     permanent: true,
-    source: '/blog/2021/10/04/supabase-beta-sept-2021',
-    destination: '/blog/supabase-beta-sept-2021',
+    source: '/blog/2021/10/04/indobase-beta-sept-2021',
+    destination: '/blog/indobase-beta-sept-2021',
   },
   {
     permanent: true,
@@ -977,23 +977,23 @@ module.exports = [
   },
   {
     permanent: true,
-    source: '/blog/2021/10/28/supabase-series-a',
-    destination: '/blog/supabase-series-a',
+    source: '/blog/2021/10/28/indobase-series-a',
+    destination: '/blog/indobase-series-a',
   },
   {
     permanent: true,
-    source: '/blog/2021/11/05/supabase-beta-october-2021',
-    destination: '/blog/supabase-beta-october-2021',
+    source: '/blog/2021/11/05/indobase-beta-october-2021',
+    destination: '/blog/indobase-beta-october-2021',
   },
   {
     permanent: true,
-    source: '/blog/2021/11/26/supabase-how-we-launch',
-    destination: '/blog/supabase-how-we-launch',
+    source: '/blog/2021/11/26/indobase-how-we-launch',
+    destination: '/blog/indobase-how-we-launch',
   },
   {
     permanent: true,
-    source: '/blog/2021/11/26/supabase-launch-week-the-trilogy',
-    destination: '/blog/supabase-launch-week-the-trilogy',
+    source: '/blog/2021/11/26/indobase-launch-week-the-trilogy',
+    destination: '/blog/indobase-launch-week-the-trilogy',
   },
   {
     permanent: true,
@@ -1012,8 +1012,8 @@ module.exports = [
   },
   {
     permanent: true,
-    source: '/blog/2021/11/30/supabase-studio',
-    destination: '/blog/supabase-studio',
+    source: '/blog/2021/11/30/indobase-studio',
+    destination: '/blog/indobase-studio',
   },
   {
     permanent: true,
@@ -1022,8 +1022,8 @@ module.exports = [
   },
   {
     permanent: true,
-    source: '/blog/2021/12/02/supabase-acquires-logflare',
-    destination: '/blog/supabase-acquires-logflare',
+    source: '/blog/2021/12/02/indobase-acquires-logflare',
+    destination: '/blog/indobase-acquires-logflare',
   },
   {
     permanent: true,
@@ -1037,8 +1037,8 @@ module.exports = [
   },
   {
     permanent: true,
-    source: '/blog/2021/12/03/supabase-holiday-hackdays-hackathon',
-    destination: '/blog/supabase-holiday-hackdays-hackathon',
+    source: '/blog/2021/12/03/indobase-holiday-hackdays-hackathon',
+    destination: '/blog/indobase-holiday-hackdays-hackathon',
   },
   {
     permanent: true,
@@ -1057,13 +1057,13 @@ module.exports = [
   },
   {
     permanent: true,
-    source: '/blog/2022/01/20/supabase-beta-december-2021',
-    destination: '/blog/supabase-beta-december-2021',
+    source: '/blog/2022/01/20/indobase-beta-december-2021',
+    destination: '/blog/indobase-beta-december-2021',
   },
   {
     permanent: true,
-    source: '/blog/2022/02/22/supabase-beta-january-2022',
-    destination: '/blog/supabase-beta-january-2022',
+    source: '/blog/2022/02/22/indobase-beta-january-2022',
+    destination: '/blog/indobase-beta-january-2022',
   },
   {
     permanent: true,
@@ -1082,8 +1082,8 @@ module.exports = [
   },
   {
     permanent: true,
-    source: '/blog/2022/03/25/supabase-launch-week-four',
-    destination: '/blog/supabase-launch-week-four',
+    source: '/blog/2022/03/25/indobase-launch-week-four',
+    destination: '/blog/indobase-launch-week-four',
   },
   {
     permanent: true,
@@ -1097,13 +1097,13 @@ module.exports = [
   },
   {
     permanent: true,
-    source: '/blog/2022/03/30/supabase-enterprise',
-    destination: '/blog/supabase-enterprise',
+    source: '/blog/2022/03/30/indobase-enterprise',
+    destination: '/blog/indobase-enterprise',
   },
   {
     permanent: true,
-    source: '/blog/2022/03/31/supabase-edge-functions',
-    destination: '/blog/supabase-edge-functions',
+    source: '/blog/2022/03/31/indobase-edge-functions',
+    destination: '/blog/indobase-edge-functions',
   },
   {
     permanent: true,
@@ -1112,8 +1112,8 @@ module.exports = [
   },
   {
     permanent: true,
-    source: '/blog/2022/04/01/supabase-realtime-with-multiplayer-features',
-    destination: '/blog/supabase-realtime-with-multiplayer-features',
+    source: '/blog/2022/04/01/indobase-realtime-with-multiplayer-features',
+    destination: '/blog/indobase-realtime-with-multiplayer-features',
   },
   {
     permanent: true,
@@ -1132,12 +1132,12 @@ module.exports = [
   },
   {
     permanent: true,
-    source: '/blog/2022/04/20/partner-gallery-works-with-supabase',
-    destination: '/blog/partner-gallery-works-with-supabase',
+    source: '/blog/2022/04/20/partner-gallery-works-with-indobase',
+    destination: '/blog/partner-gallery-works-with-indobase',
   },
   {
     permanent: true,
-    source: '/blog/2022/05/26/how-supabase-accelerates-development-of-all-pull-together',
+    source: '/blog/2022/05/26/how-indobase-accelerates-development-of-all-pull-together',
     destination: '/customers',
   },
   {
@@ -1147,8 +1147,8 @@ module.exports = [
   },
   {
     permanent: true,
-    source: '/blog/2022/06/15/loading-data-supabase-python',
-    destination: '/blog/loading-data-supabase-python',
+    source: '/blog/2022/06/15/loading-data-indobase-python',
+    destination: '/blog/loading-data-indobase-python',
   },
   {
     permanent: true,
@@ -1157,8 +1157,8 @@ module.exports = [
   },
   {
     permanent: true,
-    source: '/blog/2022/06/29/visualizing-supabase-data-using-metabase',
-    destination: '/blog/visualizing-supabase-data-using-metabase',
+    source: '/blog/2022/06/29/visualizing-indobase-data-using-metabase',
+    destination: '/blog/visualizing-indobase-data-using-metabase',
   },
   {
     permanent: true,
@@ -1172,8 +1172,8 @@ module.exports = [
   },
   {
     permanent: true,
-    source: '/blog/2022/07/13/supabase-auth-helpers-with-sveltekit-support',
-    destination: '/blog/supabase-auth-helpers-with-sveltekit-support',
+    source: '/blog/2022/07/13/indobase-auth-helpers-with-sveltekit-support',
+    destination: '/blog/indobase-auth-helpers-with-sveltekit-support',
   },
   {
     permanent: true,
@@ -1182,18 +1182,18 @@ module.exports = [
   },
   {
     permanent: true,
-    source: '/blog/2022/08/02/supabase-flutter-sdk-1-developer-preview',
-    destination: '/blog/supabase-flutter-sdk-1-developer-preview',
+    source: '/blog/2022/08/02/indobase-flutter-sdk-1-developer-preview',
+    destination: '/blog/indobase-flutter-sdk-1-developer-preview',
   },
   {
     permanent: true,
-    source: '/blog/2022/08/03/supabase-beta-update-july-2022',
-    destination: '/blog/supabase-beta-update-july-2022',
+    source: '/blog/2022/08/03/indobase-beta-update-july-2022',
+    destination: '/blog/indobase-beta-update-july-2022',
   },
   {
     permanent: true,
-    source: '/blog/supabase-aquires-oriole',
-    destination: '/blog/supabase-acquires-oriole',
+    source: '/blog/indobase-aquires-oriole',
+    destination: '/blog/indobase-acquires-oriole',
   },
   {
     permanent: true,
@@ -1214,58 +1214,58 @@ module.exports = [
   },
   {
     permanent: true,
-    source: '/docs/reference/cli/supabase-help',
+    source: '/docs/reference/cli/indobase-help',
     destination: '/docs/reference/cli/global-flags',
   },
   {
     permanent: true,
-    source: '/docs/reference/cli/supabase-db-branch-list',
-    destination: '/docs/reference/supabase-branches-list',
+    source: '/docs/reference/cli/indobase-db-branch-list',
+    destination: '/docs/reference/indobase-branches-list',
   },
   {
     permanent: true,
-    source: '/docs/reference/cli/supabase-db-branch-create',
-    destination: '/docs/reference/supabase-branches-create',
+    source: '/docs/reference/cli/indobase-db-branch-create',
+    destination: '/docs/reference/indobase-branches-create',
   },
   {
     permanent: true,
-    source: '/docs/reference/cli/supabase-db-branch-delete',
-    destination: '/docs/reference/supabase-branches-delete',
+    source: '/docs/reference/cli/indobase-db-branch-delete',
+    destination: '/docs/reference/indobase-branches-delete',
   },
   {
     permanent: true,
-    source: '/docs/reference/cli/supabase-db-switch',
-    destination: '/docs/reference/supabase-branches-create',
+    source: '/docs/reference/cli/indobase-db-switch',
+    destination: '/docs/reference/indobase-branches-create',
   },
   {
     permanent: true,
-    source: '/docs/reference/cli/supabase-db-changes',
-    destination: '/docs/reference/supabase-db-diff',
+    source: '/docs/reference/cli/indobase-db-changes',
+    destination: '/docs/reference/indobase-db-diff',
   },
   {
     permanent: true,
-    source: '/docs/reference/cli/supabase-db-commit',
-    destination: '/docs/reference/supabase-db-pull',
+    source: '/docs/reference/cli/indobase-db-commit',
+    destination: '/docs/reference/indobase-db-pull',
   },
   {
     permanent: true,
-    source: '/docs/reference/cli/supabase-db-remote-set',
-    destination: '/docs/reference/supabase-link',
+    source: '/docs/reference/cli/indobase-db-remote-set',
+    destination: '/docs/reference/indobase-link',
   },
   {
     permanent: true,
-    source: '/docs/reference/cli/supabase-db-remote-changes',
-    destination: '/docs/reference/supabase-db-diff',
+    source: '/docs/reference/cli/indobase-db-remote-changes',
+    destination: '/docs/reference/indobase-db-diff',
   },
   {
     permanent: true,
-    source: '/docs/reference/cli/supabase-db-remote-commit',
-    destination: '/docs/reference/supabase-db-pull',
+    source: '/docs/reference/cli/indobase-db-remote-commit',
+    destination: '/docs/reference/indobase-db-pull',
   },
   {
     permanent: true,
-    source: '/docs/reference/cli/supabase-gen-types-typescript',
-    destination: '/docs/reference/supabase-gen-types',
+    source: '/docs/reference/cli/indobase-gen-types-typescript',
+    destination: '/docs/reference/indobase-gen-types',
   },
 
   {
@@ -1341,7 +1341,7 @@ module.exports = [
     destination: '/docs/guides/platform/migrating-and-upgrading-projects',
   },
 
-  // supabase-js v1 to v2 redirects
+  // indobase-js v1 to v2 redirects
   // v1: /auth-update
   // v2: /auth-updateuser
   {
@@ -1463,7 +1463,7 @@ module.exports = [
     destination: '/docs/guides/cli/managing-environments',
   },
 
-  // supabase-flutter v0 to v1 redirects
+  // indobase-flutter v0 to v1 redirects
   // v0: /auth-update
   // v1: /auth-updateuser
   {
@@ -1530,17 +1530,17 @@ module.exports = [
   {
     permanent: true,
     source: '/sign-in',
-    destination: 'https://supabase.com/dashboard/sign-in',
+    destination: 'https://indobase.com/dashboard/sign-in',
   },
   {
     permanent: true,
     source: '/sign-up',
-    destination: 'https://supabase.com/dashboard/sign-up',
+    destination: 'https://indobase.com/dashboard/sign-up',
   },
   {
     permanent: true,
     source: '/forgot-password',
-    destination: 'https://supabase.com/dashboard/forgot-password',
+    destination: 'https://indobase.com/dashboard/forgot-password',
   },
   {
     permanent: true,
@@ -1565,7 +1565,7 @@ module.exports = [
   {
     permanent: true,
     source: '/projects',
-    destination: 'https://supabase.com/dashboard/projects',
+    destination: 'https://indobase.com/dashboard/projects',
   },
   // Reorganizing pooler docs:-----------------------------
 
@@ -1622,12 +1622,12 @@ module.exports = [
   {
     permanent: true,
     source: '/docs/guides/database/connecting-to-postgres#managing-your-ip-address',
-    destination: '/docs/guides/platform/ipv4-address#supabase-and-ipv6-compatibility',
+    destination: '/docs/guides/platform/ipv4-address#indobase-and-ipv6-compatibility',
   },
   {
     permanent: true,
     source: '/docs/guides/database/connecting-to-postgres#ipv6-address',
-    destination: '/docs/guides/platform/ipv4-address#supabase-and-ipv6-compatibility',
+    destination: '/docs/guides/platform/ipv4-address#indobase-and-ipv6-compatibility',
   },
   {
     permanent: true,
@@ -1910,43 +1910,43 @@ module.exports = [
   },
   {
     permanent: true,
-    source: '/docs/guides/resources/supabase-cli',
+    source: '/docs/guides/resources/indobase-cli',
     destination: '/docs/guides/cli',
   },
   {
     permanent: true,
-    source: '/docs/guides/resources/supabase-cli/local-development',
+    source: '/docs/guides/resources/indobase-cli/local-development',
     destination: '/docs/guides/cli/local-development',
   },
   {
     permanent: true,
-    source: '/docs/guides/resources/supabase-cli/managing-environments',
+    source: '/docs/guides/resources/indobase-cli/managing-environments',
     destination: '/docs/guides/cli/managing-environments',
   },
   {
     permanent: true,
     source: '/docs/guides/auth/migrations/auth0',
-    destination: '/docs/guides/resources/migrating-to-supabase/auth0',
+    destination: '/docs/guides/resources/migrating-to-indobase/auth0',
   },
   {
     permanent: true,
     source: '/docs/guides/migrations/firestore-data',
-    destination: '/docs/guides/resources/migrating-to-supabase/firestore-data',
+    destination: '/docs/guides/resources/migrating-to-indobase/firestore-data',
   },
   {
     permanent: true,
     source: '/docs/guides/migrations/firebase-auth',
-    destination: '/docs/guides/resources/migrating-to-supabase/firebase-auth',
+    destination: '/docs/guides/resources/migrating-to-indobase/firebase-auth',
   },
   {
     permanent: true,
     source: '/docs/guides/migrations/firebase-storage',
-    destination: '/docs/guides/resources/migrating-to-supabase/firebase-storage',
+    destination: '/docs/guides/resources/migrating-to-indobase/firebase-storage',
   },
   {
     permanent: true,
     source: '/docs/guides/migrations/heroku',
-    destination: '/docs/guides/resources/migrating-to-supabase/heroku',
+    destination: '/docs/guides/resources/migrating-to-indobase/heroku',
   },
   {
     permanent: true,
@@ -2016,7 +2016,7 @@ module.exports = [
   {
     permanent: true,
     source: '/contact/enterprise',
-    destination: 'https://forms.supabase.com/enterprise',
+    destination: 'https://forms.indobase.com/enterprise',
   },
   {
     permanent: true,
@@ -2026,7 +2026,7 @@ module.exports = [
   {
     permanent: true,
     source: '/legal/soc2',
-    destination: 'https://forms.supabase.com/soc2',
+    destination: 'https://forms.indobase.com/soc2',
   },
   {
     permanent: true,
@@ -2134,7 +2134,7 @@ module.exports = [
   },
   {
     permanent: true,
-    source: '/blog/mobbin-supabase-200000-users',
+    source: '/blog/mobbin-indobase-200000-users',
     destination: '/customers/mobbin',
   },
   {
@@ -2144,7 +2144,7 @@ module.exports = [
   },
   {
     permanent: true,
-    source: '/blog/how-supabase-accelerates-development-of-all-pull-together',
+    source: '/blog/how-indobase-accelerates-development-of-all-pull-together',
     destination: '/customers',
   },
   {
@@ -2428,17 +2428,17 @@ module.exports = [
     permanent: true,
     source: '/docs/guides/platform/oauth-apps/publish-an-oauth-app',
     destination:
-      '/docs/guides/platform/oauth-apps/build-a-supabase-integration#create-an-oauth-app',
+      '/docs/guides/platform/oauth-apps/build-a-indobase-integration#create-an-oauth-app',
   },
   {
     permanent: true,
     source: '/docs/guides/platform/oauth-apps/authorize-an-oauth-app',
-    destination: '/docs/guides/platform/oauth-apps/build-a-supabase-integration',
+    destination: '/docs/guides/platform/oauth-apps/build-a-indobase-integration',
   },
   {
     permanent: true,
-    source: '/docs/guides/integrations/build-a-supabase-integration',
-    destination: '/docs/guides/integrations/build-a-supabase-oauth-integration',
+    source: '/docs/guides/integrations/build-a-indobase-integration',
+    destination: '/docs/guides/integrations/build-a-indobase-oauth-integration',
   },
   { permanent: true, source: '/docs/reference/cli/config', destination: '/docs/guides/cli/config' },
   {
@@ -2468,8 +2468,8 @@ module.exports = [
   },
   {
     permanent: true,
-    source: '/blog/supabase-ai-content-storm',
-    destination: 'https://dev.to/supabase/ai-ignites-the-rain-content-storm-is-back-kdl',
+    source: '/blog/indobase-ai-content-storm',
+    destination: 'https://dev.to/indobase/ai-ignites-the-rain-content-storm-is-back-kdl',
   },
   {
     permanent: true,
@@ -2797,8 +2797,8 @@ module.exports = [
   },
   {
     permanent: true,
-    source: '/docs/guides/resources/migrating-to-supabase/:path*',
-    destination: '/docs/guides/platform/migrating-to-supabase/:path*',
+    source: '/docs/guides/resources/migrating-to-indobase/:path*',
+    destination: '/docs/guides/platform/migrating-to-indobase/:path*',
   },
   {
     permanent: true,
@@ -2813,17 +2813,17 @@ module.exports = [
   {
     permanent: true,
     source: '/docs/guides/platform/marketplace',
-    destination: '/docs/guides/integrations/supabase-marketplace',
+    destination: '/docs/guides/integrations/indobase-marketplace',
   },
   {
     permanent: true,
-    source: '/docs/guides/platform/oauth-apps/build-a-supabase-integration',
-    destination: '/docs/guides/integrations/build-a-supabase-integration',
+    source: '/docs/guides/platform/oauth-apps/build-a-indobase-integration',
+    destination: '/docs/guides/integrations/build-a-indobase-integration',
   },
   {
     permanent: true,
     source: '/docs/guides/platform/oauth-apps/oauth-scopes',
-    destination: '/docs/guides/integrations/build-a-supabase-oauth-integration/oauth-scopes',
+    destination: '/docs/guides/integrations/build-a-indobase-oauth-integration/oauth-scopes',
   },
   {
     permanent: true,
@@ -2941,22 +2941,22 @@ module.exports = [
   {
     permanent: false,
     source: '/docs/guides/platform/org-based-billing',
-    destination: '/docs/guides/platform/billing-on-supabase',
+    destination: '/docs/guides/platform/billing-on-indobase',
   },
   {
     permanent: false,
     source: '/docs/guides/platform/org-based-billing#how-billing-is-organized',
-    destination: '/docs/guides/platform/billing-on-supabase#organization-based-billing',
+    destination: '/docs/guides/platform/billing-on-indobase#organization-based-billing',
   },
   {
     permanent: false,
     source: '/docs/guides/platform/org-based-billing#quotas-and-features',
-    destination: '/docs/guides/platform/billing-on-supabase#variable-usage-fees-and-quotas',
+    destination: '/docs/guides/platform/billing-on-indobase#variable-usage-fees-and-quotas',
   },
   {
     permanent: false,
     source: '/docs/guides/platform/org-based-billing#usage-items',
-    destination: '/docs/guides/platform/billing-on-supabase#variable-usage-fees-and-quotas',
+    destination: '/docs/guides/platform/billing-on-indobase#variable-usage-fees-and-quotas',
   },
   {
     permanent: false,
@@ -3006,22 +3006,22 @@ module.exports = [
   {
     permanent: false,
     source: '/docs/guides/platform/org-based-billing#free-plan',
-    destination: '/docs/guides/platform/billing-on-supabase#free-plan',
+    destination: '/docs/guides/platform/billing-on-indobase#free-plan',
   },
   {
     permanent: false,
     source: '/docs/guides/platform/org-based-billing#billing-examples',
-    destination: '/docs/guides/platform/billing-on-supabase',
+    destination: '/docs/guides/platform/billing-on-indobase',
   },
   {
     permanent: false,
     source: '/docs/guides/platform/org-based-billing#multiple-projects-in-a-free-plan-organization',
-    destination: '/docs/guides/platform/billing-on-supabase',
+    destination: '/docs/guides/platform/billing-on-indobase',
   },
   {
     permanent: false,
     source: '/docs/guides/platform/org-based-billing#multiple-projects-in-a-pro-plan-organization',
-    destination: '/docs/guides/platform/billing-on-supabase',
+    destination: '/docs/guides/platform/billing-on-indobase',
   },
   {
     permanent: false,
@@ -3044,7 +3044,7 @@ module.exports = [
   {
     permanent: true,
     source: '/changelogpod',
-    destination: 'https://forms.supabase.com/changelog-podcast-sponsorship',
+    destination: 'https://forms.indobase.com/changelog-podcast-sponsorship',
   },
 
   // features
@@ -3071,10 +3071,10 @@ module.exports = [
     has: [
       {
         type: 'host',
-        value: 'supabase.design',
+        value: 'indobase.design',
       },
     ],
-    destination: 'https://supabase.com/design-system/:path*',
+    destination: 'https://indobase.com/design-system/:path*',
   },
   {
     permanent: true,

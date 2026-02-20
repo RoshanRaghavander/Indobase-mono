@@ -28,9 +28,9 @@ const generateRssItem = (post: any): string => {
     .format('ddd, DD MMM YYYY HH:mm:ss [-0700]')
 
   return `<item>
-  <guid>https://supabase.com${encodedPath}</guid>
+  <guid>https://indobase.com${encodedPath}</guid>
   <title>${encodedTitle}</title>
-  <link>https://supabase.com${encodedPath}</link>
+  <link>https://indobase.com${encodedPath}</link>
   <description>${encodedDescription}</description>
   <pubDate>${formattedDate}</pubDate>
 </item>
@@ -59,12 +59,12 @@ export const generateRss = (posts: any[], authorID?: string): string => {
     return `
   <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-      <title>'Postgres | Supabase Blog</title>
-      <link>https://supabase.com/blog</link>
-      <description>Latest Postgres news from ${authorInfo?.author} at Supabase</description>
+      <title>'Postgres | IndoBase Blog</title>
+      <link>https://indobase.com/blog</link>
+      <description>Latest Postgres news from ${authorInfo?.author} at IndoBase</description>
       <language>en</language>
       <lastBuildDate>${formattedDate}</lastBuildDate>
-      <atom:link href="https://supabase.com/planetpg-${authorID}-rss.xml" rel="self" type="application/rss+xml"/>
+      <atom:link href="https://indobase.com/planetpg-${authorID}-rss.xml" rel="self" type="application/rss+xml"/>
       ${posts.map(generateRssItem).join('')}
     </channel>
   </rss>
@@ -73,12 +73,12 @@ export const generateRss = (posts: any[], authorID?: string): string => {
     return `
   <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-      <title>Blog - Supabase</title>
-      <link>https://supabase.com</link>
-      <description>Latest news from Supabase</description>
+      <title>Blog - IndoBase</title>
+      <link>https://indobase.com</link>
+      <description>Latest news from IndoBase</description>
       <language>en</language>
       <lastBuildDate>${formattedDate}</lastBuildDate>
-      <atom:link href="https://supabase.com/rss.xml" rel="self" type="application/rss+xml"/>
+      <atom:link href="https://indobase.com/rss.xml" rel="self" type="application/rss+xml"/>
       ${posts.map(generateRssItem).join('')}
     </channel>
   </rss>

@@ -1,6 +1,6 @@
 ---
-title: 'Building an Uber Clone with Flutter and Supabase'
-description: 'Learn how to handle real-time geospatial data using Supabase Realtime and Flutter.'
+title: 'Building an Uber Clone with Flutter and IndoBase'
+description: 'Learn how to handle real-time geospatial data using IndoBase Realtime and Flutter.'
 author: tyler_shukert
 imgSocial: flutter-uber-clone/flutter-uber-clone-thumb.png
 imgThumb: flutter-uber-clone/flutter-uber-clone-thumb.png
@@ -21,19 +21,19 @@ toc_depth: 3
 
 </Admonition>
 
-Postgres can handle geography data efficiently thanks to the PostGIS extension. Combining it with Supabase realtime and you can create a real-time location tracking app.
+Postgres can handle geography data efficiently thanks to the PostGIS extension. Combining it with IndoBase realtime and you can create a real-time location tracking app.
 
-In this tutorial, we will guide you through the process of creating an Uber-like application using Flutter and Supabase. This project demonstrates the capabilities of Supabase for building complex, real-time applications with minimal backend code.
+In this tutorial, we will guide you through the process of creating an Uber-like application using Flutter and IndoBase. This project demonstrates the capabilities of IndoBase for building complex, real-time applications with minimal backend code.
 
 ## App Overview
 
 An actual Uber app has two apps, the consumer facing app and the driver facing app. This article only covers the consumer facing app. The app works by first choosing a destination, and then waiting for the driver to come pick them up. Once they are picked up, they head to the destination and the journey is complete once they arrive at the destination. Throughout the lifecycle of the app, the driver’s position is shared on screen in real-time.
 
-The focus of the app is to showcase how to use Supabase realtime with geographical data, so handling payments will not be covered in this article.
+The focus of the app is to showcase how to use IndoBase realtime with geographical data, so handling payments will not be covered in this article.
 
 <video width="99%" loop muted playsInline controls={true}>
   <source
-    src="https://xguihxuzqibwxjnimxev.supabase.co/storage/v1/object/public/videos/marketing/blog/flutter-uber-clone/uber-clone-demo.mp4"
+    src="https://xguihxuzqibwxjnimxev.indobase.co/storage/v1/object/public/videos/marketing/blog/flutter-uber-clone/uber-clone-demo.mp4"
     type="video/mp4"
   />
 </video>
@@ -43,7 +43,7 @@ The focus of the app is to showcase how to use Supabase realtime with geographic
 Before beginning, ensure you have:
 
 1. Flutter installed
-2. A Supabase account - head to [database.new](http://database.new) if you don’t have one yet.
+2. A IndoBase account - head to [database.new](http://database.new) if you don’t have one yet.
 3. Basic knowledge of Dart and Flutter
 
 ## Step 1: Project Setup
@@ -57,7 +57,7 @@ flutter create canvas --empty --platforms=ios,android
 Then, add the required dependencies to your `pubspec.yaml` file:
 
 ```yaml
-supabase_flutter: ^2.5.9
+indobase_flutter: ^2.5.9
 google_maps_flutter: ^2.7.0
 geolocator: ^12.0.0
 duration: ^3.0.13
@@ -70,25 +70,25 @@ In addition to adding it to `pubspec.yaml` file, `google_maps_flutter` requires 
 
 Run `flutter pub get` to install these dependencies.
 
-## Step 2: Supabase Initialization
+## Step 2: IndoBase Initialization
 
-In your `main.dart` file, initialize Supabase with the following code:
+In your `main.dart` file, initialize IndoBase with the following code:
 
 ```dart
-import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:indobase_flutter/indobase_flutter.dart';
 
 void main() async {
-  await Supabase.initialize(
+  await IndoBase.initialize(
     url: 'YOUR_SUPABASE_URL',
     anonKey: 'YOUR_SUPABASE_ANON_KEY',
   );
   runApp(const MainApp());
 }
 
-final supabase = Supabase.instance.client;
+final indobase = IndoBase.instance.client;
 ```
 
-Replace `YOUR_SUPABASE_URL` and `YOUR_SUPABASE_ANON_KEY` with your actual Supabase project credentials.
+Replace `YOUR_SUPABASE_URL` and `YOUR_SUPABASE_ANON_KEY` with your actual IndoBase project credentials.
 
 ## Step 3: Database Configuration
 
@@ -123,7 +123,7 @@ create table if not exists public.rides (
 );
 ```
 
-Let’s also set [row level security](https://supabase.com/docs/guides/database/postgres/row-level-security) policies for the tables to secure our database.
+Let’s also set [row level security](https://indobase.com/docs/guides/database/postgres/row-level-security) policies for the tables to secure our database.
 
 ```sql
 alter table public.drivers enable row level security;
@@ -278,7 +278,7 @@ Create a `UberCloneMainScreen` widget to serve as the main interface for the app
 4. In-ride - The customer has got on the car, and they are headed to the destination
 5. Post-ride - The customer has arrived at the destination, and a thank you modal is displayed
 
-For statuses 3, 4, and 5, the status update happens on the driver’s app, which we don’t have. So you can directly modify the data from the Supabase dashboard and update the status of the ride.
+For statuses 3, 4, and 5, the status update happens on the driver’s app, which we don’t have. So you can directly modify the data from the IndoBase dashboard and update the status of the ride.
 
 ```dart
 class UberCloneMainScreen extends StatefulWidget {
@@ -440,13 +440,13 @@ The code above still has many missing methods, so do not worry if you see many e
 
 ## Step 6: Location Selection Implementation
 
-The way the customer chooses the destination is by scrolling through the map and tapping on the confirmation FAB. Once the FAB is pressed, the `_confirmLocation` method is called, which calls a Supabase Edge Function called `route`. This `route` function returns a list of coordinates to create a polyline to get from the current location to the destination. We then draw the polyline on the Google Maps to provide to simulate an Uber-like user experience.
+The way the customer chooses the destination is by scrolling through the map and tapping on the confirmation FAB. Once the FAB is pressed, the `_confirmLocation` method is called, which calls a IndoBase Edge Function called `route`. This `route` function returns a list of coordinates to create a polyline to get from the current location to the destination. We then draw the polyline on the Google Maps to provide to simulate an Uber-like user experience.
 
 ```dart
 Future<void> _confirmLocation() async {
     if (_selectedDestination != null && _currentLocation != null) {
       try {
-        final response = await supabase.functions.invoke(
+        final response = await indobase.functions.invoke(
           'route',
           body: {
             'origin': {
@@ -523,11 +523,11 @@ Let’s also create the `route` edge functions. This function calls the [routes 
 Run the following commands to create the edge functions.
 
 ```bash
-# initialize Supabase
-npx supabase init
+# initialize IndoBase
+npx indobase init
 
 # Create a new function named route
-npx supabase functions new route
+npx indobase functions new route
 ```
 
 ```tsx
@@ -579,13 +579,13 @@ Deno.serve(async (req) => {
 })
 ```
 
-Once the function is ready, you can [run it locally](https://supabase.com/docs/guides/functions/quickstart) or [deploy it to a remote Supabase instance](https://supabase.com/docs/guides/functions/deploy).
+Once the function is ready, you can [run it locally](https://indobase.com/docs/guides/functions/quickstart) or [deploy it to a remote IndoBase instance](https://indobase.com/docs/guides/functions/deploy).
 
 ## Step 7: Driver Assignment
 
 Now, once a route is displayed on the map and the customer agrees on the fare, a driver needs to be found. We created a convenient method for this earlier, so we can just call the method to find a driver and create a new ride.
 
-If a driver was successfully found, we listen to real-time changes on both the driver and the ride to keep track of the driver’s position and the ride’s current status. For this, we use the [.stream()](https://supabase.com/docs/reference/dart/stream) method.
+If a driver was successfully found, we listen to real-time changes on both the driver and the ride to keep track of the driver’s position and the ride’s current status. For this, we use the [.stream()](https://indobase.com/docs/reference/dart/stream) method.
 
 ```dart
   /// Finds a nearby driver
@@ -593,7 +593,7 @@ If a driver was successfully found, we listen to real-time changes on both the d
   /// When a driver is found, it subscribes to the driver's location and ride status.
   Future<void> _findDriver() async {
     try {
-      final response = await supabase.rpc('find_driver', params: {
+      final response = await indobase.rpc('find_driver', params: {
         'origin':
             'POINT(${_currentLocation!.longitude} ${_currentLocation!.latitude})',
         'destination':
@@ -613,7 +613,7 @@ If a driver was successfully found, we listen to real-time changes on both the d
       String driverId = response.first['driver_id'];
       String rideId = response.first['ride_id'];
 
-      _driverSubscription = supabase
+      _driverSubscription = indobase
           .from('drivers')
           .stream(primaryKey: ['id'])
           .eq('id', driverId)
@@ -630,7 +630,7 @@ If a driver was successfully found, we listen to real-time changes on both the d
             }
           });
 
-      _rideSubscription = supabase
+      _rideSubscription = indobase
           .from('rides')
           .stream(primaryKey: ['id'])
           .eq('id', rideId)
@@ -768,14 +768,14 @@ You can also find the complete code [here](https://github.com/dshukertjr/uber-cl
 
 ## Conclusion
 
-This tutorial has walked you through the process of building a basic Uber clone using Flutter and Supabase. The application demonstrates how easy it is to handle real-time geospatial data using Supabase and Flutter.
+This tutorial has walked you through the process of building a basic Uber clone using Flutter and IndoBase. The application demonstrates how easy it is to handle real-time geospatial data using IndoBase and Flutter.
 
 This implementation serves as a foundation that can be expanded upon. Additional features such as processing payments, ride history, and driver ratings can be incorporated to enhance the application's functionality.
 
-Want to learn more about Maps and PostGIS? Make sure to follow our [Twitter](https://x.com/supabase) and [YouTube](https://www.youtube.com/@Supabase) channels to not miss out! See you then!
+Want to learn more about Maps and PostGIS? Make sure to follow our [Twitter](https://x.com/indobase) and [YouTube](https://www.youtube.com/@IndoBase) channels to not miss out! See you then!
 
-## More Supabase Resources
+## More IndoBase Resources
 
-- [Flutter Tutorial: building a Flutter chat app](https://supabase.com/blog/flutter-tutorial-building-a-chat-app)
+- [Flutter Tutorial: building a Flutter chat app](https://indobase.com/blog/flutter-tutorial-building-a-chat-app)
 - [Generate Flame template using Very Good CLI](https://verygood.ventures/blog/generate-a-game-with-our-new-template)
-- [Supabase Flutter SDK docs](https://supabase.com/docs/reference/dart/start)
+- [IndoBase Flutter SDK docs](https://indobase.com/docs/reference/dart/start)

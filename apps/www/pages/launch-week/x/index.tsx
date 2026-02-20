@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 import { NextSeo } from 'next-seo'
 import { Session } from '@supabase/supabase-js'
 import { LW_URL, SITE_ORIGIN } from '~/lib/constants'
-import supabase from '~/lib/supabaseMisc'
+import indobase from '~/lib/indobaseMisc'
 
 import FaviconImports from '~/components/LaunchWeek/X/FaviconImports'
 import DefaultLayout from '~/components/Layouts/Default'
@@ -29,7 +29,7 @@ interface Props {
 export default function LaunchWeekIndex({ meetups }: Props) {
   const { query } = useRouter()
 
-  const TITLE = 'Supabase Launch Week X | 11-15 December 2023'
+  const TITLE = 'IndoBase Launch Week X | 11-15 December 2023'
   const DESCRIPTION = 'Join us for a week of announcing new features, every day at 8 AM PT.'
   const OG_IMAGE = `${SITE_ORIGIN}/images/launchweek/lwx/lwx-og.jpg`
 
@@ -51,17 +51,17 @@ export default function LaunchWeekIndex({ meetups }: Props) {
   const [ticketState, setTicketState] = useState<TicketState>('loading')
 
   useEffect(() => {
-    if (supabase) {
-      supabase.auth.getSession().then(({ data: { session } }) => setSession(session))
+    if (indobase) {
+      indobase.auth.getSession().then(({ data: { session } }) => setSession(session))
       const {
         data: { subscription },
-      } = supabase.auth.onAuthStateChange((_event, session) => {
+      } = indobase.auth.onAuthStateChange((_event, session) => {
         setSession(session)
       })
 
       return () => subscription.unsubscribe()
     }
-  }, [supabase])
+  }, [indobase])
 
   useEffect(() => {
     document.body.classList.add('bg-[#060809]')
@@ -102,7 +102,7 @@ export default function LaunchWeekIndex({ meetups }: Props) {
       <FaviconImports />
       <ConfDataContext.Provider
         value={{
-          supabase,
+          indobase,
           session,
           userData,
           setUserData,
@@ -130,7 +130,7 @@ export default function LaunchWeekIndex({ meetups }: Props) {
 }
 
 export const getServerSideProps: GetServerSideProps = async () => {
-  const { data: meetups } = await supabase!.from('lwx_meetups').select('*')
+  const { data: meetups } = await indobase!.from('lwx_meetups').select('*')
 
   return {
     props: {

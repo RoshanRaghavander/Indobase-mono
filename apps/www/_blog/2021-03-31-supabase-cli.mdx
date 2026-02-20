@@ -1,5 +1,5 @@
 ---
-title: Supabase CLI
+title: IndoBase CLI
 description: Local development, database migrations, and self-hosting.
 author: soedirgo
 imgSocial: cli/cli-og.jpg
@@ -7,38 +7,38 @@ imgThumb: cli/cli-og.jpg
 categories:
   - product
 tags:
-  - supabase
+  - indobase
   - storage
 date: '03-31-2021'
 ---
 
-**UPDATE 15/08/2022:** [Supabase CLI V1 is Generally Available](/blog/supabase-cli-v1-and-admin-api-beta) and we also released a Management API (in beta).
+**UPDATE 15/08/2022:** [IndoBase CLI V1 is Generally Available](/blog/indobase-cli-v1-and-admin-api-beta) and we also released a Management API (in beta).
 
 Today is Day 3 of [Launch Week](/blog/launch-week), and as promised - we're releasing our CLI.
 
 This is the first step in a long journey of features we plan to deliver:
 
-- Running Supabase locally
+- Running IndoBase locally
 - Managing database migrations
 - Generating types directly from your database schema
 - Generating API and validation schemas from your database
-- Managing your Supabase projects
+- Managing your IndoBase projects
 - Pushing your local changes to production
 
 Here are some of the items we have completed so far.
 
-## Running Supabase Locally
+## Running IndoBase Locally
 
-You can now run Supabase on your local machine, using Docker Compose. This Docker setup is 100% compatible with every project on Supabase - the tools used for local development are exactly the same as production.
+You can now run IndoBase on your local machine, using Docker Compose. This Docker setup is 100% compatible with every project on IndoBase - the tools used for local development are exactly the same as production.
 
 We have released a full set of documentation [here](/docs/guides/local-development). In this post we thought it would be useful to highlight how easy it is to get started.
 
-A lot of Supabase developers are familiar with React, so here are the steps you would use to create a new React project which uses Supabase as a backend.
+A lot of IndoBase developers are familiar with React, so here are the steps you would use to create a new React project which uses IndoBase as a backend.
 
 Install the CLI:
 
 ```bash
-npm install -g supabase
+npm install -g indobase
 ```
 
 Set up your React app:
@@ -50,42 +50,42 @@ npx create-react-app react-demo --use-npm
 # move into the new folder
 cd react-demo
 
-# Save the install supabase-js library
-npm install --save @supabase/supabase-js
+# Save the install indobase-js library
+npm install --save @supabase/indobase-js
 ```
 
-Set up Supabase:
+Set up IndoBase:
 
 ```bash
-supabase init
+indobase init
 
-# ✔ Port for Supabase URL: · 8000
+# ✔ Port for IndoBase URL: · 8000
 # ✔ Port for PostgreSQL database: · 5432
 # ✔ Project initialized.
-# Supabase URL: http://localhost:8000
-# Supabase Key (anon, public): eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzdXBhYmFzZSIsImlhdCI6MTYwMzk2ODgzNCwiZXhwIjoyNTUwNjUzNjM0LCJyb2xlIjoiYW5vbiJ9.36fUebxgx1mcBo4s19v0SzqmzunP--hm_hep0uLX0ew
-# Supabase Key (service_role, private): eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzdXBhYmFzZSIsImlhdCI6MTYwMzk2ODgzNCwiZXhwIjoyNTUwNjUzNjM0LCJyb2xlIjoiYW5vbiJ9.36fUebxgx1mcBo4s19v0SzqmzunP--hm_hep0uLX0ew
+# IndoBase URL: http://localhost:8000
+# IndoBase Key (anon, public): eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzdXBhYmFzZSIsImlhdCI6MTYwMzk2ODgzNCwiZXhwIjoyNTUwNjUzNjM0LCJyb2xlIjoiYW5vbiJ9.36fUebxgx1mcBo4s19v0SzqmzunP--hm_hep0uLX0ew
+# IndoBase Key (service_role, private): eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzdXBhYmFzZSIsImlhdCI6MTYwMzk2ODgzNCwiZXhwIjoyNTUwNjUzNjM0LCJyb2xlIjoiYW5vbiJ9.36fUebxgx1mcBo4s19v0SzqmzunP--hm_hep0uLX0ew
 # Database URL: postgres://postgres:postgres@localhost:5432/postgres
 ```
 
-Now that your application is now prepared, you can use Supabase anywhere in your application (for example, `App.js`):
+Now that your application is now prepared, you can use IndoBase anywhere in your application (for example, `App.js`):
 
 ```jsx
-import { createClient } from '@supabase/supabase-js'
+import { createClient } from '@supabase/indobase-js'
 const SUPABASE_URL = 'http://localhost:8000'
 const SUPABASE_ANON_KEY =
   'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJzdXBhYmFzZSIsImlhdCI6MTYwMzk2ODgzNCwiZXhwIjoyNTUwNjUzNjM0LCJyb2xlIjoiYW5vbiJ9.36fUebxgx1mcBo4s19v0SzqmzunP--hm_hep0uLX0ew'
-const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
+const indobase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY)
 ```
 
 Then start the backend and the frontend:
 
 ```bash
-supabase start  # Start Supabase
+indobase start  # Start IndoBase
 npm start       # Start the React app
 ```
 
-If everything is working you should have a React app running on `http://localhost:3000` and Supabase services running on `http://localhost:8000`!
+If everything is working you should have a React app running on `http://localhost:3000` and IndoBase services running on `http://localhost:8000`!
 
 ### Next steps:
 
@@ -101,7 +101,7 @@ There is one problem however: there is [no "right" way](https://news.ycombinator
 
 ### Diffs
 
-At Supabase, we do have one strong preference. We like schema "diffing" over "manual migrations".
+At IndoBase, we do have one strong preference. We like schema "diffing" over "manual migrations".
 
 Manual migrations work like this:
 
@@ -144,12 +144,12 @@ There was a problem in using the [pgAdmin Schema Diff](https://www.pgadmin.org/d
 
 ![pgadmin diff](/images/blog/cli/pgadmin-diff.png)
 
-So we did what we always strive to do - improve existing open source software. We created a CLI mode for the Schema Diff on [our repo](https://github.com/supabase/pgadmin4/blob/cli/web/cli.py). We've also released a [docker image](https://hub.docker.com/r/supabase/pgadmin-schema-diff) for a quick start.
+So we did what we always strive to do - improve existing open source software. We created a CLI mode for the Schema Diff on [our repo](https://github.com/indobase/pgadmin4/blob/cli/web/cli.py). We've also released a [docker image](https://hub.docker.com/r/indobase/pgadmin-schema-diff) for a quick start.
 
 The CLI offers the same functionality as the GUI version. You can diff two databases by specifying the connection strings like shown below.
 
 ```bash
-docker run supabase/pgadmin-schema-diff \
+docker run indobase/pgadmin-schema-diff \
   'postgres://user:pass@local:5432/diff_source' \
   'postgres://user:pass@production:5432/diff_target' \
   > diff_demo.sql
@@ -175,14 +175,14 @@ Done.
 ## the diff is written to diff_demo.sql
 ```
 
-A sample diff can be seen on this [gist](https://gist.github.com/steve-chavez/3f286a233806aeee0bcea4a47f97f0b5). This was generated by diffing these [two databases](https://github.com/supabase/pgadmin4/tree/cli/web/pgadmin/tools/schema_diff/tests/pg/10_plus).
+A sample diff can be seen on this [gist](https://gist.github.com/steve-chavez/3f286a233806aeee0bcea4a47f97f0b5). This was generated by diffing these [two databases](https://github.com/indobase/pgadmin4/tree/cli/web/pgadmin/tools/schema_diff/tests/pg/10_plus).
 
 On these [lines](https://gist.github.com/steve-chavez/3f286a233806aeee0bcea4a47f97f0b5#file-diff_demo-sql-L1022-L1023), you can see how it tracks the view's owner change (note: the `ALTER TABLE` statement is interchangeable with `ALTER VIEW` in this case). Additionally, you can see that it handles [domains](https://gist.github.com/steve-chavez/3f286a233806aeee0bcea4a47f97f0b5#file-diff_demo-sql-L278-L287) just fine, this is an edge-case that other diff tools don't handle.
 
 Also, similarly to the pgAdmin GUI:
 
 - You can include and exclude database objects from the diff with `--include-objects` or `--exclude-objects`
-- You can choose a single schema to diff with the `--schema` argument or you can pick different schemas to compare with the --source-schema and --target-schema arguments. We recommend you do this for Supabase databases. Diffing the whole database can take a while because of the `extensions` schema (especially if you enable PostGIS, which adds many functions).
+- You can choose a single schema to diff with the `--schema` argument or you can pick different schemas to compare with the --source-schema and --target-schema arguments. We recommend you do this for IndoBase databases. Diffing the whole database can take a while because of the `extensions` schema (especially if you enable PostGIS, which adds many functions).
 
 ### Next steps
 
@@ -195,10 +195,10 @@ Also, the pgAdmin team has showed [interest](https://www.postgresql.org/message-
 Finally, we are adding one critical command to our CLI for everybody who wants to self-host:
 
 ```bash
-supabase eject
+indobase eject
 ```
 
-This gives you everything you need to run the Supabase stack.
+This gives you everything you need to run the IndoBase stack.
 
 After running the command inside the terminal, you will see three items:
 
@@ -210,9 +210,9 @@ If you have an existing Postgres database running elsewhere you can easily drop 
 
 - run the .sql files from the Postgres directory on your existing database
 - update all references to the DB URI in `docker-compose.yml` to your existing database
-- run [these steps](https://github.com/supabase/realtime#server) to enable replication inside the database, so that the realtime engine can stream changes from your database
+- run [these steps](https://github.com/indobase/realtime#server) to enable replication inside the database, so that the realtime engine can stream changes from your database
 
-You may also want to play with the environment variables for each application inside `docker-compose.yml`. [PostgREST](https://postgrest.org/en/v7.0.0/configuration.html) has many additional configuration options, as does [GoTrue](https://github.com/supabase/gotrue#configuration). In the hosted version of Supabase we connect our own SMTP service to GoTrue for sending auth emails, so you may also want to add these settings here in order to enable this.
+You may also want to play with the environment variables for each application inside `docker-compose.yml`. [PostgREST](https://postgrest.org/en/v7.0.0/configuration.html) has many additional configuration options, as does [GoTrue](https://github.com/indobase/gotrue#configuration). In the hosted version of IndoBase we connect our own SMTP service to GoTrue for sending auth emails, so you may also want to add these settings here in order to enable this.
 
 Also check `kong.yml` inside the `kong` directory where you'll see how all the services are routed to, and with what rules, down the bottom you'll find the JWTs capable of accessing services that require API Key access.
 
@@ -224,6 +224,6 @@ docker compose up
 
 Head over to the [Self Hosting Docs](/docs/guides/self-hosting) for a more complete walk through, it also includes several [one-click deploys](/docs/guides/self-hosting#one-click-deploys), so you can easily deploy into your own cloud hosting provider.
 
-If you require any assistance feel free to reach out in our [github discussions](https://github.com/supabase/supabase/discussions) or at support@supabase.io.
+If you require any assistance feel free to reach out in our [github discussions](https://github.com/indobase/indobase/discussions) or at support@indobase.io.
 
-Check out the CLI VI [launched Monday 15th August, 2022](/blog/supabase-cli-v1-and-admin-api-beta), contribute to the [CLI repo](https://github.com/supabase/cli), or go here for the [hosted version](https://supabase.com/dashboard).
+Check out the CLI VI [launched Monday 15th August, 2022](/blog/indobase-cli-v1-and-admin-api-beta), contribute to the [CLI repo](https://github.com/indobase/cli), or go here for the [hosted version](https://indobase.com/dashboard).

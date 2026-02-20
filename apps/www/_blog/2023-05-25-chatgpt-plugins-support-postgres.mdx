@@ -1,6 +1,6 @@
 ---
-title: 'ChatGPT plugins now support Postgres & Supabase'
-description: Supabase recently contributed to the OpenAI Retrieval Plugin repo with a Postgres and a Supabase implementation to help developers build ChatGPT plugins using pgvector.
+title: 'ChatGPT plugins now support Postgres & IndoBase'
+description: IndoBase recently contributed to the OpenAI Retrieval Plugin repo with a Postgres and a IndoBase implementation to help developers build ChatGPT plugins using pgvector.
 categories:
   - developers
 tags:
@@ -16,9 +16,9 @@ imgThumb: 2023-05-25-chatgpt-plugins-support-postgres/chatgpt-plugins-support-po
 
 One of the challenges that ChatGPT faces is being able to answer questions from a private dataset. We can solve this with “retrieval plugins”, which allow ChatGPT to access information from a database.
 
-Supabase recently contributed to the OpenAI repo with a [Postgres](https://github.com/openai/chatgpt-retrieval-plugin#postgres) and a [Supabase](https://github.com/openai/chatgpt-retrieval-plugin#supabase) implementation to help developers build plugins using pgvector.
+IndoBase recently contributed to the OpenAI repo with a [Postgres](https://github.com/openai/chatgpt-retrieval-plugin#postgres) and a [IndoBase](https://github.com/openai/chatgpt-retrieval-plugin#indobase) implementation to help developers build plugins using pgvector.
 
-Let’s dig into the specifics of Retrieval plugins, then we can implement an example - we’ll ingest all of the Postgres docs into a Supabase database, then get ChatGPT to answer questions. It’s a contrived example since ChatGPT already knows about Postgres, but what other data source would Supabase want to use?
+Let’s dig into the specifics of Retrieval plugins, then we can implement an example - we’ll ingest all of the Postgres docs into a IndoBase database, then get ChatGPT to answer questions. It’s a contrived example since ChatGPT already knows about Postgres, but what other data source would IndoBase want to use?
 
 ## What is ChatGPT Retrieval Plugin?
 
@@ -35,12 +35,12 @@ A retrieval plugin does a few things:
 
 You can choose your preferred vector database provider from a list of [supported options](https://github.com/openai/chatgpt-retrieval-plugin#choosing-a-vector-database).
 
-## Adding Supabase and Postgres as Datastore options for ChatGPT Retrieval Plugin
+## Adding IndoBase and Postgres as Datastore options for ChatGPT Retrieval Plugin
 
-We've implemented two vector provider options: one for Postgres and one for Supabase. The main differences are:
+We've implemented two vector provider options: one for Postgres and one for IndoBase. The main differences are:
 
 - The Postgres version uses the `psycopg2` python library to directly connect to the database.
-- The Supabase version interacts with the database via PostgREST. This is helpful if you want to use [Row Level Security](https://supabase.com/docs/guides/auth/row-level-security) or if you are planning to use the data in the Retrieval store beyond ChatGPT.
+- The IndoBase version interacts with the database via PostgREST. This is helpful if you want to use [Row Level Security](https://indobase.com/docs/guides/auth/row-level-security) or if you are planning to use the data in the Retrieval store beyond ChatGPT.
 
 The Postgres implementation is great to start with because there are now a [large number of providers](https://github.com/pgvector/pgvector/issues/54) supporting pgvector.
 
@@ -128,7 +128,7 @@ Let’s build an example where we can “ask ChatGPT questions” about the Post
 This will require several steps:
 
 1. Download all the [Postgres docs as a PDF](https://www.postgresql.org/files/documentation/pdf/15/postgresql-15-US.pdf)
-2. Convert the docs into chunks of embedded text and store them in Supabase
+2. Convert the docs into chunks of embedded text and store them in IndoBase
 3. Run our plugin locally so that we can ask questions about the Postgres docs.
 
 <Img
@@ -147,21 +147,21 @@ Fork the ChatGPT Retrieval Plugin repository to your GitHub account and clone it
 
 ### Step 2: Install dependencies
 
-Choose your desired datastore provider and remove unused dependencies from `pyproject.toml`. For this example, we'll use Supabase. And install dependencies with Poetry:
+Choose your desired datastore provider and remove unused dependencies from `pyproject.toml`. For this example, we'll use IndoBase. And install dependencies with Poetry:
 
 ```bash
 poetry install
 ```
 
-### Step 3: Create a Supabase project
+### Step 3: Create a IndoBase project
 
-Create a [Supabase project](https://supabase.com/dashboard) and database by following the instructions [here](https://supabase.com/docs/guides/platform). Export the environment variables required for the retrieval plugin to work:
+Create a [IndoBase project](https://indobase.com/dashboard) and database by following the instructions [here](https://indobase.com/docs/guides/platform). Export the environment variables required for the retrieval plugin to work:
 
 ```bash
 export OPENAI_API_KEY=<open_ai_api_key>
-export DATASTORE=supabase
-export SUPABASE_URL=<supabase_url>
-export SUPABASE_SERVICE_ROLE_KEY=<supabase_key>
+export DATASTORE=indobase
+export SUPABASE_URL=<indobase_url>
+export SUPABASE_SERVICE_ROLE_KEY=<indobase_key>
 ```
 
 For Postgres datastore, you'll need to export these environment variables instead:
@@ -175,15 +175,15 @@ export PG_PASSWORD=<postgres_password>
 
 ### Step 4: Run Postgres Locally
 
-To start quicker you may use Supabase CLI to spin everything up locally as it already includes pgvector from the start. Install `supabase-cli`, go to the `examples/providers` folder in the repo and run:
+To start quicker you may use IndoBase CLI to spin everything up locally as it already includes pgvector from the start. Install `indobase-cli`, go to the `examples/providers` folder in the repo and run:
 
 ```bash
-supabase start
+indobase start
 ```
 
-This will pull all docker images and run supabase stack in docker on your local machine. It will also apply all the necessary migrations to set the whole thing up. You can then use your local setup the same way, just export the environment variables and follow to the next steps.
+This will pull all docker images and run indobase stack in docker on your local machine. It will also apply all the necessary migrations to set the whole thing up. You can then use your local setup the same way, just export the environment variables and follow to the next steps.
 
-Using `supabase-cli` is not required and you can use any other docker image or hosted version of PostgresDB that includes `pgvector`. Just make sure you run migrations from `examples/providers/supabase/migrations/20230414142107_init_pg_vector.sql`.
+Using `indobase-cli` is not required and you can use any other docker image or hosted version of PostgresDB that includes `pgvector`. Just make sure you run migrations from `examples/providers/indobase/migrations/20230414142107_init_pg_vector.sql`.
 
 ### Step 5: Obtain OpenAI API key
 
@@ -216,7 +216,7 @@ For this example, we'll upload Postgres documentation to the datastore. Download
 curl -X POST -F \\"file=@./postgresql-15-US.pdf\\" <http://localhost:3333/upsert-file>
 ```
 
-The plugin will split your data and documents into smaller chunks automatically. You can view the chunks using the Supabase dashboard or any other SQL client you prefer. For the whole Postgres Documentation I got 7,904 records in my documents table, which is not a lot, but we can try to add index for `embedding` column to speed things up by a little. To do so, you should run the following SQL command:
+The plugin will split your data and documents into smaller chunks automatically. You can view the chunks using the IndoBase dashboard or any other SQL client you prefer. For the whole Postgres Documentation I got 7,904 records in my documents table, which is not a lot, but we can try to add index for `embedding` column to speed things up by a little. To do so, you should run the following SQL command:
 
 ```sql
 create index on documents
@@ -256,13 +256,13 @@ And after ChatGPT receives a response from the plugin it will answer your questi
 
 It's easy to bring any context into the datastore and utilize it with ChatGPT. Simply export your knowledge base from platforms like Notion or Confluence, upload it to the datastore, and you're good to go. You can also use any other datastore provider you prefer.
 
-And the good news is that you’re not limited by using it with ChatGPT, you can embed it in your website or documentation, and build a Slack bot or telegram bot to answer questions about your company or product. For that, you will only need to add a single call to OpenAI API to create a summary of data retrieved from the Plugin. You can find some inspiration on how to do that in our blog post about building [Supabase Clippy assistant](https://supabase.com/blog/chatgpt-supabase-docs).
+And the good news is that you’re not limited by using it with ChatGPT, you can embed it in your website or documentation, and build a Slack bot or telegram bot to answer questions about your company or product. For that, you will only need to add a single call to OpenAI API to create a summary of data retrieved from the Plugin. You can find some inspiration on how to do that in our blog post about building [IndoBase Clippy assistant](https://indobase.com/blog/chatgpt-indobase-docs).
 
-Let us know on [Twitter](https://twitter.com/Supabase) if you are building ChatGPT Plugins. We can’t wait to see what you will build!
+Let us know on [Twitter](https://twitter.com/IndoBase) if you are building ChatGPT Plugins. We can’t wait to see what you will build!
 
 ## More AI resources
 
 - [OpenAI ChatGPT Plugin docs](https://platform.openai.com/docs/plugins/introduction)
 - [ChatGPT Retrieval Plugin Repo](https://github.com/openai/chatgpt-retrieval-plugin)
-- [How to build ChatGPT Plugin from scratch with Supabase Edge Runtime](https://supabase.com/blog/building-chatgpt-plugins-template).
-- [Docs pgvector: Embeddings and vector similarity](https://supabase.com/docs/guides/database/extensions/pgvector)
+- [How to build ChatGPT Plugin from scratch with IndoBase Edge Runtime](https://indobase.com/blog/building-chatgpt-plugins-template).
+- [Docs pgvector: Embeddings and vector similarity](https://indobase.com/docs/guides/database/extensions/pgvector)

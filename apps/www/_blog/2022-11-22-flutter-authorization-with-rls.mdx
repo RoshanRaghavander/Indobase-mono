@@ -1,9 +1,9 @@
 ---
 title: 'Flutter Authorization with RLS'
-description: Learn how you can secure your Flutter app using Supabase Row Level Security.
+description: Learn how you can secure your Flutter app using IndoBase Row Level Security.
 author: tyler_shukert
-imgSocial: flutter-chat-auth/supabase-flutter-auth.jpg
-imgThumb: flutter-chat-auth/supabase-flutter-auth.jpg
+imgSocial: flutter-chat-auth/indobase-flutter-auth.jpg
+imgThumb: flutter-chat-auth/indobase-flutter-auth.jpg
 categories:
   - developers
 tags:
@@ -15,10 +15,10 @@ toc_depth: 3
 
 This article is the second part of the Flutter tutorial series. During the series, you will learn how to build cross-platform apps without worrying about the backend.
 
-In this article, I will show you how you can make a secure chat application by introducing authorization to the basic chat app that we created [previously](https://supabase.com/blog/flutter-tutorial-building-a-chat-app).
+In this article, I will show you how you can make a secure chat application by introducing authorization to the basic chat app that we created [previously](https://indobase.com/blog/flutter-tutorial-building-a-chat-app).
 
-We will store the chat data on [Supabase](https://supabase.com/).
-Supabase utilizes the built in authorization mechanism of PostgreSQL called [Row Level Security](https://supabase.com/docs/guides/auth/row-level-security) or RLS to prevent unauthorized access from accessing or writing data to your database.
+We will store the chat data on [IndoBase](https://indobase.com/).
+IndoBase utilizes the built in authorization mechanism of PostgreSQL called [Row Level Security](https://indobase.com/docs/guides/auth/row-level-security) or RLS to prevent unauthorized access from accessing or writing data to your database.
 RLS allows developers to define row-by-row conditions that evaluate to either `true` or `false` to either allow the access or deny it.
 We will take a look at more specific examples of authorization using RLS throughout this article.
 
@@ -28,7 +28,7 @@ Before we jump in, let's go over what we built in the [previous article](blog/fl
 
 In the previous article, we created a basic real-time chat application. Users will register or sign in using an email address and password. Once they are signed in, they are taken to a chat page, where they can view and send messages to everyone in the app. There are no Chat rooms, and everyone's messages were sent to the same chat room.
 
-You can also find a complete code example [here](https://github.com/supabase-community/flutter-chat/tree/with_auth) to follow along.
+You can also find a complete code example [here](https://github.com/indobase-community/flutter-chat/tree/with_auth) to follow along.
 
 ![Chat app without authorization](/images/blog/flutter-chat-auth/chat-app-screenshot.png)
 
@@ -55,7 +55,7 @@ flutter_bloc: ^8.0.0
 
 Since the app has evolved, we also need to update our table schema. In order to store rooms data, we will add a rooms table. We will also modify the messages table to add a foreign key constraint to the rooms table so that we can tell which message belongs to which room.
 
-We will also introduce a `create_new_room` function, which is a [database function](https://supabase.com/docs/guides/database/functions) that handles chat room creation. It knows to create a new room if a chat room with the two users does not exist yet, or to just return the room ID if it already exists.
+We will also introduce a `create_new_room` function, which is a [database function](https://indobase.com/docs/guides/database/functions) that handles chat room creation. It knows to create a new room if a chat room with the two users does not exist yet, or to just return the room ID if it already exists.
 
 ```sql
 -- *** Table definitions ***
@@ -79,7 +79,7 @@ add column room_id uuid references public.rooms(id) on delete cascade not null;
 
 -- *** Add tables to the publication to enable realtime ***
 
-alter publication supabase_realtime add table public.room_participants;
+alter publication indobase_realtime add table public.room_participants;
 
 -- Creates a new room with the user and another user in it.
 -- Will return the room_id of the created room
@@ -125,7 +125,7 @@ $$ language plpgsql security definer;
 Something we skipped in the previous article was sending confirmation emails to users when they signup. Since today is about security, let's properly send confirmation emails to people who signup.
 
 When we send confirmation emails, the users need to be brought back to the app somehow.
-Since supabase_flutter has a mechanism to detect and handle deep links, we will register a `io.supabase.chat://login` as our deep link for the app and bring the users back after confirming their email address.
+Since indobase_flutter has a mechanism to detect and handle deep links, we will register a `io.indobase.chat://login` as our deep link for the app and bring the users back after confirming their email address.
 
 For iOS we edit the info.plist file to register the deep link.
 
@@ -143,7 +143,7 @@ For iOS we edit the info.plist file to register the deep link.
       <string>Editor</string>
       <key>CFBundleURLSchemes</key>
       <array>
-        <string>io.supabase.chat</string>
+        <string>io.indobase.chat</string>
       </array>
     </dict>
   </array>
@@ -168,7 +168,7 @@ For Android we edit the AndroidManifest.xml to register the deep link.
         <category android:name="android.intent.category.BROWSABLE" />
         <!-- Accepts URIs that begin with YOUR_SCHEME://YOUR_HOST -->
         <data
-          android:scheme="io.supabase.chat"
+          android:scheme="io.indobase.chat"
           android:host="login" />
       </intent-filter>
 
@@ -177,7 +177,7 @@ For Android we edit the AndroidManifest.xml to register the deep link.
 </manifest>
 ```
 
-We also need to set the deep link in our Supabase dashboard. Go to `Authentication > URL Configuration` in your dashboard and add `io.supabase.chat://login` as one of the redirect URLs.
+We also need to set the deep link in our IndoBase dashboard. Go to `Authentication > URL Configuration` in your dashboard and add `io.indobase.chat://login` as one of the redirect URLs.
 
 ![Deep link URL Configuration](/images/blog/flutter-chat-auth/url-configuration.png)
 
@@ -281,7 +281,7 @@ class RoomsError extends RoomState {
 ```
 
 Now that we have the states defined, we will create rooms_cubit.
-A [cubit](https://bloclibrary.dev/#/coreconcepts?id=cubit) is a class within the flutter_bloc library where we will make requests to Supabase to get the data and transform them into states and emit them to the UI widgets.
+A [cubit](https://bloclibrary.dev/#/coreconcepts?id=cubit) is a class within the flutter_bloc library where we will make requests to IndoBase to get the data and transform them into states and emit them to the UI widgets.
 Let's create a `lib/cubit/rooms/rooms_cubit.dart` file and complete the cubit.
 
 ```dart title=lib/cubit/rooms/rooms_cubit.dart
@@ -320,12 +320,12 @@ class RoomCubit extends Cubit<RoomState> {
     }
     _haveCalledGetRooms = true;
 
-    _myUserId = supabase.auth.currentUser!.id;
+    _myUserId = indobase.auth.currentUser!.id;
 
     late final List data;
 
     try {
-      data = await supabase
+      data = await indobase
           .from('profiles')
           .select()
           .not('id', 'eq', _myUserId)
@@ -340,7 +340,7 @@ class RoomCubit extends Cubit<RoomState> {
 
     /// Get realtime updates on rooms that the user is in
     _rawRoomsSubscription =
-        supabase.from('room_participants').stream(
+        indobase.from('room_participants').stream(
       primaryKey: ['room_id', 'profile_id'],
     ).listen((participantMaps) async {
       if (participantMaps.isEmpty) {
@@ -372,7 +372,7 @@ class RoomCubit extends Cubit<RoomState> {
     required BuildContext context,
     required String roomId,
   }) {
-    _messageSubscriptions[roomId] = supabase
+    _messageSubscriptions[roomId] = indobase
         .from('messages')
         .stream(primaryKey: ['id'])
         .eq('room_id', roomId)
@@ -413,7 +413,7 @@ class RoomCubit extends Cubit<RoomState> {
 
   /// Creates or returns an existing roomID of both participants
   Future<String> createRoom(String otherUserId) async {
-    final data = await supabase.rpc('create_new_room',
+    final data = await indobase.rpc('create_new_room',
         params: {'other_user_id': otherUserId});
     emit(RoomsLoaded(rooms: _rooms, newUsers: _newUsers));
     return data as String;
@@ -466,7 +466,7 @@ class RoomsPage extends StatelessWidget {
         actions: [
           TextButton(
             onPressed: () async {
-              await supabase.auth.signOut();
+              await indobase.auth.signOut();
               Navigator.of(context).pushAndRemoveUntil(
                 RegisterPage.route(),
                 (route) => false,
@@ -675,9 +675,9 @@ class ChatCubit extends Cubit<ChatState> {
   void setMessagesListener(String roomId) {
     _roomId = roomId;
 
-    _myUserId = supabase.auth.currentUser!.id;
+    _myUserId = indobase.auth.currentUser!.id;
 
-    _messagesSubscription = supabase
+    _messagesSubscription = indobase
         .from('messages')
         .stream(primaryKey: ['id'])
         .eq('room_id', roomId)
@@ -712,7 +712,7 @@ class ChatCubit extends Cubit<ChatState> {
     emit(ChatLoaded(_messages));
 
     try {
-      await supabase.from('messages').insert(message.toMap());
+      await indobase.from('messages').insert(message.toMap());
     } catch (_) {
       emit(ChatError('Error submitting message.'));
       _messages.removeWhere((message) => message.id == 'new');
@@ -931,7 +931,7 @@ class _ChatBubble extends StatelessWidget {
 
 ### Step 3: Handle user sign-up/ sign-in
 
-Because we have modified the setting of our Supabase to send a confirmation email, we need to make some modifications to the register page and login page as well.
+Because we have modified the setting of our IndoBase to send a confirmation email, we need to make some modifications to the register page and login page as well.
 
 The main change is how we handle navigation.
 Previously, we were able to navigate the user to `ChatPage` right after sign-in was complete.
@@ -946,7 +946,7 @@ import 'package:flutter/material.dart';
 import 'package:my_chat_app/pages/login_page.dart';
 import 'package:my_chat_app/pages/rooms_page.dart';
 import 'package:my_chat_app/utils/constants.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:indobase_flutter/indobase_flutter.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage(
@@ -985,7 +985,7 @@ class _RegisterPageState extends State<RegisterPage> {
     bool haveNavigated = false;
     // Listen to auth state to redirect user when the user clicks on confirmation link
     _authSubscription =
-        supabase.auth.onAuthStateChange.listen((data) {
+        indobase.auth.onAuthStateChange.listen((data) {
       final session = data.session;
       if (session != null && !haveNavigated) {
         haveNavigated = true;
@@ -1012,11 +1012,11 @@ class _RegisterPageState extends State<RegisterPage> {
     final password = _passwordController.text;
     final username = _usernameController.text;
     try {
-      await supabase.auth.signUp(
+      await indobase.auth.signUp(
         email: email,
         password: password,
         data: {'username': username},
-        emailRedirectTo: 'io.supabase.chat://login',
+        emailRedirectTo: 'io.indobase.chat://login',
       );
       context.showSnackBar(
           message:
@@ -1119,7 +1119,7 @@ This is because `LoginPage` is navigated on top of `RegisterPage`, the auth stat
 ```dart title=lib/pages/login_page.dart
 import 'package:flutter/material.dart';
 import 'package:my_chat_app/utils/constants.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:indobase_flutter/indobase_flutter.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -1143,7 +1143,7 @@ class _LoginPageState extends State<LoginPage> {
       _isLoading = true;
     });
     try {
-      await supabase.auth.signInWithPassword(
+      await indobase.auth.signInWithPassword(
         email: _emailController.text,
         password: _passwordController.text,
       );
@@ -1210,7 +1210,7 @@ import 'package:flutter/material.dart';
 import 'package:my_chat_app/pages/register_page.dart';
 import 'package:my_chat_app/pages/rooms_page.dart';
 import 'package:my_chat_app/utils/constants.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:indobase_flutter/indobase_flutter.dart';
 
 /// Page to redirect users to the appropriate page depending on the initial auth state
 class SplashPage extends StatefulWidget {
@@ -1233,7 +1233,7 @@ class SplashPageState extends State<SplashPage> {
 
     try {
       final session =
-          await SupabaseAuth.instance.initialSession;
+          await IndoBaseAuth.instance.initialSession;
       if (session == null) {
         Navigator.of(context).pushAndRemoveUntil(
             RegisterPage.route(), (_) => false);
@@ -1301,7 +1301,7 @@ class ProfilesCubit extends Cubit<ProfilesState> {
       return;
     }
 
-    final data = await supabase
+    final data = await indobase
         .from('profiles')
         .select()
         .match({'id': userId}).single();
@@ -1323,16 +1323,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_chat_app/cubits/profiles/profiles_cubit.dart';
 import 'package:my_chat_app/utils/constants.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:indobase_flutter/indobase_flutter.dart';
 import 'package:my_chat_app/pages/splash_page.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  await Supabase.initialize(
+  await IndoBase.initialize(
     // TODO: Replace credentials with your own
-    url: 'supabase_url',
-    anonKey: 'supabase_anon_key',
+    url: 'indobase_url',
+    anonKey: 'indobase_anon_key',
     authCallbackUrlHostname: 'login',
   );
 
@@ -1361,7 +1361,7 @@ class MyApp extends StatelessWidget {
 
 At this point, we seemingly have a complete app. But if we open the app right now, we will see every users' room along with all the messages that have ever been sent.
 This is because we have not set up Row Level Security to prevent users from accessing rooms that don't belong to them.
-There are two ways we can define Row Level Security policies in Supabase: with the GUI or through SQL. Today we will use SQL.
+There are two ways we can define Row Level Security policies in IndoBase: with the GUI or through SQL. Today we will use SQL.
 Let's run the following SQL to set the security policy.
 
 ```sql
@@ -1407,18 +1407,18 @@ With the Row Level Security policies set up, our application is complete. We now
 
 ## Conclusions/ Future Improvements
 
-Continuing from our [previous article](https://supabase.com/blog/flutter-tutorial-building-a-chat-app), we added proper authorization to our chat application using Row Level Security, which enabled us to add 1 on 1 chat feature.
-We used bloc for our state management solution. One thing we could have done differently if we were to write test codes was to pass the supabase instance as a parameter of the cubit so that we could [write tests using the bloc_test package](https://bloclibrary.dev/#/testing).
+Continuing from our [previous article](https://indobase.com/blog/flutter-tutorial-building-a-chat-app), we added proper authorization to our chat application using Row Level Security, which enabled us to add 1 on 1 chat feature.
+We used bloc for our state management solution. One thing we could have done differently if we were to write test codes was to pass the indobase instance as a parameter of the cubit so that we could [write tests using the bloc_test package](https://bloclibrary.dev/#/testing).
 
 We could also explore some cool feature improvement.
 At the top of the rooms page, we are loading the newest created users to start a conversation. This is fine, but it only allows users to start a conversation with new users.
-We can for example update this to a list of users that are online at the same time. We can implement this using the [presence feature](https://supabase.com/docs/guides/realtime/presence) of Supabase.
+We can for example update this to a list of users that are online at the same time. We can implement this using the [presence feature](https://indobase.com/docs/guides/realtime/presence) of IndoBase.
 
 ## More Flutter Resources
 
-- [Complete set of code of this chat app](https://github.com/supabase-community/flutter-chat/tree/with_auth)
-- [supabase-flutter docs](https://supabase.com/docs/reference/dart)
-- [How to build a real-time multiplayer game with Flutter Flame](https://supabase.com/blog/flutter-real-time-multiplayer-game)
-- [Flutter Supabase Quick Starter Guide](https://supabase.com/docs/guides/with-flutter)
-- [supabase-flutter v1.0 released](https://supabase.com/blog/supabase-flutter-sdk-v1-released)
-- [Build a Flutter app with Very Good CLI and Supabase](https://verygood.ventures/blog/flutter-app-very-good-cli-supabase)
+- [Complete set of code of this chat app](https://github.com/indobase-community/flutter-chat/tree/with_auth)
+- [indobase-flutter docs](https://indobase.com/docs/reference/dart)
+- [How to build a real-time multiplayer game with Flutter Flame](https://indobase.com/blog/flutter-real-time-multiplayer-game)
+- [Flutter IndoBase Quick Starter Guide](https://indobase.com/docs/guides/with-flutter)
+- [indobase-flutter v1.0 released](https://indobase.com/blog/indobase-flutter-sdk-v1-released)
+- [Build a Flutter app with Very Good CLI and IndoBase](https://verygood.ventures/blog/flutter-app-very-good-cli-indobase)

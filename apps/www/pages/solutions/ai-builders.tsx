@@ -13,7 +13,7 @@ import content from 'data/solutions/ai-builders'
 import { Solutions } from 'data/Solutions'
 
 const Quotes = dynamic(() => import('components/Solutions/Quotes'))
-const WhySupabase = dynamic(() => import('components/Solutions/FeaturesSection'))
+const WhyIndoBase = dynamic(() => import('components/Solutions/FeaturesSection'))
 const FeaturesGrid = dynamic(() => import('components/Solutions/FeaturesGrid'))
 const VideosSection = dynamic(() => import('components/Solutions/Videos'))
 const CTAForm = dynamic(() => import('components/Solutions/CTAForm'))
@@ -41,7 +41,7 @@ const Enterprise: NextPage = () => {
         openGraph={{
           title: content.metadata.metaTitle,
           description: content.metadata.metaDescription,
-          url: `https://supabase.com/solutions/ai-builders`,
+          url: `https://indobase.com/solutions/ai-builders`,
           images: [
             {
               url: `/images/solutions/ai-builders/ai-builders-og.png`,
@@ -59,7 +59,7 @@ const Enterprise: NextPage = () => {
           footerPosition="left"
         />
         <Quotes {...content.quotes} />
-        <WhySupabase {...content.why} />
+        <WhyIndoBase {...content.why} />
         <FeaturesGrid {...content.features} />
         <VideosSection {...content.testimonials} />
         <CTAForm />

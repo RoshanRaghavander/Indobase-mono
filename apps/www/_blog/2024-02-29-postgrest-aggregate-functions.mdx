@@ -32,8 +32,8 @@ $ curl 'http://postgrest/movies?select=release_year.max(),release_year.min()'
 ```
 
 {/* prettier-ignore */}
-```js supabase-js
-const { data, error } = await supabase
+```js indobase-js
+const { data, error } = await indobase
   .from('movies')
   .select('release_year.max(), release_year.min()')
 ```
@@ -58,8 +58,8 @@ $ curl 'http://postgrest/movies?select=genre,release_year.max(),release_year.min
 ```
 
 {/* prettier-ignore */}
-```js supabase-js
-const { data, error } = await supabase
+```js indobase-js
+const { data, error } = await indobase
   .from('movies')
   .select('genre, release_year.max(), release_year.min()')
 ```
@@ -106,8 +106,8 @@ $ curl 'http://postgrest/directors?select=name,movies(newest_movie_year:release_
 ```
 
 {/* prettier-ignore */}
-```js supabase-js
-const { data, error } = await supabase.from('directors').select(`name,
+```js indobase-js
+const { data, error } = await indobase.from('directors').select(`name,
 		movies(
 			newest_movie_year:release_year.max(),
 			oldest_movie_year:release_year.min()
@@ -163,8 +163,8 @@ $ curl 'http://postgrest/movies?select=avg_earnings:box_office_earnings.avg(),..
 ```
 
 {/* prettier-ignore */}
-```js supabase-js
-const { data, error } = await supabase.from('movies').select(`
+```js indobase-js
+const { data, error } = await indobase.from('movies').select(`
 		avg_earnings:box_office_earnings.avg(),
     ...directors(country)
 	`)
@@ -194,7 +194,7 @@ Because spreading columns brings them to the top-level, they are treated as colu
 
 ## Staying Safe with Aggregate Functions
 
-Now that we’ve gone through a few examples of how to use aggregate functions, it’s important to discuss how to _safely_ use aggregate functions in your application. Because of the potential performance risks with aggregate functions, we have [**disabled** aggregate functions by default](https://postgrest.org/en/stable/references/configuration.html#db-aggregates-enabled). Only after reviewing the risks and ensuring appropriate safeguards are in place should you enable this feature. On Supabase, you can enable it by modifying the PostgREST connection role and then reloading the server configuration, like so:
+Now that we’ve gone through a few examples of how to use aggregate functions, it’s important to discuss how to _safely_ use aggregate functions in your application. Because of the potential performance risks with aggregate functions, we have [**disabled** aggregate functions by default](https://postgrest.org/en/stable/references/configuration.html#db-aggregates-enabled). Only after reviewing the risks and ensuring appropriate safeguards are in place should you enable this feature. On IndoBase, you can enable it by modifying the PostgREST connection role and then reloading the server configuration, like so:
 
 {/* prettier-ignore */}
 ```sql

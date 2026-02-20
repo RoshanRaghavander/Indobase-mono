@@ -6,99 +6,99 @@ type Companies = {
 const data: Companies[] = [
   {
     name: 'wells-fargo',
-    image: '/images/company/companies-using-supabase/wells-fargo.png',
+    image: '/images/company/companies-using-indobase/wells-fargo.png',
   },
   {
     name: 'under-armour',
-    image: '/images/company/companies-using-supabase/under-armour.png',
+    image: '/images/company/companies-using-indobase/under-armour.png',
   },
   {
     name: 'audi-logo',
-    image: '/images/company/companies-using-supabase/audi-logo.png',
+    image: '/images/company/companies-using-indobase/audi-logo.png',
   },
   {
     name: 'capitalone',
-    image: '/images/company/companies-using-supabase/capitalone.png',
+    image: '/images/company/companies-using-indobase/capitalone.png',
   },
   {
     name: 'coinbase',
-    image: '/images/company/companies-using-supabase/coinbase.png',
+    image: '/images/company/companies-using-indobase/coinbase.png',
   },
   {
     name: 'facebook',
-    image: '/images/company/companies-using-supabase/facebook.png',
+    image: '/images/company/companies-using-indobase/facebook.png',
   },
   {
     name: 'github',
-    image: '/images/company/companies-using-supabase/github.png',
+    image: '/images/company/companies-using-indobase/github.png',
   },
   {
     name: 'google',
-    image: '/images/company/companies-using-supabase/google.png',
+    image: '/images/company/companies-using-indobase/google.png',
   },
   {
     name: 'gsk',
-    image: '/images/company/companies-using-supabase/gsk.png',
+    image: '/images/company/companies-using-indobase/gsk.png',
   },
   {
     name: 'hewlett-packard',
-    image: '/images/company/companies-using-supabase/hewlett-packard.png',
+    image: '/images/company/companies-using-indobase/hewlett-packard.png',
   },
   {
     name: 'hubspot',
-    image: '/images/company/companies-using-supabase/hubspot.png',
+    image: '/images/company/companies-using-indobase/hubspot.png',
   },
   {
     name: 'ibm',
-    image: '/images/company/companies-using-supabase/ibm.png',
+    image: '/images/company/companies-using-indobase/ibm.png',
   },
   {
     name: 'instagram',
-    image: '/images/company/companies-using-supabase/instagram.png',
+    image: '/images/company/companies-using-indobase/instagram.png',
   },
   {
     name: 'linkedin',
-    image: '/images/company/companies-using-supabase/linkedin.png',
+    image: '/images/company/companies-using-indobase/linkedin.png',
   },
   {
     name: 'microsoft',
-    image: '/images/company/companies-using-supabase/microsoft.png',
+    image: '/images/company/companies-using-indobase/microsoft.png',
   },
   {
     name: 'netflix',
-    image: '/images/company/companies-using-supabase/netflix.png',
+    image: '/images/company/companies-using-indobase/netflix.png',
   },
   {
     name: 'notion',
-    image: '/images/company/companies-using-supabase/notion.png',
+    image: '/images/company/companies-using-indobase/notion.png',
   },
   {
     name: 'red-hat',
-    image: '/images/company/companies-using-supabase/red-hat.png',
+    image: '/images/company/companies-using-indobase/red-hat.png',
   },
   {
     name: 'robinhood',
-    image: '/images/company/companies-using-supabase/robinhood.png',
+    image: '/images/company/companies-using-indobase/robinhood.png',
   },
   {
     name: 'salesforce',
-    image: '/images/company/companies-using-supabase/salesforce.png',
+    image: '/images/company/companies-using-indobase/salesforce.png',
   },
   {
     name: 'santander',
-    image: '/images/company/companies-using-supabase/santander.png',
+    image: '/images/company/companies-using-indobase/santander.png',
   },
   {
     name: 'shopify',
-    image: '/images/company/companies-using-supabase/shopify.png',
+    image: '/images/company/companies-using-indobase/shopify.png',
   },
   {
     name: 'squarespace',
-    image: '/images/company/companies-using-supabase/squarespace.png',
+    image: '/images/company/companies-using-indobase/squarespace.png',
   },
   {
     name: 'twitter',
-    image: '/images/company/companies-using-supabase/twitter.png',
+    image: '/images/company/companies-using-indobase/twitter.png',
   },
 ]
 

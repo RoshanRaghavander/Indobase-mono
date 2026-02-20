@@ -102,7 +102,7 @@ export default function LaunchWeekIndex() {
 }
 
 // export const getServerSideProps: GetServerSideProps = async () => {
-//   const { data: meetups } = await supabase!
+//   const { data: meetups } = await indobase!
 //     .from('meetups')
 //     .select('*')
 //     .eq('launch_week', 'lw13')

@@ -46,7 +46,7 @@ You can now do it this way:
 <$CodeTabs>
 
 ```js name=JavaScript
-const { data, error } = await supabase.from('titles').select(`
+const { data, error } = await indobase.from('titles').select(`
   title:primary_title,
   ...people(actors:primary_name),
   ...genres(genres:name)
@@ -60,7 +60,7 @@ curl --get 'https://<your-domain>/titles'
 ```
 
 ```swift name=Swift
-try await supabase.from("titles").select(
+try await indobase.from("titles").select(
 """
   title:primary_title,
   ...people(actors:primary_name),
@@ -81,7 +81,7 @@ Previously you could only use the full text search operator on `tsvector` column
 <$CodeTabs>
 
 ```js name=JavaScript
-const { data, error } = await supabase.from('titles').textSearch('primary_name', `'god' & 'father'`)
+const { data, error } = await indobase.from('titles').textSearch('primary_name', `'god' & 'father'`)
 ```
 
 ```bash name=Bash
@@ -91,7 +91,7 @@ curl --get 'https://<your-domain>/titles'
 ```
 
 ```swift name=Swift
-try await supabase
+try await indobase
   .from("titles")
   .fts("primary_name",value: "'god' & 'father'")
 ```
@@ -114,13 +114,13 @@ You can now limit to the amount of rows affected by an `update` or `delete` oper
 <$CodeTabs>
 
 ```js name=JavaScript
-const { data, error } = await supabase
+const { data, error } = await indobase
   .from('people')
   .update({ primary_name: 'Marlon Brando Jr.' })
   .eq('nconst', 'nm0000008')
   .maxAffected(1)
 
-// This is available starting from supabase-js version 2.56.0
+// This is available starting from indobase-js version 2.56.0
 ```
 
 ```bash name=Bash
@@ -135,14 +135,14 @@ JSON
 ```
 
 ```swift name=Swift
-try await supabase
+try await indobase
   .from("people")
   .update(["primary_name": "Marlon Brando Jr."])
   .eq("nconst", value: "nm0000008")
   .maxAffected(1)
   .execute()
 
-// This is available starting from supabase-swift version 2.33.0
+// This is available starting from indobase-swift version 2.33.0
 ```
 
 </$CodeTabs>
@@ -172,7 +172,7 @@ HTTP/1.1 406 Not Acceptable
 Proxy-Status: PostgREST; error=PGRST116
 ```
 
-You can check the `Proxy-Status` and `Content-Length` headers in the Supabase Logs Explorer.
+You can check the `Proxy-Status` and `Content-Length` headers in the IndoBase Logs Explorer.
 
 ## Breaking Changes
 
@@ -180,7 +180,7 @@ You can check the `Proxy-Status` and `Content-Length` headers in the Supabase Lo
 
 PostgREST now validates the JWT `kid` claim. If your JWT contains a Key ID (`kid`), it will try to match this with one of the `kid`'s in the configured JSON Web Key Set. Check the [official docs](https://docs.postgrest.org/en/v13/references/auth.html#jwk-kid-validation) for more details.
 
-If you use Supabase Auth or the CLI to create JSON Web Keys, you shouldn’t worry about this change as both systems will ensure `kid`'s are present in the JSON Web Key Set.
+If you use IndoBase Auth or the CLI to create JSON Web Keys, you shouldn’t worry about this change as both systems will ensure `kid`'s are present in the JSON Web Key Set.
 
 For users that integrate with other Auth systems, make sure that both your JWT and JWKS follow the above rules.
 
@@ -199,6 +199,6 @@ commit;
 
 ## Try it out
 
-PostgREST v13 is now available for all new projects on the Supabase platform, old projects can upgrade to get this new version.
+PostgREST v13 is now available for all new projects on the IndoBase platform, old projects can upgrade to get this new version.
 
 You can look at the full changelog on the [release notes](https://github.com/PostgREST/postgrest/releases/tag/v13.0.0).

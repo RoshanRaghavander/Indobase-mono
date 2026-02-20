@@ -22,8 +22,8 @@ export default function IndexPage() {
   const isDark = resolvedTheme?.includes('dark')
   const data = pageData(isDark!)
 
-  const meta_title = 'General Availability | Supabase'
-  const meta_description = 'Supabase is officially launching into General Availability.'
+  const meta_title = 'General Availability | IndoBase'
+  const meta_description = 'IndoBase is officially launching into General Availability.'
   const meta_image = '/images/ga/ga-og-alt.png'
 
   return (
@@ -34,7 +34,7 @@ export default function IndexPage() {
         openGraph={{
           title: meta_title,
           description: meta_description,
-          url: `https://supabase.com/${router.pathname}`,
+          url: `https://indobase.com/${router.pathname}`,
           images: [
             {
               url: meta_image,

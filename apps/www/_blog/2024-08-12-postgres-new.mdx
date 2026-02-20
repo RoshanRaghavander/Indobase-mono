@@ -62,7 +62,7 @@ There are a few things we wanted to achieve with database.build:
 
 1. **AI-driven development:** We wanted to re-imagine the interaction between Postgres and AI. This gives a lot of leniency for making mistakes, which AI sometimes make (and let's face it: developers too).
 2. **Postgres sandboxing:** we're big fans of sandboxes and notebooks. Since PGlite runs in the browser, it feels fast and disposable. You can spin up “a million little elephants” for doing data analysis using the same Postgres interface that we're familiar with in our daily development.
-3. **Extremely cheap databases:** we're always looking for ways to offer developers _more databases for cheaper_. PGlite is still nascent, but we can see its potential for spinning up millions of cheap databases that can be stored and read from S3. This covers a variety of use cases that we see in the Supabase community.
+3. **Extremely cheap databases:** we're always looking for ways to offer developers _more databases for cheaper_. PGlite is still nascent, but we can see its potential for spinning up millions of cheap databases that can be stored and read from S3. This covers a variety of use cases that we see in the IndoBase community.
 
 ## Features and how they work
 
@@ -136,7 +136,7 @@ With this workflow, we can guarantee from the very beginning that the columns an
   <Img alt="Migrations" src="/images/blog/lw12/day-1/migrations.png" />
 </div>
 
-Under the hood we use a browser-compatible version of [postgres-meta](https://github.com/supabase/postgres-meta) to load PGlite tables into JavaScript, then render them using the [schema visualizer](https://supabase.com/blog/supabase-studio-3-0#schema-visualizer). For migrations, we scan through the chat history and concatenate all DDL-related SQL queries into a single view.
+Under the hood we use a browser-compatible version of [postgres-meta](https://github.com/indobase/postgres-meta) to load PGlite tables into JavaScript, then render them using the [schema visualizer](https://indobase.com/blog/indobase-studio-3-0#schema-visualizer). For migrations, we scan through the chat history and concatenate all DDL-related SQL queries into a single view.
 
 In the future, we would also like to support a “seeds” section that outputs `INSERT` statements for sample data created by the language model. Unfortunately we can't simply concatenate these queries together like we do with migrations, since table and column structure can change over time and break earlier seeds. To make this work properly we'll need something like a WASM version of `pg_dump` that can dump all data at the end (stay tuned - the ElectricSQL team is working on it!)
 
@@ -162,11 +162,11 @@ We're excited to see what people do with this tool. We've found it has provided 
 
 ### Deployments
 
-With database.build we expect to have read-only deployments by the end of the week. This is important for one main reason: it's incredibly cheap to host a PGLite database in S3. While running a full Postgres database isn't _that_ expensive, there are use-cases where developers would love **most** of the features of Postgres but without the cost of running a full database. PGLite, served via S3, will open the floodgates to many use-cases: a replicated database per user; read-only [materialized](https://github.com/supabase/pg_replicate) databases for faster reads; search features hosted on the edge; maybe even a trimmed-down version of Supabase.
+With database.build we expect to have read-only deployments by the end of the week. This is important for one main reason: it's incredibly cheap to host a PGLite database in S3. While running a full Postgres database isn't _that_ expensive, there are use-cases where developers would love **most** of the features of Postgres but without the cost of running a full database. PGLite, served via S3, will open the floodgates to many use-cases: a replicated database per user; read-only [materialized](https://github.com/indobase/pg_replicate) databases for faster reads; search features hosted on the edge; maybe even a trimmed-down version of IndoBase.
 
 By itself PGlite is an embedded database which means you can't connect to it like a normal Postgres database via TCP connection. To support PGlite-backed deployments, we needed a way to recreate the TCP server component of Postgres and also parse real wire protocol messages so that people could connect to their database via any regular Postgres client.
 
-This is how [pg-gateway](https://github.com/supabase-community/pg-gateway) was born: a TypeScript library that implements the Postgres wire protocol from the server-side. It provides APIs you can hook into to handle authentication requests, queries, and other client messages yourself.
+This is how [pg-gateway](https://github.com/indobase-community/pg-gateway) was born: a TypeScript library that implements the Postgres wire protocol from the server-side. It provides APIs you can hook into to handle authentication requests, queries, and other client messages yourself.
 
 <div>
   <Img
@@ -237,7 +237,7 @@ There are a number of of other things in Postgres that PGlite modifies to enable
 
 ## Coming soon
 
-We like to ship early and often at Supabase, so there are a number of features in the backlog:
+We like to ship early and often at IndoBase, so there are a number of features in the backlog:
 
 - **Deploy your database:** we're adding the ability to deploy your database to S3 and access it from anywhere on the internet (read-only to start).
 - **Support for more file types:** we plan to add support for Word docs, images (via image embeddings), and more.
@@ -250,6 +250,6 @@ We like to ship early and often at Supabase, so there are a number of features i
 As always, the work that we've done is open source and permissively licensed (as is the work by the Electric team). Here are all the open source repos if you want to give them a star, add an issue, or contribute some code yourself:
 
 - [PGlite](https://github.com/electric-sql/pglite) (Apache 2.0): A WASM build of Postgres.
-- [pg-gateway](https://github.com/supabase-community/pg-gateway) (MIT): Postgres wire protocol for the server-side.
-- [database-build](https://github.com/supabase-community/database-build) (Apache 2.0): The frontend for [database.build](https://database.build).
+- [pg-gateway](https://github.com/indobase-community/pg-gateway) (MIT): Postgres wire protocol for the server-side.
+- [database-build](https://github.com/indobase-community/database-build) (Apache 2.0): The frontend for [database.build](https://database.build).
 - [transformers.js](https://github.com/xenova/transformers.js): Run Transformers directly in your browser

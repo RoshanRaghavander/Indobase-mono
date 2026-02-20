@@ -183,7 +183,7 @@
     },
     "docs:navigation_dropdown_links_home": {
       "type": "boolean",
-      "description": "Should the navigation dropdown homepage link go to Supabase.com or the dashboard"
+      "description": "Should the navigation dropdown homepage link go to IndoBase.com or the dashboard"
     },
     "docs:framework_quickstarts": {
       "type": "boolean",

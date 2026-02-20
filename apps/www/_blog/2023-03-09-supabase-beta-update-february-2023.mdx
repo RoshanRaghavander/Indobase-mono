@@ -1,9 +1,9 @@
 ---
-title: Supabase Beta February 2023
+title: IndoBase Beta February 2023
 description: There is something for everybody this month - AI, Auth, Database, Edge Functions, GraphQL … you name it!
 author: ant_wilson
-imgSocial: 2023-03-09-beta-update-february/supabase-beta-update-february-2023.jpg
-imgThumb: 2023-03-09-beta-update-february/supabase-beta-update-february-2023.jpg
+imgSocial: 2023-03-09-beta-update-february/indobase-beta-update-february-2023.jpg
+imgThumb: 2023-03-09-beta-update-february/indobase-beta-update-february-2023.jpg
 categories:
   - product
 tags:
@@ -20,25 +20,25 @@ There’s something for everybody this month: AI, Auth, Database, Edge Functions
 
 The most popular GraphQL IDE/API explorer is now built into the dashboard! You can now explore and query your GraphQL API produced by `pg_graphql`.
 
-[Try it now](https://supabase.com/dashboard/project/_/api/graphiql).
+[Try it now](https://indobase.com/dashboard/project/_/api/graphiql).
 
-## Supabase + OpenAI search
+## IndoBase + OpenAI search
 
-![Supabase + OpenAI search](/images/blog/2023-03-09-beta-update-february/openai-supabase.png)
+![IndoBase + OpenAI search](/images/blog/2023-03-09-beta-update-february/openai-indobase.png)
 
-We've updated our Docs search functionality to use `pgvector` + OpenAI. Still no cease and desist from Microsoft, so you can continue to ask Clippy any Supabase-specific questions 📎💚
+We've updated our Docs search functionality to use `pgvector` + OpenAI. Still no cease and desist from Microsoft, so you can continue to ask Clippy any IndoBase-specific questions 📎💚
 
-[Ask Clippy.](https://supabase.com/docs)
+[Ask Clippy.](https://indobase.com/docs)
 
 ## Serve all the functions!
 
-![Serve all the functions!](/images/blog/2023-03-09-beta-update-february/supabase-cli-edge-functions.png)
+![Serve all the functions!](/images/blog/2023-03-09-beta-update-february/indobase-cli-edge-functions.png)
 
-Do you use multiple Edge Functions in your project? Then celebrate! Supabase CLI 1.36+ now supports serving multiple Edge Functions at the same time.
+Do you use multiple Edge Functions in your project? Then celebrate! IndoBase CLI 1.36+ now supports serving multiple Edge Functions at the same time.
 
-To enable the feature, just run `supabase functions serve` in your project.
+To enable the feature, just run `indobase functions serve` in your project.
 
-[Check the docs.](https://supabase.com/docs/reference/cli/supabase-functions-serve)
+[Check the docs.](https://indobase.com/docs/reference/cli/indobase-functions-serve)
 
 ## Smaller Postgres docker images for everyone
 
@@ -46,7 +46,7 @@ To enable the feature, just run `supabase functions serve` in your project.
 
 We rewrote the Postgres Dockerfile with multi-stage builds so that each extension is compiled in its own separate stage. This reduces the size of the image from 1.3GB to 250MB, enabling a much faster boot time.
 
-[See it yourself](https://hub.docker.com/r/supabase/postgres/tags)
+[See it yourself](https://hub.docker.com/r/indobase/postgres/tags)
 
 ## New UI for Postgres Roles
 
@@ -54,7 +54,7 @@ We rewrote the Postgres Dockerfile with multi-stage builds so that each extensio
 
 We've improved database role management. You can create, update, and delete database roles through the dashboard. Just one small step towards column-level security
 
-[Check it out.](https://supabase.com/dashboard/project/_/editor)
+[Check it out.](https://indobase.com/dashboard/project/_/editor)
 
 ## API docs in the table editor
 
@@ -62,29 +62,29 @@ We've improved database role management. You can create, update, and delete data
 
 API docs got a light touchup and were moved to the table editor. You can now look up API methods and generate & download type files right there ✨
 
-[Check it out.](https://supabase.com/dashboard/project/_/editor)
+[Check it out.](https://indobase.com/dashboard/project/_/editor)
 
 ## Quick product updates
 
 - **Postgres Extensions**: We're rolling out some fixes for several Postgres extensions. Check your Dashboard notifications to see if you need to take any actions.
 
-- **Auth**: Added full OpenAPI 3.0 spec which provides a comprehensive overview of the API with documentation on each request. [PR](https://github.com/supabase/gotrue/pull/918)
+- **Auth**: Added full OpenAPI 3.0 spec which provides a comprehensive overview of the API with documentation on each request. [PR](https://github.com/indobase/gotrue/pull/918)
 
-- **Database**: supabase-js now infers the response type from your query. If the inferred type is incorrect, you can use `.returns<MyType>()` to override it. [Doc](https://supabase.com/docs/reference/javascript/db-returns)
+- **Database**: indobase-js now infers the response type from your query. If the inferred type is incorrect, you can use `.returns<MyType>()` to override it. [Doc](https://indobase.com/docs/reference/javascript/db-returns)
 
-- **Dashboard**: Improved database roles management, you can now create, update and delete database roles through the dashboard. [Dashboard](https://supabase.com/dashboard/project/_/database/roles)
+- **Dashboard**: Improved database roles management, you can now create, update and delete database roles through the dashboard. [Dashboard](https://indobase.com/dashboard/project/_/database/roles)
 
-- **Dashboard**: We've provided a reference panel showing all available paths that can be queried from each respective source that improves the Logs Explorer experience. [Dashboard](https://supabase.com/dashboard/project/_/logs/explorer)
+- **Dashboard**: We've provided a reference panel showing all available paths that can be queried from each respective source that improves the Logs Explorer experience. [Dashboard](https://indobase.com/dashboard/project/_/logs/explorer)
 
-- **Edge Functions**: upgraded to Deno 1.30.3, that supports TypeScript 4.9.x and introduces `satisfies`. Thanks to [Benjamin Dobell](https://github.com/Benjamin-Dobell) 🙏. [PR](https://github.com/supabase/functions-relay/pull/30)
+- **Edge Functions**: upgraded to Deno 1.30.3, that supports TypeScript 4.9.x and introduces `satisfies`. Thanks to [Benjamin Dobell](https://github.com/Benjamin-Dobell) 🙏. [PR](https://github.com/indobase/functions-relay/pull/30)
 
-- Realtime: Broadcast only primary key(s) for deleting records when RLS is enabled and replica identity is full. [PR](https://github.com/supabase/realtime/pull/461)
+- Realtime: Broadcast only primary key(s) for deleting records when RLS is enabled and replica identity is full. [PR](https://github.com/indobase/realtime/pull/461)
 
-## Next.js with Supabase
+## Next.js with IndoBase
 
-![Next.js with Supabase](/images/blog/2023-03-09-beta-update-february/nextjs-supabase.png)
+![Next.js with IndoBase](/images/blog/2023-03-09-beta-update-february/nextjs-indobase.png)
 
-Building the next big thing with Supabase and Next.js? Then make sure to check Jon's new video series to help get you (and your app directory) off the ground.
+Building the next big thing with IndoBase and Next.js? Then make sure to check Jon's new video series to help get you (and your app directory) off the ground.
 
 - [Fetching and Caching data in Next.js Async Server Components](https://www.youtube.com/watch?v=GniRj1jIhFw)
 
@@ -92,57 +92,57 @@ Building the next big thing with Supabase and Next.js? Then make sure to check J
 
 - [Delicious Server Component Cookies // Auth in the Next.js app directory](https://www.youtube.com/watch?v=Bh1TOpOcGJQ)
 
-![Made with Supabase](/images/blog/2022-12-07-november-beta-update/madewithsupabase.jpg)
+![Made with IndoBase](/images/blog/2022-12-07-november-beta-update/madewithindobase.jpg)
 
-[Domain-specific ChatGPT](https://github.com/gannonh/gpt3.5-turbo-pgvector) | This starter app uses embeddings coupled with vector search to show how the OpenAI API can be used to create a conversational interface to domain-specific knowledge. Built by [Gannon Hall](https://github.com/gannonh) with Next.js, Vercel, gpt-3.5-turbo, pgvector, and Supabase.
+[Domain-specific ChatGPT](https://github.com/gannonh/gpt3.5-turbo-pgvector) | This starter app uses embeddings coupled with vector search to show how the OpenAI API can be used to create a conversational interface to domain-specific knowledge. Built by [Gannon Hall](https://github.com/gannonh) with Next.js, Vercel, gpt-3.5-turbo, pgvector, and IndoBase.
 
-Discover 100+ other apps in this [tweet](https://twitter.com/supabase/status/1628843899996209155).
+Discover 100+ other apps in this [tweet](https://twitter.com/indobase/status/1628843899996209155).
 
 ## Extended Community Highlights
 
 ![Community](/images/blog/2022-june/community.jpg)
 
-- LangChain supports our database as a vector store, using pgvector. [Doc](https://hwchase17.github.io/langchainjs/docs/modules/indexes/vector_stores/supabase/) <br/>
+- LangChain supports our database as a vector store, using pgvector. [Doc](https://hwchase17.github.io/langchainjs/docs/modules/indexes/vector_stores/indobase/) <br/>
 
-- Refine week: building a CRUD app with Refine & Supabase. [Full series](https://refine.dev/week-of-refine/)
+- Refine week: building a CRUD app with Refine & IndoBase. [Full series](https://refine.dev/week-of-refine/)
 
-- Build an Instagram Web App with Supabase and Next.js. [Tutorial](https://livecycle.io/blogs/nextjs-supabase-instagram/) <br/>
+- Build an Instagram Web App with IndoBase and Next.js. [Tutorial](https://livecycle.io/blogs/nextjs-indobase-instagram/) <br/>
 
-- Supabase GeoQueries with PostGIS and Storage Upload. [Video](https://www.youtube.com/watch?v=-_Wpr7rwU8I) <br/>
+- IndoBase GeoQueries with PostGIS and Storage Upload. [Video](https://www.youtube.com/watch?v=-_Wpr7rwU8I) <br/>
 
-- How I used Supabase to build a winning hackathon project. [Article](https://blog.matt.lgbt/how-i-used-supabase-to-build-a-winning-hackathon-project)
+- How I used IndoBase to build a winning hackathon project. [Article](https://blog.matt.lgbt/how-i-used-indobase-to-build-a-winning-hackathon-project)
 
-- Using a Supabase API within FlutterFlow. [Video](https://www.youtube.com/watch?v=YzSXwlA3vWM) <br/>
+- Using a IndoBase API within FlutterFlow. [Video](https://www.youtube.com/watch?v=YzSXwlA3vWM) <br/>
 
-- Getting started with Supabase in Android. [Part 1](https://www.youtube.com/watch?v=SGr73sWMX6w) | [Part 2](https://www.youtube.com/watch?v=NWaIIRfVpuo)
+- Getting started with IndoBase in Android. [Part 1](https://www.youtube.com/watch?v=SGr73sWMX6w) | [Part 2](https://www.youtube.com/watch?v=NWaIIRfVpuo)
 
-- Streaming User Events from PostgreSQL (Supabase) to Serverless Kafka. [Article](https://upstash.com/blog/postgre-supabase-connector)<br/>
+- Streaming User Events from PostgreSQL (IndoBase) to Serverless Kafka. [Article](https://upstash.com/blog/postgre-indobase-connector)<br/>
 
-- Building a CRUD API with FastAPI and Supabase: A Step-by-Step Guide. [Tutorial](https://blog.theinfosecguy.xyz/building-a-crud-api-with-fastapi-and-supabase-a-step-by-step-guide)<br/>
+- Building a CRUD API with FastAPI and IndoBase: A Step-by-Step Guide. [Tutorial](https://blog.theinfosecguy.xyz/building-a-crud-api-with-fastapi-and-indobase-a-step-by-step-guide)<br/>
 
 - How to build a collaborative SaaS product using Next.js and ZenStack's access control policy. [Tutorial](https://zenstack.dev/blog/saas-demo)<br/>
 
-- Nuxt 3, Tailwind, and Supabase Crash Course. [Course](https://dev.to/jacobandrewsky/nuxt-3-tailwind-and-supabase-crash-course-1482)<br/>
+- Nuxt 3, Tailwind, and IndoBase Crash Course. [Course](https://dev.to/jacobandrewsky/nuxt-3-tailwind-and-indobase-crash-course-1482)<br/>
 
-- A sneak peek at the Supabase and Next.js RSC SaaS kit. [Article](https://makerkit.dev/blog/changelog/nextjs-supabase-kit-update)<br/>
+- A sneak peek at the IndoBase and Next.js RSC SaaS kit. [Article](https://makerkit.dev/blog/changelog/nextjs-indobase-kit-update)<br/>
 
-- Build a Fullstack serverless application using React, Chakra UI, Hookstate, and Supabase. [Tutorial](https://clx.hashnode.dev/build-a-fullstack-serverless-application-using-react-chakra-ui-hookstate-and-supabase)<br/>
+- Build a Fullstack serverless application using React, Chakra UI, Hookstate, and IndoBase. [Tutorial](https://clx.hashnode.dev/build-a-fullstack-serverless-application-using-react-chakra-ui-hookstate-and-indobase)<br/>
 
-- Implement Sign in with Google using Supabase Auth in Next.js. [Tutorial](https://dev.to/irwanphan/implement-sign-in-with-google-using-supabase-auth-in-nextjs-1jj1)<br/>
+- Implement Sign in with Google using IndoBase Auth in Next.js. [Tutorial](https://dev.to/irwanphan/implement-sign-in-with-google-using-indobase-auth-in-nextjs-1jj1)<br/>
 
 ## We're Hiring
 
 Come join one of the fastest-growing open source projects ever 🤗
 
-- [Technical partnerships lead (Next.js, Node,js, Supabase)](https://boards.greenhouse.io/supabase/jobs/4775849004)\
-- [Junior Developer Advocate (SMM & Community)](https://boards.greenhouse.io/supabase/jobs/4777008004)
+- [Technical partnerships lead (Next.js, Node,js, IndoBase)](https://boards.greenhouse.io/indobase/jobs/4775849004)\
+- [Junior Developer Advocate (SMM & Community)](https://boards.greenhouse.io/indobase/jobs/4777008004)
 
 ## Meme Zone
 
-As always, one of our favorite memes from last month. [Follow us on Twitter](https://twitter.com/supabase) for more.
+As always, one of our favorite memes from last month. [Follow us on Twitter](https://twitter.com/indobase) for more.
 
 ![Best meme from February 2023](/images/blog/2023-03-09-beta-update-february/beta-update-february-meme.jpeg)
 
 ## It's happening! Coming in April
 
-![Supabase Launch Week 7](/images/blog/2023-03-09-beta-update-february/supabase-launch-week-7.png)
+![IndoBase Launch Week 7](/images/blog/2023-03-09-beta-update-february/indobase-launch-week-7.png)

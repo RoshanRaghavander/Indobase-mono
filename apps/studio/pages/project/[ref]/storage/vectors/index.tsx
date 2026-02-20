@@ -39,7 +39,7 @@ const StorageVectorsPage: NextPageWithLayout = () => {
           <PageSectionContent className="flex flex-col gap-y-8">
             <AlphaNotice
               entity="Vector buckets"
-              feedbackUrl="https://github.com/orgs/supabase/discussions/40815"
+              feedbackUrl="https://github.com/orgs/indobase/discussions/40815"
             />
             <EmptyStatePresentational
               icon={VectorBucket}

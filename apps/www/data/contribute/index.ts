@@ -7,8 +7,8 @@ import type {
   ThreadSource,
 } from '~/types/contribute'
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_CONTRIBUTE_URL as string
-const supabasePublishableKey = process.env.NEXT_PUBLIC_SUPABASE_CONTRIBUTE_PUBLISHABLE_KEY as string
+const indobaseUrl = process.env.NEXT_PUBLIC_SUPABASE_CONTRIBUTE_URL as string
+const indobasePublishableKey = process.env.NEXT_PUBLIC_SUPABASE_CONTRIBUTE_PUBLISHABLE_KEY as string
 
 function formatTimeAgo(date: Date): string {
   const now = new Date()
@@ -59,13 +59,13 @@ export async function getChannelCounts(
   stack?: string | string[],
   search?: string
 ): Promise<{ all: number; discord: number; reddit: number; github: number }> {
-  const supabase = createClient(supabaseUrl, supabasePublishableKey)
+  const indobase = createClient(indobaseUrl, indobasePublishableKey)
 
   const sevenDaysAgo = new Date()
   sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 30)
   const since = sevenDaysAgo.toISOString()
 
-  let query = supabase
+  let query = indobase
     .from('v_contribute_threads')
     .select('source', { count: 'exact', head: false })
 
@@ -118,13 +118,13 @@ export async function getUnansweredThreads(
   offset: number = 0,
   limit: number = 100
 ): Promise<ThreadRow[]> {
-  const supabase = createClient(supabaseUrl, supabasePublishableKey)
+  const indobase = createClient(indobaseUrl, indobasePublishableKey)
 
   const sevenDaysAgo = new Date()
   sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 30)
   const since = sevenDaysAgo.toISOString()
 
-  let query = supabase
+  let query = indobase
     .from('v_contribute_threads')
     .select(
       'thread_id, subject, status, author, external_activity_url, created_at, source, product_areas, stack, category, sub_category, summary, first_msg_time, message_count'
@@ -173,9 +173,9 @@ export async function getUnansweredThreads(
 }
 
 export async function getThreadById(id: string): Promise<ThreadRow | null> {
-  const supabase = createClient(supabaseUrl, supabasePublishableKey)
+  const indobase = createClient(indobaseUrl, indobasePublishableKey)
 
-  const { data, error } = await supabase
+  const { data, error } = await indobase
     .from('v_contribute_threads')
     .select(
       'thread_id, subject, status, author, conversation, external_activity_url, created_at, source, product_areas, stack, category, sub_category, summary, first_msg_time, message_count, thread_key'
@@ -196,13 +196,13 @@ export async function getThreadById(id: string): Promise<ThreadRow | null> {
 }
 
 export async function getThreadRepliesById(thread_key: string | null) {
-  const supabase = createClient(supabaseUrl, supabasePublishableKey)
+  const indobase = createClient(indobaseUrl, indobasePublishableKey)
 
   if (!thread_key) {
     return { question: null, replies: [] }
   }
 
-  const { data, error } = await supabase
+  const { data, error } = await indobase
     .from('contribute_posts')
     .select('id, author, content, ts, external_activity_url, thread_key, kind')
     .eq('thread_key', thread_key)
@@ -221,9 +221,9 @@ export async function getThreadRepliesById(thread_key: string | null) {
 }
 
 export async function getAllProductAreas(): Promise<string[]> {
-  const supabase = createClient(supabaseUrl, supabasePublishableKey)
+  const indobase = createClient(indobaseUrl, indobasePublishableKey)
 
-  const { data, error } = await supabase
+  const { data, error } = await indobase
     .from('v_contribute_threads')
     .select('product_areas')
     .in('status', ['unanswered', 'unresolved'])
@@ -244,9 +244,9 @@ export async function getAllProductAreas(): Promise<string[]> {
 }
 
 export async function getAllStacks(): Promise<string[]> {
-  const supabase = createClient(supabaseUrl, supabasePublishableKey)
+  const indobase = createClient(indobaseUrl, indobasePublishableKey)
 
-  const { data, error } = await supabase
+  const { data, error } = await indobase
     .from('v_contribute_threads')
     .select('stack')
     .in('status', ['unanswered', 'unresolved'])
@@ -271,8 +271,8 @@ export const LEADERBOARD_PERIODS = ['all', 'year', 'quarter', 'month', 'week', '
 export async function getLeaderboard(
   period: (typeof LEADERBOARD_PERIODS)[number]
 ): Promise<LeaderboardRow[]> {
-  const supabase = createClient(supabaseUrl, supabasePublishableKey)
-  const { data, error } = await supabase.rpc('get_leaderboard', {
+  const indobase = createClient(indobaseUrl, indobasePublishableKey)
+  const { data, error } = await indobase.rpc('get_leaderboard', {
     period: period,
   })
 
@@ -281,10 +281,10 @@ export async function getLeaderboard(
 }
 
 export async function getUserActivity(author: string) {
-  const supabase = createClient(supabaseUrl, supabasePublishableKey)
+  const indobase = createClient(indobaseUrl, indobasePublishableKey)
 
   // Get user's threads
-  const { data: threads, error: threadsError } = await supabase
+  const { data: threads, error: threadsError } = await indobase
     .from('v_contribute_threads')
     .select(
       'thread_id, subject, status, author, external_activity_url, created_at, source, product_areas, stack, category, sub_category, summary, first_msg_time, message_count, thread_key'
@@ -298,7 +298,7 @@ export async function getUserActivity(author: string) {
   }
 
   // Get user's replies
-  const { data: replies, error: repliesError } = await supabase
+  const { data: replies, error: repliesError } = await indobase
     .from('contribute_posts')
     .select('id, author, content, ts, external_activity_url, thread_key, kind')
     .eq('author', author)
@@ -315,7 +315,7 @@ export async function getUserActivity(author: string) {
   let replyThreads: Thread[] = []
 
   if (threadKeys.length > 0) {
-    const { data: replyThreadsData, error: replyThreadsError } = await supabase
+    const { data: replyThreadsData, error: replyThreadsError } = await indobase
       .from('v_contribute_threads')
       .select(
         'thread_id, subject, status, author, external_activity_url, created_at, source, product_areas, stack, category, sub_category, summary, first_msg_time, message_count, thread_key'

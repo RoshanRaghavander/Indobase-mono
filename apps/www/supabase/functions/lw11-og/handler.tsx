@@ -7,7 +7,7 @@ const corsHeaders = {
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
 }
 
-const STORAGE_URL = 'https://obuldanrptloktxcffvn.supabase.co/storage/v1/object/public/images/lw11'
+const STORAGE_URL = 'https://obuldanrptloktxcffvn.indobase.co/storage/v1/object/public/images/lw11'
 
 // Load custom font
 const FONT_URL = `${STORAGE_URL}/assets/font/CircularStd-Book.otf`
@@ -56,9 +56,9 @@ export async function handler(req: Request) {
     if (!username) throw new Error('missing username param')
 
     const supabaseAdminClient = createClient(
-      // Supabase API URL - env var exported by default when deployed.
+      // IndoBase API URL - env var exported by default when deployed.
       Deno.env.get('MISC_USE_URL') ?? '',
-      // Supabase API SERVICE ROLE KEY - env var exported by default when deployed.
+      // IndoBase API SERVICE ROLE KEY - env var exported by default when deployed.
       Deno.env.get('MISC_USE_SERVICE_ROLE_KEY') ?? ''
     )
 
@@ -127,17 +127,17 @@ export async function handler(req: Request) {
       regular: {
         OG: `${STORAGE_URL}/assets/backgrounds/platinum/${BG_NUMBER}.png`,
         BG: `${STORAGE_URL}/assets/shape/v2/lw11_ticket_regular.png?t=1`,
-        LOGO: `${STORAGE_URL}/assets/supabase/supabase-logo-icon.png`,
+        LOGO: `${STORAGE_URL}/assets/indobase/indobase-logo-icon.png`,
       },
       platinum: {
         OG: `${STORAGE_URL}/assets/backgrounds/regular/${BG_NUMBER}.png`,
         BG: `${STORAGE_URL}/assets/shape/v2/lw11_ticket_platinum.png?t=1`,
-        LOGO: `${STORAGE_URL}/assets/supabase/supabase-logo-icon.png`,
+        LOGO: `${STORAGE_URL}/assets/indobase/indobase-logo-icon.png`,
       },
       secret: {
         OG: `${STORAGE_URL}/assets/backgrounds/secret/${BG_NUMBER}.png`,
         BG: `${STORAGE_URL}/assets/shape/v2/lw11_ticket_purple.png?t=1`,
-        LOGO: `${STORAGE_URL}/assets/supabase/supabase-logo-icon.png`,
+        LOGO: `${STORAGE_URL}/assets/indobase/indobase-logo-icon.png`,
       },
     }
 

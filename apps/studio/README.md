@@ -1,6 +1,6 @@
-# Supabase Studio
+# IndoBase Studio
 
-A dashboard for managing your self-hosted Supabase project, and used on our [hosted platform](https://supabase.com/dashboard). Built with:
+A dashboard for managing your self-hosted IndoBase project, and used on our [hosted platform](https://indobase.fun/dashboard). Built with:
 
 - [Next.js](https://nextjs.org/)
 - [Tailwind](https://tailwindcss.com/)
@@ -34,7 +34,7 @@ Project settings are managed outside of the Dashboard. If you use docker compose
 ### Developer Quickstart
 
 > [!NOTE]  
-> **Supabase internal use:** To develop on Studio locally with the backend services, see the instructions in the [internal `infrastructure` repo](https://github.com/supabase/platform/blob/develop/docs/contributing.md).
+> **IndoBase internal use:** To develop on Studio locally with the backend services, see the instructions in the [internal `infrastructure` repo](https://github.com/indobase/platform/blob/develop/docs/contributing.md).
 
 ```bash
 # You'll need to be on Node v20
@@ -45,7 +45,7 @@ pnpm install # install dependencies
 pnpm run dev # start dev server
 
 ## For internal contributors
-## First clone the private supabase/platform repo and follow instructions for setting up mise
+## First clone the private indobase/platform repo and follow instructions for setting up mise
 mise studio  # Run from supabase/platform alongside `mise infra`
 
 ## For all

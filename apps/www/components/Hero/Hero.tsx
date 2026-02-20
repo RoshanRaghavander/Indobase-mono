@@ -20,7 +20,7 @@ const Hero = () => {
                     <span className="text-brand block md:ml-0">Scale to millions</span>
                   </h1>
                   <p className="pt-2 text-foreground my-3 text-sm sm:mt-5 lg:mb-0 sm:text-base lg:text-lg">
-                    Supabase is the Postgres development platform.{' '}
+                    IndoBase is the Postgres development platform.{' '}
                     <br className="hidden md:block" />
                     Start your project with a Postgres database, Authentication, instant APIs, Edge
                     Functions, Realtime subscriptions, Storage, and Vector embeddings.
@@ -29,8 +29,8 @@ const Hero = () => {
                 <div className="flex items-center gap-2">
                   <Button asChild size="medium">
                     <Link
-                      href="https://supabase.com/dashboard"
-                      as="https://supabase.com/dashboard"
+                      href="https://indobase.com/dashboard"
+                      as="https://indobase.com/dashboard"
                       onClick={() =>
                         sendTelemetryEvent({
                           action: 'start_project_button_clicked',

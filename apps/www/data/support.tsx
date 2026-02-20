@@ -2,9 +2,9 @@ import { ArrowUpRight } from 'lucide-react'
 import { IconDiscord, IconDiscussions, IconGitHubSolid } from 'ui'
 
 const data = {
-  meta_title: 'Help & Support | Supabase',
+  meta_title: 'Help & Support | IndoBase',
   meta_description:
-    'Find help and support for Supabase. Our Support team provide answers on all types of issues, including account information, billing, and refunds.',
+    'Find help and support for IndoBase. Our Support team provide answers on all types of issues, including account information, billing, and refunds.',
   hero: {
     h1: 'Support',
     title: 'Hello, how can we help?',
@@ -17,7 +17,7 @@ const data = {
       links: [
         {
           label: 'Join us on Discord',
-          link: 'https://discord.supabase.com/',
+          link: 'https://discord.indobase.com/',
           target: '_blank',
           icon: <IconDiscord fill="hsl(var(--background-default))" />,
           type: 'secondary',
@@ -31,7 +31,7 @@ const data = {
       links: [
         {
           label: 'Report an issue',
-          link: 'https://github.com/supabase/supabase/issues',
+          link: 'https://github.com/indobase/indobase/issues',
           target: '_blank',
           icon: <IconGitHubSolid />,
           type: 'default',
@@ -44,7 +44,7 @@ const data = {
       links: [
         {
           label: 'Suggest a feature',
-          link: 'https://github.com/orgs/supabase/discussions/categories/feature-requests',
+          link: 'https://github.com/orgs/indobase/discussions/categories/feature-requests',
           target: '_blank',
           icon: <IconDiscussions />,
           type: 'default',
@@ -56,7 +56,7 @@ const data = {
     title: 'Can’t find what you’re looking for?',
     paragraph: (
       <>
-        <p className="text-foreground-light">The Supabase Support Team is ready to help.</p>
+        <p className="text-foreground-light">The IndoBase Support Team is ready to help.</p>
         <p className="text-foreground-lighter text-sm">
           Response time for support tickets will vary depending on plan type and severity of the
           issue.
@@ -66,13 +66,13 @@ const data = {
     links: [
       {
         label: 'Contact enterprise sales',
-        link: 'https://forms.supabase.com/enterprise',
+        link: 'https://forms.indobase.com/enterprise',
         target: '_blank',
         type: 'default',
       },
       {
         label: 'Open support ticket',
-        link: 'https://supabase.com/dashboard/support/new',
+        link: 'https://indobase.com/dashboard/support/new',
         target: '_blank',
         icon: <ArrowUpRight />,
         className: '!text-foreground-light hover:!text-foreground',

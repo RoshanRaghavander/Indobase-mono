@@ -9,10 +9,10 @@ import './styles.css';
 import { createClient } from '@supabase/supabase-js';
 import { useForm, Controller } from 'react-hook-form';
 
-// Initialize Supabase client
-const supabaseUrl = '${process.env.NEXT_PUBLIC_EXAMPLES_SUPABASE_URL}';
-const supabaseKey = '${process.env.NEXT_PUBLIC_EXAMPLES_SUPABASE_ANON_KEY}';
-const supabase = createClient(supabaseUrl, supabaseKey);
+// Initialize IndoBase client
+const indobaseUrl = '${process.env.NEXT_PUBLIC_EXAMPLES_SUPABASE_URL}';
+const indobaseKey = '${process.env.NEXT_PUBLIC_EXAMPLES_SUPABASE_ANON_KEY}';
+const indobase = createClient(indobaseUrl, indobaseKey);
 
 // Generate a random user ID and name
 const userId = Math.random().toString(36).substring(2, 15);
@@ -65,7 +65,7 @@ export default function App() {
     previousFormValues.current = { ...formValues };
 
     // Subscribe to presence channel
-    const channel = supabase.channel(CHANNEL);
+    const channel = indobase.channel(CHANNEL);
     channelRef.current = channel;
 
     // Track presence state
@@ -470,7 +470,7 @@ const layoutProps: ExampleLayoutProps = {
     'react-hook-form': 'latest',
   },
   description:
-    "A multi-user form that uses Supabase Realtime's presence feature to show which fields are currently being edited by other users in real-time.",
+    "A multi-user form that uses IndoBase Realtime's presence feature to show which fields are currently being edited by other users in real-time.",
 }
 
 export default layoutProps

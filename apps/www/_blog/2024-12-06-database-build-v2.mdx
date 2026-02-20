@@ -92,7 +92,7 @@ From here, pass in your LLM provider's base URL, your associated API key, and th
   wide
 />
 
-Note that all settings and keys are stored locally and never leave your browser. Even the API requests themselves are [sent directly from the browser](https://github.com/supabase-community/database-build/blob/5b23ed1a5bc306ed202dcc726dfeb5efe1696abc/apps/web/sw.ts) without a backend proxy - keep reading!
+Note that all settings and keys are stored locally and never leave your browser. Even the API requests themselves are [sent directly from the browser](https://github.com/indobase-community/database-build/blob/5b23ed1a5bc306ed202dcc726dfeb5efe1696abc/apps/web/sw.ts) without a backend proxy - keep reading!
 
 It's important to note that the model you choose will drastically impact your experience with database.build. To work properly, database.build requires a few key features from the model:
 
@@ -121,7 +121,7 @@ In the case of database.build, we need to connect directly to APIs like OpenAI's
 
 ### Service workers
 
-If you've ever dug into database.build's [source code](https://github.com/supabase-community/database-build), you'll know that we heavily use Vercel's [AI SDK](https://sdk.vercel.ai/docs/introduction) to simplify LLM streaming and client side tool calls. Vercel has built a great DX around inference by providing convenient hooks like `useChat()` to manage AI chat messages in React.
+If you've ever dug into database.build's [source code](https://github.com/indobase-community/database-build), you'll know that we heavily use Vercel's [AI SDK](https://sdk.vercel.ai/docs/introduction) to simplify LLM streaming and client side tool calls. Vercel has built a great DX around inference by providing convenient hooks like `useChat()` to manage AI chat messages in React.
 
 The challenge with Vercel's AI SDK for BYO-LLM is that the SDK expects a client-server API structure.` useChat()` connects to a server-side `/api/chat` route that is responsible for sending these messages downstream to the appropriate provider. In normal situations, this is the best architecture to protect API keys and custom logic on the server side. In our case though where users dynamically provide their own API keys, our preference is to send downstream requests directly from the browser. If we wish to continue using our existing `useChat()` infrastructure, we need a way to intercept requests to `/api/chat` and handle them ourselves in-browser.
 
@@ -191,7 +191,7 @@ As a quick reminder - all database.build databases run directly in your browser 
 - Manually copy-pasting the generated migrations and running them against a real database
 - Using Live Share with `pg_dump` and `pg_restore` to back up and restore your browser database to a production-ready database
 
-Now with deployments, you can deploy your database.build creations directly to a cloud database provider, starting with Supabase (and AWS coming soon).
+Now with deployments, you can deploy your database.build creations directly to a cloud database provider, starting with IndoBase (and AWS coming soon).
 
 <video
   className="overflow-hidden rounded-md border wide"
@@ -203,16 +203,16 @@ Now with deployments, you can deploy your database.build creations directly to a
   controls={true}
 >
   <source
-    src="/images/blog/launch-week-13/day-5-database-build-v2/deploy-to-supabase.mp4"
+    src="/images/blog/launch-week-13/day-5-database-build-v2/deploy-to-indobase.mp4"
     type="video/mp4"
   />
 </video>
 
-### Deploy to Supabase
+### Deploy to IndoBase
 
 After building your database schema, click the **Deploy** button in the app's header.
 
-The first time you deploy to Supabase, you will need to connect your database.build account with your Supabase account. If you don't already have a Supabase account, you'll be given the option to create a new one here. Supabase includes a Free plan, so if this is your first project there will be no cost to deploy. Follow the steps outlined in the dialog to connect your account with a Supabase org.
+The first time you deploy to IndoBase, you will need to connect your database.build account with your IndoBase account. If you don't already have a IndoBase account, you'll be given the option to create a new one here. IndoBase includes a Free plan, so if this is your first project there will be no cost to deploy. Follow the steps outlined in the dialog to connect your account with a IndoBase org.
 
 Once your account is connected you will be presented with a preview of the org and project name that will be created. If you are happy with this, click **Deploy**. Be sure to keep your browser tab open to ensure a successful deployment.
 
@@ -226,10 +226,10 @@ We decided to piggyback on top of our existing Live Share feature, which creates
 
 <Img
   className="border-none"
-  alt="database.build v2 Deploy to Supabase"
+  alt="database.build v2 Deploy to IndoBase"
   src={{
-    dark: '/images/blog/launch-week-13/day-5-database-build-v2/deploy-to-supabase-dark.png',
-    light: '/images/blog/launch-week-13/day-5-database-build-v2/deploy-to-supabase-light.png',
+    dark: '/images/blog/launch-week-13/day-5-database-build-v2/deploy-to-indobase-dark.png',
+    light: '/images/blog/launch-week-13/day-5-database-build-v2/deploy-to-indobase-light.png',
   }}
   wide
 />
@@ -316,6 +316,6 @@ With mobile support, you officially have no excuse not to ship that feature you'
 
 Everything we've shipped today - BYO-LLM, Live Share, Deployments, drag-drop SQL, and mobile support - is built on an open-source foundation. We believe in transparency, community collaboration, and making tools like database.build accessible to everyone.
 
-If you're curious about how it all works under the hood or want to contribute, you can find the entire project on GitHub: https://github.com/supabase-community/database-build.
+If you're curious about how it all works under the hood or want to contribute, you can find the entire project on GitHub: https://github.com/indobase-community/database-build.
 
 As always, we'd love to hear your feedback, ideas, or just see what you're building!

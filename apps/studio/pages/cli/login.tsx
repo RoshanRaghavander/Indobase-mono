@@ -49,8 +49,8 @@ const CliLoginPage: NextPageWithLayout = () => {
       <div className={`flex flex-col items-center justify-center h-full`}>
         {device_code ? (
           <>
-            <h2 className="py-2">Your Supabase Account is being used to login on Supabase CLI.</h2>
-            <p>Enter this verification code on Supabase CLI to authorize login.</p>
+            <h2 className="py-2">Your IndoBase Account is being used to login on IndoBase CLI.</h2>
+            <p>Enter this verification code on IndoBase CLI to authorize login.</p>
             <div className="flex flex-row gap-2 py-10">
               <InputOTP maxLength={8} value={device_code} disabled>
                 <InputOTPGroup>
@@ -71,7 +71,7 @@ const CliLoginPage: NextPageWithLayout = () => {
             </p>
             <Admonition
               type="tip"
-              title="Browser login flow requires Supabase CLI version 1.219.0 and above."
+              title="Browser login flow requires IndoBase CLI version 1.219.0 and above."
               className="mt-16"
             />
           </>

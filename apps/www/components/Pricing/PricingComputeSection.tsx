@@ -40,12 +40,12 @@ const PricingComputeSection = () => {
             <p className="text-foreground-lighter text-[13px]">
               Paid Plans include <span translate="no">$10</span>/month in compute credits.
               Additional compute power is available if you need extra performance when scaling up
-              Supabase.
+              IndoBase.
             </p>
           </div>
           <div className="flex items-center gap-4 mt-4">
             <Button asChild size="tiny" type="default">
-              <Link href="https://supabase.com/docs/guides/platform/compute-add-ons">
+              <Link href="https://indobase.com/docs/guides/platform/compute-add-ons">
                 Learn about Compute add-ons
               </Link>
             </Button>
@@ -74,7 +74,7 @@ const PricingComputeSection = () => {
               <div className="max-w-4xl prose p-4 md:p-8 relative z-10">
                 <h4 className="text-lg">Choose the best compute size for you</h4>
                 <p className="text-[13px] text-foreground-lighter">
-                  Every project on the Supabase Platform comes with its own dedicated Postgres
+                  Every project on the IndoBase Platform comes with its own dedicated Postgres
                   instance. Select the compute size that fits your needs.
                 </p>
                 <p className="text-[13px] text-foreground-lighter">
@@ -85,7 +85,7 @@ const PricingComputeSection = () => {
                 <p className="text-[13px] text-foreground-lighter">
                   Read more on{' '}
                   <Link
-                    href="https://supabase.com/docs/guides/platform/manage-your-usage/compute"
+                    href="https://indobase.com/docs/guides/platform/manage-your-usage/compute"
                     target="_blank"
                     className="transition text-brand hover:text-brand-600"
                   >
@@ -93,7 +93,7 @@ const PricingComputeSection = () => {
                   </Link>{' '}
                   or{' '}
                   <Link
-                    href="https://supabase.com/docs/guides/platform/compute-add-ons"
+                    href="https://indobase.com/docs/guides/platform/compute-add-ons"
                     target="_blank"
                     className="transition text-brand hover:text-brand-600"
                   >

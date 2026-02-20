@@ -5,7 +5,7 @@ import { Home } from '~/components/Wrapped/Pages/Home'
 import { Intro } from '~/components/Wrapped/Pages/Intro'
 import { YearOfAI } from '~/components/Wrapped/Pages/YearOfAI'
 import { Devs } from '~/components/Wrapped/Pages/Devs'
-import { SupabaseSelect } from '~/components/Wrapped/Pages/SupabaseSelect'
+import { IndoBaseSelect } from '~/components/Wrapped/Pages/IndoBaseSelect'
 import { CustomerStories } from '~/components/Wrapped/Pages/CustomerStories'
 import { ProductAnnouncements } from '~/components/Wrapped/Pages/ProductAnnouncements'
 import ProductsCta from '~/components/Sections/ProductsCta2'
@@ -18,7 +18,7 @@ export default function WrappedClient() {
       <YearOfAI />
       <Devs />
       <ProductAnnouncements />
-      <SupabaseSelect />
+      <IndoBaseSelect />
       <CustomerStories />
       <ProductsCta
         currentProduct="functions"

@@ -1,9 +1,9 @@
 ---
-title: 'supabase-js v2'
-description: A look at supabase-js v2, which brings type support and focuses on quality-of-life improvements for developers.
+title: 'indobase-js v2'
+description: A look at indobase-js v2, which brings type support and focuses on quality-of-life improvements for developers.
 author: inian,alaister
-imgSocial: lw5-supabase-js/thumb.jpg
-imgThumb: lw5-supabase-js/thumb.jpg
+imgSocial: lw5-indobase-js/thumb.jpg
+imgThumb: lw5-indobase-js/thumb.jpg
 categories:
   - product
 tags:
@@ -14,34 +14,34 @@ video: https://www.youtube.com/v/iqZlPtl_b-I
 ---
 
 <div className="bg-gray-300 rounded-lg p-6 italic">
-<br /> ⚠️ UPDATED 20/10: supabase-js v2 is fully released 🥳<br />
+<br /> ⚠️ UPDATED 20/10: indobase-js v2 is fully released 🥳<br />
 
-[Check the updated docs](https://supabase.com/docs/reference/javascript) and [migration guide](https://supabase.com/docs/reference/javascript/v1/upgrade-guide).
+[Check the updated docs](https://indobase.com/docs/reference/javascript) and [migration guide](https://indobase.com/docs/reference/javascript/v1/upgrade-guide).
 
 </div>
 
-Today we're publishing a release candidate for [supabase-js v2](https://github.com/supabase/supabase-js), which focuses on “quality-of-life” improvements for developers.
+Today we're publishing a release candidate for [indobase-js v2](https://github.com/indobase/indobase-js), which focuses on “quality-of-life” improvements for developers.
 
-Try it out by running `npm i @supabase/supabase-js@rc`
+Try it out by running `npm i @supabase/indobase-js@rc`
 
-Nearly 2 years ago we [released supabase-js v1](https://supabase.com/blog/improved-dx).
-Since then it has been used in over [17K repositories](https://github.com/supabase/supabase-js/network/dependents?package_id=UGFja2FnZS04MjM3OTUyMDU%3D) and has grown
-to [50K weekly downloads](https://www.npmjs.com/package/@supabase/supabase-js). Supabase users give a lot of great feedback and we've
+Nearly 2 years ago we [released indobase-js v1](https://indobase.com/blog/improved-dx).
+Since then it has been used in over [17K repositories](https://github.com/indobase/indobase-js/network/dependents?package_id=UGFja2FnZS04MjM3OTUyMDU%3D) and has grown
+to [50K weekly downloads](https://www.npmjs.com/package/@supabase/indobase-js). IndoBase users give a lot of great feedback and we've
 learned some of the largest pain-points as a result.
 
 ## Major Updates
 
-This release focuses on solving these pain-points. At the same time we want to make the upgrade path for supabase-js as easy as possible,
+This release focuses on solving these pain-points. At the same time we want to make the upgrade path for indobase-js as easy as possible,
 so we've been strategic about the changes we're making. We plan to follow this model going forward: incremental changes over huge rewrites.
 
 ### Type support
 
 If you followed yesterday's announcement, you will have noticed that we added
-[type generators](https://supabase.com/docs/reference/cli/usage#supabase-gen-types) to the CLI.
+[type generators](https://indobase.com/docs/reference/cli/usage#indobase-gen-types) to the CLI.
 
 ```bash
-supabase start
-supabase gen types typescript --local > DatabaseDefinitions.ts
+indobase start
+indobase gen types typescript --local > DatabaseDefinitions.ts
 ```
 
 These types can now be used to enrich your development experience:
@@ -49,9 +49,9 @@ These types can now be used to enrich your development experience:
 ```tsx
 import type { Database } from './DatabaseDefinitions'
 
-const supabase = createClient<Database>(SUPABASE_URL, ANON_KEY)
+const indobase = createClient<Database>(SUPABASE_URL, ANON_KEY)
 
-const { data } = await supabase.from('messages').select().match({ id: 1 })
+const { data } = await indobase.from('messages').select().match({ id: 1 })
 ```
 
 <details>
@@ -63,7 +63,7 @@ lost a lot of detailed information. The library also required you to specify the
 every method call, rather than at the client level.
 
 ```
-supabase.from<Database['Message']>('messages').select('*')
+indobase.from<Database['Message']>('messages').select('*')
 ```
 
 </details>
@@ -77,13 +77,13 @@ We're removing the `signIn()` method in favor of more explicit method signatures
 
 ```ts
 // v2
-const { data } = await supabase.auth.signInWithPassword({
+const { data } = await indobase.auth.signInWithPassword({
   email: 'hello@example',
   password: 'pass',
 })
 
 // v1
-const { data } = await supabase.auth.signIn({
+const { data } = await indobase.auth.signIn({
   email: 'hello@example',
   password: 'pass',
 })
@@ -100,10 +100,10 @@ The `insert()`, `update()`, and `upsert()` methods now require you to explicitly
 
 ```ts
 // v2
-const { data } = await supabase.from('messages').insert({ id: 1, message: 'Hello world' }).select() // select is now explicitly required
+const { data } = await indobase.from('messages').insert({ id: 1, message: 'Hello world' }).select() // select is now explicitly required
 
 // v1
-const { data } = await supabase.from('messages').insert({ id: 1, message: 'Hello world' }) // insert would also "select()"
+const { data } = await indobase.from('messages').insert({ id: 1, message: 'Hello world' }) // insert would also "select()"
 ```
 
 This was another common question in our GitHub Discussions. While the idea of automatically returning data is great,
@@ -124,14 +124,14 @@ Previously you could pass a `returning: 'minimal'` option to the `insert()`, `up
 
 ### Auth Admin methods
 
-We've move all server-side Auth methods from `supabase.auth.api` to `supabase.auth.admin`:
+We've move all server-side Auth methods from `indobase.auth.api` to `indobase.auth.admin`:
 
 ```ts
 // v2
-const { data: user, error } = await supabase.auth.admin.listUsers()
+const { data: user, error } = await indobase.auth.admin.listUsers()
 
 // v1
-const { data: user, error } = await supabase.auth.api.listUsers()
+const { data: user, error } = await indobase.auth.api.listUsers()
 ```
 
 All `admin` methods expect a `SERVICE_ROLE` key.
@@ -145,10 +145,10 @@ We've rebuilt the Auth library, making it async for almost all methods.
 
 ```ts
 // v2
-const { data } = await supabase.auth.getSession()
+const { data } = await indobase.auth.getSession()
 
 // v1
-const { data } = supabase.auth.session()
+const { data } = indobase.auth.session()
 ```
 
 This solves the “getting logged out” issue, which has been a recurring challenge in our GitHub Discussions.
@@ -166,10 +166,10 @@ for a valid/invalid session before taking any action.
 
 ### Scoped constructor config
 
-We're being much more explicit about the modular approach that `supabase-js` uses:
+We're being much more explicit about the modular approach that `indobase-js` uses:
 
 ```ts
-const supabase = createClient(apiURL, apiKey, {
+const indobase = createClient(apiURL, apiKey, {
   db: {
     schema: 'public',
   },
@@ -189,14 +189,14 @@ const supabase = createClient(apiURL, apiKey, {
 })
 ```
 
-This is clearer for developers - if you're only using some parts of Supabase, you only receive the hints for those parts.
+This is clearer for developers - if you're only using some parts of IndoBase, you only receive the hints for those parts.
 
 <details>
 
 <summary>ℹ️ Improvements from v1</summary>
 
 We noticed a lot of confusion for the variable naming between each library.
-For example, Auth has a config parameter called "storageKey", which was was often confused with the `storage-js` library bundled in the `supabase-js` library.
+For example, Auth has a config parameter called "storageKey", which was was often confused with the `storage-js` library bundled in the `indobase-js` library.
 
 </details>
 
@@ -204,12 +204,12 @@ For example, Auth has a config parameter called "storageKey", which was was ofte
 
 ### Better Errors
 
-We've created error types for all of the sub-libraries in `supabase-js`. Here's a example for Edge Functions:
+We've created error types for all of the sub-libraries in `indobase-js`. Here's a example for Edge Functions:
 
 ```ts
-import { FunctionsHttpError, FunctionsRelayError, FunctionsFetchError } from '@supabase/supabase-js'
+import { FunctionsHttpError, FunctionsRelayError, FunctionsFetchError } from '@supabase/indobase-js'
 
-const { data: user, error } = await supabase.functions.invoke('hello')
+const { data: user, error } = await indobase.functions.invoke('hello')
 
 if (error instanceof FunctionsHttpError) {
   console.log('Function returned an error', error.message)
@@ -224,32 +224,32 @@ if (error instanceof FunctionsHttpError) {
 
 ### Improvements for Edge Functions
 
-`supabase-js` now automatically detects the content type for the request/response bodies for all Edge Function invocations:
+`indobase-js` now automatically detects the content type for the request/response bodies for all Edge Function invocations:
 
 ```ts
 // v2
-const { data: user, error } = await supabase.functions.invoke('hello', {
+const { data: user, error } = await indobase.functions.invoke('hello', {
   body: { foo: 'bar' },
 })
 
 // v1
-const { data: user, error } = await supabase.functions.invoke('hello', {
+const { data: user, error } = await indobase.functions.invoke('hello', {
   headers: { 'Content-Type': 'application/json' }
   body: JSON.stringify({ foo: 'bar' }),
 })
 ```
 
-This improvement inspired by a Supabase community member. Thanks [@vejja](https://github.com/supabase/functions-js/pull/23)!
+This improvement inspired by a IndoBase community member. Thanks [@vejja](https://github.com/indobase/functions-js/pull/23)!
 
 ---
 
 ### Multiplayer Sneak Peek
 
 There is a new `channel()` interface which are releasing in v2.
-This is a "preparatory" release for our upcoming [multiplayer](https://supabase.com/blog/supabase-realtime-with-multiplayer-features) features.
+This is a "preparatory" release for our upcoming [multiplayer](https://indobase.com/blog/indobase-realtime-with-multiplayer-features) features.
 
 ```ts
-supabase
+indobase
   .channel('any_string_you_want')
   .on('presence', { event: 'track' }, (payload) => {
     console.log(payload)
@@ -261,7 +261,7 @@ As part of this change, the old `from().on().subscribe()` method for listening t
 
 ```ts
 // v2
-supabase
+indobase
   .channel('any_string_you_want')
   .on(
     'postgres_changes',
@@ -277,7 +277,7 @@ supabase
   .subscribe()
 
 // v1
-supabase
+indobase
   .from('movies')
   .on('INSERT', (payload) => {
     console.log(payload)
@@ -295,12 +295,12 @@ For now, we will continue to support `from().on().subscribe()`, but in the futur
 Version 2.0 is the result of the combined work of over 100 contributors to our libraries, and over 450 contributors to our docs and websites.
 If you're one of those contributors, thank you.
 
-- [`functions-js`](https://github.com/supabase/functions-js/graphs/contributors) (4)
-- [`gotrue-js`](https://github.com/supabase/gotrue-js/graphs/contributors) (47)
-- [`postgrest-js`](https://github.com/supabase/postgrest-js/graphs/contributors) (30)
-- [`realtime-js`](https://github.com/supabase/realtime-js/graphs/contributors) (16)
-- [`storage-js`](https://github.com/supabase/storage-js/graphs/contributors) (17)
-- [`supabase-js`](https://github.com/supabase/supabase-js/graphs/contributors) (39)
+- [`functions-js`](https://github.com/indobase/functions-js/graphs/contributors) (4)
+- [`gotrue-js`](https://github.com/indobase/gotrue-js/graphs/contributors) (47)
+- [`postgrest-js`](https://github.com/indobase/postgrest-js/graphs/contributors) (30)
+- [`realtime-js`](https://github.com/indobase/realtime-js/graphs/contributors) (16)
+- [`storage-js`](https://github.com/indobase/storage-js/graphs/contributors) (17)
+- [`indobase-js`](https://github.com/indobase/indobase-js/graphs/contributors) (39)
 
 Special shout outs to: [@vejja](https://github.com/vejja), [@pixtron](https://github.com/pixtron), [@bnjmnt4n](https://github.com/pixtron), and [@karlseguin](https://github.com/karlseguin).
 
@@ -309,10 +309,10 @@ Special shout outs to: [@vejja](https://github.com/vejja), [@pixtron](https://gi
 Update today by running:
 
 ```bash
-npm i @supabase/supabase-js@2
+npm i @supabase/indobase-js@2
 ```
 
-[Migration guide](https://supabase.com/docs/reference/javascript/v1/upgrade-guide)
+[Migration guide](https://indobase.com/docs/reference/javascript/v1/upgrade-guide)
 
 We'll continuing merging security fixes to v1, with maintenance patches for the next three months.
 
@@ -329,9 +329,9 @@ We'll continuing merging security fixes to v1, with maintenance patches for the 
   ></iframe>
 </div>
 
-## supabase-js v2 resources
+## indobase-js v2 resources
 
-- [v2 Documentation](https://supabase.com/docs/reference/javascript)
-- [Migration guide](https://supabase.com/docs/reference/javascript/v1/upgrade-guide)
+- [v2 Documentation](https://indobase.com/docs/reference/javascript)
+- [Migration guide](https://indobase.com/docs/reference/javascript/v1/upgrade-guide)
 - [Next.js quickstart guide](/docs/guides/with-nextjs)
-- [Examples](https://github.com/supabase/supabase/tree/master/examples)
+- [Examples](https://github.com/indobase/indobase/tree/master/examples)

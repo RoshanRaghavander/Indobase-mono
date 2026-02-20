@@ -388,7 +388,7 @@ const MergeRequestsPageWrapper = ({ children }: PropsWithChildren<{}>) => {
         <a
           target="_blank"
           rel="noreferrer"
-          href="https://github.com/orgs/supabase/discussions/18937"
+          href="https://github.com/orgs/indobase/discussions/18937"
         >
           Branching feedback
         </a>

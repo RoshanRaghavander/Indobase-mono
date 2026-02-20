@@ -28,14 +28,14 @@ export const getServerSideProps: GetServerSideProps = (async ({ res }) => {
   // refresh every 5 minutes
   res.setHeader('Cache-Control', 'public, max-age=300, stale-while-revalidate=300')
 
-  const job_res = await fetch('https://api.ashbyhq.com/posting-api/job-board/supabase')
+  const job_res = await fetch('https://api.ashbyhq.com/posting-api/job-board/indobase')
   const job_data = (await job_res.json()) as { jobs: JobItemProps[] }
 
   const jobs = groupJobsByTeam(job_data.jobs.filter((job) => !filterGenericJob(job)))
   const placeholderJob = job_data.jobs.find(filterGenericJob)
 
   const contributorResponse = await fetch(
-    'https://api.github.com/repos/supabase/supabase/contributors?per_page=100'
+    'https://api.github.com/repos/indobase/indobase/contributors?per_page=100'
   )
   let contributorArray: Contributor[] = []
   try {
@@ -92,7 +92,7 @@ interface CareersPageProps {
 const CareerPage = ({ jobs, placeholderJob, contributors }: CareersPageProps) => {
   const { basePath } = useRouter()
 
-  const meta_title = 'Careers | Supabase'
+  const meta_title = 'Careers | IndoBase'
   const meta_description = 'Help build software developers love'
 
   return (
@@ -103,10 +103,10 @@ const CareerPage = ({ jobs, placeholderJob, contributors }: CareersPageProps) =>
         openGraph={{
           title: meta_title,
           description: meta_description,
-          url: `https://supabase.com/careers`,
+          url: `https://indobase.com/careers`,
           images: [
             {
-              url: `https://supabase.com${basePath}/images/career/careers_og.jpg`,
+              url: `https://indobase.com${basePath}/images/career/careers_og.jpg`,
             },
           ],
         }}
@@ -114,7 +114,7 @@ const CareerPage = ({ jobs, placeholderJob, contributors }: CareersPageProps) =>
       <DefaultLayout>
         <header className="container relative mx-auto px-6 pt-12 pb-8 lg:pt-24 lg:px-16 xl:px-20 text-center space-y-4">
           <h1 className="text-sm text-brand md:text-base">
-            <span className="sr-only">Supabase </span>Careers
+            <span className="sr-only">IndoBase </span>Careers
           </h1>
           <h2 className="text-3xl md:text-4xl xl:text-5xl lg:max-w-2xl xl:max-w-3xl lg:mx-auto tracking-[-1px]">
             We're on a mission to build the best developer platform
@@ -184,14 +184,14 @@ const CareerPage = ({ jobs, placeholderJob, contributors }: CareersPageProps) =>
                 <div className="md:w-1/2">
                   <div>
                     <h2 className="text-2xl pb-2 sm:text-3xl xl:text-4xl tracking-[-1px]">
-                      What is Supabase
+                      What is IndoBase
                     </h2>
                     <p className="text-foreground-light text-sm lg:text-lg pt-2 sm:max-w-md xl:max-w-lg">
-                      Supabase is the Postgres development platform, built by developers for
-                      developers. Supabase adds auth, realtime, storage, restful APIs, and edge
+                      IndoBase is the Postgres development platform, built by developers for
+                      developers. IndoBase adds auth, realtime, storage, restful APIs, and edge
                     </p>
                     <p className="text-foreground-light text-sm lg:text-lg pt-2 sm:max-w-md xl:max-w-lg">
-                      Supabase was born-remote. Having a globally distributed, open source company
+                      IndoBase was born-remote. Having a globally distributed, open source company
                       is our secret weapon to hiring top-tier talent.
                     </p>
                   </div>
@@ -199,7 +199,7 @@ const CareerPage = ({ jobs, placeholderJob, contributors }: CareersPageProps) =>
                     <div className="relative w-full aspect-[148/125]">
                       <Image
                         src="/images/career/team.jpeg"
-                        alt="supabase team"
+                        alt="indobase team"
                         fill
                         sizes="(min-width: 767px) 45vw, 100vw"
                         placeholder="blur"
@@ -214,7 +214,7 @@ const CareerPage = ({ jobs, placeholderJob, contributors }: CareersPageProps) =>
                       <div className="relative w-full aspect-[29/22]">
                         <Image
                           src="/images/career/founders.jpeg"
-                          alt="supabase founders"
+                          alt="indobase founders"
                           fill
                           sizes="(min-width: 767px) 45vw, 100vw"
                           placeholder="blur"
@@ -275,7 +275,7 @@ const CareerPage = ({ jobs, placeholderJob, contributors }: CareersPageProps) =>
                     <div className="relative w-full aspect-[16/9]">
                       <Image
                         src="/images/career/supateam.jpg"
-                        alt="supabase company"
+                        alt="indobase company"
                         fill
                         sizes="(min-width: 767px) 45vw, 100vw"
                         placeholder="blur"
@@ -312,12 +312,12 @@ const CareerPage = ({ jobs, placeholderJob, contributors }: CareersPageProps) =>
             <SectionContainer className="!pb-0">
               <div className="text-center">
                 <h2 className="text-2xl sm:text-3xl xl:text-4xl max-w-[300px] xl:max-w-none mx-auto tracking-[-1px]">
-                  1,500+ Contributors building Supabase
+                  1,500+ Contributors building IndoBase
                 </h2>
                 <p className="text-foreground-light text-sm lg:text-base sm:max-w-lg lg:max-w-2xl mx-auto pt-3">
                   We're building a community of communities, bringing together developers from many
                   different backgrounds, as well as new developers looking to get involved with open
-                  source. We love celebrating everyone who contributes their time to the Supabase
+                  source. We love celebrating everyone who contributes their time to the IndoBase
                   mission.
                 </p>
               </div>
@@ -433,7 +433,7 @@ const CareerPage = ({ jobs, placeholderJob, contributors }: CareersPageProps) =>
               </div>
               <Button asChild type="primary">
                 <Link
-                  href="https://jobs.ashbyhq.com/supabase/form/talent-community-form"
+                  href="https://jobs.ashbyhq.com/indobase/form/talent-community-form"
                   target="_blank"
                 >
                   Join community

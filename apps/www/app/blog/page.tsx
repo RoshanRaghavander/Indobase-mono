@@ -6,13 +6,13 @@ import { getSortedPosts } from '@/lib/posts'
 export const revalidate = 30
 
 export const metadata: Metadata = {
-  title: 'Supabase Blog: the Postgres development platform',
-  description: 'Get all your Supabase News on the Supabase blog.',
+  title: 'IndoBase Blog: the Postgres development platform',
+  description: 'Get all your IndoBase News on the IndoBase blog.',
   openGraph: {
-    title: 'Supabase Blog: the Postgres development platform',
-    description: 'Get all your Supabase News on the Supabase blog.',
-    url: 'https://supabase.com/blog',
-    images: [{ url: 'https://supabase.com/images/og/supabase-og.png' }],
+    title: 'IndoBase Blog: the Postgres development platform',
+    description: 'Get all your IndoBase News on the IndoBase blog.',
+    url: 'https://indobase.com/blog',
+    images: [{ url: 'https://indobase.com/images/og/indobase-og.png' }],
   },
 }
 

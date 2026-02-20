@@ -1,6 +1,6 @@
 {
-  "name": "Supabase",
-  "short_name": "Supabase",
+  "name": "IndoBase",
+  "short_name": "IndoBase",
   "description": "The Postgres development platform.",
   "display": "standalone",
   "theme_color": "#1C1C1C",

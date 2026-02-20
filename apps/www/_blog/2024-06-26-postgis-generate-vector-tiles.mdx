@@ -16,17 +16,17 @@ toc_depth: 3
 
 <Admonition>
 
-[Do you prefer audio-visual learning? Watch the video guide!](https://supabase.link/supa-gis-yt-docs)
+[Do you prefer audio-visual learning? Watch the video guide!](https://indobase.link/supa-gis-yt-docs)
 
-[Or jump straight into the code](https://github.com/bdon/supabase-vector-tile)
+[Or jump straight into the code](https://github.com/bdon/indobase-vector-tile)
 
 </Admonition>
 
 [Overture Maps Foundation](https://overturemaps.org/) is a [Joint Development Foundation Project](https://jointdevelopment.org/) initiated by Amazon, Meta, Microsoft, and tomtom, aiming to create reliable, easy-to-use, and interoperable open map data.
 
-Overture Maps allows us to download open map data, like places of interest, as [GeoJSON](https://geojson.org/) which we can transform into SQL and ingest into our Postgres database on Supabase.
+Overture Maps allows us to download open map data, like places of interest, as [GeoJSON](https://geojson.org/) which we can transform into SQL and ingest into our Postgres database on IndoBase.
 
-Using PostGIS we can then programmatically generate vector tiles and serve them to our MapLibre GL client using supabase-js.
+Using PostGIS we can then programmatically generate vector tiles and serve them to our MapLibre GL client using indobase-js.
 
 <Admonition>
 
@@ -40,10 +40,10 @@ In this tutorial, you will learn to
 
 - Use Overture Maps to download open map places data in GeoJSON format.
 - Use GDAL ogr2ogr to transform GeoJSON into SQL statements.
-- Import location data and JSON metadata into your Supabase Postgres database using psql.
+- Import location data and JSON metadata into your IndoBase Postgres database using psql.
 - Use PostGIS' `ST_AsMVT` to aggregate a set of rows corresponding to a tile layer into a binary vector tile representation.
-- Use MapLibre's `addProtocol` to visualize large PostGIS tables by making remote procedure calls with supabase-js.
-- Use supabase-js to fetch additional JSON metadata on demand
+- Use MapLibre's `addProtocol` to visualize large PostGIS tables by making remote procedure calls with indobase-js.
+- Use indobase-js to fetch additional JSON metadata on demand
 
 ## Download open map data with Overture Maps
 
@@ -67,9 +67,9 @@ You can install `GDAL` via `homebrew brew install gdal` or follow the [download 
 PG_USE_COPY=true ogr2ogr -f pgdump places.sql places.geojson
 ```
 
-## Import location data into Supabase
+## Import location data into IndoBase
 
-Enable the PostGIS extension on your Supabase Database on a dedicated separate `gis` schema. To do so you can navigate to the [SQL Editor](/dashboard/project/_/sql/new) and run the following SQL, or you can enable the extension from the [Database Extensions Settings](/dashboard/project/_/database/extensions).
+Enable the PostGIS extension on your IndoBase Database on a dedicated separate `gis` schema. To do so you can navigate to the [SQL Editor](/dashboard/project/_/sql/new) and run the following SQL, or you can enable the extension from the [Database Extensions Settings](/dashboard/project/_/database/extensions).
 
 As PostGIS can be quite compute heavy, we recommend enabling it on a dedicated separate schema, for example, named `gis`!
 
@@ -78,19 +78,19 @@ CREATE SCHEMA IF NOT EXISTS "gis";
 CREATE EXTENSION IF NOT EXISTS "postgis" WITH SCHEMA "gis";
 ```
 
-Import the open map data into a `places` table in Supabase:
+Import the open map data into a `places` table in IndoBase:
 
 ```bash
-psql -h aws-0-us-west-1.pooler.supabase.com -p 5432 -d postgres -U postgres.project-ref < places.sql
+psql -h aws-0-us-west-1.pooler.indobase.com -p 5432 -d postgres -U postgres.project-ref < places.sql
 ```
 
-You can find the credentials in the [project connect page](/dashboard/project/_?showConnect=true) of your Supabase Dashboard.
+You can find the credentials in the [project connect page](/dashboard/project/_?showConnect=true) of your IndoBase Dashboard.
 
 ### Enable RLS and create a public read policy
 
 We want the places data to be available publicly, so we can create a row level security policy that enables public read access.
 
-In your Supabase Dashboard, navigate to the [SQL Editor](/dashboard/project/_/sql/new) and run the following:
+In your IndoBase Dashboard, navigate to the [SQL Editor](/dashboard/project/_/sql/new) and run the following:
 
 ```sql
 ALTER TABLE "public"."places" ENABLE ROW LEVEL SECURITY;
@@ -151,12 +151,12 @@ $$;
 
 To limit the amount of data sent over the wire, we limit the amount of metadata to include in the vector tile. For example we add a condition for the zoom level, and only return the place name when the user has zoomed in beyond level 13.
 
-## Use supabase-js to fetch vector tiles from MapLibre GL client
+## Use indobase-js to fetch vector tiles from MapLibre GL client
 
-You can find the full `index.html` code on [GitHub](https://github.com/bdon/supabase-vector-tile/blob/main/index.html). Here we'll highlight how to add a new protocol to MapLibreGL to fetch the bas64 encoded binary vector tile data via supabase-js so that MapLibre GL can fetch and render the data as your users interact with the map:
+You can find the full `index.html` code on [GitHub](https://github.com/bdon/indobase-vector-tile/blob/main/index.html). Here we'll highlight how to add a new protocol to MapLibreGL to fetch the bas64 encoded binary vector tile data via indobase-js so that MapLibre GL can fetch and render the data as your users interact with the map:
 
 ```js index.html
-const client = supabase.createClient('your-supabase-api-url', 'your-supabase-anon-key')
+const client = indobase.createClient('your-indobase-api-url', 'your-indobase-anon-key')
 
 function base64ToArrayBuffer(base64) {
   var binaryString = atob(base64)
@@ -167,8 +167,8 @@ function base64ToArrayBuffer(base64) {
   return bytes
 }
 
-maplibregl.addProtocol('supabase', async (params, abortController) => {
-  const re = new RegExp(/supabase:\/\/(.+)\/(\d+)\/(\d+)\/(\d+)/)
+maplibregl.addProtocol('indobase', async (params, abortController) => {
+  const re = new RegExp(/indobase:\/\/(.+)\/(\d+)\/(\d+)\/(\d+)/)
   const result = params.url.match(re)
   const { data, error } = await client.rpc('mvt', {
     z: result[2],
@@ -184,7 +184,7 @@ maplibregl.addProtocol('supabase', async (params, abortController) => {
 })
 ```
 
-With the supabase protocol registered, we can now add it to our MapLibre GL sources on top of a basemap like [Protomaps](https://protomaps.com/) for example:
+With the indobase protocol registered, we can now add it to our MapLibre GL sources on top of a basemap like [Protomaps](https://protomaps.com/) for example:
 
 ```js index.html
 // ...
@@ -195,9 +195,9 @@ const map = new maplibregl.Map({
     version: 8,
     glyphs: 'https://cdn.protomaps.com/fonts/pbf/{fontstack}/{range}.pbf',
     sources: {
-      supabase: {
+      indobase: {
         type: 'vector',
-        tiles: ['supabase://boston/{z}/{x}/{y}'],
+        tiles: ['indobase://boston/{z}/{x}/{y}'],
         attribution: '© <a href="https://overturemaps.org">Overture Maps Foundation</a>',
       },
       protomaps: {
@@ -283,14 +283,14 @@ map.on('click', 'overture-pois-text', async (e) => {
 
 ## Conclusion
 
-PostGIS is incredibly powerful, allowing you to programmatically generate vector tiles from table rows stored in Postgres. Paired with Supabase's auto generated REST API and supabase-js client library you're able to build interactive geospatial applications with ease!
+PostGIS is incredibly powerful, allowing you to programmatically generate vector tiles from table rows stored in Postgres. Paired with IndoBase's auto generated REST API and indobase-js client library you're able to build interactive geospatial applications with ease!
 
-Want to learn more about Maps and PostGIS? Make sure to follow our [Twitter](https://x.com/supabase) and [YouTube](https://www.youtube.com/@Supabase) channels to not miss out! See you then!
+Want to learn more about Maps and PostGIS? Make sure to follow our [Twitter](https://x.com/indobase) and [YouTube](https://www.youtube.com/@IndoBase) channels to not miss out! See you then!
 
-## More Supabase
+## More IndoBase
 
-- [Watch the video guide](https://supabase.link/supa-gis-yt-docs)
-- [Find the code](https://github.com/bdon/supabase-vector-tile)
-- [Self-host Maps on Supabase Storage with Protomaps](https://supabase.link/protomaps-storage-yt)
-- [Getting started with PostGIS](https://supabase.link/postgis-quickstart-yt)
+- [Watch the video guide](https://indobase.link/supa-gis-yt-docs)
+- [Find the code](https://github.com/bdon/indobase-vector-tile)
+- [Self-host Maps on IndoBase Storage with Protomaps](https://indobase.link/protomaps-storage-yt)
+- [Getting started with PostGIS](https://indobase.link/postgis-quickstart-yt)
 - [PostGIS docs guide](/docs/guides/database/extensions/postgis)

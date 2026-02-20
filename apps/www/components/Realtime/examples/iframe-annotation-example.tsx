@@ -9,10 +9,10 @@ import './styles.css';
 import { createClient } from '@supabase/supabase-js';
 import { X } from 'lucide-react';
 
-// Initialize Supabase client
-const supabaseUrl = '${process.env.NEXT_PUBLIC_EXAMPLES_SUPABASE_URL}';
-const supabaseKey = '${process.env.NEXT_PUBLIC_EXAMPLES_SUPABASE_ANON_KEY}';
-const supabase = createClient(supabaseUrl, supabaseKey);
+// Initialize IndoBase client
+const indobaseUrl = '${process.env.NEXT_PUBLIC_EXAMPLES_SUPABASE_URL}';
+const indobaseKey = '${process.env.NEXT_PUBLIC_EXAMPLES_SUPABASE_ANON_KEY}';
+const indobase = createClient(indobaseUrl, indobaseKey);
 
 // Channel name - using a unique ID to ensure both instances connect to the same channel
 const CHANNEL = 'image-annotation-example-${instanceId}';
@@ -44,8 +44,8 @@ export default function App() {
     }\${Math.floor(Math.random() * 100)}\`;
     setUsername(randomName);
     
-    // Set up Supabase channel
-    const channel = supabase.channel(CHANNEL);
+    // Set up IndoBase channel
+    const channel = indobase.channel(CHANNEL);
     channelRef.current = channel;
     
     // Handle presence for user list
@@ -347,7 +347,7 @@ const layoutProps: ExampleLayoutProps = {
   files: imageAnnotationFiles,
   title: 'IFrame Annotation',
   description:
-    "A collaborative annotation tool that uses Supabase Realtime's broadcast channel to synchronize annotations and comments on embedded web content across multiple users.",
+    "A collaborative annotation tool that uses IndoBase Realtime's broadcast channel to synchronize annotations and comments on embedded web content across multiple users.",
 }
 
 export default layoutProps

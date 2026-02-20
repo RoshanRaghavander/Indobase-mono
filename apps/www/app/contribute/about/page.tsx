@@ -48,13 +48,13 @@ const waysToContribute = [
     icon: Code,
     heading: 'Build and maintain open source projects',
     subheading:
-      'Contribute to the many open source repositories and community-driven libraries that power Supabase.',
+      'Contribute to the many open source repositories and community-driven libraries that power IndoBase.',
   },
   {
     icon: FileText,
     heading: 'Write docs and guides',
     subheading:
-      'Help us make Supabase easier to learn and use by improving clarity, adding examples, or filling in gaps.',
+      'Help us make IndoBase easier to learn and use by improving clarity, adding examples, or filling in gaps.',
   },
   {
     icon: Sparkles,
@@ -80,19 +80,19 @@ const benefits = [
     icon: Zap,
     heading: 'Early access',
     subheading:
-      'Get first access to new Supabase features and provide feedback directly to our team.',
+      'Get first access to new IndoBase features and provide feedback directly to our team.',
   },
   {
     icon: MessageCircle,
     heading: 'Direct team access',
     subheading:
-      'Direct communication channel with Supabase team members for questions, suggestions, and support.',
+      'Direct communication channel with IndoBase team members for questions, suggestions, and support.',
   },
   {
     icon: Gift,
     heading: 'Exclusive swag',
     subheading:
-      'Special Supabase merch reserved for SupaSquad members. Show your status with pride.',
+      'Special IndoBase merch reserved for SupaSquad members. Show your status with pride.',
   },
   {
     icon: TrendingUp,
@@ -173,14 +173,14 @@ export default function AboutPage() {
           <FeaturesSection
             id="ways-to-contribute"
             heading="Want to get involved?"
-            subheading="There are many ways to get involved in the Supabase community. Whether you want to write code, polish documentation, or help others build with Supabase, there’s a place for you."
+            subheading="There are many ways to get involved in the IndoBase community. Whether you want to write code, polish documentation, or help others build with IndoBase, there’s a place for you."
             features={waysToContribute}
             columns={2}
           />
 
           <Image
-            src="/images/contribute/ask-supabase.jpg"
-            alt="Ask Supabase"
+            src="/images/contribute/ask-indobase.jpg"
+            alt="Ask IndoBase"
             width={1000}
             height={1000}
             className="rounded-md border"
@@ -235,7 +235,7 @@ export default function AboutPage() {
 
             <Button asChild type="primary" size="small">
               <Link
-                href="https://supabase.notion.site/2ce5004b775f80a38acdc3ca5df7b9d3"
+                href="https://indobase.notion.site/2ce5004b775f80a38acdc3ca5df7b9d3"
                 target="_blank"
                 rel="noopener noreferrer"
               >

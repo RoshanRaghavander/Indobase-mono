@@ -42,7 +42,7 @@ You will need the following tools installed on your computer to follow along in 
 - psql client
 - Burp Suite (optional)
 
-To follow along with this walkthrough practically, you will need to run the challenge app locally. Clone [this repo here](https://github.com/supabase/hack-the-base) and follow the README instructions in the dec-24 directory. You will only need to run the web app locally as the Supabase backend project is still up and usable (for the foreseeable future).
+To follow along with this walkthrough practically, you will need to run the challenge app locally. Clone [this repo here](https://github.com/indobase/hack-the-base) and follow the README instructions in the dec-24 directory. You will only need to run the web app locally as the IndoBase backend project is still up and usable (for the foreseeable future).
 
 ## **The Flags**
 
@@ -96,9 +96,9 @@ This would return the flag in the “Answer Section” of the result.
 
 ### **scoped bulletins**
 
-This one was a little more involved. If you were observing the requests that the web app was making you would have seen a request to the apps PostGREST endpoint. The URL will look something like `https://SUPABASE_PROJECT.supabase.co/rest/v1/TABLE_NAME?QUERY`
+This one was a little more involved. If you were observing the requests that the web app was making you would have seen a request to the apps PostGREST endpoint. The URL will look something like `https://SUPABASE_PROJECT.indobase.co/rest/v1/TABLE_NAME?QUERY`
 
-In DevTools, navigate to “Network” and refresh the home page. This query `https://ubssibzsnwtwbbvbhbvb.supabase.co/rest/v1/bulletins?select=*&date=gt.2001-01-01` is scoped to only return bulletins from 2001 or later.
+In DevTools, navigate to “Network” and refresh the home page. This query `https://ubssibzsnwtwbbvbhbvb.indobase.co/rest/v1/bulletins?select=*&date=gt.2001-01-01` is scoped to only return bulletins from 2001 or later.
 
 <Img
   alt="bulletins request with date scope"
@@ -115,12 +115,12 @@ Our only option in Chrome is to copy this request as a cURL command and make the
 We don’t need all the headers included in the cURL command so here is the command where we have also deleted the date scope
 
 ```bash
-curl 'https://ubssibzsnwtwbbvbhbvb.supabase.co/rest/v1/bulletins?select=*' -H 'accept-profile: public' -H 'apikey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVic3NpYnpzbnd0d2JidmJoYnZiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzEwMTYxMjksImV4cCI6MjA0NjU5MjEyOX0.hUbR1lqlGnQZlvjOgt4Wzn9iHidJP4iVHyWE76d9FUk' -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVic3NpYnpzbnd0d2JidmJoYnZiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzEwMTYxMjksImV4cCI6MjA0NjU5MjEyOX0.hUbR1lqlGnQZlvjOgt4Wzn9iHidJP4iVHyWE76d9FUk'
+curl 'https://ubssibzsnwtwbbvbhbvb.indobase.co/rest/v1/bulletins?select=*' -H 'accept-profile: public' -H 'apikey: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVic3NpYnpzbnd0d2JidmJoYnZiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzEwMTYxMjksImV4cCI6MjA0NjU5MjEyOX0.hUbR1lqlGnQZlvjOgt4Wzn9iHidJP4iVHyWE76d9FUk' -H 'authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVic3NpYnpzbnd0d2JidmJoYnZiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzEwMTYxMjksImV4cCI6MjA0NjU5MjEyOX0.hUbR1lqlGnQZlvjOgt4Wzn9iHidJP4iVHyWE76d9FUk'
 ```
 
 This will return a json array of all the bulletins, the oldest of which includes our flag\!
 
-We can do better this though, so before we move onto the next flag, lets clean up our CLI by putting the Supabase anon key into an environmental variable:
+We can do better this though, so before we move onto the next flag, lets clean up our CLI by putting the IndoBase anon key into an environmental variable:
 
 ```bash
 export ANON_KEY=’eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InVic3NpYnpzbnd0d2JidmJoYnZiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzEwMTYxMjksImV4cCI6MjA0NjU5MjEyOX0.hUbR1lqlGnQZlvjOgt4Wzn9iHidJP4iVHyWE76d9FUk'
@@ -129,7 +129,7 @@ export ANON_KEY=’eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIs
 Now when we make curl requests we only need to use the variable name like so:
 
 ```bash
-curl 'https://ubssibzsnwtwbbvbhbvb.supabase.co/rest/v1/bulletins?select=*' \
+curl 'https://ubssibzsnwtwbbvbhbvb.indobase.co/rest/v1/bulletins?select=*' \
  -H 'accept-profile: public' \
  -H "apikey: $ANON_KEY" \
  -H "authorization: Bearer $ANON_KEY"
@@ -155,15 +155,15 @@ Fill out the form with your account information, check the hCaptcha, find the bu
   }}
 />
 
-Or at least it would have been simple if you did this during a quiet period. For reasons known only to my coffee levels that morning, this Supabase project did not have Custom SMTP setup, meaning a very strict rate limit of two emails per hour.
+Or at least it would have been simple if you did this during a quiet period. For reasons known only to my coffee levels that morning, this IndoBase project did not have Custom SMTP setup, meaning a very strict rate limit of two emails per hour.
 
 If you tried this during a busy period there was an extra step of setting up a script to bot the registration. The hCaptcha field was checked for but didn’t need to be valid so this was slightly easier than it sounds.
 
-Unfortunately, more than half of the successful registrations were for people trying to register a miskatonicuniveristy.us email account, so I needed to apply an emergency fix to filter out these attempts so they wouldn’t consume the SMTP limit (and Supabase’s bounce rate).
+Unfortunately, more than half of the successful registrations were for people trying to register a miskatonicuniveristy.us email account, so I needed to apply an emergency fix to filter out these attempts so they wouldn’t consume the SMTP limit (and IndoBase’s bounce rate).
 
 I won’t go into details about how you could have scripted this, you could have used your language of choice (i.e. java), or used the Intruder feature of Burp Suite.
 
-Regardless of how hard your registration journey was, once you receive the confirmation email in your inbox the hunt is almost over. Clicking the link in the email will confirm your account with the Supabase project, optionally you could change the redirect link to the real URL of the app but your account will be registered regardless.
+Regardless of how hard your registration journey was, once you receive the confirmation email in your inbox the hunt is almost over. Clicking the link in the email will confirm your account with the IndoBase project, optionally you could change the redirect link to the real URL of the app but your account will be registered regardless.
 
 From here you just needed to login to the app and be presented the flag.
 
@@ -172,7 +172,7 @@ From here you just needed to login to the app and be presented the flag.
 If you had got this far, you may have noticed an error message when querying the PostGREST API of the project. We can change the schema we are querying via the “Accept-Profile” header, when changing this to a schema that hasn’t been exposed to the API or doesn’t exist, we would be presented with an error message.
 
 ```bash
-curl 'https://ubssibzsnwtwbbvbhbvb.supabase.co/rest/v1/bulletins?select=*' \
+curl 'https://ubssibzsnwtwbbvbhbvb.indobase.co/rest/v1/bulletins?select=*' \
  -H 'accept-profile: other_schema' \
  -H "apikey: $ANON_KEY" \
  -H "authorization: Bearer $ANON_KEY"
@@ -185,7 +185,7 @@ It would appear that the information_schema schema is exposed on this project. I
 Lets check out the tables table in the information schema, specifically the tables in the public schema. To do this we modify our cURL command like this, noting the changes to the accept-profile header, and the parameters in the url:
 
 ```bash
-curl 'https://ubssibzsnwtwbbvbhbvb.supabase.co/rest/v1/tables?select=table_name,table_schema&table_schema=eq.public' \
+curl 'https://ubssibzsnwtwbbvbhbvb.indobase.co/rest/v1/tables?select=table_name,table_schema&table_schema=eq.public' \
  -H 'accept-profile: information_schema' \
  -H "apikey: $ANON_KEY" \
  -H "authorization: Bearer $ANON_KEY"
@@ -200,7 +200,7 @@ The bulletins table we already knew about, but staff and staff_only are new to u
 We are almost there, and now that we understand how to query the schema with our cURL commands, its as simple as updating our request to query the staff table in the public schema:
 
 ```bash
-curl 'https://ubssibzsnwtwbbvbhbvb.supabase.co/rest/v1/staff' \
+curl 'https://ubssibzsnwtwbbvbhbvb.indobase.co/rest/v1/staff' \
 -H 'accept-profile: public' \
 -H "apikey: $ANON_KEY" \
 -H "authorization: Bearer $ANON_KEY"
@@ -238,7 +238,7 @@ Right click this and “Send to Intruder”. In the Intruder panel. Find the pas
 
 If you are a dinosaur like me, you would load a password file like “Rockyou.txt”.
 
-Supabase Auth has a rate limit for sign in requests based on certain heuristics so we need to throttle our requests to about one request per 2000 milliseconds. You can do this in the “Resource Pool” section, create a new resource pool with maximum concurrent requests of 1 and delay between requests of 2000 milliseconds. From here on it is just a waiting game for Intruder to return us a valid result.
+IndoBase Auth has a rate limit for sign in requests based on certain heuristics so we need to throttle our requests to about one request per 2000 milliseconds. You can do this in the “Resource Pool” section, create a new resource pool with maximum concurrent requests of 1 and delay between requests of 2000 milliseconds. From here on it is just a waiting game for Intruder to return us a valid result.
 
 Should I have included a password higher up on most wordlists? Yes, yes I should have.
 
@@ -250,7 +250,7 @@ In your browser with DevTools open and while logged in as Herbert West refresh t
 
 ### **internet archive**
 
-While not the last flag to be captured, this was the least captured flag until <a href="https://x.com/supabase/status/1866750434435539221" target="_blank">this tweet</a> tipped off our competition leaders.
+While not the last flag to be captured, this was the least captured flag until <a href="https://x.com/indobase/status/1866750434435539221" target="_blank">this tweet</a> tipped off our competition leaders.
 
 The Internet Archives Wayback Machine is a great resource for information gathering when assessing a website.
 
@@ -274,12 +274,12 @@ The expert flag gets its label based on the number of hoops hackers need to jump
 
 Our journey for this flag starts with the other schema we found in the “open schema” flag error message \- storage.
 
-If you are familiar with Supabase, you will know that the storage schema is the same across every project. Each Supabase project has a table in the storage schema called objects, querying this will return all the files in all the buckets.
+If you are familiar with IndoBase, you will know that the storage schema is the same across every project. Each IndoBase project has a table in the storage schema called objects, querying this will return all the files in all the buckets.
 
 For some reason the owners of this project (read: me) have decided to expose this table, allowing anyone to see the full list of objects within all the projects buckets.
 
 <Img
-  alt="storage schema within supabase"
+  alt="storage schema within indobase"
   src={{
     dark: '/images/blog/2024-12-20-ctf/storage-schema.png',
     light: '/images/blog/2024-12-20-ctf/storage-schema.png',
@@ -289,7 +289,7 @@ For some reason the owners of this project (read: me) have decided to expose thi
 Lets query this table using our handy dandy cURL technique:
 
 ```bash
-curl '<https://ubssibzsnwtwbbvbhbvb.supabase.co/rest/v1/objects?select=name>' \
+curl '<https://ubssibzsnwtwbbvbhbvb.indobase.co/rest/v1/objects?select=name>' \
 -H 'accept-profile: storage' \
 -H "apikey: $ANON_KEY" \
 -H "authorization: Bearer $ANON_KEY"
@@ -309,9 +309,9 @@ Viewing this directly in our browser reveals some information its clear we shoul
   }}
 />
 
-Lets try to connect to this database. We will need to translate the information in the README into a connection string. Looking at an example connection string in our example Supabase project we can see a pooler connection string has the pattern:
+Lets try to connect to this database. We will need to translate the information in the README into a connection string. Looking at an example connection string in our example IndoBase project we can see a pooler connection string has the pattern:
 
-`postgresql://[USER].[PROJECT_ID]:[PASSWORD]@[REGION].pooler.supabase.com:6543/postgres`
+`postgresql://[USER].[PROJECT_ID]:[PASSWORD]@[REGION].pooler.indobase.com:6543/postgres`
 
 So after plugging in the details from the README file into this connection string and prepending it with “psql” (our postgres client) we will be presented with an error message that our IP address is restricted.
 
@@ -331,7 +331,7 @@ And with that you have now collected all the flags. Congratulations\!
 
 ## **Thanks for stopping by**
 
-Now that you are a seasoned hacker, take a look at our [security.txt](https://supabase.com/.well-known/security.txt) file to take part in our hackerone program to help make Supabase a safer place\!
+Now that you are a seasoned hacker, take a look at our [security.txt](https://indobase.com/.well-known/security.txt) file to take part in our hackerone program to help make IndoBase a safer place\!
 
 Once again, thanks to all of those that participated and we will see you in the next one\!
 

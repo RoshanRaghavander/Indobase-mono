@@ -11,8 +11,8 @@ import { DEFAULT_EASE } from '~/lib/animations'
 import MenuItem from './MenuItem'
 
 import { useIsLoggedIn, useIsUserLoading } from 'common'
-import * as supabaseLogoWordmarkDark from 'common/assets/images/supabase-logo-wordmark--dark.png'
-import * as supabaseLogoWordmarkLight from 'common/assets/images/supabase-logo-wordmark--light.png'
+import * as indobaseLogoWordmarkDark from 'common/assets/images/indobase-logo-wordmark--dark.png'
+import * as indobaseLogoWordmarkLight from 'common/assets/images/indobase-logo-wordmark--light.png'
 import { ChevronRight } from 'lucide-react'
 import ProductModulesData from '~/data/ProductModules'
 import staticContent from '.generated/staticContent/_index.json'
@@ -97,7 +97,7 @@ const MobileMenu = ({ open, setOpen, menu }: Props) => {
             <div className="flex flex-col gap-1 !leading-3">
               <span>Features</span>
               <span className="text-foreground-lighter text-xs leading-4">
-                Explore everything you can do with Supabase.
+                Explore everything you can do with IndoBase.
               </span>
             </div>
             <ChevronRight
@@ -221,18 +221,18 @@ const MobileMenu = ({ open, setOpen, menu }: Props) => {
                 className="block w-auto h-6 focus-visible:ring-2 focus-visible:outline-none focus-visible:ring-foreground-lighter focus-visible:ring-offset-4 focus-visible:ring-offset-background-alternative focus-visible:rounded-sm"
               >
                 <Image
-                  src={supabaseLogoWordmarkLight}
+                  src={indobaseLogoWordmarkLight}
                   width={124}
                   height={24}
-                  alt="Supabase Logo"
+                  alt="IndoBase Logo"
                   className="dark:hidden"
                   priority
                 />
                 <Image
-                  src={supabaseLogoWordmarkDark}
+                  src={indobaseLogoWordmarkDark}
                   width={124}
                   height={24}
-                  alt="Supabase Logo"
+                  alt="IndoBase Logo"
                   className="hidden dark:block"
                   priority
                 />
@@ -277,7 +277,7 @@ const MobileMenu = ({ open, setOpen, menu }: Props) => {
                   ) : (
                     <>
                       <Link
-                        href="https://supabase.com/dashboard"
+                        href="https://indobase.com/dashboard"
                         passHref
                         legacyBehavior
                         onClick={() =>
@@ -294,7 +294,7 @@ const MobileMenu = ({ open, setOpen, menu }: Props) => {
                         </Button>
                       </Link>
                       <Link
-                        href="https://supabase.com/dashboard"
+                        href="https://indobase.com/dashboard"
                         passHref
                         legacyBehavior
                         onClick={() =>

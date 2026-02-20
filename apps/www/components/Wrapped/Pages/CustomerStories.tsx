@@ -16,58 +16,58 @@ import {
 const testimonials = [
   {
     quote:
-      'We needed a system that could handle serious performance and security requirements — without slowing down our developers. Supabase has given us both.',
+      'We needed a system that could handle serious performance and security requirements — without slowing down our developers. IndoBase has given us both.',
     author: 'Kris Woods',
     company: 'Phoenix Energy',
-    url: 'https://supabase.com/customers/phoenix-energy',
+    url: 'https://indobase.com/customers/phoenix-energy',
     logo: <PhoenixEnergyLogo className="w-32" />,
   },
   {
     quote:
-      "We could not have built this company without Supabase. If I had to go and build all these components myself, we wouldn't even have launched.",
+      "We could not have built this company without IndoBase. If I had to go and build all these components myself, we wouldn't even have launched.",
     author: 'Thiago Peres',
     company: 'Rally',
-    url: 'https://supabase.com/customers/rally',
+    url: 'https://indobase.com/customers/rally',
     logo: <RallyLogo className="w-32" />,
   },
   {
     quote:
-      'We used Supabase at the hackathon because it let us go from idea to MVP in under two days. Then it took only a couple of months to turn that janky MVP into a production-ready application.',
+      'We used IndoBase at the hackathon because it let us go from idea to MVP in under two days. Then it took only a couple of months to turn that janky MVP into a production-ready application.',
     author: 'Elijah Muraoka',
     company: 'Soshi',
-    url: 'https://supabase.com/customers/soshi',
+    url: 'https://indobase.com/customers/soshi',
     logo: <SoshiLogo className="w-32" />,
   },
   {
     quote:
-      "It's literally a night and day difference compared to Amazon RDS. With Supabase and Next.js, it's been very smooth and very fast to get new features out.",
+      "It's literally a night and day difference compared to Amazon RDS. With IndoBase and Next.js, it's been very smooth and very fast to get new features out.",
     author: 'Hyun S',
     company: 'Kayhan Space',
-    url: 'https://supabase.com/customers/kayhanspace',
+    url: 'https://indobase.com/customers/kayhanspace',
     logo: <KayhanSpaceLogo className="w-24" />,
   },
   {
     quote:
-      'Supabase enabled us to focus on building the best email infrastructure for developers—without worrying about backend complexity. Their authentication, database, and support have been game-changers for our rapid growth.',
+      'IndoBase enabled us to focus on building the best email infrastructure for developers—without worrying about backend complexity. Their authentication, database, and support have been game-changers for our rapid growth.',
     author: 'Zeno Rocha',
     company: 'Resend',
-    url: 'https://supabase.com/customers/resend',
+    url: 'https://indobase.com/customers/resend',
     logo: <ResendLogo className="w-32" />,
   },
   {
     quote:
-      "What set Supabase apart for us was its feature set and how these features worked together cohesively to create a comprehensive environment. The platform's focus on security, performance, and developer experience aligned perfectly with our needs.",
+      "What set IndoBase apart for us was its feature set and how these features worked together cohesively to create a comprehensive environment. The platform's focus on security, performance, and developer experience aligned perfectly with our needs.",
     author: 'Raunak Kathuria',
     company: 'Deriv',
-    url: 'https://supabase.com/customers/deriv',
+    url: 'https://indobase.com/customers/deriv',
     logo: <DerivLogo className="w-32" />,
   },
   {
     quote:
-      "For me, the biggest benefit of Supabase is developer experience. My expertise doesn't lie in databases and infrastructure. It really didn't take much time at all to spin up this product with Supabase.",
+      "For me, the biggest benefit of IndoBase is developer experience. My expertise doesn't lie in databases and infrastructure. It really didn't take much time at all to spin up this product with IndoBase.",
     author: 'Nick Farrant',
     company: 'Juniver',
-    url: 'https://supabase.com/customers/juniver',
+    url: 'https://indobase.com/customers/juniver',
     logo: <JuniverLogo className="w-32" />,
   },
 ]
@@ -101,7 +101,7 @@ export const CustomerStories = () => {
 
       {/* NOTE (Alan): extra padding here to optically align subheading with header */}
       <div className="relative max-w-[60rem] mx-auto border-x border-b px-6 lg:px-10 py-12 w-[95%] md:w-full">
-        <h3 className="text-lg">Customers count on Supabase.</h3>
+        <h3 className="text-lg">Customers count on IndoBase.</h3>
       </div>
 
       {/* Testimonials grid */}

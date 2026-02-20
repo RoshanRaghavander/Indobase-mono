@@ -1,6 +1,6 @@
 ---
-title: 'Supabase Vecs: a vector client for Postgres'
-description: Introducing Supabase Vecs, a PostgreSQL vector client
+title: 'IndoBase Vecs: a vector client for Postgres'
+description: Introducing IndoBase Vecs, a PostgreSQL vector client
 author: oli_rice
 imgSocial: 2023-06-01-vecs/og-image.jpg
 imgThumb: 2023-06-01-vecs/og-image.jpg
@@ -14,7 +14,7 @@ date: '2023-05-29'
 toc_depth: 3
 ---
 
-[Vecs](https://github.com/supabase/vecs) is a new Python library for managing embeddings in your Postgres database with the pgvector extension.
+[Vecs](https://github.com/indobase/vecs) is a new Python library for managing embeddings in your Postgres database with the pgvector extension.
 
 It handles:
 
@@ -109,7 +109,7 @@ Which returns:
 [("vec1", 0.000697, {"year": 1973})]
 ```
 
-Since all metadata is stored in a `jsonb` column, there's a [lightweight but flexible DSL](https://supabase.github.io/vecs/concepts_metadata/) wrapped around it for filtering.
+Since all metadata is stored in a `jsonb` column, there's a [lightweight but flexible DSL](https://indobase.github.io/vecs/concepts_metadata/) wrapped around it for filtering.
 
 When you're done, disconnect with:
 
@@ -119,14 +119,14 @@ vx.disconnect()
 
 And 90% of the time, that minimal interface is all you'll need to touch.
 
-For more in-depth information about `vecs`, checkout the [API Quickstart](https://supabase.github.io/vecs/api/),
-[celebrity look-alike demo](https://github.com/supabase/supabase/blob/be1f4ea85e10cc8134e389dcdbe6a092b08612f1/examples/ai/face_similarity.ipynb),
-or [OpenAI integration example](https://supabase.github.io/vecs/integrations_openai/)
+For more in-depth information about `vecs`, checkout the [API Quickstart](https://indobase.github.io/vecs/api/),
+[celebrity look-alike demo](https://github.com/indobase/indobase/blob/be1f4ea85e10cc8134e389dcdbe6a092b08612f1/examples/ai/face_similarity.ipynb),
+or [OpenAI integration example](https://indobase.github.io/vecs/integrations_openai/)
 
-## Deploying with Supabase
+## Deploying with IndoBase
 
-As usual, if you combine [supabase/vecs](https://github.com/supabase/vecs) with the rest of Supabase, you get more than the sum of the parts.
-Once you're happy with your vecs collection, you can make it accessible to your front-end through a supabase client library by exposing the collection as a view
+As usual, if you combine [indobase/vecs](https://github.com/indobase/vecs) with the rest of IndoBase, you get more than the sum of the parts.
+Once you're happy with your vecs collection, you can make it accessible to your front-end through a indobase client library by exposing the collection as a view
 in your public schema.
 
 ![Expose with view](/images/blog/2023-06-01-vecs/single-database.png)
@@ -144,16 +144,16 @@ create view public.docs as
         vecs.docs
 ```
 
-And then access it with the supabase-js client library within your applications:
+And then access it with the indobase-js client library within your applications:
 
 ```js
-const { data, error } = await supabase
+const { data, error } = await indobase
   .from('docs')
   .select('id, embedding, metadata')
   .eq('url', '/hello-world')
 ```
 
-For more deployment options, including enterprise scalable architecture, check out the [engineering for scale guide](https://supabase.com/docs/guides/ai/engineering-for-scale#simple-workloads).
+For more deployment options, including enterprise scalable architecture, check out the [engineering for scale guide](https://indobase.com/docs/guides/ai/engineering-for-scale#simple-workloads).
 
 ## Future ideas
 
@@ -193,11 +193,11 @@ await docs.upsert([
 ```
 
 Both possibilities are still up for debate. If you have view on either, feel free to weigh in on the
-[Feature Request: Preprocessing Transform](https://github.com/supabase/vecs/issues/5)
-and [Feature Request: Async Client](https://github.com/supabase/vecs/issues/6) GitHub issues.
+[Feature Request: Preprocessing Transform](https://github.com/indobase/vecs/issues/5)
+and [Feature Request: Async Client](https://github.com/indobase/vecs/issues/6) GitHub issues.
 
 ## More info
 
-- Source code: [github.com/supabase/vecs](https://github.com/supabase/vecs)
-- Vecs Docs: [supabase.github.io/vecs/](https://supabase.github.io/vecs/)
-- Supabase Vector Toolkit: [supabase.com/docs/guides/ai](/docs/guides/ai)
+- Source code: [github.com/indobase/vecs](https://github.com/indobase/vecs)
+- Vecs Docs: [indobase.github.io/vecs/](https://indobase.github.io/vecs/)
+- IndoBase Vector Toolkit: [indobase.com/docs/guides/ai](/docs/guides/ai)

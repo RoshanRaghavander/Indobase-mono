@@ -13,7 +13,7 @@ import { getSortedPosts, type Post } from '~/lib/posts'
 import SectionContainer from '~/components/Layouts/SectionContainer'
 import AIBuildersLogos from 'components/Solutions/AIBuildersLogos'
 
-const WhySupabase = dynamic(() => import('components/Solutions/FeaturesSection'))
+const WhyIndoBase = dynamic(() => import('components/Solutions/FeaturesSection'))
 const PlatformSection = dynamic(() => import('components/Solutions/PlatformSection'))
 const PlatformStarterSection = dynamic(() => import('components/Solutions/TwoColumnsSection'))
 const MPCSection = dynamic(() => import('components/Solutions/MPCSection'))
@@ -29,7 +29,7 @@ const VibeCodersPage: NextPage<{ posts: Post[] }> = ({ posts }) => {
         openGraph={{
           title: content.metadata.metaTitle,
           description: content.metadata.metaDescription,
-          url: `https://supabase.com/solutions/vibe-coders`,
+          url: `https://indobase.com/solutions/vibe-coders`,
         }}
       />
       <Layout className="overflow-visible">
@@ -40,13 +40,13 @@ const VibeCodersPage: NextPage<{ posts: Post[] }> = ({ posts }) => {
           sectionContainerClassName="lg:gap-4"
         />
         <Quotes {...content.quotes} />
-        <WhySupabase {...content.why} />
+        <WhyIndoBase {...content.why} />
         <PlatformSection {...content.platform} />
         <PlatformStarterSection {...content.platformStarterSection} />
         <MPCSection {...content.mcp} />
         <SectionContainer className="flex flex-col items-center gap-8">
           <h2 className="h3">
-            Supabase is the backend platform for apps created by your favorite AI Builders.
+            IndoBase is the backend platform for apps created by your favorite AI Builders.
           </h2>
 
           <AIBuildersLogos className="" />

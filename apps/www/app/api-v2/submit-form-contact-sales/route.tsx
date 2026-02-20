@@ -79,7 +79,7 @@ export async function POST(req: Request) {
             { objectTypeId: '0-1', name: 'message', value: message },
           ],
           context: {
-            pageUri: 'https://supabase.com/contact/sales',
+            pageUri: 'https://indobase.com/contact/sales',
             pageName: 'Enterprise Demo Request Form',
           },
           legalConsentOptions: {

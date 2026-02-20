@@ -33,8 +33,8 @@ export const config = {
 }
 
 const openAiKey = process.env.OPENAI_API_KEY
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL as string
-const supabaseServiceKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY as string
+const indobaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL as string
+const indobaseServiceKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY as string
 
 export default async function handler(req: NextRequest) {
   if (!openAiKey) {
@@ -49,7 +49,7 @@ export default async function handler(req: NextRequest) {
     )
   }
 
-  if (!supabaseUrl) {
+  if (!indobaseUrl) {
     return new Response(
       JSON.stringify({
         error:
@@ -62,7 +62,7 @@ export default async function handler(req: NextRequest) {
     )
   }
 
-  if (!supabaseServiceKey) {
+  if (!indobaseServiceKey) {
     return new Response(
       JSON.stringify({
         error:
@@ -104,7 +104,7 @@ async function handlePost(request: NextRequest) {
     throw new UserError('Missing messages in request data')
   }
 
-  const supabaseClient = new SupabaseClient(supabaseUrl, supabaseServiceKey)
+  const supabaseClient = new SupabaseClient(indobaseUrl, indobaseServiceKey)
 
   try {
     const response = await clippy(openai, supabaseClient, messages)

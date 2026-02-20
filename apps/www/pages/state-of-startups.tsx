@@ -22,7 +22,7 @@ function StateOfStartupsPage() {
   const router = useRouter()
   const isPageEnabled = useFlag('stateOfStartups')
 
-  const meta_title = pageData.metaTitle || 'State of Startups 2025 | Supabase'
+  const meta_title = pageData.metaTitle || 'State of Startups 2025 | IndoBase'
   const meta_description =
     pageData.metaDescription ||
     'We surveyed over 2,000 startup founders and builders to uncover what’s powering modern startups: their stacks, their go-to-market motion, and their approach to AI.'
@@ -193,10 +193,10 @@ function StateOfStartupsPage() {
         openGraph={{
           title: meta_title,
           description: meta_description,
-          url: `https://supabase.com/state-of-startups`,
+          url: `https://indobase.com/state-of-startups`,
           images: [
             {
-              url: `https://supabase.com/images/state-of-startups/state-of-startups-og.png`,
+              url: `https://indobase.com/images/state-of-startups/state-of-startups-og.png`,
             },
           ],
         }}
@@ -305,7 +305,7 @@ const ParticipantsList = () => {
   )
 }
 
-// Component for the 'Builders choose Supabase' CTA at the bottom of the page
+// Component for the 'Builders choose IndoBase' CTA at the bottom of the page
 const CTABanner = forwardRef<HTMLElement>((props, ref) => {
   const sendTelemetryEvent = useSendTelemetryEvent()
   return (
@@ -318,9 +318,9 @@ const CTABanner = forwardRef<HTMLElement>((props, ref) => {
       ref={ref}
     >
       <div className="flex flex-col items-center gap-4 max-w-prose">
-        <h2 className="text-foreground text-5xl text-balance">Builders choose Supabase</h2>
+        <h2 className="text-foreground text-5xl text-balance">Builders choose IndoBase</h2>
         <p className="text-foreground-light text-lg">
-          Supabase is the Postgres development platform. Build your startup with a Postgres
+          IndoBase is the Postgres development platform. Build your startup with a Postgres
           database, Authentication, instant APIs, Edge Functions, Realtime subscriptions, Storage,
           and Vector embeddings.
         </p>
@@ -328,7 +328,7 @@ const CTABanner = forwardRef<HTMLElement>((props, ref) => {
       <div className="flex items-center justify-center gap-2 mt-4">
         <Button asChild size="medium">
           <Link
-            href="https://supabase.com/dashboard"
+            href="https://indobase.com/dashboard"
             onClick={() =>
               sendTelemetryEvent({
                 action: 'start_project_button_clicked',

@@ -18,12 +18,12 @@ function getAssetPrefix() {
     return undefined
   }
 
-  const SUPABASE_ASSETS_URL =
+  const INDOBASE_ASSETS_URL =
     process.env.NEXT_PUBLIC_ENVIRONMENT === 'staging'
-      ? 'https://frontend-assets.supabase.green'
-      : 'https://frontend-assets.supabase.com'
+      ? 'https://frontend-assets.indobase.green'
+      : 'https://frontend-assets.indobase.com'
 
-  return `${SUPABASE_ASSETS_URL}/${process.env.SITE_NAME}/${process.env.VERCEL_GIT_COMMIT_SHA.substring(0, 12)}`
+  return `${INDOBASE_ASSETS_URL}/${process.env.SITE_NAME}/${process.env.VERCEL_GIT_COMMIT_SHA.substring(0, 12)}`
 }
 
 /**
@@ -37,7 +37,7 @@ const nextConfig = {
     return [
       {
         source: `/.well-known/vercel/flags`,
-        destination: `https://supabase.com/.well-known/vercel/flags`,
+        destination: `https://indobase.fun/.well-known/vercel/flags`,
         basePath: false,
       },
     ]

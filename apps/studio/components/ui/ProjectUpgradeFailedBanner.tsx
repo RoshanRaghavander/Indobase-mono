@@ -18,7 +18,7 @@ export const ProjectUpgradeFailedBanner = () => {
   const { data } = useProjectUpgradingStatusQuery({ projectRef: ref }, { enabled: IS_PLATFORM })
   const { status, initiated_at, latest_status_at, error } = data?.databaseUpgradeStatus ?? {}
 
-  const key = `supabase-upgrade-${ref}-${initiated_at}`
+  const key = `indobase-upgrade-${ref}-${initiated_at}`
 
   const [hasDismissed, setHasDismissed] = useState(false)
   useEffect(() => {

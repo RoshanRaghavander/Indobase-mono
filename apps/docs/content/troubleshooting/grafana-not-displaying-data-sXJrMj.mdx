@@ -7,7 +7,7 @@ keywords = [ "grafana", "docker", "metrics", "configuration" ]
 database_id = "76a4099e-450f-4b5b-a539-224760348c18"
 ---
 
-This guide is for identifying configuration mistakes in [self-hosted Supabase Grafana installations](/docs/guides/monitoring-troubleshooting/metrics#deploying-supabase-grafana)
+This guide is for identifying configuration mistakes in [self-hosted IndoBase Grafana installations](/docs/guides/monitoring-troubleshooting/metrics#deploying-indobase-grafana)
 
 ## Step 1: Ping your Grafana endpoint
 
@@ -26,7 +26,7 @@ curl https://<YOUR_PROJECT_REF>.supabase.co/customer/v1/privileged/metrics --use
 Run the following command in the terminal:
 
 ```sh
-docker ps -f name=supabase-grafana
+docker ps -f name=indobase-grafana
 ```
 
 The output should look something like this:
@@ -37,12 +37,12 @@ Here it is in an easier to read format
 
 ```
 - CONTAINER ID: < container id >
-- IMAGE: supabase-grafana-supabase-grafana
+- IMAGE: indobase-grafana-indobase-grafana
 - COMMAND: /entrypoint.sh
 - CREATED: < time >
 - STATUS: Up < unit of time > ago
 - PORTS: 3000/tcp, 0.0.0.0:8000 → 8080/tcp
-- NAMES: supabase-grafana-supabase-grafana-1
+- NAMES: indobase-grafana-indobase-grafana-1
 ```
 
 ## Step 4: Enter the container

@@ -7,8 +7,8 @@ import DefaultLayout from '../components/Layouts/Default'
 
 import { useTheme } from 'next-themes'
 
-import * as supabaseLogoWordmarkDark from 'common/assets/images/supabase-logo-wordmark--dark.png'
-import * as supabaseLogoWordmarkLight from 'common/assets/images/supabase-logo-wordmark--light.png'
+import * as indobaseLogoWordmarkDark from 'common/assets/images/indobase-logo-wordmark--dark.png'
+import * as indobaseLogoWordmarkLight from 'common/assets/images/indobase-logo-wordmark--light.png'
 
 const Error404 = () => {
   const [show404, setShow404] = useState<boolean>(false)
@@ -31,10 +31,10 @@ const Error404 = () => {
                   <Image
                     src={
                       resolvedTheme?.includes('dark')
-                        ? supabaseLogoWordmarkDark
-                        : supabaseLogoWordmarkLight
+                        ? indobaseLogoWordmarkDark
+                        : indobaseLogoWordmarkLight
                     }
-                    alt="supabase logo"
+                    alt="indobase logo"
                     height={24}
                     width={120}
                   />

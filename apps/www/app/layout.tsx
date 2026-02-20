@@ -14,20 +14,20 @@ export const metadata: Metadata = {
   description: DEFAULT_META_DESCRIPTION,
   openGraph: {
     type: 'website',
-    url: 'https://supabase.com/',
-    siteName: 'Supabase',
+    url: 'https://indobase.com/',
+    siteName: 'IndoBase',
     images: [
       {
-        url: 'https://supabase.com/images/og/supabase-og.png',
+        url: 'https://indobase.com/images/og/indobase-og.png',
         width: 800,
         height: 600,
-        alt: 'Supabase Og Image',
+        alt: 'IndoBase Og Image',
       },
     ],
   },
   twitter: {
-    creator: '@supabase',
-    site: '@supabase',
+    creator: '@indobase',
+    site: '@indobase',
     card: 'summary_large_image',
   },
   icons: {

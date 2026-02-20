@@ -47,19 +47,19 @@ No matter which collector you use, you need to hit the Metrics API once per minu
 
 ## 3. Downstream dashboards
 
-- Import the [Supabase Grafana dashboard](https://github.com/supabase/supabase-grafana) regardless of where Grafana is hosted.
+- Import the [IndoBase Grafana dashboard](https://github.com/supabase/indobase-grafana) regardless of where Grafana is hosted.
 - For other tools, group metrics by categories (CPU, IO, WAL, replication, connections) and recreate the visualizations that matter most to your team.
 - Tag or relabel series with `project`, `env`, or `team` labels to make multi-project views easier.
 
 <img
-  src="/docs/img/guides/platform/supabase-grafana-prometheus.png"
-  alt="Supabase Grafana dashboard showcasing database metrics"
+  src="/docs/img/guides/platform/indobase-grafana-prometheus.png"
+  alt="IndoBase Grafana dashboard showcasing database metrics"
   className="mt-6 rounded-lg border border-foreground/10 shadow-sm"
 />
 
 ## 4. Alerts and automation
 
-- Start with the [example alert rules](https://github.com/supabase/supabase-grafana/blob/main/docs/example-alerts.md) and adapt thresholds for your workload sizes.
+- Start with the [example alert rules](https://github.com/supabase/indobase-grafana/blob/main/docs/example-alerts.md) and adapt thresholds for your workload sizes.
 - Pipe alerts into PagerDuty, Slack, Opsgenie, or any other compatible target.
 - Combine Metrics API data with log drains, Query Performance, and Advisors to build right-sizing playbooks.
 
