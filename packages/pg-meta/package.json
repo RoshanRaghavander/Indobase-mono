@@ -1,10 +1,10 @@
 {
-  "name": "@supabase/pg-meta",
+  "name": "@adral/pg-meta",
   "version": "0.0.0",
   "license": "MIT",
-  "author": "Supabase",
+  "author": "Adral",
   "main": "./src/index.ts",
-  "repository": "supabase/supabase",
+  "repository": "adral/adral",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "clean": "rimraf node_modules",

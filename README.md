@@ -3,21 +3,21 @@
 <img src="https://user-images.githubusercontent.com/8291514/213727225-56186826-bee8-43b5-9b15-86e839d89393.png#gh-dark-mode-only">
 </p>
 
-# Supabase
+# Adral
 
-[Supabase](https://supabase.com) is the Postgres development platform. We're building the features of Firebase using enterprise-grade open source tools.
+[Adral](https://adral.com) is the Postgres development platform. We're building the features of Firebase using enterprise-grade open source tools.
 
-- [x] Hosted Postgres Database. [Docs](https://supabase.com/docs/guides/database)
-- [x] Authentication and Authorization. [Docs](https://supabase.com/docs/guides/auth)
+- [x] Hosted Postgres Database. [Docs](https://adral.com/docs/guides/database)
+- [x] Authentication and Authorization. [Docs](https://adral.com/docs/guides/auth)
 - [x] Auto-generated APIs.
-  - [x] REST. [Docs](https://supabase.com/docs/guides/api)
-  - [x] GraphQL. [Docs](https://supabase.com/docs/guides/graphql)
-  - [x] Realtime subscriptions. [Docs](https://supabase.com/docs/guides/realtime)
+  - [x] REST. [Docs](https://adral.com/docs/guides/api)
+  - [x] GraphQL. [Docs](https://adral.com/docs/guides/graphql)
+  - [x] Realtime subscriptions. [Docs](https://adral.com/docs/guides/realtime)
 - [x] Functions.
-  - [x] Database Functions. [Docs](https://supabase.com/docs/guides/database/functions)
-  - [x] Edge Functions [Docs](https://supabase.com/docs/guides/functions)
-- [x] File Storage. [Docs](https://supabase.com/docs/guides/storage)
-- [x] AI + Vector/Embeddings Toolkit. [Docs](https://supabase.com/docs/guides/ai)
+  - [x] Database Functions. [Docs](https://adral.com/docs/guides/database/functions)
+  - [x] Edge Functions [Docs](https://adral.com/docs/guides/functions)
+- [x] File Storage. [Docs](https://adral.com/docs/guides/storage)
+- [x] AI + Vector/Embeddings Toolkit. [Docs](https://adral.com/docs/guides/ai)
 - [x] Dashboard
 
 ![Supabase Dashboard](https://raw.githubusercontent.com/supabase/supabase/master/apps/www/public/images/github/supabase-dashboard.png)
@@ -28,25 +28,25 @@ Watch "releases" of this repo to get notified of major updates.
 
 ## Documentation
 
-For full documentation, visit [supabase.com/docs](https://supabase.com/docs)
+For full documentation, visit [adral.com/docs](https://adral.com/docs)
 
 To see how to Contribute, visit [Getting Started](./DEVELOPERS.md)
 
 ## Community & Support
 
-- [Community Forum](https://github.com/supabase/supabase/discussions). Best for: help with building, discussion about database best practices.
-- [GitHub Issues](https://github.com/supabase/supabase/issues). Best for: bugs and errors you encounter using Supabase.
-- [Email Support](https://supabase.com/docs/support#business-support). Best for: problems with your database or infrastructure.
-- [Discord](https://discord.supabase.com). Best for: sharing your applications and hanging out with the community.
+- [Community Forum](https://github.com/adral/adral/discussions). Best for: help with building, discussion about database best practices.
+- [GitHub Issues](https://github.com/adral/adral/issues). Best for: bugs and errors you encounter using Adral.
+- [Email Support](https://adral.com/docs/support#business-support). Best for: problems with your database or infrastructure.
+- [Discord](https://discord.adral.com). Best for: sharing your applications and hanging out with the community.
 
 ## How it works
 
-Supabase is a combination of open source tools. We’re building the features of Firebase using enterprise-grade, open source products. If the tools and communities exist, with an MIT, Apache 2, or equivalent open license, we will use and support that tool. If the tool doesn't exist, we build and open source it ourselves. Supabase is not a 1-to-1 mapping of Firebase. Our aim is to give developers a Firebase-like developer experience using open source tools.
+Adral is a combination of open source tools. We're building the features of Firebase using enterprise-grade, open source products. If the tools and communities exist, with an MIT, Apache 2, or equivalent open license, we will use and support that tool. If the tool doesn't exist, we build and open source it ourselves. Adral is not a 1-to-1 mapping of Firebase. Our aim is to give developers a Firebase-like developer experience using open source tools.
 
 **Architecture**
 
-Supabase is a [hosted platform](https://supabase.com/dashboard). You can sign up and start using Supabase without installing anything.
-You can also [self-host](https://supabase.com/docs/guides/hosting/overview) and [develop locally](https://supabase.com/docs/guides/local-development).
+Adral is a [hosted platform](https://adral.com/dashboard). You can sign up and start using Adral without installing anything.
+You can also [self-host](https://adral.com/docs/guides/hosting/overview) and [develop locally](https://adral.com/docs/guides/local-development).
 
 ![Architecture](apps/docs/public/img/supabase-architecture.svg)
 

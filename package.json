@@ -1,8 +1,8 @@
 {
-  "name": "supabase",
+  "name": "adral",
   "description": "The Postgres Development Platform.",
   "version": "0.0.0",
-  "author": "Supabase, Inc.",
+  "author": "Adral, Inc.",
   "license": "Apache-2.0",
   "private": true,
   "scripts": {
@@ -59,7 +59,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/supabase/supabase.git"
+    "url": "git+https://github.com/adral/adral.git"
   },
   "engines": {
     "pnpm": "10.24",
